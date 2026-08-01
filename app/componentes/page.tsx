@@ -509,6 +509,10 @@ export default function Componentes() {
           <Spinner />
         </Vitrine>
 
+        <Vitrine titulo="Shimmer (utility)">
+          <p className="shimmer text-muted-foreground">Gerando resposta…</p>
+        </Vitrine>
+
         <Vitrine titulo="Textarea">
           <Textarea placeholder="Escreva algo..." className="max-w-xs" />
         </Vitrine>
