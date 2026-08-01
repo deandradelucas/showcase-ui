@@ -20,3 +20,11 @@ shadcn/ui aqui roda sobre **Base UI**, não Radix — diferenças de API confirm
 `components/ui/**` e `hooks/**` têm a regra `react-hooks/set-state-in-effect` desligada em `eslint.config.mjs` — o próprio código gerado pela CLI (`carousel.tsx`, `use-mobile.ts`) viola essa regra de propósito (setState síncrono dentro de effect pra sincronizar com Embla/matchMedia), e não editamos esses arquivos à mão. Se `npm run lint` voltar a falhar em arquivo gerado, é sinal de regra nova precisando do mesmo tratamento — não editar o arquivo vendor.
 
 Criado via `npx shadcn@latest init -t next -n showcase-ui -b base -p nova --no-monorepo -y`, seguindo `ui.shadcn.com/docs/installation` passo a passo.
+
+**Registry publicável:** `registry.json` na raiz registra os componentes autorais (`mode-toggle`, `app-sidebar`) como `registry:ui`. Componente autoral usado dentro de outro item entra na lista `files` dele, nunca em `registryDependencies` (gotcha confirmado no projeto anterior: nome sem namespace em `registryDependencies` sempre resolve contra o registry oficial do shadcn, nunca contra o próprio — `app-sidebar` inclui `mode-toggle.tsx` direto nos `files`). `npm run registry:build` gera `public/r/*.json`. Hospedagem pública ainda não decidida (repo GitHub privado, projeto só local).
+
+**MCP:** `.mcp.json` configurado (`npx shadcn@latest mcp init --client claude`) — dá acesso ao registry oficial do shadcn via protocolo MCP. Precisa reiniciar o Claude Code pra ativar nesta sessão.
+
+**Skills:** `shadcn` + `migrate-radix-to-base` instaladas via `npx skills add shadcn/ui` (empacotadas juntas no repo `shadcn/ui.git`). Conteúdo duplicado em `.agents/skills/` e `.claude/skills/` porque o git deste projeto está sem suporte a symlink no Windows (`core.symlinks=false`) — comportamento do instalador, não bug daqui.
+
+**Package Imports / Monorepo:** não aplicáveis — projeto usa alias `@/` do `tsconfig.json` (não `#` do `package.json#imports`, que só faz sentido em monorepo), e é app único, sem `apps/`+`packages/`.
