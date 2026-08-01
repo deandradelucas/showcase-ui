@@ -1,19 +1,12 @@
 import { readFile } from "node:fs/promises"
 import path from "node:path"
 import { NextRequest, NextResponse } from "next/server"
+import { registrySchema } from "shadcn/schema"
 import { checkRegistryAuth } from "@/lib/registry-auth"
-
-type RegistryItem = {
-  name: string
-  type: string
-  title?: string
-  description?: string
-  [key: string]: unknown
-}
 
 async function loadRegistry() {
   const file = await readFile(path.join(process.cwd(), "registry.json"), "utf-8")
-  return JSON.parse(file) as { name: string; homepage: string; items: RegistryItem[] }
+  return registrySchema.parse(JSON.parse(file))
 }
 
 async function searchItems({
