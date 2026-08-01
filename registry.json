@@ -8,11 +8,13 @@
       "type": "registry:ui",
       "title": "Mode Toggle",
       "description": "Dropdown de tema claro/escuro/sistema via next-themes.",
+      "dependencies": ["next-themes"],
       "registryDependencies": ["button", "dropdown-menu"],
       "files": [
         {
           "path": "components/mode-toggle.tsx",
-          "type": "registry:ui"
+          "type": "registry:ui",
+          "target": "components/mode-toggle.tsx"
         }
       ]
     },
@@ -21,15 +23,18 @@
       "type": "registry:ui",
       "title": "App Sidebar",
       "description": "Sidebar de navegação com item ativo via usePathname e o mode-toggle no rodapé.",
-      "registryDependencies": ["sidebar"],
+      "dependencies": ["next-themes"],
+      "registryDependencies": ["sidebar", "button", "dropdown-menu"],
       "files": [
         {
           "path": "components/app-sidebar.tsx",
-          "type": "registry:ui"
+          "type": "registry:ui",
+          "target": "components/app-sidebar.tsx"
         },
         {
           "path": "components/mode-toggle.tsx",
-          "type": "registry:ui"
+          "type": "registry:ui",
+          "target": "components/mode-toggle.tsx"
         }
       ]
     }
