@@ -1,21 +1,25 @@
-# Next.js template
+# showcase-ui
 
-This is a Next.js template with shadcn/ui.
+Catálogo de componentes shadcn/ui — 57 componentes isolados em ordem alfabética, sem blocos nem contexto artificial, mais um punhado de exemplos reais rodando (forms, chat com streaming).
 
-## Adding components
-
-To add components to your app, run the following command:
+## Rodando localmente
 
 ```bash
-npx shadcn@latest add button
+npm install
+npm run dev
 ```
 
-This will place the ui components in the `components` directory.
+Abre em http://localhost:4320
 
-## Using components
+## Rotas
 
-To use the components in your app, import them as follows:
+- `/` — início
+- `/componentes` — catálogo completo, isolado, em ordem alfabética
+- `/formulario`, `/formulario-tanstack`, `/formulario-formisch` — três integrações de forms (React Hook Form, TanStack Form, Formisch)
+- `/chat` — chat real com Message/Bubble/Message Scroller, streaming via AI SDK (mock, sem modelo de verdade)
 
-```tsx
-import { Button } from "@/components/ui/button";
-```
+## Registry
+
+Este projeto também é um registry shadcn publicável (`registry.json`, componentes autorais `mode-toggle` e `app-sidebar`). `npm run registry:build` gera `public/r/*.json`.
+
+Contexto completo das decisões técnicas em `CLAUDE.md`.
