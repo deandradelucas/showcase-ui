@@ -20,6 +20,8 @@ Abre em http://localhost:4320
 
 ## Registry
 
-Este projeto também é um registry shadcn publicável (`registry.json`, componentes autorais `mode-toggle` e `app-sidebar`). `npm run registry:build` gera `public/r/*.json`.
+Este projeto também é um registry shadcn publicável (`registry.json`, componentes autorais `mode-toggle` e `app-sidebar`), servido dinamicamente em `/r/registry.json` (busca server-side, `q`/`type`/`limit`/`offset`) e `/r/[name]` (item individual). `npm run registry:build` gera o conteúdo em `.registry-build/r/`, que as rotas leem sob demanda.
+
+Proteção por token opcional via `REGISTRY_TOKEN` (ver `.env.example`) — sem a variável, fica público.
 
 Contexto completo das decisões técnicas em `CLAUDE.md`.

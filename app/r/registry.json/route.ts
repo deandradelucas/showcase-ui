@@ -1,6 +1,7 @@
 import { readFile } from "node:fs/promises"
 import path from "node:path"
 import { NextRequest, NextResponse } from "next/server"
+import { checkRegistryAuth } from "@/lib/registry-auth"
 
 type RegistryItem = {
   name: string
@@ -46,6 +47,9 @@ async function searchItems({
 }
 
 export async function GET(request: NextRequest) {
+  const unauthorized = checkRegistryAuth(request)
+  if (unauthorized) return unauthorized
+
   const { searchParams } = request.nextUrl
 
   const query = searchParams.get("q")

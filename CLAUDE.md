@@ -21,7 +21,7 @@ shadcn/ui aqui roda sobre **Base UI**, não Radix — diferenças de API confirm
 
 Criado via `npx shadcn@latest init -t next -n showcase-ui -b base -p nova --no-monorepo -y`, seguindo `ui.shadcn.com/docs/installation` passo a passo.
 
-**Registry publicável:** `registry.json` na raiz registra os componentes autorais (`mode-toggle`, `app-sidebar`) como `registry:ui`. Componente autoral usado dentro de outro item entra na lista `files` dele, nunca em `registryDependencies` (gotcha confirmado no projeto anterior: nome sem namespace em `registryDependencies` sempre resolve contra o registry oficial do shadcn, nunca contra o próprio — `app-sidebar` inclui `mode-toggle.tsx` direto nos `files`). `npm run registry:build` gera `public/r/*.json`. Hospedagem pública ainda não decidida (repo GitHub privado, projeto só local).
+**Registry publicável:** `registry.json` na raiz registra os componentes autorais (`mode-toggle`, `app-sidebar`) como `registry:ui`. Componente autoral usado dentro de outro item entra na lista `files` dele, nunca em `registryDependencies` (gotcha confirmado no projeto anterior: nome sem namespace em `registryDependencies` sempre resolve contra o registry oficial do shadcn, nunca contra o próprio — `app-sidebar` inclui `mode-toggle.tsx` direto nos `files`). Hospedagem pública ainda não decidida (repo GitHub privado, projeto só local).
 
 **MCP:** `.mcp.json` configurado (`npx shadcn@latest mcp init --client claude`) — dá acesso ao registry oficial do shadcn via protocolo MCP. Precisa reiniciar o Claude Code pra ativar nesta sessão.
 
@@ -37,3 +37,9 @@ Criado via `npx shadcn@latest init -t next -n showcase-ui -b base -p nova --no-m
 - `mode-toggle` e `app-sidebar` usam `next-themes`, mas faltava declarar em `dependencies` — sem isso, `npm install` do consumidor nunca instalava o pacote.
 - `app-sidebar` empacota `mode-toggle.tsx` direto em `files` (não como item próprio via `registryDependencies`), então **não herda** as dependências dele — precisou repetir `button`/`dropdown-menu` no `registryDependencies` do próprio `app-sidebar`.
 - Regra geral confirmada: sempre testar um item com `add` de verdade num app novo (não só `view`/`search`), porque erro de dependência faltando só aparece no `npm run build` do lado de quem instala.
+
+**Authentication (registry):** implementado a pedido explícito do usuário (`docs/registry/authentication`), mesmo o registry sendo público hoje. Token bearer opcional via `REGISTRY_TOKEN` (`.env.example`) — sem a env var, registry fica público (default de dev); com ela, `/r/registry.json` e `/r/[name]` exigem `Authorization: Bearer <token>` ou devolvem 401. Testado com curl nos 3 cenários (sem header, token errado, token certo) e com `npx shadcn add` de verdade contra o servidor sem token (público).
+
+Isso forçou trocar a distribuição dos itens de estático pra dinâmico: `npm run registry:build` agora manda o output pra `.registry-build/r/` (fora de `public/`, via `shadcn build --output`), e `app/r/[name]/route.ts` lê de lá e serve sob demanda — porque um arquivo estático em `public/` não tem como respeitar header de auth, o servidor entrega ele direto. `public/r/` foi removido de vez do projeto.
+
+**Gotcha do segmento dinâmico:** Next.js não aceita pasta `[name].json` (bracket + sufixo literal no mesmo segmento) — só `[name]` sozinho. Precisou renomear a pasta pra `app/r/[name]/route.ts` e tirar o `.json` do `name` recebido manualmente (`name.replace(/\.json$/, "")`) dentro do handler.

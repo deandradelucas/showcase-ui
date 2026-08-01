@@ -8,7 +8,7 @@
     "build": "next build",
     "start": "next start -p 4320",
     "lint": "eslint",
-    "registry:build": "shadcn build && node -e \"require('fs').rmSync('public/r/registry.json',{force:true})\"",
+    "registry:build": "shadcn build --output .registry-build/r && node -e \"require('fs').rmSync('public/r',{recursive:true,force:true})\"",
     "format": "prettier --write \"**/*.{ts,tsx}\"",
     "typecheck": "tsc --noEmit"
   },
