@@ -15,6 +15,8 @@ shadcn/ui aqui roda sobre **Base UI**, não Radix — diferenças de API confirm
 
 **Cuidado com `npx shadcn add -o` (overwrite):** sobrescreve QUALQUER arquivo customizado que apareça como dependência de um componente novo, mesmo sem intenção — já aconteceu duas vezes nesta sessão com `button.tsx`/`dropdown-menu.tsx` voltando pro stock (perdendo `cursor-pointer`). Depois de qualquer `add -o`, rodar `git diff --stat components/ui/` e conferir se algum arquivo customizado voltou ao original antes de commitar.
 
+**TanStack AI helper não instalado (01-08-2026):** `@shadcn/helpers` (0.1.0) exige `@tanstack/ai` na faixa `>=0.40.0 <0.41.0` via peer dependency, mas nenhuma versão publicada de `@tanstack/ai-react` cai nessa faixa — 0.16.x pede `^0.38.0`, 0.17.x já pula pra `^0.41.0`. Conflito real do lado de fora, não resolvido — `docs/helpers/tanstack-ai` ficou só lido, sem demo funcional. `/chat` usa o helper de AI SDK (`docs/helpers/ai-sdk`), que instalou sem conflito. Reavaliar quando alguma das duas libs publicar versão compatível.
+
 `components/ui/**` e `hooks/**` têm a regra `react-hooks/set-state-in-effect` desligada em `eslint.config.mjs` — o próprio código gerado pela CLI (`carousel.tsx`, `use-mobile.ts`) viola essa regra de propósito (setState síncrono dentro de effect pra sincronizar com Embla/matchMedia), e não editamos esses arquivos à mão. Se `npm run lint` voltar a falhar em arquivo gerado, é sinal de regra nova precisando do mesmo tratamento — não editar o arquivo vendor.
 
 Criado via `npx shadcn@latest init -t next -n showcase-ui -b base -p nova --no-monorepo -y`, seguindo `ui.shadcn.com/docs/installation` passo a passo.
