@@ -1,6 +1,7 @@
 "use client"
 
-import { useState } from "react"
+import { useChat } from "@ai-sdk/react"
+import { createChat } from "@shadcn/helpers/ai-sdk"
 import { Avatar, AvatarFallback } from "@/components/ui/avatar"
 import { Bubble, BubbleContent } from "@/components/ui/bubble"
 import { Button } from "@/components/ui/button"
@@ -15,42 +16,30 @@ import {
   MessageScrollerViewport,
 } from "@/components/ui/message-scroller"
 
-type Msg = { id: string; role: "user" | "assistant"; text: string }
-
-const RESPOSTA = "Aqui está uma resposta simulada, aparecendo palavra por palavra pra testar o auto-scroll do MessageScroller enquanto o conteúdo cresce."
-
-let contador = 0
+const chat = createChat()
+  .user("Oi, tudo bem?")
+  .assistant("Tudo ótimo! Como posso ajudar?")
+  .user("Simula uma resposta longa, com streaming de verdade")
+  .assistant(({ writer }) => {
+    writer.sleep(400)
+    writer.text(
+      "Aqui está uma resposta simulada via @shadcn/helpers/ai-sdk, com useChat de verdade em vez de setTimeout manual — "
+    )
+    writer.sleep(300)
+    writer.text("cada pedaço chega como um chunk real de streaming, testando o auto-scroll do MessageScroller de fato.")
+  })
 
 export default function Chat() {
-  const [mensagens, setMensagens] = useState<Msg[]>([
-    { id: "m1", role: "user", text: "Oi, tudo bem?" },
-    { id: "m2", role: "assistant", text: "Tudo ótimo! Como posso ajudar?" },
-  ])
-  const [gerando, setGerando] = useState(false)
+  const { messages, sendMessage } = useChat({
+    messages: chat.get(0),
+    transport: chat.transport({
+      fallback: "Essa demo não tem mais respostas predefinidas — é só um mock, sem modelo de verdade.",
+    }),
+  })
 
-  function simularResposta() {
-    contador += 1
-    const userId = `u${contador}`
-    const assistantId = `a${contador}`
-
-    setMensagens((prev) => [...prev, { id: userId, role: "user", text: "Simula uma resposta longa" }])
-    setGerando(true)
-
-    const palavras = RESPOSTA.split(" ")
-    let acumulado = ""
-    palavras.forEach((palavra, i) => {
-      setTimeout(() => {
-        acumulado = acumulado ? `${acumulado} ${palavra}` : palavra
-        setMensagens((prev) => {
-          const existe = prev.some((m) => m.id === assistantId)
-          if (existe) {
-            return prev.map((m) => (m.id === assistantId ? { ...m, text: acumulado } : m))
-          }
-          return [...prev, { id: assistantId, role: "assistant", text: acumulado }]
-        })
-        if (i === palavras.length - 1) setGerando(false)
-      }, i * 120)
-    })
+  function proximaMensagem() {
+    const proxima = chat.next(messages)
+    if (proxima) sendMessage(proxima)
   }
 
   return (
@@ -59,7 +48,8 @@ export default function Chat() {
         <CardHeader>
           <CardTitle>Chat</CardTitle>
           <CardDescription>
-            Message + Bubble + MessageScroller de verdade, com streaming simulado — docs/react/message-scroller.
+            useChat (@ai-sdk/react) + createChat (@shadcn/helpers) — conversa predefinida, sem modelo/API real —
+            docs/helpers/ai-sdk.
           </CardDescription>
         </CardHeader>
         <CardContent className="min-h-0 flex-1">
@@ -67,7 +57,7 @@ export default function Chat() {
             <MessageScroller className="h-full">
               <MessageScrollerViewport>
                 <MessageScrollerContent>
-                  {mensagens.map((m) => (
+                  {messages.map((m) => (
                     <MessageScrollerItem key={m.id} scrollAnchor={m.role === "user"}>
                       <Message align={m.role === "user" ? "end" : "start"}>
                         <Avatar className="size-8">
@@ -75,7 +65,11 @@ export default function Chat() {
                         </Avatar>
                         <MessageContent>
                           <Bubble align={m.role === "user" ? "end" : "start"}>
-                            <BubbleContent>{m.text}</BubbleContent>
+                            <BubbleContent>
+                              {m.parts.map((part, i) =>
+                                part.type === "text" ? <span key={i}>{part.text}</span> : null
+                              )}
+                            </BubbleContent>
                           </Bubble>
                         </MessageContent>
                       </Message>
@@ -89,8 +83,8 @@ export default function Chat() {
         </CardContent>
       </Card>
 
-      <Button onClick={simularResposta} disabled={gerando} className="mt-4 self-start">
-        {gerando ? "Gerando…" : "Simular resposta com streaming"}
+      <Button onClick={proximaMensagem} className="mt-4 self-start">
+        Próxima mensagem (streaming real)
       </Button>
     </div>
   )
