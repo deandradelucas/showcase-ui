@@ -1,5 +1,7 @@
 "use client"
 
+import { useState } from "react"
+import { Check, ChevronsUpDown, Mail } from "lucide-react"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
 import {
   AlertDialog,
@@ -25,8 +27,16 @@ import {
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb"
 import { Button } from "@/components/ui/button"
+import { ButtonGroup, ButtonGroupSeparator } from "@/components/ui/button-group"
 import { Calendar } from "@/components/ui/calendar"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel"
 import { Checkbox } from "@/components/ui/checkbox"
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible"
 import {
@@ -59,8 +69,13 @@ import {
   DrawerTitle,
   DrawerTrigger,
 } from "@/components/ui/drawer"
+import { Empty, EmptyContent, EmptyDescription, EmptyHeader, EmptyMedia, EmptyTitle } from "@/components/ui/empty"
+import { Field, FieldDescription, FieldLabel } from "@/components/ui/field"
 import { HoverCard, HoverCardContent, HoverCardTrigger } from "@/components/ui/hover-card"
 import { Input } from "@/components/ui/input"
+import { InputGroup, InputGroupAddon, InputGroupInput } from "@/components/ui/input-group"
+import { InputOTP, InputOTPGroup, InputOTPSlot } from "@/components/ui/input-otp"
+import { Item, ItemContent, ItemDescription, ItemMedia, ItemTitle } from "@/components/ui/item"
 import { Kbd } from "@/components/ui/kbd"
 import { Label } from "@/components/ui/label"
 import {
@@ -86,9 +101,12 @@ import {
   PaginationNext,
   PaginationPrevious,
 } from "@/components/ui/pagination"
+import { NativeSelect, NativeSelectOption } from "@/components/ui/native-select"
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover"
 import { Progress } from "@/components/ui/progress"
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
+import { ResizableHandle, ResizablePanel, ResizablePanelGroup } from "@/components/ui/resizable"
+import { ScrollArea } from "@/components/ui/scroll-area"
 import {
   Select,
   SelectContent,
@@ -105,6 +123,17 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet"
+import {
+  Sidebar,
+  SidebarContent,
+  SidebarGroup,
+  SidebarGroupContent,
+  SidebarGroupLabel,
+  SidebarMenu,
+  SidebarMenuButton,
+  SidebarMenuItem,
+  SidebarProvider,
+} from "@/components/ui/sidebar"
 import { Skeleton } from "@/components/ui/skeleton"
 import { Slider } from "@/components/ui/slider"
 import { Spinner } from "@/components/ui/spinner"
@@ -496,7 +525,184 @@ export default function Componentes() {
             <ToggleGroupItem value="right">Direita</ToggleGroupItem>
           </ToggleGroup>
         </Vitrine>
+
+        <Vitrine titulo="Button Group">
+          <ButtonGroup>
+            <Button variant="outline">Esquerda</Button>
+            <ButtonGroupSeparator />
+            <Button variant="outline">Meio</Button>
+            <ButtonGroupSeparator />
+            <Button variant="outline">Direita</Button>
+          </ButtonGroup>
+        </Vitrine>
+
+        <Vitrine titulo="Carousel">
+          <Carousel className="w-full max-w-xs">
+            <CarouselContent>
+              {[1, 2, 3].map((i) => (
+                <CarouselItem key={i} className="flex h-24 items-center justify-center rounded-md border text-sm text-muted-foreground">
+                  Slide {i}
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            <CarouselPrevious />
+            <CarouselNext />
+          </Carousel>
+        </Vitrine>
+
+        <Vitrine titulo="Combobox">
+          <Combobox />
+        </Vitrine>
+
+        <Vitrine titulo="Empty">
+          <Empty className="w-full">
+            <EmptyHeader>
+              <EmptyMedia variant="icon">
+                <Mail />
+              </EmptyMedia>
+              <EmptyTitle>Nenhuma mensagem</EmptyTitle>
+              <EmptyDescription>Isso é um estado vazio isolado.</EmptyDescription>
+            </EmptyHeader>
+            <EmptyContent>
+              <Button variant="outline" size="sm">Atualizar</Button>
+            </EmptyContent>
+          </Empty>
+        </Vitrine>
+
+        <Vitrine titulo="Field">
+          <Field className="w-full max-w-xs">
+            <FieldLabel htmlFor="f1">E-mail</FieldLabel>
+            <Input id="f1" type="email" placeholder="voce@exemplo.com" />
+            <FieldDescription>Usamos isso só pra login.</FieldDescription>
+          </Field>
+        </Vitrine>
+
+        <Vitrine titulo="Item">
+          <Item className="w-full">
+            <ItemMedia variant="icon">
+              <Mail />
+            </ItemMedia>
+            <ItemContent>
+              <ItemTitle>Título do item</ItemTitle>
+              <ItemDescription>Descrição isolada do item.</ItemDescription>
+            </ItemContent>
+          </Item>
+        </Vitrine>
+
+        <Vitrine titulo="Input Group">
+          <InputGroup className="max-w-xs">
+            <InputGroupAddon>
+              <Mail />
+            </InputGroupAddon>
+            <InputGroupInput placeholder="voce@exemplo.com" />
+          </InputGroup>
+        </Vitrine>
+
+        <Vitrine titulo="Input OTP">
+          <InputOTP maxLength={4}>
+            <InputOTPGroup>
+              <InputOTPSlot index={0} />
+              <InputOTPSlot index={1} />
+              <InputOTPSlot index={2} />
+              <InputOTPSlot index={3} />
+            </InputOTPGroup>
+          </InputOTP>
+        </Vitrine>
+
+        <Vitrine titulo="Native Select">
+          <NativeSelect className="max-w-xs">
+            <NativeSelectOption value="starter">Starter</NativeSelectOption>
+            <NativeSelectOption value="pro">Pro</NativeSelectOption>
+          </NativeSelect>
+        </Vitrine>
+
+        <Vitrine titulo="Resizable">
+          <ResizablePanelGroup orientation="horizontal" className="h-24 max-w-xs rounded-md border">
+            <ResizablePanel className="flex items-center justify-center text-sm text-muted-foreground">A</ResizablePanel>
+            <ResizableHandle withHandle />
+            <ResizablePanel className="flex items-center justify-center text-sm text-muted-foreground">B</ResizablePanel>
+          </ResizablePanelGroup>
+        </Vitrine>
+
+        <Vitrine titulo="Scroll Area">
+          <ScrollArea className="h-24 w-full max-w-xs rounded-md border p-3">
+            {Array.from({ length: 15 }, (_, i) => (
+              <p key={i} className="text-sm">Linha {i + 1}</p>
+            ))}
+          </ScrollArea>
+        </Vitrine>
+
+        <Vitrine titulo="Sidebar">
+          <div className="h-40 w-full max-w-xs overflow-hidden rounded-md border">
+            <SidebarProvider className="min-h-0">
+              <Sidebar collapsible="none" className="h-40">
+                <SidebarContent>
+                  <SidebarGroup>
+                    <SidebarGroupLabel>Navegação</SidebarGroupLabel>
+                    <SidebarGroupContent>
+                      <SidebarMenu>
+                        <SidebarMenuItem>
+                          <SidebarMenuButton>Início</SidebarMenuButton>
+                        </SidebarMenuItem>
+                        <SidebarMenuItem>
+                          <SidebarMenuButton>Configurações</SidebarMenuButton>
+                        </SidebarMenuItem>
+                      </SidebarMenu>
+                    </SidebarGroupContent>
+                  </SidebarGroup>
+                </SidebarContent>
+              </Sidebar>
+            </SidebarProvider>
+          </div>
+        </Vitrine>
       </div>
     </div>
+  )
+}
+
+const PLANOS_COMBOBOX = [
+  { value: "next.js", label: "Next.js" },
+  { value: "vite", label: "Vite" },
+  { value: "astro", label: "Astro" },
+]
+
+function Combobox() {
+  const [open, setOpen] = useState(false)
+  const [value, setValue] = useState("")
+
+  return (
+    <Popover open={open} onOpenChange={setOpen}>
+      <PopoverTrigger
+        render={
+          <Button variant="outline" className="w-[200px] justify-between">
+            {value ? PLANOS_COMBOBOX.find((f) => f.value === value)?.label : "Escolha um framework"}
+            <ChevronsUpDown className="opacity-50" />
+          </Button>
+        }
+      />
+      <PopoverContent className="w-[200px] p-0">
+        <Command>
+          <CommandInput placeholder="Buscar framework..." />
+          <CommandList>
+            <CommandEmpty>Nada encontrado.</CommandEmpty>
+            <CommandGroup>
+              {PLANOS_COMBOBOX.map((f) => (
+                <CommandItem
+                  key={f.value}
+                  value={f.value}
+                  onSelect={(v) => {
+                    setValue(v === value ? "" : v)
+                    setOpen(false)
+                  }}
+                >
+                  <Check className={value === f.value ? "opacity-100" : "opacity-0"} />
+                  {f.label}
+                </CommandItem>
+              ))}
+            </CommandGroup>
+          </CommandList>
+        </Command>
+      </PopoverContent>
+    </Popover>
   )
 }
