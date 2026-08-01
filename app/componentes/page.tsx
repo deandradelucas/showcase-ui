@@ -29,7 +29,15 @@ import {
 import { Button } from "@/components/ui/button"
 import { ButtonGroup, ButtonGroupSeparator } from "@/components/ui/button-group"
 import { Calendar } from "@/components/ui/calendar"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import {
+  Card,
+  CardAction,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card"
 import {
   Carousel,
   CarouselContent,
@@ -184,6 +192,26 @@ export default function Componentes() {
           <Button variant="secondary">Secondary</Button>
           <Button variant="outline">Outline</Button>
           <Button variant="destructive">Destructive</Button>
+        </Vitrine>
+
+        <Vitrine titulo="Card">
+          <Card className="w-full max-w-xs">
+            <CardHeader>
+              <CardTitle>Título do card</CardTitle>
+              <CardDescription>Descrição curta abaixo do título.</CardDescription>
+              <CardAction>
+                <Badge variant="secondary">Novo</Badge>
+              </CardAction>
+            </CardHeader>
+            <CardContent>
+              <p className="text-sm text-muted-foreground">
+                Conteúdo do card, isolado — sem contexto de dashboard em volta.
+              </p>
+            </CardContent>
+            <CardFooter>
+              <Button size="sm">Ação</Button>
+            </CardFooter>
+          </Card>
         </Vitrine>
 
         <Vitrine titulo="Badge">
