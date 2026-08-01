@@ -28,3 +28,5 @@ Criado via `npx shadcn@latest init -t next -n showcase-ui -b base -p nova --no-m
 **Skills:** `shadcn` + `migrate-radix-to-base` instaladas via `npx skills add shadcn/ui` (empacotadas juntas no repo `shadcn/ui.git`). Conteúdo duplicado em `.agents/skills/` e `.claude/skills/` porque o git deste projeto está sem suporte a symlink no Windows (`core.symlinks=false`) — comportamento do instalador, não bug daqui.
 
 **Package Imports / Monorepo:** não aplicáveis — projeto usa alias `@/` do `tsconfig.json` (não `#` do `package.json#imports`, que só faz sentido em monorepo), e é app único, sem `apps/`+`packages/`.
+
+**Dynamic Search (registry):** não implementado, de propósito. É pra registries com milhares de itens fazerem busca server-side em vez do CLI baixar `registry.json` inteiro e filtrar local — o nosso tem 2 itens (`mode-toggle`, `app-sidebar`). Reavaliar só se o registry crescer de verdade a ponto de justificar trocar `public/r/*.json` estático por uma rota dinâmica.
