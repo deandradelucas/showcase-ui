@@ -45,6 +45,7 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel"
+import { Bubble, BubbleContent } from "@/components/ui/bubble"
 import { Checkbox } from "@/components/ui/checkbox"
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible"
 import {
@@ -77,6 +78,15 @@ import {
   DrawerTitle,
   DrawerTrigger,
 } from "@/components/ui/drawer"
+import {
+  DropdownMenu,
+  DropdownMenuCheckboxItem,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu"
 import { Empty, EmptyContent, EmptyDescription, EmptyHeader, EmptyMedia, EmptyTitle } from "@/components/ui/empty"
 import { Field, FieldDescription, FieldLabel } from "@/components/ui/field"
 import { HoverCard, HoverCardContent, HoverCardTrigger } from "@/components/ui/hover-card"
@@ -93,6 +103,14 @@ import {
   MenubarMenu,
   MenubarTrigger,
 } from "@/components/ui/menubar"
+import { Message, MessageContent } from "@/components/ui/message"
+import {
+  MessageScroller,
+  MessageScrollerContent,
+  MessageScrollerItem,
+  MessageScrollerProvider,
+  MessageScrollerViewport,
+} from "@/components/ui/message-scroller"
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -420,6 +438,20 @@ export default function Componentes() {
           </Drawer>
         </Vitrine>
 
+        <Vitrine titulo="Dropdown Menu">
+          <DropdownMenu>
+            <DropdownMenuTrigger render={<Button variant="outline">Abrir menu</Button>} />
+            <DropdownMenuContent>
+              <DropdownMenuLabel>Minha conta</DropdownMenuLabel>
+              <DropdownMenuSeparator />
+              <DropdownMenuItem>Perfil</DropdownMenuItem>
+              <DropdownMenuItem>Configurações</DropdownMenuItem>
+              <DropdownMenuSeparator />
+              <DropdownMenuCheckboxItem checked>Notificações</DropdownMenuCheckboxItem>
+            </DropdownMenuContent>
+          </DropdownMenu>
+        </Vitrine>
+
         <Vitrine titulo="Hover Card">
           <HoverCard>
             <HoverCardTrigger render={<Button variant="outline">Passe o mouse</Button>} />
@@ -448,6 +480,39 @@ export default function Componentes() {
               </MenubarContent>
             </MenubarMenu>
           </Menubar>
+        </Vitrine>
+
+        <Vitrine titulo="Message">
+          <Message>
+            <Avatar className="size-8">
+              <AvatarFallback>IA</AvatarFallback>
+            </Avatar>
+            <MessageContent>
+              <p className="text-sm">Mensagem isolada, sem thread de chat em volta.</p>
+            </MessageContent>
+          </Message>
+        </Vitrine>
+
+        <Vitrine titulo="Bubble">
+          <Bubble>
+            <BubbleContent>Balão de conversa isolado.</BubbleContent>
+          </Bubble>
+        </Vitrine>
+
+        <Vitrine titulo="Message Scroller">
+          <MessageScrollerProvider>
+            <MessageScroller className="h-28 w-full max-w-xs rounded-md border">
+              <MessageScrollerViewport>
+                <MessageScrollerContent className="p-3">
+                  {Array.from({ length: 10 }, (_, i) => (
+                    <MessageScrollerItem key={i}>
+                      <p className="text-sm">Mensagem {i + 1}</p>
+                    </MessageScrollerItem>
+                  ))}
+                </MessageScrollerContent>
+              </MessageScrollerViewport>
+            </MessageScroller>
+          </MessageScrollerProvider>
         </Vitrine>
 
         <Vitrine titulo="Navigation Menu">
