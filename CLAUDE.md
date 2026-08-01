@@ -15,4 +15,6 @@ shadcn/ui aqui roda sobre **Base UI**, não Radix — diferenças de API confirm
 
 **Cuidado com `npx shadcn add -o` (overwrite):** sobrescreve QUALQUER arquivo customizado que apareça como dependência de um componente novo, mesmo sem intenção — já aconteceu duas vezes nesta sessão com `button.tsx`/`dropdown-menu.tsx` voltando pro stock (perdendo `cursor-pointer`). Depois de qualquer `add -o`, rodar `git diff --stat components/ui/` e conferir se algum arquivo customizado voltou ao original antes de commitar.
 
+`components/ui/**` e `hooks/**` têm a regra `react-hooks/set-state-in-effect` desligada em `eslint.config.mjs` — o próprio código gerado pela CLI (`carousel.tsx`, `use-mobile.ts`) viola essa regra de propósito (setState síncrono dentro de effect pra sincronizar com Embla/matchMedia), e não editamos esses arquivos à mão. Se `npm run lint` voltar a falhar em arquivo gerado, é sinal de regra nova precisando do mesmo tratamento — não editar o arquivo vendor.
+
 Criado via `npx shadcn@latest init -t next -n showcase-ui -b base -p nova --no-monorepo -y`, seguindo `ui.shadcn.com/docs/installation` passo a passo.

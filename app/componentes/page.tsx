@@ -655,6 +655,36 @@ export default function Componentes() {
             </SidebarProvider>
           </div>
         </Vitrine>
+
+        <Card className="sm:col-span-2">
+          <CardHeader>
+            <CardTitle className="text-sm font-medium text-muted-foreground">
+              Typography (não é item de registry — escala escrita à mão)
+            </CardTitle>
+          </CardHeader>
+          <CardContent className="space-y-4">
+            <h1 className="scroll-m-20 text-4xl font-extrabold tracking-tight">Título h1</h1>
+            <h2 className="scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight first:mt-0">
+              Título h2
+            </h2>
+            <h3 className="scroll-m-20 text-2xl font-semibold tracking-tight">Título h3</h3>
+            <h4 className="scroll-m-20 text-xl font-semibold tracking-tight">Título h4</h4>
+            <p className="leading-7">
+              Parágrafo padrão. O rato roeu a roupa do rei de Roma, e{" "}
+              <code className="rounded bg-muted px-1.5 py-0.5 font-mono text-sm">código inline</code>{" "}
+              fica assim no meio do texto.
+            </p>
+            <blockquote className="mt-6 border-l-2 pl-6 italic">
+              &quot;Isso é uma citação isolada, sem contexto de artigo em volta.&quot;
+            </blockquote>
+            <ul className="ml-6 list-disc [&>li]:mt-2">
+              <li>Primeiro item da lista</li>
+              <li>Segundo item da lista</li>
+              <li>Terceiro item da lista</li>
+            </ul>
+            <p className="text-sm text-muted-foreground">Texto pequeno e apagado (muted).</p>
+          </CardContent>
+        </Card>
       </div>
     </div>
   )
