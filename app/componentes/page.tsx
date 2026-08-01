@@ -201,122 +201,10 @@ export default function Componentes() {
     <div className="mx-auto w-full max-w-6xl space-y-8 px-6 py-12">
       <div className="space-y-2">
         <h1 className="text-3xl font-semibold">Componentes</h1>
-        <p className="text-muted-foreground">Catálogo isolado, sem blocos nem contexto — cada componente sozinho.</p>
+        <p className="text-muted-foreground">Catálogo isolado, sem blocos nem contexto — cada componente sozinho, em ordem alfabética.</p>
       </div>
 
       <div className="grid gap-4 sm:grid-cols-2">
-        <Vitrine titulo="Button">
-          <Button>Primary</Button>
-          <Button variant="secondary">Secondary</Button>
-          <Button variant="outline">Outline</Button>
-          <Button variant="destructive">Destructive</Button>
-        </Vitrine>
-
-        <Vitrine titulo="Card">
-          <Card className="w-full max-w-xs">
-            <CardHeader>
-              <CardTitle>Título do card</CardTitle>
-              <CardDescription>Descrição curta abaixo do título.</CardDescription>
-              <CardAction>
-                <Badge variant="secondary">Novo</Badge>
-              </CardAction>
-            </CardHeader>
-            <CardContent>
-              <p className="text-sm text-muted-foreground">
-                Conteúdo do card, isolado — sem contexto de dashboard em volta.
-              </p>
-            </CardContent>
-            <CardFooter>
-              <Button size="sm">Ação</Button>
-            </CardFooter>
-          </Card>
-        </Vitrine>
-
-        <Vitrine titulo="Badge">
-          <Badge>Default</Badge>
-          <Badge variant="secondary">Secondary</Badge>
-          <Badge variant="outline">Outline</Badge>
-          <Badge variant="destructive">Destructive</Badge>
-        </Vitrine>
-
-        <Vitrine titulo="Avatar">
-          <Avatar>
-            <AvatarFallback>LC</AvatarFallback>
-          </Avatar>
-        </Vitrine>
-
-        <Vitrine titulo="Input">
-          <Input placeholder="voce@exemplo.com" className="max-w-xs" />
-        </Vitrine>
-
-        <Vitrine titulo="Checkbox">
-          <Checkbox id="c1" />
-          <label htmlFor="c1" className="text-sm">Aceito os termos</label>
-        </Vitrine>
-
-        <Vitrine titulo="Switch">
-          <Switch id="s1" />
-          <label htmlFor="s1" className="text-sm">Notificações</label>
-        </Vitrine>
-
-        <Vitrine titulo="Progress">
-          <Progress value={62} className="w-full" />
-        </Vitrine>
-
-        <Vitrine titulo="Select">
-          <Select items={PLANOS}>
-            <SelectTrigger className="w-[180px]">
-              <SelectValue placeholder="Escolha um plano" />
-            </SelectTrigger>
-            <SelectContent>
-              {PLANOS.map((p) => (
-                <SelectItem key={p.value} value={p.value}>
-                  {p.label}
-                </SelectItem>
-              ))}
-            </SelectContent>
-          </Select>
-        </Vitrine>
-
-        <Vitrine titulo="Alert">
-          <Alert className="w-full">
-            <AlertTitle>Atenção</AlertTitle>
-            <AlertDescription>Isso é um alerta isolado, sem contexto de página.</AlertDescription>
-          </Alert>
-        </Vitrine>
-
-        <Vitrine titulo="Tooltip">
-          <Tooltip>
-            <TooltipTrigger render={<Button variant="outline">Passe o mouse</Button>} />
-            <TooltipContent>Isso é uma tooltip</TooltipContent>
-          </Tooltip>
-        </Vitrine>
-
-        <Vitrine titulo="Dialog">
-          <Dialog>
-            <DialogTrigger render={<Button variant="outline">Abrir dialog</Button>} />
-            <DialogContent>
-              <DialogHeader>
-                <DialogTitle>Título do dialog</DialogTitle>
-                <DialogDescription>Componente isolado, sem fluxo em volta.</DialogDescription>
-              </DialogHeader>
-            </DialogContent>
-          </Dialog>
-        </Vitrine>
-
-        <Vitrine titulo="Toast">
-          <Button
-            variant="outline"
-            onClick={() => toast.add({ title: "Notificação", description: "Isso é um toast isolado." })}
-          >
-            Disparar toast
-          </Button>
-        </Vitrine>
-
-        <Vitrine titulo="Calendar">
-          <Calendar mode="single" className="rounded-md border" />
-        </Vitrine>
-
         <Vitrine titulo="Accordion">
           <Accordion multiple={false} className="w-full">
             <AccordionItem value="item-1">
@@ -326,32 +214,11 @@ export default function Componentes() {
           </Accordion>
         </Vitrine>
 
-        <Vitrine titulo="Tabs">
-          <Tabs defaultValue="a" className="w-full">
-            <TabsList>
-              <TabsTrigger value="a">Aba A</TabsTrigger>
-              <TabsTrigger value="b">Aba B</TabsTrigger>
-            </TabsList>
-            <TabsContent value="a">Conteúdo isolado da aba A.</TabsContent>
-            <TabsContent value="b">Conteúdo isolado da aba B.</TabsContent>
-          </Tabs>
-        </Vitrine>
-
-        <Vitrine titulo="Table">
-          <Table>
-            <TableHeader>
-              <TableRow>
-                <TableHead>Nome</TableHead>
-                <TableHead>Status</TableHead>
-              </TableRow>
-            </TableHeader>
-            <TableBody>
-              <TableRow>
-                <TableCell>Exemplo</TableCell>
-                <TableCell>Ativo</TableCell>
-              </TableRow>
-            </TableBody>
-          </Table>
+        <Vitrine titulo="Alert">
+          <Alert className="w-full">
+            <AlertTitle>Atenção</AlertTitle>
+            <AlertDescription>Isso é um alerta isolado, sem contexto de página.</AlertDescription>
+          </Alert>
         </Vitrine>
 
         <Vitrine titulo="Alert Dialog">
@@ -376,6 +243,19 @@ export default function Componentes() {
           </div>
         </Vitrine>
 
+        <Vitrine titulo="Avatar">
+          <Avatar>
+            <AvatarFallback>LC</AvatarFallback>
+          </Avatar>
+        </Vitrine>
+
+        <Vitrine titulo="Badge">
+          <Badge>Default</Badge>
+          <Badge variant="secondary">Secondary</Badge>
+          <Badge variant="outline">Outline</Badge>
+          <Badge variant="destructive">Destructive</Badge>
+        </Vitrine>
+
         <Vitrine titulo="Breadcrumb">
           <Breadcrumb>
             <BreadcrumbList>
@@ -390,6 +270,72 @@ export default function Componentes() {
           </Breadcrumb>
         </Vitrine>
 
+        <Vitrine titulo="Bubble">
+          <Bubble>
+            <BubbleContent>Balão de conversa isolado.</BubbleContent>
+          </Bubble>
+        </Vitrine>
+
+        <Vitrine titulo="Button">
+          <Button>Primary</Button>
+          <Button variant="secondary">Secondary</Button>
+          <Button variant="outline">Outline</Button>
+          <Button variant="destructive">Destructive</Button>
+        </Vitrine>
+
+        <Vitrine titulo="Button Group">
+          <ButtonGroup>
+            <Button variant="outline">Esquerda</Button>
+            <ButtonGroupSeparator />
+            <Button variant="outline">Meio</Button>
+            <ButtonGroupSeparator />
+            <Button variant="outline">Direita</Button>
+          </ButtonGroup>
+        </Vitrine>
+
+        <Vitrine titulo="Calendar">
+          <Calendar mode="single" className="rounded-md border" />
+        </Vitrine>
+
+        <Vitrine titulo="Card">
+          <Card className="w-full max-w-xs">
+            <CardHeader>
+              <CardTitle>Título do card</CardTitle>
+              <CardDescription>Descrição curta abaixo do título.</CardDescription>
+              <CardAction>
+                <Badge variant="secondary">Novo</Badge>
+              </CardAction>
+            </CardHeader>
+            <CardContent>
+              <p className="text-sm text-muted-foreground">
+                Conteúdo do card, isolado — sem contexto de dashboard em volta.
+              </p>
+            </CardContent>
+            <CardFooter>
+              <Button size="sm">Ação</Button>
+            </CardFooter>
+          </Card>
+        </Vitrine>
+
+        <Vitrine titulo="Carousel">
+          <Carousel className="w-full max-w-xs">
+            <CarouselContent>
+              {[1, 2, 3].map((i) => (
+                <CarouselItem key={i} className="flex h-24 items-center justify-center rounded-md border text-sm text-muted-foreground">
+                  Slide {i}
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            <CarouselPrevious />
+            <CarouselNext />
+          </Carousel>
+        </Vitrine>
+
+        <Vitrine titulo="Checkbox">
+          <Checkbox id="c1" />
+          <label htmlFor="c1" className="text-sm">Aceito os termos</label>
+        </Vitrine>
+
         <Vitrine titulo="Collapsible">
           <Collapsible className="w-full">
             <CollapsibleTrigger render={<Button variant="outline">Alternar</Button>} />
@@ -397,6 +343,10 @@ export default function Componentes() {
               Conteúdo colapsável isolado.
             </CollapsibleContent>
           </Collapsible>
+        </Vitrine>
+
+        <Vitrine titulo="Combobox">
+          <Combobox />
         </Vitrine>
 
         <Vitrine titulo="Command">
@@ -426,6 +376,18 @@ export default function Componentes() {
           </ContextMenu>
         </Vitrine>
 
+        <Vitrine titulo="Dialog">
+          <Dialog>
+            <DialogTrigger render={<Button variant="outline">Abrir dialog</Button>} />
+            <DialogContent>
+              <DialogHeader>
+                <DialogTitle>Título do dialog</DialogTitle>
+                <DialogDescription>Componente isolado, sem fluxo em volta.</DialogDescription>
+              </DialogHeader>
+            </DialogContent>
+          </Dialog>
+        </Vitrine>
+
         <Vitrine titulo="Drawer">
           <Drawer>
             <DrawerTrigger render={<Button variant="outline">Abrir drawer</Button>} />
@@ -452,11 +414,70 @@ export default function Componentes() {
           </DropdownMenu>
         </Vitrine>
 
+        <Vitrine titulo="Empty">
+          <Empty className="w-full">
+            <EmptyHeader>
+              <EmptyMedia variant="icon">
+                <Mail />
+              </EmptyMedia>
+              <EmptyTitle>Nenhuma mensagem</EmptyTitle>
+              <EmptyDescription>Isso é um estado vazio isolado.</EmptyDescription>
+            </EmptyHeader>
+            <EmptyContent>
+              <Button variant="outline" size="sm">Atualizar</Button>
+            </EmptyContent>
+          </Empty>
+        </Vitrine>
+
+        <Vitrine titulo="Field">
+          <Field className="w-full max-w-xs">
+            <FieldLabel htmlFor="f1">E-mail</FieldLabel>
+            <Input id="f1" type="email" placeholder="voce@exemplo.com" />
+            <FieldDescription>Usamos isso só pra login.</FieldDescription>
+          </Field>
+        </Vitrine>
+
         <Vitrine titulo="Hover Card">
           <HoverCard>
             <HoverCardTrigger render={<Button variant="outline">Passe o mouse</Button>} />
             <HoverCardContent>Conteúdo exibido ao passar o mouse.</HoverCardContent>
           </HoverCard>
+        </Vitrine>
+
+        <Vitrine titulo="Input">
+          <Input placeholder="voce@exemplo.com" className="max-w-xs" />
+        </Vitrine>
+
+        <Vitrine titulo="Input Group">
+          <InputGroup className="max-w-xs">
+            <InputGroupAddon>
+              <Mail />
+            </InputGroupAddon>
+            <InputGroupInput placeholder="voce@exemplo.com" />
+          </InputGroup>
+        </Vitrine>
+
+        <Vitrine titulo="Input OTP">
+          <InputOTP maxLength={4}>
+            <InputOTPGroup>
+              <InputOTPSlot index={0} />
+              <InputOTPSlot index={1} />
+              <InputOTPSlot index={2} />
+              <InputOTPSlot index={3} />
+            </InputOTPGroup>
+          </InputOTP>
+        </Vitrine>
+
+        <Vitrine titulo="Item">
+          <Item className="w-full">
+            <ItemMedia variant="icon">
+              <Mail />
+            </ItemMedia>
+            <ItemContent>
+              <ItemTitle>Título do item</ItemTitle>
+              <ItemDescription>Descrição isolada do item.</ItemDescription>
+            </ItemContent>
+          </Item>
         </Vitrine>
 
         <Vitrine titulo="Kbd">
@@ -493,12 +514,6 @@ export default function Componentes() {
           </Message>
         </Vitrine>
 
-        <Vitrine titulo="Bubble">
-          <Bubble>
-            <BubbleContent>Balão de conversa isolado.</BubbleContent>
-          </Bubble>
-        </Vitrine>
-
         <Vitrine titulo="Message Scroller">
           <MessageScrollerProvider>
             <MessageScroller className="h-28 w-full max-w-xs rounded-md border">
@@ -513,6 +528,13 @@ export default function Componentes() {
               </MessageScrollerViewport>
             </MessageScroller>
           </MessageScrollerProvider>
+        </Vitrine>
+
+        <Vitrine titulo="Native Select">
+          <NativeSelect className="max-w-xs">
+            <NativeSelectOption value="starter">Starter</NativeSelectOption>
+            <NativeSelectOption value="pro">Pro</NativeSelectOption>
+          </NativeSelect>
         </Vitrine>
 
         <Vitrine titulo="Navigation Menu">
@@ -554,6 +576,10 @@ export default function Componentes() {
           </Popover>
         </Vitrine>
 
+        <Vitrine titulo="Progress">
+          <Progress value={62} className="w-full" />
+        </Vitrine>
+
         <Vitrine titulo="Radio Group">
           <RadioGroup defaultValue="a" className="flex flex-row gap-4">
             <div className="flex items-center gap-2">
@@ -565,6 +591,37 @@ export default function Componentes() {
               <Label htmlFor="r2">Opção B</Label>
             </div>
           </RadioGroup>
+        </Vitrine>
+
+        <Vitrine titulo="Resizable">
+          <ResizablePanelGroup orientation="horizontal" className="h-24 max-w-xs rounded-md border">
+            <ResizablePanel className="flex items-center justify-center text-sm text-muted-foreground">A</ResizablePanel>
+            <ResizableHandle withHandle />
+            <ResizablePanel className="flex items-center justify-center text-sm text-muted-foreground">B</ResizablePanel>
+          </ResizablePanelGroup>
+        </Vitrine>
+
+        <Vitrine titulo="Scroll Area">
+          <ScrollArea className="h-24 w-full max-w-xs rounded-md border p-3">
+            {Array.from({ length: 15 }, (_, i) => (
+              <p key={i} className="text-sm">Linha {i + 1}</p>
+            ))}
+          </ScrollArea>
+        </Vitrine>
+
+        <Vitrine titulo="Select">
+          <Select items={PLANOS}>
+            <SelectTrigger className="w-[180px]">
+              <SelectValue placeholder="Escolha um plano" />
+            </SelectTrigger>
+            <SelectContent>
+              {PLANOS.map((p) => (
+                <SelectItem key={p.value} value={p.value}>
+                  {p.label}
+                </SelectItem>
+              ))}
+            </SelectContent>
+          </Select>
         </Vitrine>
 
         <Vitrine titulo="Separator">
@@ -587,146 +644,8 @@ export default function Componentes() {
           </Sheet>
         </Vitrine>
 
-        <Vitrine titulo="Skeleton">
-          <div className="w-full space-y-2">
-            <Skeleton className="h-4 w-3/4" />
-            <Skeleton className="h-4 w-1/2" />
-          </div>
-        </Vitrine>
-
-        <Vitrine titulo="Slider">
-          <Slider defaultValue={[40]} className="w-full max-w-xs" />
-        </Vitrine>
-
-        <Vitrine titulo="Spinner">
-          <Spinner />
-        </Vitrine>
-
         <Vitrine titulo="Shimmer (utility)">
           <p className="shimmer text-muted-foreground">Gerando resposta…</p>
-        </Vitrine>
-
-        <Vitrine titulo="Textarea">
-          <Textarea placeholder="Escreva algo..." className="max-w-xs" />
-        </Vitrine>
-
-        <Vitrine titulo="Toggle">
-          <Toggle>Negrito</Toggle>
-          <Toggle variant="outline">Itálico</Toggle>
-        </Vitrine>
-
-        <Vitrine titulo="Toggle Group">
-          <ToggleGroup>
-            <ToggleGroupItem value="left">Esquerda</ToggleGroupItem>
-            <ToggleGroupItem value="center">Centro</ToggleGroupItem>
-            <ToggleGroupItem value="right">Direita</ToggleGroupItem>
-          </ToggleGroup>
-        </Vitrine>
-
-        <Vitrine titulo="Button Group">
-          <ButtonGroup>
-            <Button variant="outline">Esquerda</Button>
-            <ButtonGroupSeparator />
-            <Button variant="outline">Meio</Button>
-            <ButtonGroupSeparator />
-            <Button variant="outline">Direita</Button>
-          </ButtonGroup>
-        </Vitrine>
-
-        <Vitrine titulo="Carousel">
-          <Carousel className="w-full max-w-xs">
-            <CarouselContent>
-              {[1, 2, 3].map((i) => (
-                <CarouselItem key={i} className="flex h-24 items-center justify-center rounded-md border text-sm text-muted-foreground">
-                  Slide {i}
-                </CarouselItem>
-              ))}
-            </CarouselContent>
-            <CarouselPrevious />
-            <CarouselNext />
-          </Carousel>
-        </Vitrine>
-
-        <Vitrine titulo="Combobox">
-          <Combobox />
-        </Vitrine>
-
-        <Vitrine titulo="Empty">
-          <Empty className="w-full">
-            <EmptyHeader>
-              <EmptyMedia variant="icon">
-                <Mail />
-              </EmptyMedia>
-              <EmptyTitle>Nenhuma mensagem</EmptyTitle>
-              <EmptyDescription>Isso é um estado vazio isolado.</EmptyDescription>
-            </EmptyHeader>
-            <EmptyContent>
-              <Button variant="outline" size="sm">Atualizar</Button>
-            </EmptyContent>
-          </Empty>
-        </Vitrine>
-
-        <Vitrine titulo="Field">
-          <Field className="w-full max-w-xs">
-            <FieldLabel htmlFor="f1">E-mail</FieldLabel>
-            <Input id="f1" type="email" placeholder="voce@exemplo.com" />
-            <FieldDescription>Usamos isso só pra login.</FieldDescription>
-          </Field>
-        </Vitrine>
-
-        <Vitrine titulo="Item">
-          <Item className="w-full">
-            <ItemMedia variant="icon">
-              <Mail />
-            </ItemMedia>
-            <ItemContent>
-              <ItemTitle>Título do item</ItemTitle>
-              <ItemDescription>Descrição isolada do item.</ItemDescription>
-            </ItemContent>
-          </Item>
-        </Vitrine>
-
-        <Vitrine titulo="Input Group">
-          <InputGroup className="max-w-xs">
-            <InputGroupAddon>
-              <Mail />
-            </InputGroupAddon>
-            <InputGroupInput placeholder="voce@exemplo.com" />
-          </InputGroup>
-        </Vitrine>
-
-        <Vitrine titulo="Input OTP">
-          <InputOTP maxLength={4}>
-            <InputOTPGroup>
-              <InputOTPSlot index={0} />
-              <InputOTPSlot index={1} />
-              <InputOTPSlot index={2} />
-              <InputOTPSlot index={3} />
-            </InputOTPGroup>
-          </InputOTP>
-        </Vitrine>
-
-        <Vitrine titulo="Native Select">
-          <NativeSelect className="max-w-xs">
-            <NativeSelectOption value="starter">Starter</NativeSelectOption>
-            <NativeSelectOption value="pro">Pro</NativeSelectOption>
-          </NativeSelect>
-        </Vitrine>
-
-        <Vitrine titulo="Resizable">
-          <ResizablePanelGroup orientation="horizontal" className="h-24 max-w-xs rounded-md border">
-            <ResizablePanel className="flex items-center justify-center text-sm text-muted-foreground">A</ResizablePanel>
-            <ResizableHandle withHandle />
-            <ResizablePanel className="flex items-center justify-center text-sm text-muted-foreground">B</ResizablePanel>
-          </ResizablePanelGroup>
-        </Vitrine>
-
-        <Vitrine titulo="Scroll Area">
-          <ScrollArea className="h-24 w-full max-w-xs rounded-md border p-3">
-            {Array.from({ length: 15 }, (_, i) => (
-              <p key={i} className="text-sm">Linha {i + 1}</p>
-            ))}
-          </ScrollArea>
         </Vitrine>
 
         <Vitrine titulo="Sidebar">
@@ -751,6 +670,87 @@ export default function Componentes() {
               </Sidebar>
             </SidebarProvider>
           </div>
+        </Vitrine>
+
+        <Vitrine titulo="Skeleton">
+          <div className="w-full space-y-2">
+            <Skeleton className="h-4 w-3/4" />
+            <Skeleton className="h-4 w-1/2" />
+          </div>
+        </Vitrine>
+
+        <Vitrine titulo="Slider">
+          <Slider defaultValue={[40]} className="w-full max-w-xs" />
+        </Vitrine>
+
+        <Vitrine titulo="Spinner">
+          <Spinner />
+        </Vitrine>
+
+        <Vitrine titulo="Switch">
+          <Switch id="s1" />
+          <label htmlFor="s1" className="text-sm">Notificações</label>
+        </Vitrine>
+
+        <Vitrine titulo="Table">
+          <Table>
+            <TableHeader>
+              <TableRow>
+                <TableHead>Nome</TableHead>
+                <TableHead>Status</TableHead>
+              </TableRow>
+            </TableHeader>
+            <TableBody>
+              <TableRow>
+                <TableCell>Exemplo</TableCell>
+                <TableCell>Ativo</TableCell>
+              </TableRow>
+            </TableBody>
+          </Table>
+        </Vitrine>
+
+        <Vitrine titulo="Tabs">
+          <Tabs defaultValue="a" className="w-full">
+            <TabsList>
+              <TabsTrigger value="a">Aba A</TabsTrigger>
+              <TabsTrigger value="b">Aba B</TabsTrigger>
+            </TabsList>
+            <TabsContent value="a">Conteúdo isolado da aba A.</TabsContent>
+            <TabsContent value="b">Conteúdo isolado da aba B.</TabsContent>
+          </Tabs>
+        </Vitrine>
+
+        <Vitrine titulo="Textarea">
+          <Textarea placeholder="Escreva algo..." className="max-w-xs" />
+        </Vitrine>
+
+        <Vitrine titulo="Toast">
+          <Button
+            variant="outline"
+            onClick={() => toast.add({ title: "Notificação", description: "Isso é um toast isolado." })}
+          >
+            Disparar toast
+          </Button>
+        </Vitrine>
+
+        <Vitrine titulo="Toggle">
+          <Toggle>Negrito</Toggle>
+          <Toggle variant="outline">Itálico</Toggle>
+        </Vitrine>
+
+        <Vitrine titulo="Toggle Group">
+          <ToggleGroup>
+            <ToggleGroupItem value="left">Esquerda</ToggleGroupItem>
+            <ToggleGroupItem value="center">Centro</ToggleGroupItem>
+            <ToggleGroupItem value="right">Direita</ToggleGroupItem>
+          </ToggleGroup>
+        </Vitrine>
+
+        <Vitrine titulo="Tooltip">
+          <Tooltip>
+            <TooltipTrigger render={<Button variant="outline">Passe o mouse</Button>} />
+            <TooltipContent>Isso é uma tooltip</TooltipContent>
+          </Tooltip>
         </Vitrine>
 
         <Card className="sm:col-span-2">
