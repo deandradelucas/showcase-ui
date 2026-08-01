@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "registry-auth",
+  "title": "Registry Auth",
+  "description": "Helper de autenticação por token bearer pra rotas de registry (docs/registry/authentication).",
+  "files": [
+    {
+      "path": "lib/registry-auth.ts",
+      "content": "import { NextRequest, NextResponse } from \"next/server\"\n\n/**\n * Registry autenticado por token bearer (docs/registry/authentication).\n * REGISTRY_TOKEN não configurado = registry fica público (default de dev).\n */\nexport function checkRegistryAuth(request: NextRequest) {\n  const expected = process.env.REGISTRY_TOKEN\n  if (!expected) return null\n\n  const auth = request.headers.get(\"authorization\")\n  const token = auth?.startsWith(\"Bearer \") ? auth.slice(7) : null\n\n  if (token !== expected) {\n    return NextResponse.json({ error: \"Unauthorized\" }, { status: 401 })\n  }\n\n  return null\n}\n",
+      "type": "registry:lib",
+      "target": "lib/registry-auth.ts"
+    }
+  ],
+  "type": "registry:lib"
+}

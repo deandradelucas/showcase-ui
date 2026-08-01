@@ -4,6 +4,19 @@
   "homepage": "https://github.com/deandradelucas/showcase-ui",
   "items": [
     {
+      "name": "registry-auth",
+      "type": "registry:lib",
+      "title": "Registry Auth",
+      "description": "Helper de autenticação por token bearer pra rotas de registry (docs/registry/authentication).",
+      "files": [
+        {
+          "path": "lib/registry-auth.ts",
+          "type": "registry:lib",
+          "target": "lib/registry-auth.ts"
+        }
+      ]
+    },
+    {
       "name": "mode-toggle",
       "type": "registry:ui",
       "title": "Mode Toggle",
