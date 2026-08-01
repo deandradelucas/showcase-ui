@@ -20,8 +20,19 @@ Abre em http://localhost:4320
 
 ## Registry
 
-Este projeto também é um registry shadcn publicável (`registry.json`, componentes autorais `mode-toggle` e `app-sidebar`), servido dinamicamente em `/r/registry.json` (busca server-side, `q`/`type`/`limit`/`offset`) e `/r/[name]` (item individual). `npm run registry:build` gera o conteúdo em `.registry-build/r/`, que as rotas leem sob demanda.
+Este projeto também é um registry shadcn publicável (`registry.json`, componentes autorais `mode-toggle`, `app-sidebar` e `registry-auth`).
 
-Proteção por token opcional via `REGISTRY_TOKEN` (ver `.env.example`) — sem a variável, fica público.
+Duas formas de instalar:
+
+```bash
+# direto do GitHub, sem depender do servidor local (repo público)
+npx shadcn@latest add deandradelucas/showcase-ui/mode-toggle
+
+# via servidor Next.js (busca server-side, q/type/limit/offset em /r/registry.json)
+npx shadcn@latest registry add "@showcase-ui=http://localhost:4320/r/{name}.json"
+npx shadcn@latest add @showcase-ui/mode-toggle
+```
+
+`npm run registry:build` gera o conteúdo em `.registry-build/r/`, que as rotas `/r/registry.json` e `/r/[name]` leem sob demanda. Proteção opcional por token via `REGISTRY_TOKEN` (`.env.example`) — só vale pro caminho via servidor; a instalação direto do GitHub não passa por essa auth.
 
 Contexto completo das decisões técnicas em `CLAUDE.md`.

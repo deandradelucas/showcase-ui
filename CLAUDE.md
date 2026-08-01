@@ -21,7 +21,13 @@ shadcn/ui aqui roda sobre **Base UI**, não Radix — diferenças de API confirm
 
 Criado via `npx shadcn@latest init -t next -n showcase-ui -b base -p nova --no-monorepo -y`, seguindo `ui.shadcn.com/docs/installation` passo a passo.
 
-**Registry publicável:** `registry.json` na raiz registra os componentes autorais (`mode-toggle`, `app-sidebar`) como `registry:ui`. Componente autoral usado dentro de outro item entra na lista `files` dele, nunca em `registryDependencies` (gotcha confirmado no projeto anterior: nome sem namespace em `registryDependencies` sempre resolve contra o registry oficial do shadcn, nunca contra o próprio — `app-sidebar` inclui `mode-toggle.tsx` direto nos `files`). Hospedagem pública ainda não decidida (repo GitHub privado, projeto só local).
+**Registry publicável:** `registry.json` na raiz registra os componentes autorais (`mode-toggle`, `app-sidebar`, `registry-auth`) como `registry:ui`/`registry:lib`. Componente autoral usado dentro de outro item entra na lista `files` dele, nunca em `registryDependencies` (gotcha confirmado no projeto anterior: nome sem namespace em `registryDependencies` sempre resolve contra o registry oficial do shadcn, nunca contra o próprio — `app-sidebar` inclui `mode-toggle.tsx` direto nos `files`).
+
+**Repo GitHub público desde 01-08-2026** (`docs/registry/github` — repositório privado não é suportado como registry). Isso significa que o registry existe em **dois canais paralelos**, com segurança diferente:
+- `npx shadcn add deandradelucas/showcase-ui/<item>` — lê os arquivos direto do GitHub (raw), **sem passar pela nossa auth em nenhum momento**. Testado: `registry validate`, `list` e `add` de verdade, tudo funcionando sem servidor rodando.
+- `npx shadcn add @showcase-ui/<item>` apontando pro `.mcp`/rota Next.js — passa pelo `REGISTRY_TOKEN` se configurado.
+
+**Ou seja: `REGISTRY_TOKEN` não protege o conteúdo de verdade**, já que o mesmo `registry.json`/arquivos estão públicos no repo GitHub de qualquer forma. Auth só faz sentido real se o repo também for privado (o que quebraria o canal GitHub) — os dois mecanismos são mutuamente exclusivos na prática, não complementares. Registrado aqui pra não achar no futuro que o token protege algo que não protege.
 
 **MCP:** `.mcp.json` configurado (`npx shadcn@latest mcp init --client claude`) — dá acesso ao registry oficial do shadcn via protocolo MCP. Precisa reiniciar o Claude Code pra ativar nesta sessão.
 
