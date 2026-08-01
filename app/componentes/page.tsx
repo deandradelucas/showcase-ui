@@ -38,6 +38,12 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { toast } from "@/components/ui/toast"
 import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip"
 
+const PLANOS = [
+  { value: "starter", label: "Starter" },
+  { value: "pro", label: "Pro" },
+  { value: "enterprise", label: "Enterprise" },
+]
+
 function Vitrine({ titulo, children }: { titulo: string; children: React.ReactNode }) {
   return (
     <Card>
@@ -97,14 +103,16 @@ export default function Componentes() {
         </Vitrine>
 
         <Vitrine titulo="Select">
-          <Select>
+          <Select items={PLANOS}>
             <SelectTrigger className="w-[180px]">
               <SelectValue placeholder="Escolha um plano" />
             </SelectTrigger>
             <SelectContent>
-              <SelectItem value="starter">Starter</SelectItem>
-              <SelectItem value="pro">Pro</SelectItem>
-              <SelectItem value="enterprise">Enterprise</SelectItem>
+              {PLANOS.map((p) => (
+                <SelectItem key={p.value} value={p.value}>
+                  {p.label}
+                </SelectItem>
+              ))}
             </SelectContent>
           </Select>
         </Vitrine>
