@@ -1,3 +1,7 @@
+// Uso em outro arquivo:
+// import { Iphone } from "@/components/ui/iphone"
+// <Iphone className="mx-auto max-w-56" src="/screenshot.png" />
+
 import type { HTMLAttributes } from "react"
 
 const PHONE_WIDTH = 433
