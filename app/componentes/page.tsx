@@ -1,7 +1,8 @@
 "use client"
 
 import { useState } from "react"
-import { Check, ChevronsUpDown, Mail } from "lucide-react"
+import { Check, ChevronsUpDown, FileText, Mail, X } from "lucide-react"
+import { Bar, BarChart, CartesianGrid, XAxis } from "recharts"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
 import {
   AlertDialog,
@@ -16,6 +17,15 @@ import {
 } from "@/components/ui/alert-dialog"
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert"
 import { AspectRatio } from "@/components/ui/aspect-ratio"
+import {
+  Attachment,
+  AttachmentActions,
+  AttachmentAction,
+  AttachmentContent,
+  AttachmentDescription,
+  AttachmentMedia,
+  AttachmentTitle,
+} from "@/components/ui/attachment"
 import { Avatar, AvatarFallback } from "@/components/ui/avatar"
 import { Badge } from "@/components/ui/badge"
 import {
@@ -46,6 +56,14 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel"
 import { Bubble, BubbleContent } from "@/components/ui/bubble"
+import {
+  ChartContainer,
+  ChartLegend,
+  ChartLegendContent,
+  ChartTooltip,
+  ChartTooltipContent,
+  type ChartConfig,
+} from "@/components/ui/chart"
 import { Checkbox } from "@/components/ui/checkbox"
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible"
 import {
@@ -97,6 +115,7 @@ import { InputOTP, InputOTPGroup, InputOTPSlot } from "@/components/ui/input-otp
 import { Item, ItemContent, ItemDescription, ItemMedia, ItemTitle } from "@/components/ui/item"
 import { Kbd } from "@/components/ui/kbd"
 import { Label } from "@/components/ui/label"
+import { Marker, MarkerContent } from "@/components/ui/marker"
 import {
   Menubar,
   MenubarContent,
@@ -186,6 +205,18 @@ const PLANOS = [
   { value: "enterprise", label: "Enterprise" },
 ]
 
+const chartData = [
+  { mes: "Jan", desktop: 186, mobile: 80 },
+  { mes: "Fev", desktop: 305, mobile: 200 },
+  { mes: "Mar", desktop: 237, mobile: 120 },
+  { mes: "Abr", desktop: 73, mobile: 190 },
+]
+
+const chartConfig = {
+  desktop: { label: "Desktop", color: "#2563eb" },
+  mobile: { label: "Mobile", color: "#60a5fa" },
+} satisfies ChartConfig
+
 function Vitrine({ titulo, children }: { titulo: string; children: React.ReactNode }) {
   return (
     <Card>
@@ -242,6 +273,23 @@ export default function Componentes() {
           <div className="w-full max-w-xs">
             <AspectRatio ratio={16 / 9} className="rounded-md bg-muted" />
           </div>
+        </Vitrine>
+
+        <Vitrine titulo="Attachment">
+          <Attachment className="w-full max-w-xs">
+            <AttachmentMedia>
+              <FileText />
+            </AttachmentMedia>
+            <AttachmentContent>
+              <AttachmentTitle>relatorio.pdf</AttachmentTitle>
+              <AttachmentDescription>2.4 MB</AttachmentDescription>
+            </AttachmentContent>
+            <AttachmentActions>
+              <AttachmentAction>
+                <X />
+              </AttachmentAction>
+            </AttachmentActions>
+          </Attachment>
         </Vitrine>
 
         <Vitrine titulo="Avatar">
@@ -330,6 +378,19 @@ export default function Componentes() {
             <CarouselPrevious />
             <CarouselNext />
           </Carousel>
+        </Vitrine>
+
+        <Vitrine titulo="Chart">
+          <ChartContainer config={chartConfig} className="min-h-[200px] w-full">
+            <BarChart accessibilityLayer data={chartData}>
+              <CartesianGrid vertical={false} />
+              <XAxis dataKey="mes" tickLine={false} tickMargin={10} axisLine={false} />
+              <ChartTooltip content={<ChartTooltipContent />} />
+              <ChartLegend content={<ChartLegendContent />} />
+              <Bar dataKey="desktop" fill="var(--color-desktop)" radius={4} />
+              <Bar dataKey="mobile" fill="var(--color-mobile)" radius={4} />
+            </BarChart>
+          </ChartContainer>
         </Vitrine>
 
         <Vitrine titulo="Checkbox">
@@ -492,6 +553,12 @@ export default function Componentes() {
         <Vitrine titulo="Label">
           <Label htmlFor="l1">Nome completo</Label>
           <Input id="l1" placeholder="Seu nome" className="max-w-xs" />
+        </Vitrine>
+
+        <Vitrine titulo="Marker">
+          <Marker variant="separator" className="max-w-xs">
+            <MarkerContent>Hoje</MarkerContent>
+          </Marker>
         </Vitrine>
 
         <Vitrine titulo="Menubar">
