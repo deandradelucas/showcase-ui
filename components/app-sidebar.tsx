@@ -13,6 +13,8 @@ import {
   ChartColumn,
   MousePointerClick,
   MousePointer,
+  GalleryHorizontal,
+  RotateCw,
   Smartphone,
   type LucideIcon,
 } from "lucide-react"
@@ -56,6 +58,15 @@ const hovers = [
 const buttons = [
   { href: "/button-delete", label: "Delete Button" },
   { href: "/button-split", label: "Split Button" },
+]
+
+const cards = [
+  { href: "/card-wiggling", label: "Wiggling Cards" },
+]
+
+const carousels = [
+  { href: "/carousel-radial", label: "Radial Carousel" },
+  { href: "/carousel-minimal", label: "Minimal Carousel" },
 ]
 
 const deviceMocks = [
@@ -120,6 +131,8 @@ export function AppSidebar() {
   const [chartOpen, setChartOpen] = useState(() => charts.some((c) => c.href === pathname))
   const [hoverOpen, setHoverOpen] = useState(() => hovers.some((h) => h.href === pathname))
   const [buttonsOpen, setButtonsOpen] = useState(() => buttons.some((b) => b.href === pathname))
+  const [cardsOpen, setCardsOpen] = useState(() => cards.some((c) => c.href === pathname))
+  const [carouselsOpen, setCarouselsOpen] = useState(() => carousels.some((c) => c.href === pathname))
   const [deviceOpen, setDeviceOpen] = useState(() => deviceMocks.some((d) => d.href === pathname))
 
   if (pathname !== prevPathname) {
@@ -127,6 +140,8 @@ export function AppSidebar() {
     if (charts.some((c) => c.href === pathname)) setChartOpen(true)
     if (hovers.some((h) => h.href === pathname)) setHoverOpen(true)
     if (buttons.some((b) => b.href === pathname)) setButtonsOpen(true)
+    if (cards.some((c) => c.href === pathname)) setCardsOpen(true)
+    if (carousels.some((c) => c.href === pathname)) setCarouselsOpen(true)
     if (deviceMocks.some((d) => d.href === pathname)) setDeviceOpen(true)
   }
 
@@ -179,6 +194,24 @@ export function AppSidebar() {
                 pathname={pathname}
                 open={buttonsOpen}
                 onOpenChange={setButtonsOpen}
+              />
+
+              <NavCollapsibleGroup
+                icon={GalleryHorizontal}
+                label="Cards"
+                items={cards}
+                pathname={pathname}
+                open={cardsOpen}
+                onOpenChange={setCardsOpen}
+              />
+
+              <NavCollapsibleGroup
+                icon={RotateCw}
+                label="Carousel"
+                items={carousels}
+                pathname={pathname}
+                open={carouselsOpen}
+                onOpenChange={setCarouselsOpen}
               />
 
               <NavCollapsibleGroup
