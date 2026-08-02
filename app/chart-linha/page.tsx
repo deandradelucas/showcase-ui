@@ -36,7 +36,7 @@ export default async function ChartLinha() {
         <CardHeader className="border-b">
           <CardTitle className="flex items-center gap-1.5">
             Chart (Linha)
-            <span className="font-normal text-muted-foreground">— Recharts</span>
+            <span className="text-sm font-normal text-muted-foreground">— Recharts</span>
           </CardTitle>
           <CardAction>
             <ViewCode

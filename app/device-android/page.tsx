@@ -27,7 +27,7 @@ export default async function DeviceAndroidPage() {
         <CardHeader className="border-b">
           <CardTitle className="flex items-center gap-1.5">
             Android
-            <span className="font-normal text-muted-foreground">— MagicUI</span>
+            <span className="text-sm font-normal text-muted-foreground">— MagicUI</span>
           </CardTitle>
           <CardAction>
             <ViewCode

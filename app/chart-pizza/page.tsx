@@ -33,7 +33,7 @@ export default async function ChartPizza() {
         <CardHeader className="border-b">
           <CardTitle className="flex items-center gap-1.5">
             Chart (Pizza)
-            <span className="font-normal text-muted-foreground">— Recharts</span>
+            <span className="text-sm font-normal text-muted-foreground">— Recharts</span>
           </CardTitle>
           <CardAction>
             <ViewCode
