@@ -21,7 +21,9 @@ export default function DeviceIphonePage() {
           <CardDescription>MagicUI — moldura de iPhone em SVG puro.</CardDescription>
         </CardHeader>
         <CardContent className="space-y-4">
-          <Iphone className="mx-auto max-w-56" />
+          <div className="flex justify-center">
+            <Iphone className="max-w-56" />
+          </div>
           <CodeSnippet code={USAGE_CODE} />
         </CardContent>
       </Card>

@@ -1,5 +1,3 @@
-"use client"
-
 import {
   Card,
   CardContent,
@@ -8,6 +6,11 @@ import {
   CardTitle,
 } from "@/components/ui/card"
 import { Android } from "@/components/ui/android"
+import { CodeSnippet } from "@/components/code-snippet"
+
+const USAGE_CODE = `import { Android } from "@/components/ui/android"
+
+<Android className="h-auto w-56" />`
 
 export default function DeviceAndroidPage() {
   return (
@@ -17,8 +20,11 @@ export default function DeviceAndroidPage() {
           <CardTitle>Android</CardTitle>
           <CardDescription>MagicUI — moldura de Android em SVG puro.</CardDescription>
         </CardHeader>
-        <CardContent className="flex justify-center">
-          <Android className="h-auto w-56" />
+        <CardContent className="space-y-4">
+          <div className="flex justify-center">
+            <Android className="h-auto w-56" />
+          </div>
+          <CodeSnippet code={USAGE_CODE} />
         </CardContent>
       </Card>
     </div>
