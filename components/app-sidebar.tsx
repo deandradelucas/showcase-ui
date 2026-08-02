@@ -36,6 +36,15 @@ import {
   AlignJustify,
   Share2,
   Smartphone,
+  ShieldAlert,
+  FolderTree,
+  Link2,
+  OrbitIcon,
+  Users,
+  Sparkles as SparklesIcon,
+  ImagePlus,
+  Type,
+  MessageSquareQuote,
   type LucideIcon,
 } from "lucide-react"
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible"
@@ -95,6 +104,8 @@ const navGroups: NavGroup[] = [
     items: [
       { href: "/button-delete", label: "Delete Button" },
       { href: "/button-split", label: "Split Button" },
+      { href: "/buttons-flip", label: "Flip Button" },
+      { href: "/buttons-theme-toggler", label: "Theme Toggler" },
     ],
   },
   {
@@ -104,6 +115,9 @@ const navGroups: NavGroup[] = [
     items: [
       { href: "/card-wiggling", label: "Wiggling Cards" },
       { href: "/card-revealing-stack", label: "Revealing Stack" },
+      { href: "/community-flip-card", label: "Flip Card" },
+      { href: "/focus-cards", label: "Focus Cards" },
+      { href: "/layout-grid", label: "Layout Grid" },
     ],
   },
   {
@@ -113,6 +127,7 @@ const navGroups: NavGroup[] = [
     items: [
       { href: "/carousel-radial", label: "Radial Carousel" },
       { href: "/carousel-minimal", label: "Minimal Carousel" },
+      { href: "/community-motion-carousel", label: "Motion Carousel" },
     ],
   },
   {
@@ -135,6 +150,8 @@ const navGroups: NavGroup[] = [
       { href: "/input-floating", label: "Floating Input" },
       { href: "/input-predictive-text", label: "Predictive Text" },
       { href: "/input-progressive-stack", label: "Progressive Input Stack" },
+      { href: "/file-upload", label: "File Upload" },
+      { href: "/gooey-input", label: "Gooey Input" },
     ],
   },
   {
@@ -150,6 +167,7 @@ const navGroups: NavGroup[] = [
     items: [
       { href: "/list-pin-item", label: "Pin Item" },
       { href: "/list-stack", label: "List Stack" },
+      { href: "/community-playful-todolist", label: "Playful Todolist" },
     ],
   },
   {
@@ -213,7 +231,10 @@ const navGroups: NavGroup[] = [
     key: "sidebar",
     label: "Sidebar",
     icon: PanelLeft,
-    items: [{ href: "/sidebar-macos", label: "macOS Sidebar" }],
+    items: [
+      { href: "/sidebar-macos", label: "macOS Sidebar" },
+      { href: "/radix-sidebar", label: "Radix Sidebar" },
+    ],
   },
   {
     key: "pagination",
@@ -244,6 +265,8 @@ const navGroups: NavGroup[] = [
     items: [
       { href: "/navbar-tooltip", label: "Tooltip Navbar" },
       { href: "/navbar-tooltip-vertical", label: "Vertical Tooltip Navbar" },
+      { href: "/navbar-menu", label: "Navbar Menu" },
+      { href: "/navbar-resizable", label: "Resizable Navbar" },
     ],
   },
   {
@@ -254,6 +277,64 @@ const navGroups: NavGroup[] = [
       { href: "/share-sheet", label: "Share Sheet" },
       { href: "/share-qr", label: "Show QR" },
     ],
+  },
+  {
+    key: "dialog",
+    label: "Dialog",
+    icon: ShieldAlert,
+    items: [{ href: "/dialog-animated-alert", label: "Animated Alert Dialog" }],
+  },
+  {
+    key: "files",
+    label: "Files",
+    icon: FolderTree,
+    items: [{ href: "/files-tree", label: "Files" }],
+  },
+  {
+    key: "preview",
+    label: "Preview",
+    icon: Link2,
+    items: [{ href: "/preview-link-card", label: "Preview Link Card" }],
+  },
+  {
+    key: "intro",
+    label: "Intro",
+    icon: OrbitIcon,
+    items: [{ href: "/community-radial-intro", label: "Radial Intro" }],
+  },
+  {
+    key: "avatar",
+    label: "Avatar",
+    icon: Users,
+    items: [{ href: "/community-user-presence-avatar", label: "User Presence Avatar" }],
+  },
+  {
+    key: "icons",
+    label: "Icons",
+    icon: SparklesIcon,
+    items: [{ href: "/icons-animated", label: "Animated Icons" }],
+  },
+  {
+    key: "backgrounds",
+    label: "Backgrounds",
+    icon: ImagePlus,
+    items: [
+      { href: "/sparkles", label: "Sparkles" },
+      { href: "/sparkles-fullpage", label: "Sparkles (Full Page)" },
+      { href: "/vortex", label: "Vortex" },
+    ],
+  },
+  {
+    key: "text-effects",
+    label: "Text Effects",
+    icon: Type,
+    items: [{ href: "/text-generate-effect", label: "Text Generate Effect" }],
+  },
+  {
+    key: "testimonials",
+    label: "Testimonials",
+    icon: MessageSquareQuote,
+    items: [{ href: "/animated-testimonials", label: "Animated Testimonials" }],
   },
   {
     key: "device-mocks",
