@@ -15,6 +15,9 @@ import {
   MousePointer,
   GalleryHorizontal,
   RotateCw,
+  PanelBottomOpen,
+  TextCursorInput,
+  Tag,
   Smartphone,
   type LucideIcon,
 } from "lucide-react"
@@ -67,6 +70,21 @@ const cards = [
 const carousels = [
   { href: "/carousel-radial", label: "Radial Carousel" },
   { href: "/carousel-minimal", label: "Minimal Carousel" },
+]
+
+const disclosures = [
+  { href: "/disclosure-create-new", label: "Create New" },
+  { href: "/disclosure-inline-overflow", label: "Inline Overflow" },
+  { href: "/disclosure-task-widget", label: "Task Widget" },
+]
+
+const inputs = [
+  { href: "/input-draw-signature", label: "Draw Signature" },
+  { href: "/input-floating", label: "Floating Input" },
+]
+
+const tags = [
+  { href: "/tags", label: "Tags" },
 ]
 
 const deviceMocks = [
@@ -133,6 +151,9 @@ export function AppSidebar() {
   const [buttonsOpen, setButtonsOpen] = useState(() => buttons.some((b) => b.href === pathname))
   const [cardsOpen, setCardsOpen] = useState(() => cards.some((c) => c.href === pathname))
   const [carouselsOpen, setCarouselsOpen] = useState(() => carousels.some((c) => c.href === pathname))
+  const [disclosuresOpen, setDisclosuresOpen] = useState(() => disclosures.some((d) => d.href === pathname))
+  const [inputsOpen, setInputsOpen] = useState(() => inputs.some((i) => i.href === pathname))
+  const [tagsOpen, setTagsOpen] = useState(() => tags.some((t) => t.href === pathname))
   const [deviceOpen, setDeviceOpen] = useState(() => deviceMocks.some((d) => d.href === pathname))
 
   if (pathname !== prevPathname) {
@@ -142,6 +163,9 @@ export function AppSidebar() {
     if (buttons.some((b) => b.href === pathname)) setButtonsOpen(true)
     if (cards.some((c) => c.href === pathname)) setCardsOpen(true)
     if (carousels.some((c) => c.href === pathname)) setCarouselsOpen(true)
+    if (disclosures.some((d) => d.href === pathname)) setDisclosuresOpen(true)
+    if (inputs.some((i) => i.href === pathname)) setInputsOpen(true)
+    if (tags.some((t) => t.href === pathname)) setTagsOpen(true)
     if (deviceMocks.some((d) => d.href === pathname)) setDeviceOpen(true)
   }
 
@@ -212,6 +236,33 @@ export function AppSidebar() {
                 pathname={pathname}
                 open={carouselsOpen}
                 onOpenChange={setCarouselsOpen}
+              />
+
+              <NavCollapsibleGroup
+                icon={PanelBottomOpen}
+                label="Disclosure"
+                items={disclosures}
+                pathname={pathname}
+                open={disclosuresOpen}
+                onOpenChange={setDisclosuresOpen}
+              />
+
+              <NavCollapsibleGroup
+                icon={TextCursorInput}
+                label="Inputs"
+                items={inputs}
+                pathname={pathname}
+                open={inputsOpen}
+                onOpenChange={setInputsOpen}
+              />
+
+              <NavCollapsibleGroup
+                icon={Tag}
+                label="Tags"
+                items={tags}
+                pathname={pathname}
+                open={tagsOpen}
+                onOpenChange={setTagsOpen}
               />
 
               <NavCollapsibleGroup
