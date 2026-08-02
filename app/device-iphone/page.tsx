@@ -1,5 +1,6 @@
 import {
   Card,
+  CardAction,
   CardContent,
   CardDescription,
   CardHeader,
@@ -27,12 +28,14 @@ export default async function DeviceIphonePage() {
         <CardHeader>
           <CardTitle>iPhone</CardTitle>
           <CardDescription>MagicUI — moldura de iPhone em SVG puro.</CardDescription>
+          <CardAction>
+            <ViewCode install="deandradelucas/showcase-ui/iphone" files={files} />
+          </CardAction>
         </CardHeader>
         <CardContent className="space-y-4">
           <div className="flex justify-center">
             <Iphone className="max-w-56" />
           </div>
-          <ViewCode install="deandradelucas/showcase-ui/iphone" files={files} />
         </CardContent>
       </Card>
     </div>

@@ -1,5 +1,6 @@
 import {
   Card,
+  CardAction,
   CardContent,
   CardDescription,
   CardHeader,
@@ -36,10 +37,12 @@ export default async function ChartLinha() {
         <CardHeader>
           <CardTitle>Chart (Linha)</CardTitle>
           <CardDescription>LineChart do Recharts via ChartContainer.</CardDescription>
+          <CardAction>
+            <ViewCode install="chart" files={files} />
+          </CardAction>
         </CardHeader>
         <CardContent className="space-y-4">
           <ChartLinhaDemo />
-          <ViewCode install="chart" files={files} />
         </CardContent>
       </Card>
     </div>

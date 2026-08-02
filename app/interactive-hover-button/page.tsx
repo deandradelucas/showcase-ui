@@ -1,5 +1,6 @@
 import {
   Card,
+  CardAction,
   CardContent,
   CardDescription,
   CardHeader,
@@ -27,13 +28,15 @@ export default async function InteractiveHoverButtonPage() {
         <CardHeader>
           <CardTitle>Interactive Hover Button</CardTitle>
           <CardDescription>MagicUI — botão com animação de hover em HTML/CSS puro.</CardDescription>
+          <CardAction>
+            <ViewCode
+              install="deandradelucas/showcase-ui/interactive-hover-button"
+              files={files}
+            />
+          </CardAction>
         </CardHeader>
         <CardContent className="space-y-4">
           <InteractiveHoverButton>Passe o mouse</InteractiveHoverButton>
-          <ViewCode
-            install="deandradelucas/showcase-ui/interactive-hover-button"
-            files={files}
-          />
         </CardContent>
       </Card>
     </div>

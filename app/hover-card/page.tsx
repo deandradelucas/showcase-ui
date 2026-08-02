@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button"
 import {
   Card,
+  CardAction,
   CardContent,
   CardDescription,
   CardHeader,
@@ -31,13 +32,15 @@ export default async function HoverCardPage() {
         <CardHeader>
           <CardTitle>Hover Card</CardTitle>
           <CardDescription>Conteúdo exibido ao passar o mouse sobre o gatilho.</CardDescription>
+          <CardAction>
+            <ViewCode install="hover-card" files={files} />
+          </CardAction>
         </CardHeader>
         <CardContent className="space-y-4">
           <HoverCard>
             <HoverCardTrigger render={<Button variant="outline">Passe o mouse</Button>} />
             <HoverCardContent>Conteúdo exibido ao passar o mouse.</HoverCardContent>
           </HoverCard>
-          <ViewCode install="hover-card" files={files} />
         </CardContent>
       </Card>
     </div>

@@ -1,5 +1,6 @@
 import {
   Card,
+  CardAction,
   CardContent,
   CardDescription,
   CardHeader,
@@ -37,10 +38,12 @@ export default async function ChartBarra() {
         <CardHeader>
           <CardTitle>Chart (Barra)</CardTitle>
           <CardDescription>BarChart do Recharts via ChartContainer.</CardDescription>
+          <CardAction>
+            <ViewCode install="chart" files={files} />
+          </CardAction>
         </CardHeader>
         <CardContent className="space-y-4">
           <ChartBarraDemo />
-          <ViewCode install="chart" files={files} />
         </CardContent>
       </Card>
     </div>

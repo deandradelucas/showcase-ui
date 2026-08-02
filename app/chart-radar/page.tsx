@@ -1,5 +1,6 @@
 import {
   Card,
+  CardAction,
   CardContent,
   CardDescription,
   CardHeader,
@@ -35,10 +36,12 @@ export default async function ChartRadar() {
         <CardHeader>
           <CardTitle>Chart (Radar)</CardTitle>
           <CardDescription>RadarChart do Recharts via ChartContainer.</CardDescription>
+          <CardAction>
+            <ViewCode install="chart" files={files} />
+          </CardAction>
         </CardHeader>
         <CardContent className="space-y-4">
           <ChartRadarDemo />
-          <ViewCode install="chart" files={files} />
         </CardContent>
       </Card>
     </div>

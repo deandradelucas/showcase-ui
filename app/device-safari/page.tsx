@@ -1,5 +1,6 @@
 import {
   Card,
+  CardAction,
   CardContent,
   CardDescription,
   CardHeader,
@@ -27,10 +28,12 @@ export default async function DeviceSafariPage() {
         <CardHeader>
           <CardTitle>Safari</CardTitle>
           <CardDescription>MagicUI — moldura de janela do Safari em SVG puro.</CardDescription>
+          <CardAction>
+            <ViewCode install="deandradelucas/showcase-ui/safari" files={files} />
+          </CardAction>
         </CardHeader>
         <CardContent className="space-y-4">
           <Safari url="showcase-ui.dev" className="w-full" />
-          <ViewCode install="deandradelucas/showcase-ui/safari" files={files} />
         </CardContent>
       </Card>
     </div>

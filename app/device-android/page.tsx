@@ -1,5 +1,6 @@
 import {
   Card,
+  CardAction,
   CardContent,
   CardDescription,
   CardHeader,
@@ -27,12 +28,14 @@ export default async function DeviceAndroidPage() {
         <CardHeader>
           <CardTitle>Android</CardTitle>
           <CardDescription>MagicUI — moldura de Android em SVG puro.</CardDescription>
+          <CardAction>
+            <ViewCode install="deandradelucas/showcase-ui/android" files={files} />
+          </CardAction>
         </CardHeader>
         <CardContent className="space-y-4">
           <div className="flex justify-center">
             <Android className="h-auto w-56" />
           </div>
-          <ViewCode install="deandradelucas/showcase-ui/android" files={files} />
         </CardContent>
       </Card>
     </div>
