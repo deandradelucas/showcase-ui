@@ -10,6 +10,7 @@ import {
   Home,
   ChevronRight,
   ChevronsUpDown,
+  KeyRound,
   ChartColumn,
   MousePointerClick,
   MousePointer,
@@ -18,6 +19,22 @@ import {
   PanelBottomOpen,
   TextCursorInput,
   Tag,
+  ListChecks,
+  MapPin,
+  DollarSign,
+  MessageCircleWarning,
+  ListFilter,
+  Wand2,
+  ScrollText,
+  BookOpenText,
+  ArrowLeftRight,
+  Command,
+  PanelLeft,
+  ListOrdered,
+  LayoutPanelTop,
+  SlidersHorizontal,
+  AlignJustify,
+  Share2,
   Smartphone,
   type LucideIcon,
 } from "lucide-react"
@@ -44,53 +61,210 @@ const rotas = [
   { href: "/componentes", label: "Componentes", icon: LayoutGrid },
   { href: "/chat", label: "Chat", icon: MessageSquare },
   { href: "/accordion", label: "Accordion", icon: ChevronsUpDown },
+  { href: "/license-key", label: "License Key", icon: KeyRound },
 ]
 
-const charts = [
-  { href: "/chart-barra", label: "Chart Barra" },
-  { href: "/chart-linha", label: "Chart Linha" },
-  { href: "/chart-pizza", label: "Chart Pizza" },
-  { href: "/chart-radar", label: "Chart Radar" },
-]
+type NavItem = { href: string; label: string }
+type NavGroup = { key: string; label: string; icon: LucideIcon; items: NavItem[] }
 
-const hovers = [
-  { href: "/hover-card", label: "Hover Card" },
-  { href: "/interactive-hover-button", label: "Interactive Hover Button" },
-]
-
-const buttons = [
-  { href: "/button-delete", label: "Delete Button" },
-  { href: "/button-split", label: "Split Button" },
-]
-
-const cards = [
-  { href: "/card-wiggling", label: "Wiggling Cards" },
-]
-
-const carousels = [
-  { href: "/carousel-radial", label: "Radial Carousel" },
-  { href: "/carousel-minimal", label: "Minimal Carousel" },
-]
-
-const disclosures = [
-  { href: "/disclosure-create-new", label: "Create New" },
-  { href: "/disclosure-inline-overflow", label: "Inline Overflow" },
-  { href: "/disclosure-task-widget", label: "Task Widget" },
-]
-
-const inputs = [
-  { href: "/input-draw-signature", label: "Draw Signature" },
-  { href: "/input-floating", label: "Floating Input" },
-]
-
-const tags = [
-  { href: "/tags", label: "Tags" },
-]
-
-const deviceMocks = [
-  { href: "/device-safari", label: "Safari" },
-  { href: "/device-iphone", label: "iPhone" },
-  { href: "/device-android", label: "Android" },
+const navGroups: NavGroup[] = [
+  {
+    key: "chart",
+    label: "Chart",
+    icon: ChartColumn,
+    items: [
+      { href: "/chart-barra", label: "Chart Barra" },
+      { href: "/chart-linha", label: "Chart Linha" },
+      { href: "/chart-pizza", label: "Chart Pizza" },
+      { href: "/chart-radar", label: "Chart Radar" },
+    ],
+  },
+  {
+    key: "hover",
+    label: "Hover",
+    icon: MousePointerClick,
+    items: [
+      { href: "/hover-card", label: "Hover Card" },
+      { href: "/interactive-hover-button", label: "Interactive Hover Button" },
+    ],
+  },
+  {
+    key: "buttons",
+    label: "Buttons",
+    icon: MousePointer,
+    items: [
+      { href: "/button-delete", label: "Delete Button" },
+      { href: "/button-split", label: "Split Button" },
+    ],
+  },
+  {
+    key: "cards",
+    label: "Cards",
+    icon: GalleryHorizontal,
+    items: [
+      { href: "/card-wiggling", label: "Wiggling Cards" },
+      { href: "/card-revealing-stack", label: "Revealing Stack" },
+    ],
+  },
+  {
+    key: "carousel",
+    label: "Carousel",
+    icon: RotateCw,
+    items: [
+      { href: "/carousel-radial", label: "Radial Carousel" },
+      { href: "/carousel-minimal", label: "Minimal Carousel" },
+    ],
+  },
+  {
+    key: "disclosure",
+    label: "Disclosure",
+    icon: PanelBottomOpen,
+    items: [
+      { href: "/disclosure-create-new", label: "Create New" },
+      { href: "/disclosure-inline-overflow", label: "Inline Overflow" },
+      { href: "/disclosure-task-widget", label: "Task Widget" },
+      { href: "/disclosure-floating", label: "Floating Disclosure" },
+    ],
+  },
+  {
+    key: "inputs",
+    label: "Inputs",
+    icon: TextCursorInput,
+    items: [
+      { href: "/input-draw-signature", label: "Draw Signature" },
+      { href: "/input-floating", label: "Floating Input" },
+      { href: "/input-predictive-text", label: "Predictive Text" },
+      { href: "/input-progressive-stack", label: "Progressive Input Stack" },
+    ],
+  },
+  {
+    key: "tags",
+    label: "Tags",
+    icon: Tag,
+    items: [{ href: "/tags", label: "Tags" }],
+  },
+  {
+    key: "lists",
+    label: "Lists",
+    icon: ListChecks,
+    items: [
+      { href: "/list-pin-item", label: "Pin Item" },
+      { href: "/list-stack", label: "List Stack" },
+    ],
+  },
+  {
+    key: "map",
+    label: "Map",
+    icon: MapPin,
+    items: [{ href: "/map-view-on-map", label: "View on Map" }],
+  },
+  {
+    key: "price",
+    label: "Price",
+    icon: DollarSign,
+    items: [
+      { href: "/price-changeable", label: "Changeable Pricing" },
+      { href: "/price-widget", label: "Pricing Widget" },
+    ],
+  },
+  {
+    key: "feedback",
+    label: "Feedback",
+    icon: MessageCircleWarning,
+    items: [{ href: "/feedback-action", label: "Feedback Action" }],
+  },
+  {
+    key: "picker",
+    label: "Picker",
+    icon: ListFilter,
+    items: [{ href: "/picker-quick-option", label: "Quick Option Picker" }],
+  },
+  {
+    key: "reveal",
+    label: "Reveal",
+    icon: Wand2,
+    items: [{ href: "/reveal-copy", label: "Reveal & Copy" }],
+  },
+  {
+    key: "scroll",
+    label: "Scroll",
+    icon: ScrollText,
+    items: [{ href: "/scroll-island", label: "Scroll Island" }],
+  },
+  {
+    key: "pager",
+    label: "Pager",
+    icon: BookOpenText,
+    items: [{ href: "/step-pager", label: "Step Pager" }],
+  },
+  {
+    key: "transactions",
+    label: "Transactions",
+    icon: ArrowLeftRight,
+    items: [{ href: "/transaction-list", label: "Transaction List" }],
+  },
+  {
+    key: "command",
+    label: "Command",
+    icon: Command,
+    items: [{ href: "/command-search", label: "Command Search" }],
+  },
+  {
+    key: "sidebar",
+    label: "Sidebar",
+    icon: PanelLeft,
+    items: [{ href: "/sidebar-macos", label: "macOS Sidebar" }],
+  },
+  {
+    key: "pagination",
+    label: "Pagination",
+    icon: ListOrdered,
+    items: [{ href: "/pagination-continuous", label: "Continuous Pagination" }],
+  },
+  {
+    key: "tabs",
+    label: "Tabs",
+    icon: LayoutPanelTop,
+    items: [
+      { href: "/tabs-continuous", label: "Continuous Tabs" },
+      { href: "/tabs-discrete", label: "Discrete Tabs" },
+      { href: "/tabs-fluid", label: "Fluid Tabs" },
+    ],
+  },
+  {
+    key: "selector",
+    label: "Selector",
+    icon: SlidersHorizontal,
+    items: [{ href: "/selector-frequency", label: "Frequency Selector" }],
+  },
+  {
+    key: "navbar",
+    label: "Navbar",
+    icon: AlignJustify,
+    items: [
+      { href: "/navbar-tooltip", label: "Tooltip Navbar" },
+      { href: "/navbar-tooltip-vertical", label: "Vertical Tooltip Navbar" },
+    ],
+  },
+  {
+    key: "share",
+    label: "Share",
+    icon: Share2,
+    items: [
+      { href: "/share-sheet", label: "Share Sheet" },
+      { href: "/share-qr", label: "Show QR" },
+    ],
+  },
+  {
+    key: "device-mocks",
+    label: "Device Mocks",
+    icon: Smartphone,
+    items: [
+      { href: "/device-safari", label: "Safari" },
+      { href: "/device-iphone", label: "iPhone" },
+      { href: "/device-android", label: "Android" },
+    ],
+  },
 ]
 
 const formularios = [
@@ -98,6 +272,10 @@ const formularios = [
   { href: "/formulario-tanstack", label: "TanStack Form", icon: ClipboardList },
   { href: "/formulario-formisch", label: "Formisch", icon: ClipboardList },
 ]
+
+function groupContainsPath(group: NavGroup, pathname: string) {
+  return group.items.some((item) => item.href === pathname)
+}
 
 function NavCollapsibleGroup({
   icon: Icon,
@@ -109,7 +287,7 @@ function NavCollapsibleGroup({
 }: {
   icon: LucideIcon
   label: string
-  items: { href: string; label: string }[]
+  items: NavItem[]
   pathname: string
   open: boolean
   onOpenChange: (open: boolean) => void
@@ -146,27 +324,20 @@ function NavCollapsibleGroup({
 export function AppSidebar() {
   const pathname = usePathname()
   const [prevPathname, setPrevPathname] = useState(pathname)
-  const [chartOpen, setChartOpen] = useState(() => charts.some((c) => c.href === pathname))
-  const [hoverOpen, setHoverOpen] = useState(() => hovers.some((h) => h.href === pathname))
-  const [buttonsOpen, setButtonsOpen] = useState(() => buttons.some((b) => b.href === pathname))
-  const [cardsOpen, setCardsOpen] = useState(() => cards.some((c) => c.href === pathname))
-  const [carouselsOpen, setCarouselsOpen] = useState(() => carousels.some((c) => c.href === pathname))
-  const [disclosuresOpen, setDisclosuresOpen] = useState(() => disclosures.some((d) => d.href === pathname))
-  const [inputsOpen, setInputsOpen] = useState(() => inputs.some((i) => i.href === pathname))
-  const [tagsOpen, setTagsOpen] = useState(() => tags.some((t) => t.href === pathname))
-  const [deviceOpen, setDeviceOpen] = useState(() => deviceMocks.some((d) => d.href === pathname))
+  const [openGroups, setOpenGroups] = useState<Record<string, boolean>>(() => {
+    const initial: Record<string, boolean> = {}
+    for (const group of navGroups) {
+      initial[group.key] = groupContainsPath(group, pathname)
+    }
+    return initial
+  })
 
   if (pathname !== prevPathname) {
     setPrevPathname(pathname)
-    if (charts.some((c) => c.href === pathname)) setChartOpen(true)
-    if (hovers.some((h) => h.href === pathname)) setHoverOpen(true)
-    if (buttons.some((b) => b.href === pathname)) setButtonsOpen(true)
-    if (cards.some((c) => c.href === pathname)) setCardsOpen(true)
-    if (carousels.some((c) => c.href === pathname)) setCarouselsOpen(true)
-    if (disclosures.some((d) => d.href === pathname)) setDisclosuresOpen(true)
-    if (inputs.some((i) => i.href === pathname)) setInputsOpen(true)
-    if (tags.some((t) => t.href === pathname)) setTagsOpen(true)
-    if (deviceMocks.some((d) => d.href === pathname)) setDeviceOpen(true)
+    const matched = navGroups.find((group) => groupContainsPath(group, pathname))
+    if (matched && !openGroups[matched.key]) {
+      setOpenGroups((prev) => ({ ...prev, [matched.key]: true }))
+    }
   }
 
   return (
@@ -193,86 +364,19 @@ export function AppSidebar() {
                 </SidebarMenuItem>
               ))}
 
-              <NavCollapsibleGroup
-                icon={ChartColumn}
-                label="Chart"
-                items={charts}
-                pathname={pathname}
-                open={chartOpen}
-                onOpenChange={setChartOpen}
-              />
-
-              <NavCollapsibleGroup
-                icon={MousePointerClick}
-                label="Hover"
-                items={hovers}
-                pathname={pathname}
-                open={hoverOpen}
-                onOpenChange={setHoverOpen}
-              />
-
-              <NavCollapsibleGroup
-                icon={MousePointer}
-                label="Buttons"
-                items={buttons}
-                pathname={pathname}
-                open={buttonsOpen}
-                onOpenChange={setButtonsOpen}
-              />
-
-              <NavCollapsibleGroup
-                icon={GalleryHorizontal}
-                label="Cards"
-                items={cards}
-                pathname={pathname}
-                open={cardsOpen}
-                onOpenChange={setCardsOpen}
-              />
-
-              <NavCollapsibleGroup
-                icon={RotateCw}
-                label="Carousel"
-                items={carousels}
-                pathname={pathname}
-                open={carouselsOpen}
-                onOpenChange={setCarouselsOpen}
-              />
-
-              <NavCollapsibleGroup
-                icon={PanelBottomOpen}
-                label="Disclosure"
-                items={disclosures}
-                pathname={pathname}
-                open={disclosuresOpen}
-                onOpenChange={setDisclosuresOpen}
-              />
-
-              <NavCollapsibleGroup
-                icon={TextCursorInput}
-                label="Inputs"
-                items={inputs}
-                pathname={pathname}
-                open={inputsOpen}
-                onOpenChange={setInputsOpen}
-              />
-
-              <NavCollapsibleGroup
-                icon={Tag}
-                label="Tags"
-                items={tags}
-                pathname={pathname}
-                open={tagsOpen}
-                onOpenChange={setTagsOpen}
-              />
-
-              <NavCollapsibleGroup
-                icon={Smartphone}
-                label="Device Mocks"
-                items={deviceMocks}
-                pathname={pathname}
-                open={deviceOpen}
-                onOpenChange={setDeviceOpen}
-              />
+              {navGroups.map((group) => (
+                <NavCollapsibleGroup
+                  key={group.key}
+                  icon={group.icon}
+                  label={group.label}
+                  items={group.items}
+                  pathname={pathname}
+                  open={openGroups[group.key] ?? false}
+                  onOpenChange={(open) =>
+                    setOpenGroups((prev) => ({ ...prev, [group.key]: open }))
+                  }
+                />
+              ))}
             </SidebarMenu>
           </SidebarGroupContent>
         </SidebarGroup>
