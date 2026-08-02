@@ -2,7 +2,6 @@ import {
   Card,
   CardAction,
   CardContent,
-  CardDescription,
   CardHeader,
   CardTitle,
 } from "@/components/ui/card"
@@ -25,12 +24,15 @@ export default async function InteractiveHoverButtonPage() {
   return (
     <div className="mx-auto w-full max-w-xl px-6 py-12">
       <Card>
-        <CardHeader>
-          <CardTitle>Interactive Hover Button</CardTitle>
-          <CardDescription>MagicUI — botão com animação de hover em HTML/CSS puro.</CardDescription>
+        <CardHeader className="border-b">
+          <CardTitle className="flex items-center gap-1.5">
+            Interactive Hover Button
+            <span className="font-normal text-muted-foreground">— MagicUI</span>
+          </CardTitle>
           <CardAction>
             <ViewCode
               install="deandradelucas/showcase-ui/interactive-hover-button"
+              description="Botão com animação de hover em HTML/CSS puro."
               files={files}
             />
           </CardAction>

@@ -3,7 +3,6 @@ import {
   Card,
   CardAction,
   CardContent,
-  CardDescription,
   CardHeader,
   CardTitle,
 } from "@/components/ui/card"
@@ -29,11 +28,14 @@ export default async function HoverCardPage() {
   return (
     <div className="mx-auto w-full max-w-xl px-6 py-12">
       <Card>
-        <CardHeader>
+        <CardHeader className="border-b">
           <CardTitle>Hover Card</CardTitle>
-          <CardDescription>Conteúdo exibido ao passar o mouse sobre o gatilho.</CardDescription>
           <CardAction>
-            <ViewCode install="hover-card" files={files} />
+            <ViewCode
+              install="hover-card"
+              description="Conteúdo exibido ao passar o mouse sobre o gatilho."
+              files={files}
+            />
           </CardAction>
         </CardHeader>
         <CardContent className="space-y-4">

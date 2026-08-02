@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button"
 import {
   Dialog,
   DialogContent,
+  DialogDescription,
   DialogHeader,
   DialogTitle,
   DialogTrigger,
@@ -59,9 +60,11 @@ type ViewCodeFile = {
 export function ViewCode({
   install,
   files,
+  description,
 }: {
   install: string
   files: ViewCodeFile[]
+  description?: string
 }) {
   return (
     <Dialog>
@@ -76,6 +79,7 @@ export function ViewCode({
       <DialogContent className="max-h-[85vh] max-w-2xl overflow-y-auto sm:max-w-2xl">
         <DialogHeader>
           <DialogTitle>Installation</DialogTitle>
+          {description && <DialogDescription>{description}</DialogDescription>}
         </DialogHeader>
         <Tabs defaultValue="npm" className="min-w-0">
           <TabsList>

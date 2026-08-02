@@ -2,7 +2,6 @@ import {
   Card,
   CardAction,
   CardContent,
-  CardDescription,
   CardHeader,
   CardTitle,
 } from "@/components/ui/card"
@@ -25,11 +24,17 @@ export default async function DeviceSafariPage() {
   return (
     <div className="mx-auto w-full max-w-2xl px-6 py-12">
       <Card>
-        <CardHeader>
-          <CardTitle>Safari</CardTitle>
-          <CardDescription>MagicUI — moldura de janela do Safari em SVG puro.</CardDescription>
+        <CardHeader className="border-b">
+          <CardTitle className="flex items-center gap-1.5">
+            Safari
+            <span className="font-normal text-muted-foreground">— MagicUI</span>
+          </CardTitle>
           <CardAction>
-            <ViewCode install="deandradelucas/showcase-ui/safari" files={files} />
+            <ViewCode
+              install="deandradelucas/showcase-ui/safari"
+              description="Moldura de janela do Safari em SVG puro."
+              files={files}
+            />
           </CardAction>
         </CardHeader>
         <CardContent className="space-y-4">

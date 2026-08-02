@@ -2,7 +2,6 @@ import {
   Card,
   CardAction,
   CardContent,
-  CardDescription,
   CardHeader,
   CardTitle,
 } from "@/components/ui/card"
@@ -35,11 +34,17 @@ export default async function ChartBarra() {
   return (
     <div className="mx-auto w-full max-w-xl px-6 py-12">
       <Card>
-        <CardHeader>
-          <CardTitle>Chart (Barra)</CardTitle>
-          <CardDescription>BarChart do Recharts via ChartContainer.</CardDescription>
+        <CardHeader className="border-b">
+          <CardTitle className="flex items-center gap-1.5">
+            Chart (Barra)
+            <span className="font-normal text-muted-foreground">— Recharts</span>
+          </CardTitle>
           <CardAction>
-            <ViewCode install="chart" files={files} />
+            <ViewCode
+              install="chart"
+              description="BarChart via ChartContainer."
+              files={files}
+            />
           </CardAction>
         </CardHeader>
         <CardContent className="space-y-4">

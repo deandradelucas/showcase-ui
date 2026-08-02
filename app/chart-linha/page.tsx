@@ -2,7 +2,6 @@ import {
   Card,
   CardAction,
   CardContent,
-  CardDescription,
   CardHeader,
   CardTitle,
 } from "@/components/ui/card"
@@ -34,11 +33,17 @@ export default async function ChartLinha() {
   return (
     <div className="mx-auto w-full max-w-xl px-6 py-12">
       <Card>
-        <CardHeader>
-          <CardTitle>Chart (Linha)</CardTitle>
-          <CardDescription>LineChart do Recharts via ChartContainer.</CardDescription>
+        <CardHeader className="border-b">
+          <CardTitle className="flex items-center gap-1.5">
+            Chart (Linha)
+            <span className="font-normal text-muted-foreground">— Recharts</span>
+          </CardTitle>
           <CardAction>
-            <ViewCode install="chart" files={files} />
+            <ViewCode
+              install="chart"
+              description="LineChart via ChartContainer."
+              files={files}
+            />
           </CardAction>
         </CardHeader>
         <CardContent className="space-y-4">
