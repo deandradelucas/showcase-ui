@@ -1,5 +1,3 @@
-"use client"
-
 import {
   Card,
   CardContent,
@@ -8,6 +6,11 @@ import {
   CardTitle,
 } from "@/components/ui/card"
 import { Safari } from "@/components/ui/safari"
+import { CodeSnippet } from "@/components/code-snippet"
+
+const USAGE_CODE = `import { Safari } from "@/components/ui/safari"
+
+<Safari url="showcase-ui.dev" className="w-full" />`
 
 export default function DeviceSafariPage() {
   return (
@@ -17,8 +20,9 @@ export default function DeviceSafariPage() {
           <CardTitle>Safari</CardTitle>
           <CardDescription>MagicUI — moldura de janela do Safari em SVG puro.</CardDescription>
         </CardHeader>
-        <CardContent>
+        <CardContent className="space-y-4">
           <Safari url="showcase-ui.dev" className="w-full" />
+          <CodeSnippet code={USAGE_CODE} />
         </CardContent>
       </Card>
     </div>
