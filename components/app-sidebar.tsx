@@ -54,7 +54,7 @@ const hovers = [
 ]
 
 const buttons = [
-  { href: "/button-delete", label: "Delete" },
+  { href: "/button-delete", label: "Delete Button" },
   { href: "/button-split", label: "Split Button" },
 ]
 

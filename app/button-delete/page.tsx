@@ -26,7 +26,7 @@ export default async function ButtonDeletePage() {
       <Card>
         <CardHeader className="border-b">
           <CardTitle className="flex items-center gap-1.5">
-            Delete
+            Delete Button
             <span className="text-sm font-normal text-muted-foreground">
               — Watermelon UI
             </span>
