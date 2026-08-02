@@ -103,6 +103,7 @@ import { HoverCard, HoverCardContent, HoverCardTrigger } from "@/components/ui/h
 import { Input } from "@/components/ui/input"
 import { InputGroup, InputGroupAddon, InputGroupInput } from "@/components/ui/input-group"
 import { InputOTP, InputOTPGroup, InputOTPSlot } from "@/components/ui/input-otp"
+import { InteractiveHoverButton } from "@/components/ui/interactive-hover-button"
 import { Item, ItemContent, ItemDescription, ItemMedia, ItemTitle } from "@/components/ui/item"
 import { Kbd } from "@/components/ui/kbd"
 import { Label } from "@/components/ui/label"
@@ -496,6 +497,10 @@ export default function Componentes() {
               <InputOTPSlot index={3} />
             </InputOTPGroup>
           </InputOTP>
+        </Vitrine>
+
+        <Vitrine titulo="Interactive Hover Button">
+          <InteractiveHoverButton>Passe o mouse</InteractiveHoverButton>
         </Vitrine>
 
         <Vitrine titulo="Item">
