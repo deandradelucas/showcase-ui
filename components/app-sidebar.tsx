@@ -95,6 +95,7 @@ const navGroups: NavGroup[] = [
     items: [
       { href: "/hover-card", label: "Hover Card" },
       { href: "/interactive-hover-button", label: "Interactive Hover Button" },
+      { href: "/focus-blur", label: "Focus Blur" },
     ],
   },
   {

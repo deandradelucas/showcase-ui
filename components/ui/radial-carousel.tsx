@@ -10,7 +10,8 @@ import {
   useTransform,
   type MotionValue,
 } from 'motion/react';
-import { X } from 'lucide-react';
+import { LayoutGrid, X } from 'lucide-react';
+import useMeasure from 'react-use-measure';
 
 export interface GalleryItem {
   id: string | number;
@@ -35,6 +36,7 @@ export const RadialCarousel: React.FC<RadialCarouselProps> = ({
   const [activeIndex, setActiveIndex] = useState(0);
 
   const [isPanning, setIsPanning] = useState(false);
+  const [measureRef, containerBounds] = useMeasure();
   const [responsiveSizes, setResponsiveSizes] = useState({
     radius,
     thumbnailSize,
@@ -42,36 +44,21 @@ export const RadialCarousel: React.FC<RadialCarouselProps> = ({
   });
 
   useEffect(() => {
-    const updateSizes = () => {
-      const width = window.innerWidth;
+    const containerWidth = containerBounds.width;
+    if (!containerWidth) return;
 
-      if (width < 400) {
-        setResponsiveSizes({
-          radius: Math.min(radius, 110),
-          thumbnailSize: Math.min(thumbnailSize, 70),
-          centerSize: Math.min(centerSize, 260),
-        });
-      } else if (width < 640) {
-        setResponsiveSizes({
-          radius: Math.min(radius, 140),
-          thumbnailSize: Math.min(thumbnailSize, 80),
-          centerSize: Math.min(centerSize, 300),
-        });
-      } else if (width < 1024) {
-        setResponsiveSizes({
-          radius: Math.min(radius, 200),
-          thumbnailSize: Math.min(thumbnailSize, 90),
-          centerSize: Math.min(centerSize, 340),
-        });
-      } else {
-        setResponsiveSizes({ radius, thumbnailSize, centerSize });
-      }
-    };
+    // A roda precisa caber dentro da largura real do container (não da janela),
+    // já que este componente costuma viver dentro de um card mais estreito que a tela.
+    const ringDiameter = radius * 2 + thumbnailSize;
+    const availableWidth = containerWidth * 0.92;
+    const scale = Math.min(1, availableWidth / ringDiameter);
 
-    updateSizes();
-    window.addEventListener('resize', updateSizes);
-    return () => window.removeEventListener('resize', updateSizes);
-  }, [radius, thumbnailSize, centerSize]);
+    setResponsiveSizes({
+      radius: radius * scale,
+      thumbnailSize: thumbnailSize * scale,
+      centerSize: Math.min(centerSize, containerWidth * 0.85),
+    });
+  }, [containerBounds.width, radius, thumbnailSize, centerSize]);
 
   const rotation = useMotionValue(0);
 
@@ -95,7 +82,10 @@ export const RadialCarousel: React.FC<RadialCarouselProps> = ({
   };
 
   return (
-    <div className="relative flex h-[350px] w-full touch-pan-y items-center justify-center overflow-visible select-none sm:h-[450px]">
+    <div
+      ref={measureRef}
+      className="relative flex h-[350px] w-full touch-pan-y items-center justify-center overflow-visible select-none sm:h-[450px]"
+    >
       <AnimatePresence mode="popLayout">
         {!isExpanded ? (
           <motion.div
@@ -122,14 +112,15 @@ export const RadialCarousel: React.FC<RadialCarouselProps> = ({
 
               <button
                 onClick={toggleExpand}
+                aria-label="Ver todas as fotos"
                 className="absolute top-6 right-6 flex h-8 w-8 cursor-pointer items-center justify-center rounded-full bg-neutral-100 shadow-xl backdrop-blur-xl transition-all duration-200 hover:scale-105 hover:bg-white active:scale-95 sm:top-8 sm:right-8 sm:h-10 sm:w-10 dark:bg-white/10 dark:hover:bg-white/20"
               >
-                <X
-                  size={20}
+                <LayoutGrid
+                  size={18}
                   className="text-neutral-500 sm:hidden dark:text-white"
                 />
-                <X
-                  size={28}
+                <LayoutGrid
+                  size={22}
                   className="hidden text-neutral-500 sm:block dark:text-white"
                 />
               </button>
@@ -166,6 +157,14 @@ export const RadialCarousel: React.FC<RadialCarouselProps> = ({
                 />
               );
             })}
+
+            <button
+              onClick={toggleExpand}
+              aria-label="Fechar galeria"
+              className="relative z-10 flex h-10 w-10 cursor-pointer items-center justify-center rounded-full bg-neutral-100 shadow-xl backdrop-blur-xl transition-all duration-200 hover:scale-105 hover:bg-white active:scale-95 dark:bg-white/10 dark:hover:bg-white/20"
+            >
+              <X size={20} className="text-neutral-500 dark:text-white" />
+            </button>
           </motion.div>
         )}
       </AnimatePresence>

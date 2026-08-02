@@ -10,7 +10,7 @@ import {
   MobileNavToggle,
   MobileNavMenu,
 } from "@/components/ui/resizable-navbar";
-import { useState } from "react";
+import { useRef, useState } from "react";
 
 export default function NavbarDemo() {
   const navItems = [
@@ -29,12 +29,16 @@ export default function NavbarDemo() {
   ];
 
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const scrollContainerRef = useRef<HTMLDivElement>(null);
 
   return (
-    <div className="relative w-full">
-      <Navbar>
+    <div
+      ref={scrollContainerRef}
+      className="relative h-96 w-full overflow-y-auto"
+    >
+      <Navbar scrollContainerRef={scrollContainerRef}>
         {/* Desktop Navigation */}
-        <NavBody>
+        <NavBody className="min-w-[660px]">
           <NavbarLogo />
           <NavItems items={navItems} />
           <div className="flex items-center gap-4">

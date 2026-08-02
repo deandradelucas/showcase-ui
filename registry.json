@@ -103,6 +103,20 @@
           "target": "components/ui/interactive-hover-button.tsx"
         }
       ]
+    },
+    {
+      "name": "focus-blur",
+      "type": "registry:ui",
+      "title": "Focus Blur",
+      "description": "Lista de links que desfoca e reduz a opacidade dos itens não focados ao passar o mouse.",
+      "dependencies": ["motion"],
+      "files": [
+        {
+          "path": "components/ui/focus-blur.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/focus-blur.tsx"
+        }
+      ]
     }
   ]
 }

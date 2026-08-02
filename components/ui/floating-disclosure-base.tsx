@@ -55,7 +55,7 @@ export const FloatingDisclosure = ({ items }: FloatingDisclosureProps) => {
         damping: 26,
       }}
     >
-      <div className="h-96 flex items-center justify-center">
+      <div className="relative h-96 flex items-center justify-center">
         <motion.div
           className={cn(
             "theme-injected bg-background border-border flex items-center justify-center overflow-hidden rounded-lg border shadow-sm transition-colors duration-400 ease-out"
@@ -80,7 +80,7 @@ export const FloatingDisclosure = ({ items }: FloatingDisclosureProps) => {
                 animate={{
                   opacity: 1,
                   filter: "blur(0px)",
-                  y: -170,
+                  y: -(bounds.height / 2 + 40),
                   top: "50%",
                   left: "50%",
                   x: "-50%",

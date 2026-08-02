@@ -14,6 +14,7 @@ import React, { useRef, useState } from "react";
 interface NavbarProps {
   children: React.ReactNode;
   className?: string;
+  scrollContainerRef?: React.RefObject<HTMLElement | null>;
 }
 
 interface NavBodyProps {
@@ -49,12 +50,17 @@ interface MobileNavMenuProps {
   onClose: () => void;
 }
 
-export const Navbar = ({ children, className }: NavbarProps) => {
+export const Navbar = ({
+  children,
+  className,
+  scrollContainerRef,
+}: NavbarProps) => {
   const ref = useRef<HTMLDivElement>(null);
-  const { scrollY } = useScroll({
-    target: ref,
-    offset: ["start start", "end start"],
-  });
+  const { scrollY } = useScroll(
+    scrollContainerRef
+      ? { container: scrollContainerRef }
+      : { target: ref, offset: ["start start", "end start"] },
+  );
   const [visible, setVisible] = useState<boolean>(false);
 
   useMotionValueEvent(scrollY, "change", (latest) => {
@@ -98,9 +104,6 @@ export const NavBody = ({ children, className, visible }: NavBodyProps) => {
         type: "spring",
         stiffness: 200,
         damping: 50,
-      }}
-      style={{
-        minWidth: "800px",
       }}
       className={cn(
         "relative z-[60] mx-auto hidden w-full max-w-7xl flex-row items-center justify-between self-start rounded-full bg-transparent px-4 py-2 lg:flex dark:bg-transparent",
