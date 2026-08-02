@@ -2,7 +2,20 @@
 
 import { useState } from "react"
 import { Check, ChevronsUpDown, FileText, Mail, X } from "lucide-react"
-import { Bar, BarChart, CartesianGrid, XAxis } from "recharts"
+import {
+  Bar,
+  BarChart,
+  CartesianGrid,
+  Line,
+  LineChart,
+  Pie,
+  PieChart,
+  PolarAngleAxis,
+  PolarGrid,
+  Radar,
+  RadarChart,
+  XAxis,
+} from "recharts"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
 import {
   AlertDialog,
@@ -217,6 +230,23 @@ const chartConfig = {
   mobile: { label: "Mobile", color: "#60a5fa" },
 } satisfies ChartConfig
 
+const pieChartData = [
+  { navegador: "chrome", visitantes: 275, fill: "var(--color-chrome)" },
+  { navegador: "safari", visitantes: 200, fill: "var(--color-safari)" },
+  { navegador: "firefox", visitantes: 187, fill: "var(--color-firefox)" },
+  { navegador: "edge", visitantes: 173, fill: "var(--color-edge)" },
+  { navegador: "outros", visitantes: 90, fill: "var(--color-outros)" },
+]
+
+const pieChartConfig = {
+  visitantes: { label: "Visitantes" },
+  chrome: { label: "Chrome", color: "var(--chart-1)" },
+  safari: { label: "Safari", color: "var(--chart-2)" },
+  firefox: { label: "Firefox", color: "var(--chart-3)" },
+  edge: { label: "Edge", color: "var(--chart-4)" },
+  outros: { label: "Outros", color: "var(--chart-5)" },
+} satisfies ChartConfig
+
 function Vitrine({ titulo, children }: { titulo: string; children: React.ReactNode }) {
   return (
     <Card>
@@ -380,7 +410,7 @@ export default function Componentes() {
           </Carousel>
         </Vitrine>
 
-        <Vitrine titulo="Chart">
+        <Vitrine titulo="Chart (Barra)">
           <ChartContainer config={chartConfig} className="min-h-[200px] w-full">
             <BarChart accessibilityLayer data={chartData}>
               <CartesianGrid vertical={false} />
@@ -390,6 +420,38 @@ export default function Componentes() {
               <Bar dataKey="desktop" fill="var(--color-desktop)" radius={4} />
               <Bar dataKey="mobile" fill="var(--color-mobile)" radius={4} />
             </BarChart>
+          </ChartContainer>
+        </Vitrine>
+
+        <Vitrine titulo="Chart (Linha)">
+          <ChartContainer config={chartConfig} className="min-h-[200px] w-full">
+            <LineChart accessibilityLayer data={chartData} margin={{ left: 12, right: 12 }}>
+              <CartesianGrid vertical={false} />
+              <XAxis dataKey="mes" tickLine={false} tickMargin={10} axisLine={false} />
+              <ChartTooltip content={<ChartTooltipContent />} />
+              <Line dataKey="desktop" type="natural" stroke="var(--color-desktop)" strokeWidth={2} dot={false} />
+              <Line dataKey="mobile" type="natural" stroke="var(--color-mobile)" strokeWidth={2} dot={false} />
+            </LineChart>
+          </ChartContainer>
+        </Vitrine>
+
+        <Vitrine titulo="Chart (Pizza)">
+          <ChartContainer config={pieChartConfig} className="mx-auto aspect-square max-h-[250px] w-full">
+            <PieChart>
+              <ChartTooltip content={<ChartTooltipContent hideLabel />} />
+              <Pie data={pieChartData} dataKey="visitantes" nameKey="navegador" />
+            </PieChart>
+          </ChartContainer>
+        </Vitrine>
+
+        <Vitrine titulo="Chart (Radar)">
+          <ChartContainer config={chartConfig} className="mx-auto aspect-square max-h-[250px] w-full">
+            <RadarChart data={chartData}>
+              <ChartTooltip content={<ChartTooltipContent />} />
+              <PolarAngleAxis dataKey="mes" />
+              <PolarGrid />
+              <Radar dataKey="desktop" fill="var(--color-desktop)" fillOpacity={0.6} />
+            </RadarChart>
           </ChartContainer>
         </Vitrine>
 
