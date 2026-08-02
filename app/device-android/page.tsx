@@ -6,13 +6,16 @@ import {
   CardTitle,
 } from "@/components/ui/card"
 import { Android } from "@/components/ui/android"
-import { CodeSnippet } from "@/components/code-snippet"
+import { ViewCode } from "@/components/view-code"
+import { readComponentSource } from "@/lib/read-source"
 
 const USAGE_CODE = `import { Android } from "@/components/ui/android"
 
 <Android className="h-auto w-56" />`
 
 export default function DeviceAndroidPage() {
+  const androidSource = readComponentSource("components/ui/android.tsx")
+
   return (
     <div className="mx-auto w-full max-w-md px-6 py-12">
       <Card>
@@ -24,7 +27,13 @@ export default function DeviceAndroidPage() {
           <div className="flex justify-center">
             <Android className="h-auto w-56" />
           </div>
-          <CodeSnippet code={USAGE_CODE} />
+          <ViewCode
+            install="deandradelucas/showcase-ui/android"
+            files={[
+              { path: "components/ui/android.tsx", code: androidSource },
+              { path: "uso", code: USAGE_CODE },
+            ]}
+          />
         </CardContent>
       </Card>
     </div>

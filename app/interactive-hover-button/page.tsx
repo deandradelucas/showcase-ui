@@ -1,5 +1,3 @@
-"use client"
-
 import {
   Card,
   CardContent,
@@ -8,13 +6,16 @@ import {
   CardTitle,
 } from "@/components/ui/card"
 import { InteractiveHoverButton } from "@/components/ui/interactive-hover-button"
-import { CodeSnippet } from "@/components/code-snippet"
+import { ViewCode } from "@/components/view-code"
+import { readComponentSource } from "@/lib/read-source"
 
 const USAGE_CODE = `import { InteractiveHoverButton } from "@/components/ui/interactive-hover-button"
 
 <InteractiveHoverButton>Passe o mouse</InteractiveHoverButton>`
 
 export default function InteractiveHoverButtonPage() {
+  const source = readComponentSource("components/ui/interactive-hover-button.tsx")
+
   return (
     <div className="mx-auto w-full max-w-xl px-6 py-12">
       <Card>
@@ -24,7 +25,13 @@ export default function InteractiveHoverButtonPage() {
         </CardHeader>
         <CardContent className="space-y-4">
           <InteractiveHoverButton>Passe o mouse</InteractiveHoverButton>
-          <CodeSnippet code={USAGE_CODE} />
+          <ViewCode
+            install="deandradelucas/showcase-ui/interactive-hover-button"
+            files={[
+              { path: "components/ui/interactive-hover-button.tsx", code: source },
+              { path: "uso", code: USAGE_CODE },
+            ]}
+          />
         </CardContent>
       </Card>
     </div>

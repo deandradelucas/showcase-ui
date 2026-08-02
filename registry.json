@@ -50,6 +50,59 @@
           "target": "components/mode-toggle.tsx"
         }
       ]
+    },
+    {
+      "name": "iphone",
+      "type": "registry:ui",
+      "title": "iPhone Mockup",
+      "description": "Moldura SVG realista de iPhone pra exibir screenshot ou vídeo dentro da tela do device.",
+      "files": [
+        {
+          "path": "components/ui/iphone.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/iphone.tsx"
+        }
+      ]
+    },
+    {
+      "name": "android",
+      "type": "registry:ui",
+      "title": "Android Mockup",
+      "description": "Moldura SVG realista de device Android pra exibir screenshot ou vídeo dentro da tela do device.",
+      "files": [
+        {
+          "path": "components/ui/android.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/android.tsx"
+        }
+      ]
+    },
+    {
+      "name": "safari",
+      "type": "registry:ui",
+      "title": "Safari Mockup",
+      "description": "Moldura SVG de janela do navegador Safari pra exibir screenshot ou vídeo de site.",
+      "files": [
+        {
+          "path": "components/ui/safari.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/safari.tsx"
+        }
+      ]
+    },
+    {
+      "name": "interactive-hover-button",
+      "type": "registry:ui",
+      "title": "Interactive Hover Button",
+      "description": "Botão animado que revela texto e ícone deslizantes ao passar o mouse.",
+      "dependencies": ["lucide-react"],
+      "files": [
+        {
+          "path": "components/ui/interactive-hover-button.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/interactive-hover-button.tsx"
+        }
+      ]
     }
   ]
 }

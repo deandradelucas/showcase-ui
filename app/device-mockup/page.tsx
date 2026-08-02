@@ -7,7 +7,8 @@ import {
 } from "@/components/ui/card"
 import { Iphone } from "@/components/ui/iphone"
 import { Android } from "@/components/ui/android"
-import { CodeSnippet } from "@/components/code-snippet"
+import { ViewCode } from "@/components/view-code"
+import { readComponentSource } from "@/lib/read-source"
 
 const USAGE_CODE = `import { Iphone } from "@/components/ui/iphone"
 import { Android } from "@/components/ui/android"
@@ -24,6 +25,9 @@ import { Android } from "@/components/ui/android"
 </div>`
 
 export default function DeviceMockupPage() {
+  const iphoneSource = readComponentSource("components/ui/iphone.tsx")
+  const androidSource = readComponentSource("components/ui/android.tsx")
+
   return (
     <div className="mx-auto w-full max-w-2xl px-6 py-12">
       <Card>
@@ -45,7 +49,14 @@ export default function DeviceMockupPage() {
               src="/mockup-screenshot.jpg"
             />
           </div>
-          <CodeSnippet code={USAGE_CODE} />
+          <ViewCode
+            install="deandradelucas/showcase-ui/iphone deandradelucas/showcase-ui/android"
+            files={[
+              { path: "components/ui/iphone.tsx", code: iphoneSource },
+              { path: "components/ui/android.tsx", code: androidSource },
+              { path: "uso", code: USAGE_CODE },
+            ]}
+          />
         </CardContent>
       </Card>
     </div>

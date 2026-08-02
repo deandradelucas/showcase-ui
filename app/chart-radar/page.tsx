@@ -1,6 +1,3 @@
-"use client"
-
-import { PolarAngleAxis, PolarGrid, Radar, RadarChart } from "recharts"
 import {
   Card,
   CardContent,
@@ -8,9 +5,9 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card"
-import { ChartContainer, ChartTooltip, ChartTooltipContent } from "@/components/ui/chart"
-import { chartData, chartConfig } from "@/lib/chart-demo-data"
-import { CodeSnippet } from "@/components/code-snippet"
+import { ChartRadarDemo } from "@/components/demos/chart-radar-demo"
+import { ViewCode } from "@/components/view-code"
+import { readComponentSource } from "@/lib/read-source"
 
 const USAGE_CODE = `import { PolarAngleAxis, PolarGrid, Radar, RadarChart } from "recharts"
 import { ChartContainer, ChartTooltip, ChartTooltipContent } from "@/components/ui/chart"
@@ -25,6 +22,8 @@ import { ChartContainer, ChartTooltip, ChartTooltipContent } from "@/components/
 </ChartContainer>`
 
 export default function ChartRadar() {
+  const chartSource = readComponentSource("components/ui/chart.tsx")
+
   return (
     <div className="mx-auto w-full max-w-xl px-6 py-12">
       <Card>
@@ -33,15 +32,14 @@ export default function ChartRadar() {
           <CardDescription>RadarChart do Recharts via ChartContainer.</CardDescription>
         </CardHeader>
         <CardContent className="space-y-4">
-          <ChartContainer config={chartConfig} className="mx-auto aspect-square max-h-[300px] w-full">
-            <RadarChart data={chartData}>
-              <ChartTooltip content={<ChartTooltipContent />} />
-              <PolarAngleAxis dataKey="mes" />
-              <PolarGrid />
-              <Radar dataKey="desktop" fill="var(--color-desktop)" fillOpacity={0.6} />
-            </RadarChart>
-          </ChartContainer>
-          <CodeSnippet code={USAGE_CODE} />
+          <ChartRadarDemo />
+          <ViewCode
+            install="chart"
+            files={[
+              { path: "components/ui/chart.tsx", code: chartSource },
+              { path: "uso (RadarChart)", code: USAGE_CODE },
+            ]}
+          />
         </CardContent>
       </Card>
     </div>
