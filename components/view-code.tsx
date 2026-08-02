@@ -22,8 +22,8 @@ const RUNNERS: Record<PackageManager, string> = {
   bun: "bunx",
 }
 
-function buildCommand(pm: PackageManager, args: string) {
-  return `${RUNNERS[pm]} shadcn@latest add ${args}`
+function buildCommand(pm: PackageManager, args: string, cliCommand: string) {
+  return `${RUNNERS[pm]} ${cliCommand} ${args}`
 }
 
 function CopyButton({ text }: { text: string }) {
@@ -61,10 +61,12 @@ export function ViewCode({
   install,
   files,
   description,
+  cliCommand = "shadcn@latest add",
 }: {
   install: string
   files: ViewCodeFile[]
   description?: string
+  cliCommand?: string
 }) {
   return (
     <Dialog>
@@ -89,7 +91,7 @@ export function ViewCode({
             <TabsTrigger value="bun">bun</TabsTrigger>
           </TabsList>
           {(Object.keys(RUNNERS) as PackageManager[]).map((pm) => {
-            const command = buildCommand(pm, install)
+            const command = buildCommand(pm, install, cliCommand)
             return (
               <TabsContent key={pm} value={pm} className="min-w-0">
                 <div className="relative min-w-0">

@@ -323,6 +323,7 @@ const navGroups: NavGroup[] = [
       { href: "/sparkles", label: "Sparkles" },
       { href: "/sparkles-fullpage", label: "Sparkles (Full Page)" },
       { href: "/vortex", label: "Vortex" },
+      { href: "/electric-border", label: "Electric Border" },
     ],
   },
   {
