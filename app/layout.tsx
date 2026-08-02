@@ -2,6 +2,7 @@ import { Geist, Geist_Mono } from "next/font/google"
 
 import "./globals.css"
 import { AppSidebar } from "@/components/app-sidebar"
+import { GlobalSearch } from "@/components/global-search"
 import { ThemeProvider } from "@/components/theme-provider"
 import { TooltipProvider } from "@/components/ui/tooltip"
 import { Toaster } from "@/components/ui/toast"
@@ -33,8 +34,11 @@ export default function RootLayout({
               <SidebarProvider>
                 <AppSidebar />
                 <SidebarInset>
-                  <header className="flex h-14 shrink-0 items-center border-b px-4">
+                  <header className="flex h-14 shrink-0 items-center justify-between gap-4 border-b px-4">
                     <SidebarTrigger />
+                    <div className="flex flex-1 justify-center">
+                      <GlobalSearch />
+                    </div>
                   </header>
                   <div className="flex flex-1 flex-col">{children}</div>
                 </SidebarInset>

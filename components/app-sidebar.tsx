@@ -65,7 +65,7 @@ import {
 } from "@/components/ui/sidebar"
 import { ModeToggle } from "@/components/mode-toggle"
 
-const rotas = [
+export const rotas = [
   { href: "/", label: "Início", icon: Home },
   { href: "/componentes", label: "Componentes", icon: LayoutGrid },
   { href: "/chat", label: "Chat", icon: MessageSquare },
@@ -73,10 +73,10 @@ const rotas = [
   { href: "/license-key", label: "License Key", icon: KeyRound },
 ]
 
-type NavItem = { href: string; label: string }
-type NavGroup = { key: string; label: string; icon: LucideIcon; items: NavItem[] }
+export type NavItem = { href: string; label: string }
+export type NavGroup = { key: string; label: string; icon: LucideIcon; items: NavItem[] }
 
-const navGroups: NavGroup[] = [
+export const navGroups: NavGroup[] = [
   {
     key: "chart",
     label: "Chart",

@@ -22,7 +22,7 @@ import {
 export interface CommandItem {
   id: string;
   title: string;
-  section: 'Suggestions' | 'Settings' | 'Help';
+  section: string;
   icon: ReactNode;
   shortcut?: string;
   action: () => void;
