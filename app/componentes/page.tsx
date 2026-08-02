@@ -82,6 +82,7 @@ import {
   DropdownMenu,
   DropdownMenuCheckboxItem,
   DropdownMenuContent,
+  DropdownMenuGroup,
   DropdownMenuItem,
   DropdownMenuLabel,
   DropdownMenuSeparator,
@@ -404,10 +405,12 @@ export default function Componentes() {
           <DropdownMenu>
             <DropdownMenuTrigger render={<Button variant="outline">Abrir menu</Button>} />
             <DropdownMenuContent>
-              <DropdownMenuLabel>Minha conta</DropdownMenuLabel>
-              <DropdownMenuSeparator />
-              <DropdownMenuItem>Perfil</DropdownMenuItem>
-              <DropdownMenuItem>Configurações</DropdownMenuItem>
+              <DropdownMenuGroup>
+                <DropdownMenuLabel>Minha conta</DropdownMenuLabel>
+                <DropdownMenuSeparator />
+                <DropdownMenuItem>Perfil</DropdownMenuItem>
+                <DropdownMenuItem>Configurações</DropdownMenuItem>
+              </DropdownMenuGroup>
               <DropdownMenuSeparator />
               <DropdownMenuCheckboxItem checked>Notificações</DropdownMenuCheckboxItem>
             </DropdownMenuContent>
