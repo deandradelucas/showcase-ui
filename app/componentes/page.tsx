@@ -99,11 +99,9 @@ import {
 } from "@/components/ui/dropdown-menu"
 import { Empty, EmptyContent, EmptyDescription, EmptyHeader, EmptyMedia, EmptyTitle } from "@/components/ui/empty"
 import { Field, FieldDescription, FieldLabel } from "@/components/ui/field"
-import { HoverCard, HoverCardContent, HoverCardTrigger } from "@/components/ui/hover-card"
 import { Input } from "@/components/ui/input"
 import { InputGroup, InputGroupAddon, InputGroupInput } from "@/components/ui/input-group"
 import { InputOTP, InputOTPGroup, InputOTPSlot } from "@/components/ui/input-otp"
-import { InteractiveHoverButton } from "@/components/ui/interactive-hover-button"
 import { Item, ItemContent, ItemDescription, ItemMedia, ItemTitle } from "@/components/ui/item"
 import { Kbd } from "@/components/ui/kbd"
 import { Label } from "@/components/ui/label"
@@ -468,13 +466,6 @@ export default function Componentes() {
           </Field>
         </Vitrine>
 
-        <Vitrine titulo="Hover Card">
-          <HoverCard>
-            <HoverCardTrigger render={<Button variant="outline">Passe o mouse</Button>} />
-            <HoverCardContent>Conteúdo exibido ao passar o mouse.</HoverCardContent>
-          </HoverCard>
-        </Vitrine>
-
         <Vitrine titulo="Input">
           <Input placeholder="voce@exemplo.com" className="max-w-xs" />
         </Vitrine>
@@ -497,10 +488,6 @@ export default function Componentes() {
               <InputOTPSlot index={3} />
             </InputOTPGroup>
           </InputOTP>
-        </Vitrine>
-
-        <Vitrine titulo="Interactive Hover Button">
-          <InteractiveHoverButton>Passe o mouse</InteractiveHoverButton>
         </Vitrine>
 
         <Vitrine titulo="Item">
