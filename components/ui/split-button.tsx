@@ -29,7 +29,7 @@ export default function SplitButton({
         layout
         transition={SPRING}
         onClick={() => setOpen(true)}
-        className="absolute z-10 rounded-full bg-neutral-200 whitespace-nowrap px-8 py-3 tracking-tight text-neutral-700 dark:bg-neutral-800 dark:text-neutral-200"
+        className="absolute z-10 cursor-pointer rounded-full bg-neutral-200 whitespace-nowrap px-8 py-3 tracking-tight text-neutral-700 dark:bg-neutral-800 dark:text-neutral-200"
         initial={false}
         animate={{
           scaleX: open ? 1.5 : 1,
@@ -61,7 +61,7 @@ export default function SplitButton({
         {/* BACK BUTTON */}
         <motion.button
           onClick={() => setOpen(false)}
-          className="flex items-center justify-center rounded-full bg-neutral-200 p-3 tracking-tight text-neutral-700 dark:bg-neutral-800 dark:text-neutral-200"
+          className="flex cursor-pointer items-center justify-center rounded-full bg-neutral-200 p-3 tracking-tight text-neutral-700 dark:bg-neutral-800 dark:text-neutral-200"
           whileHover={{ scale: 1 }}
           whileTap={{ scale: 1.15 }}
         >
@@ -75,7 +75,7 @@ export default function SplitButton({
               onClick={() => {
                 setOpen(false);
               }}
-              className="rounded-full bg-neutral-200 px-6 py-3 tracking-tight text-neutral-700 dark:bg-neutral-800 dark:text-neutral-200"
+              className="cursor-pointer rounded-full bg-neutral-200 px-6 py-3 tracking-tight text-neutral-700 dark:bg-neutral-800 dark:text-neutral-200"
               whileHover={{ scale: 1 }}
               whileTap={{ scale: 1.05 }}
             >
