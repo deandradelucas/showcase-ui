@@ -117,6 +117,20 @@
           "target": "components/ui/focus-blur.tsx"
         }
       ]
+    },
+    {
+      "name": "morphing-select",
+      "type": "registry:ui",
+      "title": "Morphing Select",
+      "description": "Seletor que expande com transição suave via GSAP, revelando as opções em cascata.",
+      "dependencies": ["gsap", "@gsap/react"],
+      "files": [
+        {
+          "path": "components/ui/morphing-select.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/morphing-select.tsx"
+        }
+      ]
     }
   ]
 }

@@ -196,7 +196,10 @@ const navGroups: NavGroup[] = [
     key: "picker",
     label: "Picker",
     icon: ListFilter,
-    items: [{ href: "/picker-quick-option", label: "Quick Option Picker" }],
+    items: [
+      { href: "/picker-quick-option", label: "Quick Option Picker" },
+      { href: "/morphing-select", label: "Morphing Select" },
+    ],
   },
   {
     key: "reveal",
