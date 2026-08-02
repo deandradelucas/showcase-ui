@@ -54,6 +54,7 @@ const deviceMocks = [
   { href: "/device-safari", label: "Safari" },
   { href: "/device-iphone", label: "iPhone" },
   { href: "/device-android", label: "Android" },
+  { href: "/device-mockup", label: "iPhone + Android" },
 ]
 
 const formularios = [
