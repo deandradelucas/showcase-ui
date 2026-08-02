@@ -127,3 +127,29 @@
     @apply font-sans;
     }
 }
+
+/*
+  tw-animate-css define accordion-down/up e collapsible-down/up esperando
+  --radix-*/--bits-*/--reka-*/--kb-*/--ngp-*-content-height. O Base UI expõe
+  a altura medida com nomes próprios (--accordion-panel-height,
+  --collapsible-panel-height), então essas keyframes nunca recebiam um valor
+  e a transição de 0 pra "auto" não anima (CSS não interpola pra auto) —
+  as classes animate-accordion-*/animate-collapsible-* ficavam mudas.
+  Redeclarar aqui, depois do @import, substitui as keyframes originais.
+*/
+@keyframes accordion-down {
+  from { height: 0; }
+  to { height: var(--accordion-panel-height); }
+}
+@keyframes accordion-up {
+  from { height: var(--accordion-panel-height); }
+  to { height: 0; }
+}
+@keyframes collapsible-down {
+  from { height: 0; }
+  to { height: var(--collapsible-panel-height); }
+}
+@keyframes collapsible-up {
+  from { height: var(--collapsible-panel-height); }
+  to { height: 0; }
+}

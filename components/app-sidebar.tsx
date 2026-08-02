@@ -89,11 +89,11 @@ export function AppSidebar() {
                       <SidebarMenuButton>
                         <ChartColumn />
                         <span>Chart</span>
-                        <ChevronRight className="ml-auto transition-transform group-data-open/menu-button:rotate-90" />
+                        <ChevronRight className="ml-auto transition-transform group-data-panel-open/menu-button:rotate-90" />
                       </SidebarMenuButton>
                     }
                   />
-                  <CollapsibleContent>
+                  <CollapsibleContent className="overflow-hidden data-open:animate-collapsible-down data-closed:animate-collapsible-up">
                     <SidebarMenuSub>
                       {charts.map((c) => (
                         <SidebarMenuSubItem key={c.href}>
@@ -115,11 +115,11 @@ export function AppSidebar() {
                       <SidebarMenuButton>
                         <MousePointerClick />
                         <span>Hover</span>
-                        <ChevronRight className="ml-auto transition-transform group-data-open/menu-button:rotate-90" />
+                        <ChevronRight className="ml-auto transition-transform group-data-panel-open/menu-button:rotate-90" />
                       </SidebarMenuButton>
                     }
                   />
-                  <CollapsibleContent>
+                  <CollapsibleContent className="overflow-hidden data-open:animate-collapsible-down data-closed:animate-collapsible-up">
                     <SidebarMenuSub>
                       {hovers.map((h) => (
                         <SidebarMenuSubItem key={h.href}>
