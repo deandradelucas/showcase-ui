@@ -9,8 +9,10 @@ import {
   ClipboardList,
   Home,
   ChevronRight,
+  ChevronsUpDown,
   ChartColumn,
   MousePointerClick,
+  MousePointer,
   Smartphone,
   type LucideIcon,
 } from "lucide-react"
@@ -36,6 +38,7 @@ const rotas = [
   { href: "/", label: "Início", icon: Home },
   { href: "/componentes", label: "Componentes", icon: LayoutGrid },
   { href: "/chat", label: "Chat", icon: MessageSquare },
+  { href: "/accordion", label: "Accordion", icon: ChevronsUpDown },
 ]
 
 const charts = [
@@ -48,6 +51,11 @@ const charts = [
 const hovers = [
   { href: "/hover-card", label: "Hover Card" },
   { href: "/interactive-hover-button", label: "Interactive Hover Button" },
+]
+
+const buttons = [
+  { href: "/button-delete", label: "Delete" },
+  { href: "/button-split", label: "Split Button" },
 ]
 
 const deviceMocks = [
@@ -111,12 +119,14 @@ export function AppSidebar() {
   const [prevPathname, setPrevPathname] = useState(pathname)
   const [chartOpen, setChartOpen] = useState(() => charts.some((c) => c.href === pathname))
   const [hoverOpen, setHoverOpen] = useState(() => hovers.some((h) => h.href === pathname))
+  const [buttonsOpen, setButtonsOpen] = useState(() => buttons.some((b) => b.href === pathname))
   const [deviceOpen, setDeviceOpen] = useState(() => deviceMocks.some((d) => d.href === pathname))
 
   if (pathname !== prevPathname) {
     setPrevPathname(pathname)
     if (charts.some((c) => c.href === pathname)) setChartOpen(true)
     if (hovers.some((h) => h.href === pathname)) setHoverOpen(true)
+    if (buttons.some((b) => b.href === pathname)) setButtonsOpen(true)
     if (deviceMocks.some((d) => d.href === pathname)) setDeviceOpen(true)
   }
 
@@ -160,6 +170,15 @@ export function AppSidebar() {
                 pathname={pathname}
                 open={hoverOpen}
                 onOpenChange={setHoverOpen}
+              />
+
+              <NavCollapsibleGroup
+                icon={MousePointer}
+                label="Buttons"
+                items={buttons}
+                pathname={pathname}
+                open={buttonsOpen}
+                onOpenChange={setButtonsOpen}
               />
 
               <NavCollapsibleGroup
