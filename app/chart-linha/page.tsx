@@ -8,6 +8,7 @@ import {
 import { ChartLinhaDemo } from "@/components/demos/chart-linha-demo"
 import { ViewCode } from "@/components/view-code"
 import { readComponentSource } from "@/lib/read-source"
+import { buildCodeFiles } from "@/lib/view-code-files"
 
 const USAGE_CODE = `import { CartesianGrid, Line, LineChart, XAxis } from "recharts"
 import { ChartContainer, ChartTooltip, ChartTooltipContent } from "@/components/ui/chart"
@@ -22,8 +23,12 @@ import { ChartContainer, ChartTooltip, ChartTooltipContent } from "@/components/
   </LineChart>
 </ChartContainer>`
 
-export default function ChartLinha() {
+export default async function ChartLinha() {
   const chartSource = readComponentSource("components/ui/chart.tsx")
+  const files = await buildCodeFiles([
+    { path: "components/ui/chart.tsx", code: chartSource },
+    { path: "uso (LineChart)", code: USAGE_CODE },
+  ])
 
   return (
     <div className="mx-auto w-full max-w-xl px-6 py-12">
@@ -34,13 +39,7 @@ export default function ChartLinha() {
         </CardHeader>
         <CardContent className="space-y-4">
           <ChartLinhaDemo />
-          <ViewCode
-            install="chart"
-            files={[
-              { path: "components/ui/chart.tsx", code: chartSource },
-              { path: "uso (LineChart)", code: USAGE_CODE },
-            ]}
-          />
+          <ViewCode install="chart" files={files} />
         </CardContent>
       </Card>
     </div>

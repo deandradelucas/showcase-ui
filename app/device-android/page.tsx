@@ -8,13 +8,18 @@ import {
 import { Android } from "@/components/ui/android"
 import { ViewCode } from "@/components/view-code"
 import { readComponentSource } from "@/lib/read-source"
+import { buildCodeFiles } from "@/lib/view-code-files"
 
 const USAGE_CODE = `import { Android } from "@/components/ui/android"
 
 <Android className="h-auto w-56" />`
 
-export default function DeviceAndroidPage() {
+export default async function DeviceAndroidPage() {
   const androidSource = readComponentSource("components/ui/android.tsx")
+  const files = await buildCodeFiles([
+    { path: "components/ui/android.tsx", code: androidSource },
+    { path: "uso", code: USAGE_CODE },
+  ])
 
   return (
     <div className="mx-auto w-full max-w-md px-6 py-12">
@@ -27,13 +32,7 @@ export default function DeviceAndroidPage() {
           <div className="flex justify-center">
             <Android className="h-auto w-56" />
           </div>
-          <ViewCode
-            install="deandradelucas/showcase-ui/android"
-            files={[
-              { path: "components/ui/android.tsx", code: androidSource },
-              { path: "uso", code: USAGE_CODE },
-            ]}
-          />
+          <ViewCode install="deandradelucas/showcase-ui/android" files={files} />
         </CardContent>
       </Card>
     </div>

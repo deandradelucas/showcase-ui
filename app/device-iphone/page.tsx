@@ -8,13 +8,18 @@ import {
 import { Iphone } from "@/components/ui/iphone"
 import { ViewCode } from "@/components/view-code"
 import { readComponentSource } from "@/lib/read-source"
+import { buildCodeFiles } from "@/lib/view-code-files"
 
 const USAGE_CODE = `import { Iphone } from "@/components/ui/iphone"
 
 <Iphone className="mx-auto max-w-56" src="/screenshot.png" />`
 
-export default function DeviceIphonePage() {
+export default async function DeviceIphonePage() {
   const iphoneSource = readComponentSource("components/ui/iphone.tsx")
+  const files = await buildCodeFiles([
+    { path: "components/ui/iphone.tsx", code: iphoneSource },
+    { path: "uso", code: USAGE_CODE },
+  ])
 
   return (
     <div className="mx-auto w-full max-w-md px-6 py-12">
@@ -27,13 +32,7 @@ export default function DeviceIphonePage() {
           <div className="flex justify-center">
             <Iphone className="max-w-56" />
           </div>
-          <ViewCode
-            install="deandradelucas/showcase-ui/iphone"
-            files={[
-              { path: "components/ui/iphone.tsx", code: iphoneSource },
-              { path: "uso", code: USAGE_CODE },
-            ]}
-          />
+          <ViewCode install="deandradelucas/showcase-ui/iphone" files={files} />
         </CardContent>
       </Card>
     </div>

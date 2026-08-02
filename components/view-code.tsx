@@ -53,6 +53,7 @@ function CopyButton({ text }: { text: string }) {
 type ViewCodeFile = {
   path: string
   code: string
+  html: string
 }
 
 export function ViewCode({
@@ -76,7 +77,7 @@ export function ViewCode({
         <DialogHeader>
           <DialogTitle>Installation</DialogTitle>
         </DialogHeader>
-        <Tabs defaultValue="npm">
+        <Tabs defaultValue="npm" className="min-w-0">
           <TabsList>
             <TabsTrigger value="pnpm">pnpm</TabsTrigger>
             <TabsTrigger value="npm">npm</TabsTrigger>
@@ -86,8 +87,8 @@ export function ViewCode({
           {(Object.keys(RUNNERS) as PackageManager[]).map((pm) => {
             const command = buildCommand(pm, install)
             return (
-              <TabsContent key={pm} value={pm}>
-                <div className="relative">
+              <TabsContent key={pm} value={pm} className="min-w-0">
+                <div className="relative min-w-0">
                   <pre className="overflow-x-auto rounded-lg bg-muted p-3 pr-10 text-xs text-muted-foreground">
                     <code>{command}</code>
                   </pre>
@@ -97,17 +98,18 @@ export function ViewCode({
             )
           })}
         </Tabs>
-        <div className="space-y-4">
+        <div className="min-w-0 space-y-4">
           <h3 className="font-heading text-sm font-medium">Code</h3>
           {files.map((file) => (
-            <div key={file.path} className="space-y-1.5">
+            <div key={file.path} className="min-w-0 space-y-1.5">
               <p className="font-mono text-xs text-muted-foreground">
                 {file.path}
               </p>
-              <div className="relative">
-                <pre className="max-h-96 overflow-auto rounded-lg bg-muted p-3 pr-10 text-xs text-muted-foreground">
-                  <code>{file.code}</code>
-                </pre>
+              <div className="relative min-w-0">
+                <div
+                  className="max-h-96 overflow-auto rounded-lg bg-muted text-xs [&>pre]:p-3 [&>pre]:pr-10 [&>pre]:font-mono [&_code]:leading-relaxed"
+                  dangerouslySetInnerHTML={{ __html: file.html }}
+                />
                 <CopyButton text={file.code} />
               </div>
             </div>

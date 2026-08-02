@@ -153,3 +153,18 @@
   from { height: var(--collapsible-panel-height); }
   to { height: 0; }
 }
+
+/*
+  Shiki gera --shiki-light/--shiki-dark por span (dual theme) e um
+  background-color inline do tema light por padrão. Aqui a cor de fundo do
+  bloco já vem do nosso wrapper (bg-muted), então zeramos o bg do shiki e
+  só trocamos a cor do texto pro tema dark via .dark.
+*/
+.shiki,
+.shiki span {
+  background-color: transparent !important;
+}
+.dark .shiki,
+.dark .shiki span {
+  color: var(--shiki-dark) !important;
+}

@@ -8,6 +8,7 @@ import {
 import { ChartRadarDemo } from "@/components/demos/chart-radar-demo"
 import { ViewCode } from "@/components/view-code"
 import { readComponentSource } from "@/lib/read-source"
+import { buildCodeFiles } from "@/lib/view-code-files"
 
 const USAGE_CODE = `import { PolarAngleAxis, PolarGrid, Radar, RadarChart } from "recharts"
 import { ChartContainer, ChartTooltip, ChartTooltipContent } from "@/components/ui/chart"
@@ -21,8 +22,12 @@ import { ChartContainer, ChartTooltip, ChartTooltipContent } from "@/components/
   </RadarChart>
 </ChartContainer>`
 
-export default function ChartRadar() {
+export default async function ChartRadar() {
   const chartSource = readComponentSource("components/ui/chart.tsx")
+  const files = await buildCodeFiles([
+    { path: "components/ui/chart.tsx", code: chartSource },
+    { path: "uso (RadarChart)", code: USAGE_CODE },
+  ])
 
   return (
     <div className="mx-auto w-full max-w-xl px-6 py-12">
@@ -33,13 +38,7 @@ export default function ChartRadar() {
         </CardHeader>
         <CardContent className="space-y-4">
           <ChartRadarDemo />
-          <ViewCode
-            install="chart"
-            files={[
-              { path: "components/ui/chart.tsx", code: chartSource },
-              { path: "uso (RadarChart)", code: USAGE_CODE },
-            ]}
-          />
+          <ViewCode install="chart" files={files} />
         </CardContent>
       </Card>
     </div>

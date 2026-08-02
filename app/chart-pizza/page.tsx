@@ -8,6 +8,7 @@ import {
 import { ChartPizzaDemo } from "@/components/demos/chart-pizza-demo"
 import { ViewCode } from "@/components/view-code"
 import { readComponentSource } from "@/lib/read-source"
+import { buildCodeFiles } from "@/lib/view-code-files"
 
 const USAGE_CODE = `import { Pie, PieChart } from "recharts"
 import { ChartContainer, ChartTooltip, ChartTooltipContent } from "@/components/ui/chart"
@@ -19,8 +20,12 @@ import { ChartContainer, ChartTooltip, ChartTooltipContent } from "@/components/
   </PieChart>
 </ChartContainer>`
 
-export default function ChartPizza() {
+export default async function ChartPizza() {
   const chartSource = readComponentSource("components/ui/chart.tsx")
+  const files = await buildCodeFiles([
+    { path: "components/ui/chart.tsx", code: chartSource },
+    { path: "uso (PieChart)", code: USAGE_CODE },
+  ])
 
   return (
     <div className="mx-auto w-full max-w-xl px-6 py-12">
@@ -31,13 +36,7 @@ export default function ChartPizza() {
         </CardHeader>
         <CardContent className="space-y-4">
           <ChartPizzaDemo />
-          <ViewCode
-            install="chart"
-            files={[
-              { path: "components/ui/chart.tsx", code: chartSource },
-              { path: "uso (PieChart)", code: USAGE_CODE },
-            ]}
-          />
+          <ViewCode install="chart" files={files} />
         </CardContent>
       </Card>
     </div>

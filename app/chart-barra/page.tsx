@@ -8,6 +8,7 @@ import {
 import { ChartBarraDemo } from "@/components/demos/chart-barra-demo"
 import { ViewCode } from "@/components/view-code"
 import { readComponentSource } from "@/lib/read-source"
+import { buildCodeFiles } from "@/lib/view-code-files"
 
 const USAGE_CODE = `import { Bar, BarChart, CartesianGrid, XAxis } from "recharts"
 import { ChartContainer, ChartLegend, ChartLegendContent, ChartTooltip, ChartTooltipContent } from "@/components/ui/chart"
@@ -23,8 +24,12 @@ import { ChartContainer, ChartLegend, ChartLegendContent, ChartTooltip, ChartToo
   </BarChart>
 </ChartContainer>`
 
-export default function ChartBarra() {
+export default async function ChartBarra() {
   const chartSource = readComponentSource("components/ui/chart.tsx")
+  const files = await buildCodeFiles([
+    { path: "components/ui/chart.tsx", code: chartSource },
+    { path: "uso (BarChart)", code: USAGE_CODE },
+  ])
 
   return (
     <div className="mx-auto w-full max-w-xl px-6 py-12">
@@ -35,13 +40,7 @@ export default function ChartBarra() {
         </CardHeader>
         <CardContent className="space-y-4">
           <ChartBarraDemo />
-          <ViewCode
-            install="chart"
-            files={[
-              { path: "components/ui/chart.tsx", code: chartSource },
-              { path: "uso (BarChart)", code: USAGE_CODE },
-            ]}
-          />
+          <ViewCode install="chart" files={files} />
         </CardContent>
       </Card>
     </div>

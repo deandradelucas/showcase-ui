@@ -8,13 +8,18 @@ import {
 import { InteractiveHoverButton } from "@/components/ui/interactive-hover-button"
 import { ViewCode } from "@/components/view-code"
 import { readComponentSource } from "@/lib/read-source"
+import { buildCodeFiles } from "@/lib/view-code-files"
 
 const USAGE_CODE = `import { InteractiveHoverButton } from "@/components/ui/interactive-hover-button"
 
 <InteractiveHoverButton>Passe o mouse</InteractiveHoverButton>`
 
-export default function InteractiveHoverButtonPage() {
+export default async function InteractiveHoverButtonPage() {
   const source = readComponentSource("components/ui/interactive-hover-button.tsx")
+  const files = await buildCodeFiles([
+    { path: "components/ui/interactive-hover-button.tsx", code: source },
+    { path: "uso", code: USAGE_CODE },
+  ])
 
   return (
     <div className="mx-auto w-full max-w-xl px-6 py-12">
@@ -27,10 +32,7 @@ export default function InteractiveHoverButtonPage() {
           <InteractiveHoverButton>Passe o mouse</InteractiveHoverButton>
           <ViewCode
             install="deandradelucas/showcase-ui/interactive-hover-button"
-            files={[
-              { path: "components/ui/interactive-hover-button.tsx", code: source },
-              { path: "uso", code: USAGE_CODE },
-            ]}
+            files={files}
           />
         </CardContent>
       </Card>
