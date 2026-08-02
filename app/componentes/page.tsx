@@ -2,20 +2,6 @@
 
 import { useState } from "react"
 import { Check, ChevronsUpDown, FileText, Mail, X } from "lucide-react"
-import {
-  Bar,
-  BarChart,
-  CartesianGrid,
-  Line,
-  LineChart,
-  Pie,
-  PieChart,
-  PolarAngleAxis,
-  PolarGrid,
-  Radar,
-  RadarChart,
-  XAxis,
-} from "recharts"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
 import {
   AlertDialog,
@@ -69,14 +55,6 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel"
 import { Bubble, BubbleContent } from "@/components/ui/bubble"
-import {
-  ChartContainer,
-  ChartLegend,
-  ChartLegendContent,
-  ChartTooltip,
-  ChartTooltipContent,
-} from "@/components/ui/chart"
-import { chartData, chartConfig, pieChartData, pieChartConfig } from "@/lib/chart-demo-data"
 import { Checkbox } from "@/components/ui/checkbox"
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible"
 import {
@@ -379,51 +357,6 @@ export default function Componentes() {
             <CarouselPrevious />
             <CarouselNext />
           </Carousel>
-        </Vitrine>
-
-        <Vitrine titulo="Chart (Barra)">
-          <ChartContainer config={chartConfig} className="min-h-[200px] w-full">
-            <BarChart accessibilityLayer data={chartData}>
-              <CartesianGrid vertical={false} />
-              <XAxis dataKey="mes" tickLine={false} tickMargin={10} axisLine={false} />
-              <ChartTooltip content={<ChartTooltipContent />} />
-              <ChartLegend content={<ChartLegendContent />} />
-              <Bar dataKey="desktop" fill="var(--color-desktop)" radius={4} />
-              <Bar dataKey="mobile" fill="var(--color-mobile)" radius={4} />
-            </BarChart>
-          </ChartContainer>
-        </Vitrine>
-
-        <Vitrine titulo="Chart (Linha)">
-          <ChartContainer config={chartConfig} className="min-h-[200px] w-full">
-            <LineChart accessibilityLayer data={chartData} margin={{ left: 12, right: 12 }}>
-              <CartesianGrid vertical={false} />
-              <XAxis dataKey="mes" tickLine={false} tickMargin={10} axisLine={false} />
-              <ChartTooltip content={<ChartTooltipContent />} />
-              <Line dataKey="desktop" type="natural" stroke="var(--color-desktop)" strokeWidth={2} dot={false} />
-              <Line dataKey="mobile" type="natural" stroke="var(--color-mobile)" strokeWidth={2} dot={false} />
-            </LineChart>
-          </ChartContainer>
-        </Vitrine>
-
-        <Vitrine titulo="Chart (Pizza)">
-          <ChartContainer config={pieChartConfig} className="mx-auto aspect-square max-h-[250px] w-full">
-            <PieChart>
-              <ChartTooltip content={<ChartTooltipContent hideLabel />} />
-              <Pie data={pieChartData} dataKey="visitantes" nameKey="navegador" />
-            </PieChart>
-          </ChartContainer>
-        </Vitrine>
-
-        <Vitrine titulo="Chart (Radar)">
-          <ChartContainer config={chartConfig} className="mx-auto aspect-square max-h-[250px] w-full">
-            <RadarChart data={chartData}>
-              <ChartTooltip content={<ChartTooltipContent />} />
-              <PolarAngleAxis dataKey="mes" />
-              <PolarGrid />
-              <Radar dataKey="desktop" fill="var(--color-desktop)" fillOpacity={0.6} />
-            </RadarChart>
-          </ChartContainer>
         </Vitrine>
 
         <Vitrine titulo="Checkbox">
