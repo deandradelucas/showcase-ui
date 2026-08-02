@@ -3,7 +3,17 @@
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { useState } from "react"
-import { LayoutGrid, MessageSquare, ClipboardList, Home, ChevronRight, ChartColumn, MousePointerClick } from "lucide-react"
+import {
+  LayoutGrid,
+  MessageSquare,
+  ClipboardList,
+  Home,
+  ChevronRight,
+  ChartColumn,
+  MousePointerClick,
+  Smartphone,
+  type LucideIcon,
+} from "lucide-react"
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible"
 import {
   Sidebar,
@@ -40,22 +50,74 @@ const hovers = [
   { href: "/interactive-hover-button", label: "Interactive Hover Button" },
 ]
 
+const deviceMocks = [
+  { href: "/device-safari", label: "Safari" },
+  { href: "/device-iphone", label: "iPhone" },
+  { href: "/device-android", label: "Android" },
+]
+
 const formularios = [
   { href: "/formulario", label: "React Hook Form", icon: ClipboardList },
   { href: "/formulario-tanstack", label: "TanStack Form", icon: ClipboardList },
   { href: "/formulario-formisch", label: "Formisch", icon: ClipboardList },
 ]
 
+function NavCollapsibleGroup({
+  icon: Icon,
+  label,
+  items,
+  pathname,
+  open,
+  onOpenChange,
+}: {
+  icon: LucideIcon
+  label: string
+  items: { href: string; label: string }[]
+  pathname: string
+  open: boolean
+  onOpenChange: (open: boolean) => void
+}) {
+  return (
+    <Collapsible open={open} onOpenChange={onOpenChange}>
+      <SidebarMenuItem>
+        <CollapsibleTrigger
+          render={
+            <SidebarMenuButton>
+              <Icon />
+              <span>{label}</span>
+              <ChevronRight className="ml-auto transition-transform group-data-panel-open/menu-button:rotate-90" />
+            </SidebarMenuButton>
+          }
+        />
+        <CollapsibleContent className="overflow-hidden data-open:animate-collapsible-down data-closed:animate-collapsible-up">
+          <SidebarMenuSub>
+            {items.map((item) => (
+              <SidebarMenuSubItem key={item.href}>
+                <SidebarMenuSubButton
+                  isActive={pathname === item.href}
+                  render={<Link href={item.href}>{item.label}</Link>}
+                />
+              </SidebarMenuSubItem>
+            ))}
+          </SidebarMenuSub>
+        </CollapsibleContent>
+      </SidebarMenuItem>
+    </Collapsible>
+  )
+}
+
 export function AppSidebar() {
   const pathname = usePathname()
   const [prevPathname, setPrevPathname] = useState(pathname)
   const [chartOpen, setChartOpen] = useState(() => charts.some((c) => c.href === pathname))
   const [hoverOpen, setHoverOpen] = useState(() => hovers.some((h) => h.href === pathname))
+  const [deviceOpen, setDeviceOpen] = useState(() => deviceMocks.some((d) => d.href === pathname))
 
   if (pathname !== prevPathname) {
     setPrevPathname(pathname)
     if (charts.some((c) => c.href === pathname)) setChartOpen(true)
     if (hovers.some((h) => h.href === pathname)) setHoverOpen(true)
+    if (deviceMocks.some((d) => d.href === pathname)) setDeviceOpen(true)
   }
 
   return (
@@ -82,57 +144,32 @@ export function AppSidebar() {
                 </SidebarMenuItem>
               ))}
 
-              <Collapsible open={chartOpen} onOpenChange={setChartOpen}>
-                <SidebarMenuItem>
-                  <CollapsibleTrigger
-                    render={
-                      <SidebarMenuButton>
-                        <ChartColumn />
-                        <span>Chart</span>
-                        <ChevronRight className="ml-auto transition-transform group-data-panel-open/menu-button:rotate-90" />
-                      </SidebarMenuButton>
-                    }
-                  />
-                  <CollapsibleContent className="overflow-hidden data-open:animate-collapsible-down data-closed:animate-collapsible-up">
-                    <SidebarMenuSub>
-                      {charts.map((c) => (
-                        <SidebarMenuSubItem key={c.href}>
-                          <SidebarMenuSubButton
-                            isActive={pathname === c.href}
-                            render={<Link href={c.href}>{c.label}</Link>}
-                          />
-                        </SidebarMenuSubItem>
-                      ))}
-                    </SidebarMenuSub>
-                  </CollapsibleContent>
-                </SidebarMenuItem>
-              </Collapsible>
+              <NavCollapsibleGroup
+                icon={ChartColumn}
+                label="Chart"
+                items={charts}
+                pathname={pathname}
+                open={chartOpen}
+                onOpenChange={setChartOpen}
+              />
 
-              <Collapsible open={hoverOpen} onOpenChange={setHoverOpen}>
-                <SidebarMenuItem>
-                  <CollapsibleTrigger
-                    render={
-                      <SidebarMenuButton>
-                        <MousePointerClick />
-                        <span>Hover</span>
-                        <ChevronRight className="ml-auto transition-transform group-data-panel-open/menu-button:rotate-90" />
-                      </SidebarMenuButton>
-                    }
-                  />
-                  <CollapsibleContent className="overflow-hidden data-open:animate-collapsible-down data-closed:animate-collapsible-up">
-                    <SidebarMenuSub>
-                      {hovers.map((h) => (
-                        <SidebarMenuSubItem key={h.href}>
-                          <SidebarMenuSubButton
-                            isActive={pathname === h.href}
-                            render={<Link href={h.href}>{h.label}</Link>}
-                          />
-                        </SidebarMenuSubItem>
-                      ))}
-                    </SidebarMenuSub>
-                  </CollapsibleContent>
-                </SidebarMenuItem>
-              </Collapsible>
+              <NavCollapsibleGroup
+                icon={MousePointerClick}
+                label="Hover"
+                items={hovers}
+                pathname={pathname}
+                open={hoverOpen}
+                onOpenChange={setHoverOpen}
+              />
+
+              <NavCollapsibleGroup
+                icon={Smartphone}
+                label="Device Mocks"
+                items={deviceMocks}
+                pathname={pathname}
+                open={deviceOpen}
+                onOpenChange={setDeviceOpen}
+              />
             </SidebarMenu>
           </SidebarGroupContent>
         </SidebarGroup>
