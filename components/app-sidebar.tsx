@@ -2,7 +2,9 @@
 
 import Link from "next/link"
 import { usePathname } from "next/navigation"
-import { LayoutGrid, MessageSquare, ClipboardList, Home } from "lucide-react"
+import { useState } from "react"
+import { LayoutGrid, MessageSquare, ClipboardList, Home, ChevronRight, ChartColumn } from "lucide-react"
+import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible"
 import {
   Sidebar,
   SidebarContent,
@@ -14,6 +16,9 @@ import {
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
+  SidebarMenuSub,
+  SidebarMenuSubButton,
+  SidebarMenuSubItem,
 } from "@/components/ui/sidebar"
 import { ModeToggle } from "@/components/mode-toggle"
 
@@ -21,6 +26,13 @@ const rotas = [
   { href: "/", label: "Início", icon: Home },
   { href: "/componentes", label: "Componentes", icon: LayoutGrid },
   { href: "/chat", label: "Chat", icon: MessageSquare },
+]
+
+const charts = [
+  { href: "/chart-barra", label: "Chart Barra" },
+  { href: "/chart-linha", label: "Chart Linha" },
+  { href: "/chart-pizza", label: "Chart Pizza" },
+  { href: "/chart-radar", label: "Chart Radar" },
 ]
 
 const formularios = [
@@ -31,6 +43,13 @@ const formularios = [
 
 export function AppSidebar() {
   const pathname = usePathname()
+  const [prevPathname, setPrevPathname] = useState(pathname)
+  const [chartOpen, setChartOpen] = useState(() => charts.some((c) => c.href === pathname))
+
+  if (pathname !== prevPathname) {
+    setPrevPathname(pathname)
+    if (charts.some((c) => c.href === pathname)) setChartOpen(true)
+  }
 
   return (
     <Sidebar>
@@ -55,6 +74,32 @@ export function AppSidebar() {
                   />
                 </SidebarMenuItem>
               ))}
+
+              <Collapsible open={chartOpen} onOpenChange={setChartOpen}>
+                <SidebarMenuItem>
+                  <CollapsibleTrigger
+                    render={
+                      <SidebarMenuButton>
+                        <ChartColumn />
+                        <span>Chart</span>
+                        <ChevronRight className="ml-auto transition-transform group-data-open/menu-button:rotate-90" />
+                      </SidebarMenuButton>
+                    }
+                  />
+                  <CollapsibleContent>
+                    <SidebarMenuSub>
+                      {charts.map((c) => (
+                        <SidebarMenuSubItem key={c.href}>
+                          <SidebarMenuSubButton
+                            isActive={pathname === c.href}
+                            render={<Link href={c.href}>{c.label}</Link>}
+                          />
+                        </SidebarMenuSubItem>
+                      ))}
+                    </SidebarMenuSub>
+                  </CollapsibleContent>
+                </SidebarMenuItem>
+              </Collapsible>
             </SidebarMenu>
           </SidebarGroupContent>
         </SidebarGroup>
