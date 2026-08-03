@@ -103,6 +103,62 @@
           "target": "components/ui/interactive-hover-button.tsx"
         }
       ]
+    },
+    {
+      "name": "focus-blur",
+      "type": "registry:ui",
+      "title": "Focus Blur",
+      "description": "Lista de links que desfoca e reduz a opacidade dos itens não focados ao passar o mouse.",
+      "dependencies": ["motion"],
+      "files": [
+        {
+          "path": "components/ui/focus-blur.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/focus-blur.tsx"
+        }
+      ]
+    },
+    {
+      "name": "morphing-select",
+      "type": "registry:ui",
+      "title": "Morphing Select",
+      "description": "Seletor que expande com transição suave via GSAP, revelando as opções em cascata.",
+      "dependencies": ["gsap", "@gsap/react"],
+      "files": [
+        {
+          "path": "components/ui/morphing-select.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/morphing-select.tsx"
+        }
+      ]
+    },
+    {
+      "name": "split-button",
+      "type": "registry:ui",
+      "title": "Split Button",
+      "description": "Botão que se abre em opções ao clicar, animado com motion.",
+      "dependencies": ["motion", "@hugeicons/react", "@hugeicons/core-free-icons"],
+      "files": [
+        {
+          "path": "components/ui/split-button.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/split-button.tsx"
+        }
+      ]
+    },
+    {
+      "name": "timed-undo-action",
+      "type": "registry:ui",
+      "title": "Timed Undo Action",
+      "description": "Botão de deletar com contagem regressiva e opção de desfazer, animado com motion.",
+      "dependencies": ["motion", "react-use-measure", "lucide-react"],
+      "files": [
+        {
+          "path": "components/ui/timed-undo-action.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/timed-undo-action.tsx"
+        }
+      ]
     }
   ]
 }
