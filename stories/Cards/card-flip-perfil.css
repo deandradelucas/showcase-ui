@@ -1,4 +1,4 @@
-/* From Uiverse.io by ElSombrero2 (classes renomeadas com prefixo card-flip-perfil para evitar colisao com nomes genericos tipo .card/.front/.title) */
+/* classes renomeadas com prefixo card-flip-perfil para evitar colisao com nomes genericos tipo .card/.front/.title */
 .card-flip-perfil {
   position: relative;
   overflow: visible;

@@ -1,4 +1,4 @@
-/* From Uiverse.io by ilkhoeri (classes renomeadas com prefixo card-orbit para evitar colisao com nomes genericos tipo .wrapper/.inner/.card/.img) */
+/* classes renomeadas com prefixo card-orbit para evitar colisao com nomes genericos tipo .wrapper/.inner/.card/.img */
 .card-orbit {
   width: 500px;
   max-width: 100%;

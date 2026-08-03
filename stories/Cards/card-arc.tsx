@@ -1,4 +1,3 @@
-// Adaptado de react-bits (DavidHDev/react-bits, MIT) — Components/BorderGlow
 import { useRef, useCallback, useState, useEffect, type ReactNode } from 'react';
 
 interface CardArcProps {

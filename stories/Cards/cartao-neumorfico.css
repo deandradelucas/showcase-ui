@@ -1,0 +1,15 @@
+   neumorfismo original #e0e0e0/#bebebe/#ffffff trocadas por color-mix
+   sobre var(--card), ja que o efeito depende da cor de fundo real pra
+   funcionar -- sem isso ficaria um retangulo cinza claro fixo no tema
+   escuro, sem nenhum relevo visivel) */
+/* Markup: <div class="cartao-neumorfico"></div> */
+
+.cartao-neumorfico {
+  width: 190px;
+  height: 254px;
+  border-radius: 50px;
+  background: var(--card);
+  box-shadow:
+    20px 20px 60px color-mix(in oklab, var(--card) 80%, black 20%),
+    -20px -20px 60px color-mix(in oklab, var(--card) 80%, white 20%);
+}

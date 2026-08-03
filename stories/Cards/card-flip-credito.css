@@ -1,4 +1,4 @@
-/* From Uiverse.io by Praashoo7 (classes renomeadas com prefixo card-flip-credito para evitar colisao com nomes genericos tipo .logo/.chip/.number/.name/.code) */
+/* classes renomeadas com prefixo card-flip-credito para evitar colisao com nomes genericos tipo .logo/.chip/.number/.name/.code */
 .card-flip-credito {
   background-color: transparent;
   width: 240px;
