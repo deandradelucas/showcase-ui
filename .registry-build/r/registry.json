@@ -140,7 +140,7 @@
       "dependencies": ["motion", "@hugeicons/react", "@hugeicons/core-free-icons"],
       "files": [
         {
-          "path": "components/ui/split-button.tsx",
+          "path": "stories/Buttons/split-button.tsx",
           "type": "registry:ui",
           "target": "components/ui/split-button.tsx"
         }
@@ -154,9 +154,175 @@
       "dependencies": ["motion", "react-use-measure", "lucide-react"],
       "files": [
         {
-          "path": "components/ui/timed-undo-action.tsx",
+          "path": "stories/Buttons/timed-undo-action.tsx",
           "type": "registry:ui",
           "target": "components/ui/timed-undo-action.tsx"
+        }
+      ]
+    },
+    {
+      "name": "splash-cursor-hero",
+      "type": "registry:ui",
+      "title": "Splash Cursor Hero",
+      "description": "Hero com fundo de fluido interativo via WebGL, controlado pelo cursor.",
+      "files": [
+        {
+          "path": "stories/Hero/splash-cursor-hero.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/splash-cursor-hero.tsx"
+        }
+      ]
+    },
+    {
+      "name": "card-arc",
+      "type": "registry:ui",
+      "title": "Card Arc",
+      "description": "Card com borda em arco que brilha e gira seguindo o cursor, ou anima sozinha ao montar.",
+      "files": [
+        {
+          "path": "stories/Cards/card-arc.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/card-arc.tsx"
+        }
+      ]
+    },
+    {
+      "name": "card-arc-5",
+      "type": "registry:ui",
+      "title": "Card Arc 5",
+      "description": "Leque de cinco cartas que se abre em arco ao passar o mouse.",
+      "dependencies": ["motion"],
+      "files": [
+        {
+          "path": "stories/Cards/card-arc-5.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/card-arc-5.tsx"
+        }
+      ]
+    },
+    {
+      "name": "card-arc-7",
+      "type": "registry:ui",
+      "title": "Card Arc 7",
+      "description": "Leque de sete cartas que se abre em arco ao passar o mouse.",
+      "dependencies": ["motion"],
+      "files": [
+        {
+          "path": "stories/Cards/card-arc-7.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/card-arc-7.tsx"
+        }
+      ]
+    },
+    {
+      "name": "card-long-arc-5",
+      "type": "registry:ui",
+      "title": "Card Long Arc 5",
+      "description": "Leque de cinco cartas com abertura mais larga e ângulo suave.",
+      "dependencies": ["motion"],
+      "files": [
+        {
+          "path": "stories/Cards/card-long-arc-5.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/card-long-arc-5.tsx"
+        }
+      ]
+    },
+    {
+      "name": "card-corner-fan",
+      "type": "registry:ui",
+      "title": "Card Corner Fan",
+      "description": "Cartas empilhadas que giram a partir do canto inferior esquerdo ao passar o mouse.",
+      "dependencies": ["motion"],
+      "files": [
+        {
+          "path": "stories/Cards/card-corner-fan.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/card-corner-fan.tsx"
+        }
+      ]
+    },
+    {
+      "name": "card-linear-spread",
+      "type": "registry:ui",
+      "title": "Card Linear Spread",
+      "description": "Cartas empilhadas que se espalham na horizontal ao passar o mouse, sem rotação.",
+      "dependencies": ["motion"],
+      "files": [
+        {
+          "path": "stories/Cards/card-linear-spread.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/card-linear-spread.tsx"
+        }
+      ]
+    },
+    {
+      "name": "card-scatter-spread",
+      "type": "registry:ui",
+      "title": "Card Scatter Spread",
+      "description": "Cartas empilhadas que se espalham de forma assimétrica ao passar o mouse.",
+      "dependencies": ["motion"],
+      "files": [
+        {
+          "path": "stories/Cards/card-scatter-spread.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/card-scatter-spread.tsx"
+        }
+      ]
+    },
+    {
+      "name": "card-orbit",
+      "type": "registry:ui",
+      "title": "Card Orbit",
+      "description": "Galeria de cartas em órbita 3D contínua ao redor do centro.",
+      "files": [
+        {
+          "path": "stories/Cards/card-orbit.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/card-orbit.tsx"
+        },
+        {
+          "path": "stories/Cards/card-orbit.css",
+          "type": "registry:ui",
+          "target": "components/ui/card-orbit.css"
+        }
+      ]
+    },
+    {
+      "name": "card-flip-credito",
+      "type": "registry:ui",
+      "title": "Card Flip Crédito",
+      "description": "Cartão de crédito que vira no hover revelando a tarja e o CVV no verso.",
+      "dependencies": ["lucide-react"],
+      "files": [
+        {
+          "path": "stories/Cards/card-flip-credito.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/card-flip-credito.tsx"
+        },
+        {
+          "path": "stories/Cards/card-flip-credito.css",
+          "type": "registry:ui",
+          "target": "components/ui/card-flip-credito.css"
+        }
+      ]
+    },
+    {
+      "name": "card-flip-perfil",
+      "type": "registry:ui",
+      "title": "Card Flip Perfil",
+      "description": "Card de perfil com imagem que vira no hover revelando um verso decorativo.",
+      "dependencies": ["lucide-react"],
+      "files": [
+        {
+          "path": "stories/Cards/card-flip-perfil.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/card-flip-perfil.tsx"
+        },
+        {
+          "path": "stories/Cards/card-flip-perfil.css",
+          "type": "registry:ui",
+          "target": "components/ui/card-flip-perfil.css"
         }
       ]
     }

@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "card-linear-spread",
+  "title": "Card Linear Spread",
+  "description": "Cartas empilhadas que se espalham na horizontal ao passar o mouse, sem rotação.",
+  "dependencies": [
+    "motion"
+  ],
+  "files": [
+    {
+      "path": "stories/Cards/card-linear-spread.tsx",
+      "content": "import { useState } from \"react\"\nimport { motion } from \"motion/react\"\n\ninterface CardLinearSpreadProps {\n  gap?: number\n  duration?: number\n  hoverIntensity?: number\n  cardClassName?: string\n  className?: string\n}\n\nfunction CardLinearSpread({\n  gap = 90,\n  duration = 0.5,\n  hoverIntensity = 1,\n  cardClassName = \"bg-neutral-800\",\n  className = \"\",\n}: CardLinearSpreadProps) {\n  const [isHovered, setIsHovered] = useState(false)\n  const cards = [0, 1, 2, 3, 4]\n  const center = 2\n\n  return (\n    <div\n      onMouseEnter={() => setIsHovered(true)}\n      onMouseLeave={() => setIsHovered(false)}\n      className={`relative flex h-[11rem] w-[8rem] cursor-pointer items-center justify-center ${className}`}\n    >\n      {cards.map((i) => {\n        const dist = i - center\n        const targetX = isHovered ? dist * (gap / center) * hoverIntensity : 0\n\n        return (\n          <motion.div\n            key={i}\n            animate={{\n              x: targetX,\n              scale: isHovered ? (dist === 0 ? 1.05 : 1) : 1,\n            }}\n            transition={{\n              type: \"spring\",\n              stiffness: 180,\n              damping: 20,\n              mass: 0.8,\n              duration,\n            }}\n            style={{\n              zIndex: 3 - Math.abs(dist),\n            }}\n            className={`absolute inset-0 rounded-2xl border border-white/5 shadow-[0_4px_10px_-2px_rgba(0,0,0,0.15)] ${cardClassName}`}\n          />\n        )\n      })}\n    </div>\n  )\n}\n\nexport { CardLinearSpread }\n",
+      "type": "registry:ui",
+      "target": "components/ui/card-linear-spread.tsx"
+    }
+  ],
+  "type": "registry:ui"
+}

@@ -1,0 +1,21 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "card-orbit",
+  "title": "Card Orbit",
+  "description": "Galeria de cartas em órbita 3D contínua ao redor do centro.",
+  "files": [
+    {
+      "path": "stories/Cards/card-orbit.tsx",
+      "content": "import type { CSSProperties } from \"react\"\nimport \"./card-orbit.css\"\n\nconst DEFAULT_IMAGES = [\n  \"https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=300&q=80\",\n  \"https://images.unsplash.com/photo-1519681393784-d120267933ba?w=300&q=80\",\n  \"https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe8f?w=300&q=80\",\n  \"https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=300&q=80\",\n  \"https://images.unsplash.com/photo-1447752875215-b2761acb3c5d?w=300&q=80\",\n  \"https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=300&q=80\",\n]\n\ninterface CardOrbitProps {\n  images?: string[]\n  /** Cor em formato \"r,g,b\" usada na borda e no tint do gradiente. */\n  colorCard?: string\n  className?: string\n}\n\nfunction CardOrbit({\n  images = DEFAULT_IMAGES,\n  colorCard = \"99,102,241\",\n  className = \"\",\n}: CardOrbitProps) {\n  return (\n    <div\n      className={`card-orbit ${className}`}\n      style={{ \"--color-card\": colorCard } as CSSProperties}\n    >\n      <div\n        className=\"card-orbit__inner\"\n        style={{ \"--quantity\": images.length } as CSSProperties}\n      >\n        {images.map((img, index) => (\n          <div\n            key={index}\n            className=\"card-orbit__card\"\n            style={{ \"--index\": index } as CSSProperties}\n          >\n            <div\n              className=\"card-orbit__img\"\n              style={{ \"--img\": `url(${img})` } as CSSProperties}\n            />\n          </div>\n        ))}\n      </div>\n    </div>\n  )\n}\n\nexport { CardOrbit }\n",
+      "type": "registry:ui",
+      "target": "components/ui/card-orbit.tsx"
+    },
+    {
+      "path": "stories/Cards/card-orbit.css",
+      "content": "/* From Uiverse.io by ilkhoeri (classes renomeadas com prefixo card-orbit para evitar colisao com nomes genericos tipo .wrapper/.inner/.card/.img) */\n.card-orbit {\n  width: 500px;\n  max-width: 100%;\n  height: 350px;\n  position: relative;\n  text-align: center;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  overflow: hidden;\n}\n\n.card-orbit__inner {\n  --w: 100px;\n  --h: 150px;\n  --translateZ: calc((var(--w) + var(--h)) + 0px);\n  --rotateX: -15deg;\n  --perspective: 1000px;\n  position: absolute;\n  width: var(--w);\n  height: var(--h);\n  top: 25%;\n  left: calc(50% - (var(--w) / 2) - 2.5px);\n  z-index: 2;\n  transform-style: preserve-3d;\n  transform: perspective(var(--perspective));\n  animation: card-orbit-rotating 20s linear infinite;\n}\n@keyframes card-orbit-rotating {\n  from {\n    transform: perspective(var(--perspective)) rotateX(var(--rotateX))\n      rotateY(0);\n  }\n  to {\n    transform: perspective(var(--perspective)) rotateX(var(--rotateX))\n      rotateY(1turn);\n  }\n}\n\n.card-orbit__card {\n  position: absolute;\n  border: 2px solid rgba(var(--color-card));\n  border-radius: 12px;\n  overflow: hidden;\n  inset: 0;\n  transform: rotateY(calc((360deg / var(--quantity)) * var(--index)))\n    translateZ(var(--translateZ));\n}\n\n.card-orbit__img {\n  width: 100%;\n  height: 100%;\n  background-image: var(--img, none),\n    radial-gradient(\n      circle,\n      rgba(var(--color-card), 0.2) 0%,\n      rgba(var(--color-card), 0.6) 80%,\n      rgba(var(--color-card), 0.9) 100%\n    );\n  background-size: cover, cover;\n  background-position: center, center;\n  background-repeat: no-repeat, no-repeat;\n}\n",
+      "type": "registry:ui",
+      "target": "components/ui/card-orbit.css"
+    }
+  ],
+  "type": "registry:ui"
+}

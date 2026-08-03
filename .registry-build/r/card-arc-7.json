@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "card-arc-7",
+  "title": "Card Arc 7",
+  "description": "Leque de sete cartas que se abre em arco ao passar o mouse.",
+  "dependencies": [
+    "motion"
+  ],
+  "files": [
+    {
+      "path": "stories/Cards/card-arc-7.tsx",
+      "content": "import { useState } from \"react\"\nimport { motion } from \"motion/react\"\n\ninterface CardArc7Props {\n  angle?: number\n  gap?: number\n  yOffset?: number\n  duration?: number\n  hoverIntensity?: number\n  cardClassName?: string\n  className?: string\n}\n\nfunction CardArc7({\n  angle = 45,\n  gap = 110,\n  yOffset = 30,\n  duration = 0.5,\n  hoverIntensity = 1,\n  cardClassName = \"bg-neutral-800\",\n  className = \"\",\n}: CardArc7Props) {\n  const [isHovered, setIsHovered] = useState(false)\n  const cards = [0, 1, 2, 3, 4, 5, 6]\n  const center = 3\n\n  return (\n    <div\n      onMouseEnter={() => setIsHovered(true)}\n      onMouseLeave={() => setIsHovered(false)}\n      className={`relative flex h-[11rem] w-[8rem] cursor-pointer items-center justify-center ${className}`}\n    >\n      {cards.map((i) => {\n        const dist = i - center\n        const targetRotate = isHovered ? dist * (angle / center) * hoverIntensity : 0\n        const targetX = isHovered ? dist * (gap / center) * hoverIntensity : 0\n\n        let targetY = 0\n        if (isHovered) {\n          if (Math.abs(dist) === 3) targetY = yOffset\n          else if (Math.abs(dist) === 2) targetY = 0.33 * yOffset\n          else if (Math.abs(dist) === 1) targetY = -0.17 * yOffset\n          else targetY = -0.5 * yOffset\n          targetY = targetY * hoverIntensity\n        }\n\n        return (\n          <motion.div\n            key={i}\n            animate={{\n              rotate: targetRotate,\n              x: targetX,\n              y: targetY,\n              scale: isHovered ? (dist === 0 ? 1.05 : 1) : 1,\n            }}\n            transition={{\n              type: \"spring\",\n              stiffness: 180,\n              damping: 20,\n              mass: 0.8,\n              duration,\n            }}\n            style={{\n              zIndex: 4 - Math.abs(dist),\n              originX: 0.5,\n              originY: 1,\n            }}\n            className={`absolute inset-0 rounded-2xl border border-white/5 shadow-[0_4px_10px_-2px_rgba(0,0,0,0.15)] ${cardClassName}`}\n          />\n        )\n      })}\n    </div>\n  )\n}\n\nexport { CardArc7 }\n",
+      "type": "registry:ui",
+      "target": "components/ui/card-arc-7.tsx"
+    }
+  ],
+  "type": "registry:ui"
+}
