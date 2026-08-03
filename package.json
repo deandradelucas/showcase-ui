@@ -74,6 +74,7 @@
     "zod": "^4.4.3"
   },
   "devDependencies": {
+    "@chromatic-com/cypress": "^0.13.1",
     "@chromatic-com/storybook": "^5.2.1",
     "@storybook/addon-a11y": "^10.5.5",
     "@storybook/addon-docs": "^10.5.5",
@@ -86,6 +87,7 @@
     "@types/react-dom": "^19",
     "@vitest/browser-playwright": "^4.1.10",
     "@vitest/coverage-v8": "^4.1.10",
+    "chromatic": "^18.1.0",
     "eslint": "^9",
     "eslint-config-next": "16.2.6",
     "eslint-plugin-storybook": "^10.5.5",
