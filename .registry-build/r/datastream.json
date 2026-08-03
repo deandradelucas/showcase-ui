@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "datastream",
+  "title": "Datastream",
+  "description": "Texto preenchido por linhas de varredura verticais em movimento constante, com uma trilha de dígitos binários escorrendo por baixo, como um fluxo de dados.",
+  "files": [
+    {
+      "path": "stories/TextEffects/datastream.css",
+      "content": "/* Markup: <div class=\"fx-datastream\">STREAM</div> */\n\n/* Colour tokens — override to re-skin the effect:\n   --ink    main text colour (defaults to currentColor)\n   --ink-2  primary accent   --ink-3  secondary accent */\n:root { --ink: currentColor; --ink-2: #FF4FD8; --ink-3: #4FF8FF; }\n\n/* 43 Datastream */\n.fx-datastream {\n  position: relative;\n  font: 600 30px/1.1 JetBrains Mono, monospace;\n  letter-spacing: .12em;\n  color: transparent;\n  background: repeating-linear-gradient(0deg, var(--ink-3) 0 2px, color-mix(in srgb, var(--ink-3) 35%, transparent) 2px 4px, transparent 4px 8px), linear-gradient(90deg, var(--ink-2), var(--ink-3), var(--ink));\n  background-size: 100% 32px, 240% 100%;\n  -webkit-background-clip: text;\n  background-clip: text;\n  animation: fx-datastream 1.6s linear infinite;\n}\n.fx-datastream:after {\n  content: \"0101 1100 0011\";\n  position: absolute;\n  left: 50%;\n  top: 100%;\n  width: 170%;\n  color: color-mix(in srgb, var(--ink-3) 42%, transparent);\n  font-size: .42em;\n  letter-spacing: .16em;\n  transform: translate(-50%);\n  animation: fx-datastream-code 1.6s linear infinite;\n}\n@keyframes fx-datastream {\n  to {\n    background-position: 0 32px, -120% 0;\n  }\n}\n@keyframes fx-datastream-code {\n  0% {\n    opacity: .2;\n    transform: translate(-50%, -2px);\n  }\n  50% {\n    opacity: .7;\n  }\n  to {\n    opacity: .2;\n    transform: translate(-50%, 10px);\n  }\n}\n",
+      "type": "registry:ui",
+      "target": "components/ui/datastream.css"
+    }
+  ],
+  "type": "registry:ui"
+}

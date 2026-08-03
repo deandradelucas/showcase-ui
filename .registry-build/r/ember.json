@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "ember",
+  "title": "Emberglow",
+  "description": "Texto incandescente com sombra alaranjada pulsante, como brasa em combustão.",
+  "files": [
+    {
+      "path": "stories/TextEffects/ember.css",
+      "content": "/* Markup: <div class=\"fx-ember\">EMBER</div> */\n\n/* Colour tokens — override to re-skin the effect:\n   --ink    main text colour (defaults to currentColor)\n   --ink-2  primary accent   --ink-3  secondary accent */\n:root { --ink: currentColor; --ink-2: #FF4FD8; --ink-3: #4FF8FF; }\n\n/* 12 Emberglow */\n.fx-ember {\n  font: 600 32px/1.1 JetBrains Mono, monospace;\n  letter-spacing: .1em;\n  color: #ffd9a0;\n  animation: fx-ember 1.7s ease-in-out infinite alternate;\n}\n@keyframes fx-ember {\n  0% {\n    text-shadow: 0 -2px 6px #ffab40, 0 -6px 14px #ff6d00, 0 -12px 28px #dd2c00, 0 -20px 44px rgba(213, 0, 0, .55);\n  }\n  to {\n    text-shadow: 0 -3px 8px #ffc46b, 0 -9px 20px #ff8f1f, 0 -18px 38px #ff3d00, 0 -30px 60px rgba(213, 0, 0, .8);\n  }\n}\n",
+      "type": "registry:ui",
+      "target": "components/ui/ember.css"
+    }
+  ],
+  "type": "registry:ui"
+}

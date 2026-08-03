@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "sundial",
+  "title": "Sundial",
+  "description": "A sombra do texto gira 360° ao redor das letras, como a sombra de um relógio de sol ao longo do dia.",
+  "files": [
+    {
+      "path": "stories/TextEffects/sundial.css",
+      "content": "/* Markup: <div class=\"fx-sundial\">SHADOW</div> */\n\n/* Colour tokens — override to re-skin the effect:\n   --ink    main text colour (defaults to currentColor)\n   --ink-2  primary accent   --ink-3  secondary accent */\n:root { --ink: currentColor; --ink-2: #FF4FD8; --ink-3: #4FF8FF; }\n\n/* 29 Sundial */\n.fx-sundial {\n  font: 600 32px/1.1 JetBrains Mono, monospace;\n  letter-spacing: .1em;\n  color: var(--ink);\n  animation: fx-sundial 5s linear infinite;\n}\n@keyframes fx-sundial {\n  0%,to {\n    text-shadow: 4px 0 var(--ink-2), 8px 0 color-mix(in srgb, var(--ink-2) 55%, transparent), 12px 0 color-mix(in srgb, var(--ink-2) 25%, transparent);\n  }\n  12.5% {\n    text-shadow: 2.8px 2.8px var(--ink-2), 5.6px 5.6px color-mix(in srgb, var(--ink-2) 55%, transparent), 8.4px 8.4px color-mix(in srgb, var(--ink-2) 25%, transparent);\n  }\n  25% {\n    text-shadow: 0 4px var(--ink-2), 0 8px color-mix(in srgb, var(--ink-2) 55%, transparent), 0 12px color-mix(in srgb, var(--ink-2) 25%, transparent);\n  }\n  37.5% {\n    text-shadow: -2.8px 2.8px var(--ink-2), -5.6px 5.6px color-mix(in srgb, var(--ink-2) 55%, transparent), -8.4px 8.4px color-mix(in srgb, var(--ink-2) 25%, transparent);\n  }\n  50% {\n    text-shadow: -4px 0 var(--ink-2), -8px 0 color-mix(in srgb, var(--ink-2) 55%, transparent), -12px 0 color-mix(in srgb, var(--ink-2) 25%, transparent);\n  }\n  62.5% {\n    text-shadow: -2.8px -2.8px var(--ink-2), -5.6px -5.6px color-mix(in srgb, var(--ink-2) 55%, transparent), -8.4px -8.4px color-mix(in srgb, var(--ink-2) 25%, transparent);\n  }\n  75% {\n    text-shadow: 0 -4px var(--ink-2), 0 -8px color-mix(in srgb, var(--ink-2) 55%, transparent), 0 -12px color-mix(in srgb, var(--ink-2) 25%, transparent);\n  }\n  87.5% {\n    text-shadow: 2.8px -2.8px var(--ink-2), 5.6px -5.6px color-mix(in srgb, var(--ink-2) 55%, transparent), 8.4px -8.4px color-mix(in srgb, var(--ink-2) 25%, transparent);\n  }\n}\n",
+      "type": "registry:ui",
+      "target": "components/ui/sundial.css"
+    }
+  ],
+  "type": "registry:ui"
+}

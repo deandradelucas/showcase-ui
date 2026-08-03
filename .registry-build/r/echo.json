@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "echo",
+  "title": "Echo-Verse",
+  "description": "Cópias fantasmas do texto se expandem e desaparecem em ondas sucessivas, como um eco visual.",
+  "files": [
+    {
+      "path": "stories/TextEffects/echo.css",
+      "content": "/* Markup: <div class=\"fx-echo\" data-text=\"ECHO\">ECHO</div> */\n\n/* Colour tokens — override to re-skin the effect:\n   --ink    main text colour (defaults to currentColor)\n   --ink-2  primary accent   --ink-3  secondary accent */\n:root { --ink: currentColor; --ink-2: #FF4FD8; --ink-3: #4FF8FF; }\n\n/* 13 Echo-Verse */\n.fx-echo {\n  position: relative;\n  font: 600 32px/1.1 JetBrains Mono, monospace;\n  letter-spacing: .12em;\n  color: var(--ink);\n}\n.fx-echo:before, .fx-echo:after {\n  content: attr(data-text);\n  position: absolute;\n  inset: 0;\n  animation: fx-echo 2s ease-out infinite;\n}\n.fx-echo:before {\n  color: var(--ink-2);\n}\n.fx-echo:after {\n  color: var(--ink-3);\n  animation-delay: 1s;\n}\n@keyframes fx-echo {\n  0% {\n    opacity: .8;\n    transform: scale(1);\n    filter: blur(0);\n  }\n  to {\n    opacity: 0;\n    transform: scale(1.9);\n    filter: blur(3px);\n  }\n}\n",
+      "type": "registry:ui",
+      "target": "components/ui/echo.css"
+    }
+  ],
+  "type": "registry:ui"
+}

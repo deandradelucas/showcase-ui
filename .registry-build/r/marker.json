@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "marker",
+  "title": "Hi-Liter",
+  "description": "Um marca-texto colorido preenche o texto por baixo e depois desliza para fora, como se fosse grifado à mão.",
+  "files": [
+    {
+      "path": "stories/TextEffects/marker.css",
+      "content": "/* Markup: <div class=\"fx-marker\">MARKED</div> */\n\n/* Colour tokens — override to re-skin the effect:\n   --ink    main text colour (defaults to currentColor)\n   --ink-2  primary accent   --ink-3  secondary accent */\n:root { --ink: currentColor; --ink-2: #FF4FD8; --ink-3: #4FF8FF; }\n\n/* 28 Hi-Liter */\n.fx-marker {\n  font: 600 28px/1.3 JetBrains Mono, monospace;\n  letter-spacing: .08em;\n  color: var(--ink);\n  padding: .1em .2em;\n  background: linear-gradient(100deg, color-mix(in srgb, var(--ink-2) 85%, transparent), color-mix(in srgb, var(--ink-2) 60%, transparent)) no-repeat 0 62%;\n  background-size: 0% 46%;\n  animation: fx-marker 3s ease-in-out infinite;\n}\n@keyframes fx-marker {\n  0% {\n    background-size: 0% 46%;\n    background-position: 0 62%;\n  }\n  38%,62% {\n    background-size: 100% 46%;\n    background-position: 0 62%;\n  }\n  to {\n    background-size: 0% 46%;\n    background-position: 100% 62%;\n  }\n}\n",
+      "type": "registry:ui",
+      "target": "components/ui/marker.css"
+    }
+  ],
+  "type": "registry:ui"
+}

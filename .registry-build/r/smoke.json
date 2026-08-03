@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "smoke",
+  "title": "Smoke-Signal",
+  "description": "Cada letra sobe, gira, se dissolve e desaparece em fumaça antes de reaparecer, como um sinal de fumaça.",
+  "files": [
+    {
+      "path": "stories/TextEffects/smoke.css",
+      "content": "/* Markup: <div class=\"fx-smoke\" role=\"img\" aria-label=\"SMOKE\"><b aria-hidden=\"true\" style=\"--i:0\">S</b><b aria-hidden=\"true\" style=\"--i:1\">M</b><b aria-hidden=\"true\" style=\"--i:2\">O</b><b aria-hidden=\"true\" style=\"--i:3\">K</b><b aria-hidden=\"true\" style=\"--i:4\">E</b></div> */\n\n/* Colour tokens — override to re-skin the effect:\n   --ink    main text colour (defaults to currentColor)\n   --ink-2  primary accent   --ink-3  secondary accent */\n:root { --ink: currentColor; --ink-2: #FF4FD8; --ink-3: #4FF8FF; }\n\n/* 61 Smoke-Signal */\n.fx-smoke {\n  font: 600 32px/1.1 JetBrains Mono, monospace;\n  letter-spacing: .14em;\n  color: var(--ink);\n}\n.fx-smoke b {\n  font-weight: inherit;\n  display: inline-block;\n  animation: fx-smoke 3.4s ease-in-out infinite;\n  animation-delay: calc(var(--i) * .16s);\n}\n@keyframes fx-smoke {\n  0%,42% {\n    transform: none;\n    opacity: 1;\n    filter: blur(0);\n    color: var(--ink);\n  }\n  62% {\n    color: var(--ink-3);\n  }\n  78% {\n    transform: translate(6px, -22px) rotate(14deg) scale(1.45);\n    opacity: 0;\n    filter: blur(7px);\n  }\n  79% {\n    transform: translateY(10px) scale(.8);\n    opacity: 0;\n    filter: blur(4px);\n  }\n  92%,to {\n    transform: none;\n    opacity: 1;\n    filter: blur(0);\n  }\n}\n",
+      "type": "registry:ui",
+      "target": "components/ui/smoke.css"
+    }
+  ],
+  "type": "registry:ui"
+}

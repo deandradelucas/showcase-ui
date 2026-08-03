@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "scanner",
+  "title": "Redactor",
+  "description": "Uma barra de luz varre o texto da esquerda para a direita enquanto o brilho do preenchimento acompanha o movimento.",
+  "files": [
+    {
+      "path": "stories/TextEffects/scanner.css",
+      "content": "/* Markup: <div class=\"fx-scanner\">SCANNER</div> */\n\n/* Colour tokens — override to re-skin the effect:\n   --ink    main text colour (defaults to currentColor)\n   --ink-2  primary accent   --ink-3  secondary accent */\n:root { --ink: currentColor; --ink-2: #FF4FD8; --ink-3: #4FF8FF; }\n\n/* 11 Redactor */\n.fx-scanner {\n  position: relative;\n  font: 600 28px/1.2 JetBrains Mono, monospace;\n  letter-spacing: .08em;\n  background: linear-gradient(90deg, color-mix(in srgb, var(--ink) 25%, transparent) 0 40%, var(--ink) 50%, color-mix(in srgb, var(--ink) 25%, transparent) 60% 100%) 0 0 / 300% 100%;\n  -webkit-background-clip: text;\n  background-clip: text;\n  color: transparent;\n  animation: fx-scan-glow 2.6s ease-in-out infinite alternate;\n}\n.fx-scanner:after {\n  content: \"\";\n  position: absolute;\n  top: -6px;\n  bottom: -6px;\n  left: 0;\n  width: 3px;\n  background: var(--ink-2);\n  box-shadow: 0 0 14px var(--ink-2);\n  animation: fx-scan-bar 2.6s ease-in-out infinite alternate;\n}\n@keyframes fx-scan-glow {\n  0% {\n    background-position: 100% 0;\n  }\n  to {\n    background-position: 0% 0;\n  }\n}\n@keyframes fx-scan-bar {\n  0% {\n    left: 0;\n    transform: translate(0);\n  }\n  to {\n    left: 100%;\n    transform: translate(-100%);\n  }\n}\n",
+      "type": "registry:ui",
+      "target": "components/ui/scanner.css"
+    }
+  ],
+  "type": "registry:ui"
+}

@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "baixar-para-mac",
+  "title": "Baixar para Mac",
+  "description": "Interação com a seta deslizante",
+  "dependencies": [
+    "motion"
+  ],
+  "files": [
+    {
+      "path": "stories/Buttons/baixar-para-mac.tsx",
+      "content": "import { useState } from \"react\"\r\nimport { AnimatePresence, motion } from \"motion/react\"\r\nimport { ArrowRight, Download } from \"lucide-react\"\r\n\r\nfunction BaixarParaMac() {\r\n  const [isHovered, setIsHovered] = useState(false)\r\n\r\n  return (\r\n    <motion.button\r\n      onMouseEnter={() => setIsHovered(true)}\r\n      onMouseLeave={() => setIsHovered(false)}\r\n      whileHover={{ scale: 1.02 }}\r\n      whileTap={{ scale: 0.96 }}\r\n      className=\"relative flex h-[36px] cursor-pointer items-center justify-center rounded-[40px] border border-foreground/10 bg-foreground/[0.04] px-6 text-foreground transition-colors duration-150 hover:bg-foreground/[0.08]\"\r\n    >\r\n      <AnimatePresence mode=\"popLayout\">\r\n        {!isHovered && (\r\n          <motion.div\r\n            key=\"icon1\"\r\n            initial={{ opacity: 0, x: -10 }}\r\n            animate={{ opacity: 1, x: 0 }}\r\n            exit={{ opacity: 0, x: -10 }}\r\n            transition={{ type: \"spring\", stiffness: 600, damping: 25 }}\r\n            className=\"mr-2.5 flex shrink-0 items-center\"\r\n          >\r\n            <Download className=\"h-4 w-4\" />\r\n          </motion.div>\r\n        )}\r\n      </AnimatePresence>\r\n      <span className=\"text-[13px] font-medium tracking-tight\">Download for Mac</span>\r\n      <AnimatePresence mode=\"popLayout\">\r\n        {isHovered && (\r\n          <motion.div\r\n            key=\"icon2\"\r\n            initial={{ opacity: 0, x: 10 }}\r\n            animate={{ opacity: 1, x: 0 }}\r\n            exit={{ opacity: 0, x: 10 }}\r\n            transition={{ type: \"spring\", stiffness: 600, damping: 25 }}\r\n            className=\"ml-2.5 flex shrink-0 items-center\"\r\n          >\r\n            <ArrowRight className=\"h-4 w-4\" />\r\n          </motion.div>\r\n        )}\r\n      </AnimatePresence>\r\n    </motion.button>\r\n  )\r\n}\r\n\r\nexport { BaixarParaMac }\r\n",
+      "type": "registry:ui",
+      "target": "components/ui/baixar-para-mac.tsx"
+    }
+  ],
+  "type": "registry:ui"
+}

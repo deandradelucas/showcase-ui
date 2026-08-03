@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "negative",
+  "title": "Negativ",
+  "description": "Uma faixa em negativo (mix-blend-mode: difference) desliza sobre o texto, invertendo a cor onde passa.",
+  "files": [
+    {
+      "path": "stories/TextEffects/negative.css",
+      "content": "/* Markup: <div class=\"fx-negative\">INVERTED</div> */\n\n/* Colour tokens — override to re-skin the effect:\n   --ink    main text colour (defaults to currentColor)\n   --ink-2  primary accent   --ink-3  secondary accent */\n:root { --ink: currentColor; --ink-2: #FF4FD8; --ink-3: #4FF8FF; }\n\n/* 30 Negativ */\n.fx-negative {\n  position: relative;\n  font: 600 28px/1.2 JetBrains Mono, monospace;\n  letter-spacing: .08em;\n  color: var(--ink);\n  padding: .18em .22em;\n}\n.fx-negative:after {\n  content: \"\";\n  position: absolute;\n  top: 0;\n  bottom: 0;\n  left: 0;\n  width: 34%;\n  background: var(--ink);\n  mix-blend-mode: difference;\n  animation: fx-negative 2.4s ease-in-out infinite alternate;\n}\n@keyframes fx-negative {\n  0% {\n    left: 0;\n    transform: translate(0);\n  }\n  to {\n    left: 100%;\n    transform: translate(-100%);\n  }\n}\n",
+      "type": "registry:ui",
+      "target": "components/ui/negative.css"
+    }
+  ],
+  "type": "registry:ui"
+}

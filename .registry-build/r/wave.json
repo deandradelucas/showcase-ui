@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "wave",
+  "title": "Tidal-Type",
+  "description": "Letras sobem e descem em cascata, formando uma onda contínua ao longo do texto.",
+  "files": [
+    {
+      "path": "stories/TextEffects/wave.css",
+      "content": "/* Markup: <div class=\"fx-wave\" role=\"img\" aria-label=\"WAVE\"><b aria-hidden=\"true\" style=\"--i:0\">W</b><b aria-hidden=\"true\" style=\"--i:1\">A</b><b aria-hidden=\"true\" style=\"--i:2\">V</b><b aria-hidden=\"true\" style=\"--i:3\">E</b></div> */\n\n/* Colour tokens — override to re-skin the effect:\n   --ink    main text colour (defaults to currentColor)\n   --ink-2  primary accent   --ink-3  secondary accent */\n:root { --ink: currentColor; --ink-2: #FF4FD8; --ink-3: #4FF8FF; }\n\n/* 08 Tidal-Type */\n.fx-wave {\n  font: 600 32px/1.1 JetBrains Mono, monospace;\n  letter-spacing: .1em;\n  color: var(--ink-3);\n}\n.fx-wave b {\n  font-weight: inherit;\n  display: inline-block;\n  animation: fx-wave 1.3s ease-in-out infinite;\n  animation-delay: calc(var(--i) * -.14s);\n}\n@keyframes fx-wave {\n  0%,to {\n    transform: translateY(7px);\n  }\n  50% {\n    transform: translateY(-7px);\n  }\n}\n",
+      "type": "registry:ui",
+      "target": "components/ui/wave.css"
+    }
+  ],
+  "type": "registry:ui"
+}

@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "enviar",
+  "title": "Submit",
+  "description": "Botao de envio com crossfade para check de confirmacao no hover.",
+  "files": [
+    {
+      "path": "stories/Buttons/enviar.tsx",
+      "content": "import { useState } from \"react\"\nimport { AnimatePresence, motion } from \"motion/react\"\nimport { Check, Send } from \"lucide-react\"\n\nfunction Enviar() {\n  const [isHovered, setIsHovered] = useState(false)\n\n  return (\n    <motion.button\n      onMouseEnter={() => setIsHovered(true)}\n      onMouseLeave={() => setIsHovered(false)}\n      whileHover={{ scale: 1.02 }}\n      whileTap={{ scale: 0.96 }}\n      className=\"relative flex h-[36px] cursor-pointer items-center justify-center rounded-[40px] border border-foreground/10 bg-foreground/[0.04] px-6 text-foreground transition-colors duration-150 hover:bg-foreground/[0.08]\"\n    >\n      <div className=\"relative flex h-[16px] w-[16px] shrink-0 items-center justify-center\">\n        <AnimatePresence mode=\"popLayout\" initial={false}>\n          {!isHovered ? (\n            <motion.div\n              key=\"icon1\"\n              initial={{ scale: 0.5, opacity: 0 }}\n              animate={{ scale: 1, opacity: 1 }}\n              exit={{ scale: 0.5, opacity: 0 }}\n              transition={{ type: \"spring\", stiffness: 600, damping: 25 }}\n              className=\"absolute inset-0 flex items-center justify-center\"\n            >\n              <Send className=\"h-4 w-4\" />\n            </motion.div>\n          ) : (\n            <motion.div\n              key=\"icon2\"\n              initial={{ scale: 0.5, opacity: 0 }}\n              animate={{ scale: 1, opacity: 1 }}\n              exit={{ scale: 0.5, opacity: 0 }}\n              transition={{ type: \"spring\", stiffness: 600, damping: 25 }}\n              className=\"absolute inset-0 flex items-center justify-center\"\n            >\n              <Check className=\"h-4 w-4 text-emerald-400\" />\n            </motion.div>\n          )}\n        </AnimatePresence>\n      </div>\n      <span className=\"ml-2.5 text-[13px] font-medium tracking-tight\">Submit</span>\n    </motion.button>\n  )\n}\n\nexport { Enviar }\n",
+      "type": "registry:ui",
+      "target": "components/ui/enviar.tsx"
+    }
+  ],
+  "type": "registry:ui"
+}

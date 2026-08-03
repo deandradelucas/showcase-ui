@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "ransom",
+  "title": "Ransom-Note",
+  "description": "Letras em fundos alternados (sólido e contorno tracejado) se inclinam para lados opostos, como um bilhete de resgate recortado de jornal.",
+  "files": [
+    {
+      "path": "stories/TextEffects/ransom.css",
+      "content": "/* Markup: <div class=\"fx-ransom\" role=\"img\" aria-label=\"RANSOM\"><b aria-hidden=\"true\" style=\"--i:0\">R</b><b aria-hidden=\"true\" style=\"--i:1\">A</b><b aria-hidden=\"true\" style=\"--i:2\">N</b><b aria-hidden=\"true\" style=\"--i:3\">S</b><b aria-hidden=\"true\" style=\"--i:4\">O</b><b aria-hidden=\"true\" style=\"--i:5\">M</b></div> */\n\n/* Colour tokens — override to re-skin the effect:\n   --ink    main text colour (defaults to currentColor)\n   --ink-2  primary accent   --ink-3  secondary accent */\n:root { --ink: currentColor; --ink-2: #FF4FD8; --ink-3: #4FF8FF; }\n\n/* 25 Ransom-Note */\n.fx-ransom {\n  font: 600 24px/1 JetBrains Mono, monospace;\n  letter-spacing: 0;\n  display: inline-flex;\n  gap: 4px;\n  color: var(--ink);\n}\n.fx-ransom b {\n  font-weight: inherit;\n  display: grid;\n  place-items: center;\n  padding: .28em .3em;\n  border-radius: 3px;\n  background: color-mix(in srgb, var(--ink) 14%, transparent);\n  animation: fx-ransom 2.8s ease-in-out infinite alternate;\n  animation-delay: calc(var(--i) * -.5s);\n}\n.fx-ransom b:nth-child(odd) {\n  background: var(--ink-2);\n  color: #14020f;\n}\n.fx-ransom b:nth-child(3n) {\n  background: transparent;\n  outline: 1.5px dashed color-mix(in srgb, var(--ink) 55%, transparent);\n  color: var(--ink-3);\n}\n@keyframes fx-ransom {\n  0% {\n    transform: rotate(-6deg) translateY(1.5px);\n  }\n  to {\n    transform: rotate(6deg) translateY(-1.5px);\n  }\n}\n",
+      "type": "registry:ui",
+      "target": "components/ui/ransom.css"
+    }
+  ],
+  "type": "registry:ui"
+}

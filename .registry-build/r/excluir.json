@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "excluir",
+  "title": "Delete",
+  "description": "Botao de exclusao com icone de lixeira que treme e fica vermelho no hover.",
+  "files": [
+    {
+      "path": "stories/Buttons/excluir.tsx",
+      "content": "import { useState } from \"react\"\nimport { motion } from \"motion/react\"\nimport { Trash2 } from \"lucide-react\"\n\nfunction Excluir() {\n  const [isHovered, setIsHovered] = useState(false)\n\n  return (\n    <motion.button\n      onMouseEnter={() => setIsHovered(true)}\n      onMouseLeave={() => setIsHovered(false)}\n      whileHover={{ scale: 1.02 }}\n      whileTap={{ scale: 0.96 }}\n      className=\"relative flex h-[36px] cursor-pointer items-center justify-center rounded-[40px] border border-foreground/10 bg-foreground/[0.04] px-6 text-foreground transition-colors duration-150 hover:bg-foreground/[0.08]\"\n    >\n      <div className=\"relative flex h-[16px] w-[16px] shrink-0 items-center justify-center\">\n        <motion.div\n          animate={{\n            y: isHovered ? [0, -2, 0, -2, 0] : 0,\n            rotate: isHovered ? [0, -10, 10, -10, 0] : 0,\n          }}\n          transition={{ duration: 0.4 }}\n        >\n          <Trash2 className={`h-4 w-4 transition-colors duration-300 ${isHovered ? \"text-red-400\" : \"\"}`} />\n        </motion.div>\n      </div>\n      <span\n        className={`ml-2.5 text-[13px] font-medium tracking-tight transition-colors duration-300 ${isHovered ? \"text-red-400\" : \"\"}`}\n      >\n        Delete\n      </span>\n    </motion.button>\n  )\n}\n\nexport { Excluir }\n",
+      "type": "registry:ui",
+      "target": "components/ui/excluir.tsx"
+    }
+  ],
+  "type": "registry:ui"
+}

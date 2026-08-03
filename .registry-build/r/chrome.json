@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "chrome",
+  "title": "Chromia",
+  "description": "Reflexo metálico cromado deslizando diagonalmente pelo texto, como uma superfície polida.",
+  "files": [
+    {
+      "path": "stories/TextEffects/chrome.css",
+      "content": "/* Markup: <div class=\"fx-chrome\">CHROME</div> */\n\n/* Colour tokens — override to re-skin the effect:\n   --ink    main text colour (defaults to currentColor)\n   --ink-2  primary accent   --ink-3  secondary accent */\n:root { --ink: currentColor; --ink-2: #FF4FD8; --ink-3: #4FF8FF; }\n\n/* 06 Chromia */\n.fx-chrome {\n  font: 600 32px/1.1 JetBrains Mono, monospace;\n  letter-spacing: .06em;\n  background: linear-gradient(105deg, color-mix(in srgb, var(--ink) 40%, transparent) 0 38%, var(--ink) 47%, #fff 50%, var(--ink) 53%, color-mix(in srgb, var(--ink) 40%, transparent) 62% 100%) 0 0 / 260% 100%;\n  -webkit-background-clip: text;\n  background-clip: text;\n  color: transparent;\n  animation: fx-chrome 2.8s ease-in-out infinite;\n}\n@keyframes fx-chrome {\n  0% {\n    background-position: 130% 0;\n  }\n  60%,to {\n    background-position: -130% 0;\n  }\n}\n",
+      "type": "registry:ui",
+      "target": "components/ui/chrome.css"
+    }
+  ],
+  "type": "registry:ui"
+}

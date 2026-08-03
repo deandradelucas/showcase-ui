@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "parallax",
+  "title": "Parallax",
+  "description": "Cada letra flutua verticalmente com sombras duplas coloridas que se distanciam, criando sensação de profundidade em camadas.",
+  "files": [
+    {
+      "path": "stories/TextEffects/parallax.css",
+      "content": "/* Markup: <div class=\"fx-parallax\" role=\"img\" aria-label=\"LAYERS\"><b aria-hidden=\"true\" style=\"--i:0\">L</b><b aria-hidden=\"true\" style=\"--i:1\">A</b><b aria-hidden=\"true\" style=\"--i:2\">Y</b><b aria-hidden=\"true\" style=\"--i:3\">E</b><b aria-hidden=\"true\" style=\"--i:4\">R</b><b aria-hidden=\"true\" style=\"--i:5\">S</b></div> */\n\n/* Colour tokens — override to re-skin the effect:\n   --ink    main text colour (defaults to currentColor)\n   --ink-2  primary accent   --ink-3  secondary accent */\n:root { --ink: currentColor; --ink-2: #FF4FD8; --ink-3: #4FF8FF; }\n\n/* 50 Parallax */\n.fx-parallax {\n  font: 600 30px/1.1 JetBrains Mono, monospace;\n  letter-spacing: .08em;\n  color: var(--ink);\n  display: inline-flex;\n}\n.fx-parallax b {\n  font-weight: inherit;\n  display: inline-block;\n  text-shadow: 4px 4px 0 color-mix(in srgb, var(--ink-2) 72%, transparent), -4px -3px 0 color-mix(in srgb, var(--ink-3) 72%, transparent);\n  animation: fx-parallax 3s ease-in-out infinite;\n  animation-delay: calc(var(--i) * -.11s);\n}\n@keyframes fx-parallax {\n  0%,to {\n    transform: translate(0);\n    text-shadow: 4px 4px 0 color-mix(in srgb, var(--ink-2) 72%, transparent), -4px -3px 0 color-mix(in srgb, var(--ink-3) 72%, transparent);\n  }\n  50% {\n    transform: translateY(-4px);\n    text-shadow: 8px 2px 0 color-mix(in srgb, var(--ink-2) 72%, transparent), -8px -1px 0 color-mix(in srgb, var(--ink-3) 72%, transparent);\n  }\n}\n",
+      "type": "registry:ui",
+      "target": "components/ui/parallax.css"
+    }
+  ],
+  "type": "registry:ui"
+}

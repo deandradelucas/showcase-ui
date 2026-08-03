@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "foco-desfoque",
+  "title": "Foco com Desfoque",
+  "description": "Lista de links onde o item nao focado borra e perde opacidade no hover.",
+  "files": [
+    {
+      "path": "stories/Cards/foco-desfoque.tsx",
+      "content": "import { useState } from \"react\"\nimport { AnimatePresence, motion } from \"motion/react\"\n\ninterface FocusBlurItem {\n  label: string\n  href?: string\n}\n\nfunction FocoDesfoque({\n  items = [\n    { label: \"@Twitter\", href: \"#\" },\n    { label: \"@Threads\", href: \"#\" },\n    { label: \"@Instagram\", href: \"#\" },\n    { label: \"@GitHub\", href: \"#\" },\n  ],\n  blurAmount = 4,\n  opacityAmount = 0.4,\n  showBrackets = true,\n  className = \"\",\n}: {\n  items?: FocusBlurItem[]\n  blurAmount?: number\n  opacityAmount?: number\n  showBrackets?: boolean\n  className?: string\n}) {\n  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null)\n\n  return (\n    <div className={`flex flex-wrap items-center justify-center gap-6 px-10 py-6 cursor-default ${className}`}>\n      {items.map((item, index) => {\n        const isHovered = hoveredIndex === index\n        const isInactive = hoveredIndex !== null && !isHovered\n        return (\n          <a\n            key={index}\n            href={item.href || \"#\"}\n            onMouseEnter={() => setHoveredIndex(index)}\n            onMouseLeave={() => setHoveredIndex(null)}\n            className={`relative text-lg font-semibold no-underline outline-none transition-all duration-300 select-none sm:text-2xl ${isHovered ? \"text-primary\" : \"text-foreground\"}`}\n            style={{\n              filter: isInactive ? `blur(${blurAmount}px)` : \"none\",\n              opacity: isInactive ? opacityAmount : 1,\n            }}\n          >\n            <span className=\"relative z-10\">{item.label}</span>\n            {showBrackets && (\n              <AnimatePresence>\n                {isHovered && (\n                  <motion.div\n                    initial={{ opacity: 0, scale: 1.3 }}\n                    animate={{ opacity: 1, scale: 1.1 }}\n                    exit={{ opacity: 0, scale: 1.3 }}\n                    transition={{ type: \"spring\", stiffness: 350, damping: 20 }}\n                    className=\"pointer-events-none absolute inset-0 z-0 rounded-lg border-2 border-dashed border-foreground/30\"\n                    style={{ margin: \"-4px -8px\" }}\n                  />\n                )}\n              </AnimatePresence>\n            )}\n          </a>\n        )\n      })}\n    </div>\n  )\n}\n\nexport { FocoDesfoque }\n",
+      "type": "registry:ui",
+      "target": "components/ui/foco-desfoque.tsx"
+    }
+  ],
+  "type": "registry:ui"
+}

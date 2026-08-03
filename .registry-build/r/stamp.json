@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "stamp",
+  "title": "Rubber-Stamp",
+  "description": "Texto com borda grossa que bate como um carimbo, entrando girado e ampliado até assentar na posição final, desbotando ao fim do ciclo.",
+  "files": [
+    {
+      "path": "stories/TextEffects/stamp.css",
+      "content": "/* Markup: <div class=\"fx-stamp\">APPROVED</div> */\n\n/* Colour tokens — override to re-skin the effect:\n   --ink    main text colour (defaults to currentColor)\n   --ink-2  primary accent   --ink-3  secondary accent */\n:root { --ink: currentColor; --ink-2: #FF4FD8; --ink-3: #4FF8FF; }\n\n/* 66 Rubber-Stamp */\n.fx-stamp {\n  font: 600 26px/1 JetBrains Mono, monospace;\n  letter-spacing: .14em;\n  color: var(--ink-2);\n  padding: .38em .5em;\n  border: 3px solid var(--ink-2);\n  border-radius: 8px;\n  box-shadow: inset 0 0 0 1.5px color-mix(in srgb, var(--ink-2) 55%, transparent);\n  animation: fx-stamp 3.2s cubic-bezier(.22, 1.4, .36, 1) infinite;\n}\n@keyframes fx-stamp {\n  0%,6% {\n    transform: rotate(-6deg) scale(2.4);\n    opacity: 0;\n    filter: blur(4px);\n  }\n  14% {\n    transform: rotate(-6deg) scale(.96);\n    opacity: 1;\n    filter: blur(0);\n  }\n  18% {\n    transform: rotate(-6deg) scale(1.04);\n  }\n  22%,78% {\n    transform: rotate(-6deg) scale(1);\n    opacity: 1;\n    filter: blur(0);\n  }\n  94%,to {\n    transform: rotate(-6deg) scale(1);\n    opacity: 0;\n    filter: blur(.6px);\n  }\n}\n",
+      "type": "registry:ui",
+      "target": "components/ui/stamp.css"
+    }
+  ],
+  "type": "registry:ui"
+}

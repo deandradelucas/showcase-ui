@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "patrocinador",
+  "title": "Patrocinador",
+  "description": "Interação de pulso",
+  "files": [
+    {
+      "path": "stories/Buttons/patrocinador.tsx",
+      "content": "import { useState } from \"react\"\r\nimport { motion } from \"motion/react\"\r\nimport { Heart } from \"lucide-react\"\r\n\r\nfunction Patrocinador() {\r\n  const [isHovered, setIsHovered] = useState(false)\r\n\r\n  return (\r\n    <motion.button\r\n      onMouseEnter={() => setIsHovered(true)}\r\n      onMouseLeave={() => setIsHovered(false)}\r\n      whileHover={{ scale: 1.02 }}\r\n      whileTap={{ scale: 0.96 }}\r\n      className=\"relative flex h-[36px] cursor-pointer items-center justify-center rounded-[40px] border border-foreground/10 bg-foreground/[0.04] px-6 text-foreground transition-colors duration-150 hover:bg-foreground/[0.08]\"\r\n    >\r\n      <div className=\"relative flex h-[16px] w-[16px] shrink-0 items-center justify-center\">\r\n        <motion.div\r\n          animate={{ scale: isHovered ? [1, 1.25, 1] : 1 }}\r\n          transition={{ duration: 0.4, ease: \"easeInOut\" }}\r\n        >\r\n          <Heart\r\n            className={`h-4 w-4 transition-colors duration-300 ${isHovered ? \"fill-current text-pink-500\" : \"\"}`}\r\n          />\r\n        </motion.div>\r\n      </div>\r\n      <span className=\"ml-2.5 text-[13px] font-medium tracking-tight\">Sponsor</span>\r\n    </motion.button>\r\n  )\r\n}\r\n\r\nexport { Patrocinador }\r\n",
+      "type": "registry:ui",
+      "target": "components/ui/patrocinador.tsx"
+    }
+  ],
+  "type": "registry:ui"
+}

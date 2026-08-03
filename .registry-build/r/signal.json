@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "signal",
+  "title": "Signal-Noise",
+  "description": "Metades do texto em cores diferentes se deslocam abruptamente com blur e contraste, simulando interferência de sinal de TV ou rádio.",
+  "files": [
+    {
+      "path": "stories/TextEffects/signal.css",
+      "content": "/* Markup: <div class=\"fx-signal\" data-text=\"SIGNAL\">SIGNAL</div> */\n\n/* Colour tokens — override to re-skin the effect:\n   --ink    main text colour (defaults to currentColor)\n   --ink-2  primary accent   --ink-3  secondary accent */\n:root { --ink: currentColor; --ink-2: #FF4FD8; --ink-3: #4FF8FF; }\n\n/* 53 Signal-Noise */\n.fx-signal {\n  position: relative;\n  font: 600 30px/1.1 JetBrains Mono, monospace;\n  letter-spacing: .1em;\n  color: var(--ink);\n  animation: fx-signal 2s steps(1) infinite;\n}\n.fx-signal:before, .fx-signal:after {\n  content: attr(data-text);\n  position: absolute;\n  inset: 0;\n  pointer-events: none;\n}\n.fx-signal:before {\n  color: var(--ink-2);\n  clip-path: inset(0 0 58% 0);\n  animation: fx-signal-a 2s steps(1) infinite;\n}\n.fx-signal:after {\n  color: var(--ink-3);\n  clip-path: inset(42% 0 0 0);\n  animation: fx-signal-b 2s steps(1) infinite;\n}\n@keyframes fx-signal {\n  0%,21%,47%,to {\n    filter: none;\n  }\n  22%,24% {\n    filter: blur(.8px) contrast(1.4);\n  }\n}\n@keyframes fx-signal-a {\n  0%,20%,52%,to {\n    transform: translate(0);\n    opacity: .15;\n  }\n  23% {\n    transform: translate(-8px, -1px);\n    opacity: .9;\n  }\n  54% {\n    transform: translate(5px, 2px);\n    opacity: .7;\n  }\n}\n@keyframes fx-signal-b {\n  0%,24%,58%,to {\n    transform: translate(0);\n    opacity: .12;\n  }\n  27% {\n    transform: translate(8px, 1px);\n    opacity: .86;\n  }\n  60% {\n    transform: translate(-5px, -2px);\n    opacity: .72;\n  }\n}\n",
+      "type": "registry:ui",
+      "target": "components/ui/signal.css"
+    }
+  ],
+  "type": "registry:ui"
+}

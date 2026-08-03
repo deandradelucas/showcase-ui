@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "extrude",
+  "title": "Deep-Type",
+  "description": "Texto com camadas de sombra sólida em efeito 3D extrudado, balançando levemente para dar profundidade e volume.",
+  "files": [
+    {
+      "path": "stories/TextEffects/extrude.css",
+      "content": "/* Markup: <div class=\"fx-extrude\">DEPTH</div> */\n\n/* Colour tokens — override to re-skin the effect:\n   --ink    main text colour (defaults to currentColor)\n   --ink-2  primary accent   --ink-3  secondary accent */\n:root { --ink: currentColor; --ink-2: #FF4FD8; --ink-3: #4FF8FF; }\n\n/* 14 Deep-Type */\n.fx-extrude {\n  font: 600 34px/1.1 JetBrains Mono, monospace;\n  letter-spacing: .08em;\n  color: var(--ink);\n  text-shadow: 1px 1px 0 color-mix(in srgb, var(--ink-2) 80%, #000), 2px 2px 0 color-mix(in srgb, var(--ink-2) 70%, #000), 3px 3px 0 color-mix(in srgb, var(--ink-2) 60%, #000), 4px 4px 0 color-mix(in srgb, var(--ink-2) 50%, #000), 5px 5px 0 color-mix(in srgb, var(--ink-2) 40%, #000), 6px 6px 0 color-mix(in srgb, var(--ink-2) 30%, #000), 7px 7px 12px rgba(0, 0, 0, .5);\n  animation: fx-extrude 3s ease-in-out infinite;\n}\n@keyframes fx-extrude {\n  0%,to {\n    transform: rotate(-3.5deg) translateY(2px);\n  }\n  50% {\n    transform: rotate(3.5deg) translateY(-4px);\n  }\n}\n",
+      "type": "registry:ui",
+      "target": "components/ui/extrude.css"
+    }
+  ],
+  "type": "registry:ui"
+}

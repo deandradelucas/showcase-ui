@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "shimmer-text",
+  "title": "Shimmer Text",
+  "description": "Texto com brilho varrendo da esquerda pra direita via gradiente clipado no texto (CSS puro).",
+  "files": [
+    {
+      "path": "stories/TextEffects/shimmer-text.css",
+      "content": "/* Markup: <span class=\"t-shimmer\" data-text=\"Efeito Shimmer\">Efeito Shimmer</span> */\n\n/* Transitions.dev — Shimmer text\n   Duplicate the visible string into data-text so the ::before layer can\n   mask the gradient onto the same glyphs. Keep them in sync if the text\n   changes. Pure CSS — no JS, no class toggling. Tune --shimmer-base /\n   --shimmer-highlight in your own theme rules so the colors follow\n   light / dark mode. */\n\n:root {\n  --shimmer-dur: 2000ms;\n  --shimmer-base: #6e6e6e;\n  --shimmer-highlight: #ededed;\n  --shimmer-band: 400%;\n  --shimmer-ease: linear;\n}\n\n/* Two-layer construction:\n   1. The base text renders normally in --shimmer-base.\n   2. ::before duplicates it via content: attr(data-text),\n      paints a transparent → highlight → transparent gradient\n      onto it, and clips that gradient to the glyphs via\n      background-clip: text. Animating background-position\n      sweeps the band across the text. */\n.t-shimmer {\n  position: relative;\n  display: inline-block;\n  color: var(--shimmer-base);\n}\n.t-shimmer::before {\n  content: attr(data-text);\n  position: absolute;\n  inset: 0;\n  pointer-events: none;\n  background-image: linear-gradient(\n    90deg,\n    transparent          0%,\n    transparent         40%,\n    var(--shimmer-highlight) 50%,\n    transparent         60%,\n    transparent        100%\n  );\n  background-size: var(--shimmer-band) 100%;\n  background-repeat: no-repeat;\n  -webkit-background-clip: text;\n  background-clip: text;\n  color: transparent;\n  -webkit-text-fill-color: transparent;\n  animation: t-shimmer var(--shimmer-dur) var(--shimmer-ease) infinite;\n}\n@keyframes t-shimmer {\n  0%   { background-position: 100% 0; }\n  100% { background-position: 0% 0; }\n}\n\n@media (prefers-reduced-motion: reduce) {\n  .t-shimmer::before { animation: none !important; }\n}\n",
+      "type": "registry:ui",
+      "target": "components/ui/shimmer-text.css"
+    }
+  ],
+  "type": "registry:ui"
+}

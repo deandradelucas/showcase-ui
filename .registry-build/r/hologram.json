@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "hologram",
+  "title": "Holograph",
+  "description": "Texto ciano translúcido com uma cópia magenta que salta de posição e linhas de varredura, simulando uma projeção holográfica instável.",
+  "files": [
+    {
+      "path": "stories/TextEffects/hologram.css",
+      "content": "/* Markup: <div class=\"fx-hologram\" data-text=\"HOLOGRAM\">HOLOGRAM</div> */\n\n/* Colour tokens — override to re-skin the effect:\n   --ink    main text colour (defaults to currentColor)\n   --ink-2  primary accent   --ink-3  secondary accent */\n:root { --ink: currentColor; --ink-2: #FF4FD8; --ink-3: #4FF8FF; }\n\n/* 31 Holograph */\n.fx-hologram {\n  position: relative;\n  font: 600 28px/1.2 JetBrains Mono, monospace;\n  letter-spacing: .12em;\n  color: color-mix(in srgb, var(--ink-3) 72%, var(--ink));\n  text-shadow: 0 0 6px color-mix(in srgb, var(--ink-3) 60%, transparent), 0 0 22px color-mix(in srgb, var(--ink-3) 45%, transparent);\n  isolation: isolate;\n  animation: fx-hologram-float 3.8s ease-in-out infinite;\n}\n.fx-hologram:before, .fx-hologram:after {\n  content: attr(data-text);\n  position: absolute;\n  inset: 0;\n  pointer-events: none;\n}\n.fx-hologram:before {\n  color: var(--ink-2);\n  clip-path: inset(0 0 52% 0);\n  opacity: .58;\n  animation: fx-hologram-split 2.8s steps(1) infinite;\n}\n.fx-hologram:after {\n  color: transparent;\n  background: repeating-linear-gradient(0deg, color-mix(in srgb, var(--ink) 70%, transparent) 0 1px, transparent 1px 4px);\n  -webkit-background-clip: text;\n  background-clip: text;\n  opacity: .48;\n  animation: fx-hologram-lines 1.2s linear infinite;\n}\n@keyframes fx-hologram-float {\n  0%,to {\n    transform: translateY(2px) skew(0);\n    filter: brightness(1);\n  }\n  50% {\n    transform: translateY(-4px) skew(-3deg);\n    filter: brightness(1.35);\n  }\n}\n@keyframes fx-hologram-split {\n  0%,14%,40%,72%,to {\n    transform: translate(0);\n    opacity: .22;\n  }\n  15% {\n    transform: translate(-5px);\n    opacity: .8;\n  }\n  17% {\n    transform: translate(4px);\n    opacity: .6;\n  }\n  74% {\n    transform: translate(3px);\n    opacity: .7;\n  }\n}\n@keyframes fx-hologram-lines {\n  to {\n    background-position: 0 12px;\n  }\n}\n",
+      "type": "registry:ui",
+      "target": "components/ui/hologram.css"
+    }
+  ],
+  "type": "registry:ui"
+}

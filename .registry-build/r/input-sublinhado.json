@@ -1,0 +1,21 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "input-sublinhado",
+  "title": "Underline Input",
+  "description": "Campo de texto com sublinhado que se expande da esquerda pra direita no foco, com variante de gradiente (CSS puro).",
+  "files": [
+    {
+      "path": "stories/Inputs/input-sublinhado.tsx",
+      "content": "import type { InputHTMLAttributes } from \"react\"\r\nimport \"./input-sublinhado.css\"\r\n\r\ninterface InputSublinhadoProps\r\n  extends Omit<InputHTMLAttributes<HTMLInputElement>, \"className\"> {\r\n  variant?: \"default\" | \"alt\"\r\n  className?: string\r\n}\r\n\r\nfunction InputSublinhado({\r\n  variant = \"default\",\r\n  placeholder = \"Digite aqui...\",\r\n  className = \"\",\r\n  ...props\r\n}: InputSublinhadoProps) {\r\n  return (\r\n    <div\r\n      className={`input-sublinhado ${variant === \"alt\" ? \"input-sublinhado--alt\" : \"\"} ${className}`}\r\n    >\r\n      <input\r\n        className=\"input-sublinhado__field\"\r\n        type=\"text\"\r\n        placeholder={placeholder}\r\n        {...props}\r\n      />\r\n      <span className=\"input-sublinhado__border\" />\r\n    </div>\r\n  )\r\n}\r\n\r\nexport { InputSublinhado }\r\n",
+      "type": "registry:ui",
+      "target": "components/ui/input-sublinhado.tsx"
+    },
+    {
+      "path": "stories/Inputs/input-sublinhado.css",
+      "content": ".input-sublinhado {\r\n  position: relative;\r\n  --width-of-input: 300px;\r\n  width: var(--width-of-input);\r\n  max-width: 100%;\r\n}\r\n\r\n.input-sublinhado__field {\r\n  color: var(--input-sublinhado-color, #fff);\r\n  font-size: 0.9rem;\r\n  background-color: transparent;\r\n  width: 100%;\r\n  box-sizing: border-box;\r\n  padding-inline: 0.5em;\r\n  padding-block: 0.7em;\r\n  border: none;\r\n  border-bottom: var(--border-height, 2px) solid\r\n    var(--border-before-color, rgba(255, 255, 255, 0.3));\r\n  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);\r\n}\r\n\r\n.input-sublinhado__field:focus {\r\n  outline: none;\r\n}\r\n\r\n.input-sublinhado__border {\r\n  position: absolute;\r\n  background: var(--border-after-color, #47c9ff);\r\n  width: 0%;\r\n  height: 2px;\r\n  bottom: 0;\r\n  left: 0;\r\n  transition: width 0.3s cubic-bezier(0.6, -0.28, 0.735, 0.045);\r\n}\r\n\r\n.input-sublinhado__field:focus + .input-sublinhado__border {\r\n  width: 100%;\r\n}\r\n\r\n.input-sublinhado--alt .input-sublinhado__field {\r\n  font-size: 1.2rem;\r\n  padding-inline: 1em;\r\n  padding-block: 0.8em;\r\n  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);\r\n}\r\n\r\n.input-sublinhado--alt .input-sublinhado__border {\r\n  height: 3px;\r\n  background: linear-gradient(90deg, #ff6464 0%, #ffbf59 50%, #47c9ff 100%);\r\n  transition: width 0.4s cubic-bezier(0.42, 0, 0.58, 1);\r\n}\r\n",
+      "type": "registry:ui",
+      "target": "components/ui/input-sublinhado.css"
+    }
+  ],
+  "type": "registry:ui"
+}

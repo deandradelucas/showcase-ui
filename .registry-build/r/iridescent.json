@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "iridescent",
+  "title": "Iridescent",
+  "description": "Gradiente cônico multicor gira continuamente pelo texto com matiz rotativo, como madrepérola ou uma superfície holográfica.",
+  "files": [
+    {
+      "path": "stories/TextEffects/iridescent.css",
+      "content": "/* Markup: <div class=\"fx-iridescent\">IRIS</div> */\n\n/* Colour tokens — override to re-skin the effect:\n   --ink    main text colour (defaults to currentColor)\n   --ink-2  primary accent   --ink-3  secondary accent */\n:root { --ink: currentColor; --ink-2: #FF4FD8; --ink-3: #4FF8FF; }\n\n/* 41 Iridescent */\n.fx-iridescent {\n  font: 600 38px/1.05 JetBrains Mono, monospace;\n  letter-spacing: .12em;\n  color: transparent;\n  background: conic-gradient(from 20deg, #f7fbff, var(--ink-3), #bba7ff, var(--ink-2), #fff7d6, #f7fbff) 50% 50% / 220% 220%;\n  -webkit-background-clip: text;\n  background-clip: text;\n  text-shadow: 0 10px 28px rgba(0, 0, 0, .28);\n  animation: fx-iridescent 4.5s linear infinite;\n}\n@keyframes fx-iridescent {\n  to {\n    filter: hue-rotate(360deg);\n    background-position: 120% 50%;\n  }\n}\n",
+      "type": "registry:ui",
+      "target": "components/ui/iridescent.css"
+    }
+  ],
+  "type": "registry:ui"
+}

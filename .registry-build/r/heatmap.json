@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "heatmap",
+  "title": "Heatmap",
+  "description": "Manchas de cor quente, em amarelo, rosa e azul, se movem dentro do texto como um mapa de calor térmico.",
+  "files": [
+    {
+      "path": "stories/TextEffects/heatmap.css",
+      "content": "/* Markup: <div class=\"fx-heatmap\">THERMAL</div> */\n\n/* Colour tokens — override to re-skin the effect:\n   --ink    main text colour (defaults to currentColor)\n   --ink-2  primary accent   --ink-3  secondary accent */\n:root { --ink: currentColor; --ink-2: #FF4FD8; --ink-3: #4FF8FF; }\n\n/* 49 Heatmap */\n.fx-heatmap {\n  font: 600 30px/1.1 JetBrains Mono, monospace;\n  letter-spacing: .08em;\n  color: transparent;\n  background: radial-gradient(circle at 20% 50%, #fff26d 0 8%, transparent 24%), radial-gradient(circle at 70% 40%, #ff4f8b 0 12%, transparent 28%), radial-gradient(circle at 44% 78%, var(--ink-3) 0 14%, transparent 32%), linear-gradient(90deg, #2d7dff, #36f0b2, #ffcf4a, #ff4f8b);\n  background-size: 130% 130%, 150% 150%, 140% 140%, 260% 100%;\n  -webkit-background-clip: text;\n  background-clip: text;\n  animation: fx-heatmap 3.5s ease-in-out infinite alternate;\n}\n@keyframes fx-heatmap {\n  0% {\n    background-position: 0 0, 100% 20%, 40% 100%, 100% 0;\n    filter: saturate(1);\n  }\n  to {\n    background-position: 100% 90%, 0 60%, 80% 0, -100% 0;\n    filter: saturate(1.35);\n  }\n}\n",
+      "type": "registry:ui",
+      "target": "components/ui/heatmap.css"
+    }
+  ],
+  "type": "registry:ui"
+}

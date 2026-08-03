@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "orbit",
+  "title": "Orbitals",
+  "description": "Cada letra descreve uma órbita elíptica ao redor de sua posição original, com cores alternadas, como planetas girando.",
+  "files": [
+    {
+      "path": "stories/TextEffects/orbit.css",
+      "content": "/* Markup: <div class=\"fx-orbit\" role=\"img\" aria-label=\"ORBIT\"><b aria-hidden=\"true\" style=\"--i:0\">O</b><b aria-hidden=\"true\" style=\"--i:1\">R</b><b aria-hidden=\"true\" style=\"--i:2\">B</b><b aria-hidden=\"true\" style=\"--i:3\">I</b><b aria-hidden=\"true\" style=\"--i:4\">T</b></div> */\n\n/* Colour tokens — override to re-skin the effect:\n   --ink    main text colour (defaults to currentColor)\n   --ink-2  primary accent   --ink-3  secondary accent */\n:root { --ink: currentColor; --ink-2: #FF4FD8; --ink-3: #4FF8FF; }\n\n/* 44 Orbitals */\n.fx-orbit {\n  font: 600 30px/1.1 JetBrains Mono, monospace;\n  letter-spacing: .08em;\n  color: var(--ink);\n  display: inline-flex;\n}\n.fx-orbit b {\n  font-weight: inherit;\n  display: inline-block;\n  transform-origin: 50% 120%;\n  animation: fx-orbit 2.8s cubic-bezier(.45, 0, .2, 1) infinite;\n  animation-delay: calc(var(--i) * -.18s);\n}\n.fx-orbit b:nth-child(odd) {\n  color: var(--ink-3);\n}\n.fx-orbit b:nth-child(3n) {\n  color: var(--ink-2);\n}\n@keyframes fx-orbit {\n  0%,to {\n    transform: translate(0) rotate(0);\n  }\n  35% {\n    transform: translate(5px, -13px) rotate(16deg);\n  }\n  70% {\n    transform: translate(-5px, 7px) rotate(-10deg);\n  }\n}\n",
+      "type": "registry:ui",
+      "target": "components/ui/orbit.css"
+    }
+  ],
+  "type": "registry:ui"
+}

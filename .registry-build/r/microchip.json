@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "microchip",
+  "title": "Microchip",
+  "description": "Texto preenchido por trilhas de circuito impresso, com linhas e pontos que se deslocam, como um chip eletrônico animado.",
+  "files": [
+    {
+      "path": "stories/TextEffects/microchip.css",
+      "content": "/* Markup: <div class=\"fx-microchip\">CIRCUIT</div> */\n\n/* Colour tokens — override to re-skin the effect:\n   --ink    main text colour (defaults to currentColor)\n   --ink-2  primary accent   --ink-3  secondary accent */\n:root { --ink: currentColor; --ink-2: #FF4FD8; --ink-3: #4FF8FF; }\n\n/* 48 Microchip */\n.fx-microchip {\n  font: 600 28px/1.15 JetBrains Mono, monospace;\n  letter-spacing: .1em;\n  color: transparent;\n  padding: .35em .45em;\n  background: linear-gradient(90deg, transparent 0 44%, var(--ink-3) 44% 47%, transparent 47% 100%), linear-gradient(0deg, transparent 0 46%, var(--ink-2) 46% 49%, transparent 49% 100%), repeating-linear-gradient(90deg, color-mix(in srgb, var(--ink-3) 35%, transparent) 0 1px, transparent 1px 14px), linear-gradient(100deg, var(--ink), var(--ink-3));\n  background-size: 42px 42px, 42px 42px, 14px 100%, 220% 100%;\n  -webkit-background-clip: text;\n  background-clip: text;\n  border: 1px solid color-mix(in srgb, var(--ink-3) 24%, transparent);\n  animation: fx-microchip 3.8s linear infinite;\n}\n@keyframes fx-microchip {\n  to {\n    background-position: 42px 0, 0 42px, 14px 0, -120% 0;\n  }\n}\n",
+      "type": "registry:ui",
+      "target": "components/ui/microchip.css"
+    }
+  ],
+  "type": "registry:ui"
+}

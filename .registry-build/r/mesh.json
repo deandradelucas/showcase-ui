@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "mesh",
+  "title": "Luma-Mesh",
+  "description": "Manchas de luz coloridas em gradiente mesh se movem dentro do texto, como uma superfície iridescente orgânica.",
+  "files": [
+    {
+      "path": "stories/TextEffects/mesh.css",
+      "content": "/* Markup: <div class=\"fx-mesh\">MESH</div> */\n\n/* Colour tokens — override to re-skin the effect:\n   --ink    main text colour (defaults to currentColor)\n   --ink-2  primary accent   --ink-3  secondary accent */\n:root { --ink: currentColor; --ink-2: #FF4FD8; --ink-3: #4FF8FF; }\n\n/* 40 Luma-Mesh */\n.fx-mesh {\n  font: 600 38px/1.05 JetBrains Mono, monospace;\n  letter-spacing: .08em;\n  color: transparent;\n  background: radial-gradient(circle at 18% 28%, var(--ink-2) 0 12%, transparent 28%), radial-gradient(circle at 78% 24%, var(--ink-3) 0 14%, transparent 30%), radial-gradient(circle at 44% 82%, #ffffff 0 10%, transparent 24%), linear-gradient(110deg, var(--ink-2), var(--ink-3));\n  background-size: 180% 180%, 170% 170%, 160% 160%, 220% 100%;\n  -webkit-background-clip: text;\n  background-clip: text;\n  filter: drop-shadow(0 0 18px color-mix(in srgb, var(--ink-3) 28%, transparent));\n  animation: fx-mesh 4.8s ease-in-out infinite alternate;\n}\n@keyframes fx-mesh {\n  0% {\n    background-position: 0% 20%, 100% 10%, 35% 100%, 100% 0;\n  }\n  to {\n    background-position: 100% 80%, 0% 60%, 70% 0%, -100% 0;\n  }\n}\n",
+      "type": "registry:ui",
+      "target": "components/ui/mesh.css"
+    }
+  ],
+  "type": "registry:ui"
+}

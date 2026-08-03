@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "duotone",
+  "title": "Duotone",
+  "description": "Duas cópias coloridas do texto, uma vermelha e uma ciã, se separam e se reaproximam com blend de tela, como impressão duotone.",
+  "files": [
+    {
+      "path": "stories/TextEffects/duotone.css",
+      "content": "/* Markup: <div class=\"fx-duotone\" data-text=\"DUO\">DUO</div> */\n\n/* Colour tokens — override to re-skin the effect:\n   --ink    main text colour (defaults to currentColor)\n   --ink-2  primary accent   --ink-3  secondary accent */\n:root { --ink: currentColor; --ink-2: #FF4FD8; --ink-3: #4FF8FF; }\n\n/* 56 Duotone */\n.fx-duotone {\n  position: relative;\n  font: 600 38px/1.05 JetBrains Mono, monospace;\n  letter-spacing: .1em;\n  color: var(--ink);\n}\n.fx-duotone:before, .fx-duotone:after {\n  content: attr(data-text);\n  position: absolute;\n  inset: 0;\n  pointer-events: none;\n  mix-blend-mode: screen;\n}\n.fx-duotone:before {\n  color: var(--ink-2);\n  animation: fx-duotone-a 2.6s ease-in-out infinite;\n}\n.fx-duotone:after {\n  color: var(--ink-3);\n  animation: fx-duotone-b 2.6s ease-in-out infinite;\n}\n@keyframes fx-duotone-a {\n  0%,to {\n    transform: translate(-3px);\n    opacity: .42;\n  }\n  50% {\n    transform: translate(-9px, -3px);\n    opacity: .8;\n  }\n}\n@keyframes fx-duotone-b {\n  0%,to {\n    transform: translate(3px);\n    opacity: .42;\n  }\n  50% {\n    transform: translate(9px, 3px);\n    opacity: .8;\n  }\n}\n",
+      "type": "registry:ui",
+      "target": "components/ui/duotone.css"
+    }
+  ],
+  "type": "registry:ui"
+}

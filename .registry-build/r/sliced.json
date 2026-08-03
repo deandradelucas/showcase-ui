@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "sliced",
+  "title": "Bisect",
+  "description": "Texto cortado ao meio horizontalmente, com as metades superior e inferior deslizando em direções opostas.",
+  "files": [
+    {
+      "path": "stories/TextEffects/sliced.css",
+      "content": "/* Markup: <div class=\"fx-sliced\" data-text=\"SLICED\">SLICED</div> */\n\n/* Colour tokens — override to re-skin the effect:\n   --ink    main text colour (defaults to currentColor)\n   --ink-2  primary accent   --ink-3  secondary accent */\n:root { --ink: currentColor; --ink-2: #FF4FD8; --ink-3: #4FF8FF; }\n\n/* 09 Bisect */\n.fx-sliced {\n  position: relative;\n  font: 600 32px/1.1 JetBrains Mono, monospace;\n  letter-spacing: .06em;\n  color: transparent;\n}\n.fx-sliced:before, .fx-sliced:after {\n  content: attr(data-text);\n  position: absolute;\n  inset: 0;\n  color: var(--ink);\n}\n.fx-sliced:before {\n  clip-path: inset(0 0 50% 0);\n  animation: fx-sliced-top 3s ease-in-out infinite;\n}\n.fx-sliced:after {\n  clip-path: inset(50% 0 0 0);\n  animation: fx-sliced-bot 3s ease-in-out infinite;\n}\n@keyframes fx-sliced-top {\n  0%,22%,78%,to {\n    transform: translate(0);\n  }\n  38%,62% {\n    transform: translate(8px);\n    color: var(--ink-2);\n  }\n}\n@keyframes fx-sliced-bot {\n  0%,22%,78%,to {\n    transform: translate(0);\n  }\n  38%,62% {\n    transform: translate(-8px);\n    color: var(--ink-3);\n  }\n}\n",
+      "type": "registry:ui",
+      "target": "components/ui/sliced.css"
+    }
+  ],
+  "type": "registry:ui"
+}

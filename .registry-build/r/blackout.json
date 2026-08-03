@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "blackout",
+  "title": "Blackout",
+  "description": "Duas barras sólidas cobrem e revelam o texto de cima e de baixo, como uma censura (redaction) que abre e fecha.",
+  "files": [
+    {
+      "path": "stories/TextEffects/blackout.css",
+      "content": "/* Markup: <div class=\"fx-blackout\" data-text=\"CLASSIFIED\">CLASSIFIED</div> */\n\n/* Colour tokens — override to re-skin the effect:\n   --ink    main text colour (defaults to currentColor)\n   --ink-2  primary accent   --ink-3  secondary accent */\n:root { --ink: currentColor; --ink-2: #FF4FD8; --ink-3: #4FF8FF; }\n\n/* 38 Blackout */\n.fx-blackout {\n  position: relative;\n  font: 600 24px/1.15 JetBrains Mono, monospace;\n  letter-spacing: .08em;\n  color: var(--ink);\n  padding: .28em .12em;\n}\n.fx-blackout:before, .fx-blackout:after {\n  content: \"\";\n  position: absolute;\n  left: -.18em;\n  right: -.18em;\n  height: 44%;\n  background: var(--ink);\n  box-shadow: 0 0 0 1px color-mix(in srgb, var(--ink-2) 45%, transparent);\n  animation: fx-blackout 3s steps(1) infinite;\n}\n.fx-blackout:before {\n  top: 0;\n  transform-origin: left;\n}\n.fx-blackout:after {\n  bottom: 0;\n  transform-origin: right;\n  animation-delay: .28s;\n}\n@keyframes fx-blackout {\n  0%,20%,72%,to {\n    transform: scaleX(0);\n  }\n  26%,58% {\n    transform: scaleX(1);\n  }\n  64% {\n    transform: scaleX(.38);\n  }\n}\n",
+      "type": "registry:ui",
+      "target": "components/ui/blackout.css"
+    }
+  ],
+  "type": "registry:ui"
+}

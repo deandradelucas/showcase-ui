@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "blueprint",
+  "title": "Blueprint",
+  "description": "Texto com contorno técnico sobre uma grade milimetrada rolando, como um desenho de planta arquitetônica.",
+  "files": [
+    {
+      "path": "stories/TextEffects/blueprint.css",
+      "content": "/* Markup: <div class=\"fx-blueprint\">DRAFT</div> */\n\n/* Colour tokens — override to re-skin the effect:\n   --ink    main text colour (defaults to currentColor)\n   --ink-2  primary accent   --ink-3  secondary accent */\n:root { --ink: currentColor; --ink-2: #FF4FD8; --ink-3: #4FF8FF; }\n\n/* 35 Blueprint */\n.fx-blueprint {\n  font: 600 28px/1.15 JetBrains Mono, monospace;\n  letter-spacing: .1em;\n  color: transparent;\n  padding: .28em .45em;\n  -webkit-text-stroke: 1px color-mix(in srgb, var(--ink-3) 80%, var(--ink));\n  background: linear-gradient(90deg, color-mix(in srgb, var(--ink-3) 22%, transparent) 1px, transparent 1px), linear-gradient(0deg, color-mix(in srgb, var(--ink-3) 18%, transparent) 1px, transparent 1px), linear-gradient(90deg, color-mix(in srgb, var(--ink-3) 42%, transparent), transparent 35% 65%, color-mix(in srgb, var(--ink-3) 42%, transparent));\n  background-size: 12px 12px, 12px 12px, 240% 100%;\n  background-position: 0 0, 0 0, 100% 0;\n  border: 1px solid color-mix(in srgb, var(--ink-3) 42%, transparent);\n  box-shadow: inset 0 0 18px color-mix(in srgb, var(--ink-3) 18%, transparent);\n  animation: fx-blueprint 4s linear infinite;\n}\n@keyframes fx-blueprint {\n  to {\n    background-position: 24px 0, 0 24px, -100% 0;\n  }\n}\n",
+      "type": "registry:ui",
+      "target": "components/ui/blueprint.css"
+    }
+  ],
+  "type": "registry:ui"
+}

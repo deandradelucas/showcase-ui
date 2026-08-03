@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "moire",
+  "title": "Moiré",
+  "description": "Duas grades de linhas finas se cruzam e deslizam em direções opostas, gerando um padrão de interferência óptica (moiré).",
+  "files": [
+    {
+      "path": "stories/TextEffects/moire.css",
+      "content": "/* Markup: <div class=\"fx-moire\">MOIRÉ</div> */\n\n/* Colour tokens — override to re-skin the effect:\n   --ink    main text colour (defaults to currentColor)\n   --ink-2  primary accent   --ink-3  secondary accent */\n:root { --ink: currentColor; --ink-2: #FF4FD8; --ink-3: #4FF8FF; }\n\n/* 65 Moiré */\n.fx-moire {\n  font: 600 34px/1.05 JetBrains Mono, monospace;\n  letter-spacing: .08em;\n  color: transparent;\n  background: repeating-linear-gradient(87deg, var(--ink-2) 0 1px, transparent 1px 4px), repeating-linear-gradient(90deg, var(--ink-3) 0 1px, transparent 1px 4px), linear-gradient(color-mix(in srgb, var(--ink) 30%, transparent), color-mix(in srgb, var(--ink) 30%, transparent));\n  -webkit-background-clip: text;\n  background-clip: text;\n  animation: fx-moire 6s linear infinite alternate;\n}\n@keyframes fx-moire {\n  0% {\n    background-position: 0 0, 0 0, 0 0;\n  }\n  to {\n    background-position: 48px 0, -48px 0, 0 0;\n  }\n}\n",
+      "type": "registry:ui",
+      "target": "components/ui/moire.css"
+    }
+  ],
+  "type": "registry:ui"
+}

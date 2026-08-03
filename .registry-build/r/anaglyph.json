@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "anaglyph",
+  "title": "Anaglyph-3D",
+  "description": "Sombras vermelha e ciã se separam e voltam a se sobrepor, simulando o efeito de óculos 3D anaglifo.",
+  "files": [
+    {
+      "path": "stories/TextEffects/anaglyph.css",
+      "content": "/* Markup: <div class=\"fx-anaglyph\">DEPTH-3D</div> */\n\n/* Colour tokens — override to re-skin the effect:\n   --ink    main text colour (defaults to currentColor)\n   --ink-2  primary accent   --ink-3  secondary accent */\n:root { --ink: currentColor; --ink-2: #FF4FD8; --ink-3: #4FF8FF; }\n\n/* 18 Anaglyph-3D */\n.fx-anaglyph {\n  font: 600 30px/1.1 JetBrains Mono, monospace;\n  letter-spacing: .1em;\n  color: var(--ink);\n  animation: fx-anaglyph 2.4s ease-in-out infinite;\n}\n@keyframes fx-anaglyph {\n  0%,to {\n    text-shadow: 0 0 0 #ff3355, 0 0 0 #33ddff;\n  }\n  50% {\n    text-shadow: -6px 0 1px #ff3355, 6px 0 1px #33ddff;\n  }\n}\n",
+      "type": "registry:ui",
+      "target": "components/ui/anaglyph.css"
+    }
+  ],
+  "type": "registry:ui"
+}

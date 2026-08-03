@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "decoder",
+  "title": "Cipher",
+  "description": "Texto embaralhado com caracteres aleatórios que se decodificam progressivamente até revelar a palavra correta.",
+  "files": [
+    {
+      "path": "stories/TextEffects/decoder.css",
+      "content": "/* Markup: <div class=\"fx-decoder\" role=\"img\" aria-label=\"DECODER\"></div> */\n\n/* Colour tokens — override to re-skin the effect:\n   --ink    main text colour (defaults to currentColor)\n   --ink-2  primary accent   --ink-3  secondary accent */\n:root { --ink: currentColor; --ink-2: #FF4FD8; --ink-3: #4FF8FF; }\n\n/* 10 Cipher */\n.fx-decoder {\n  font: 600 28px/1.2 JetBrains Mono, monospace;\n  letter-spacing: .08em;\n  color: var(--ink-3);\n}\n.fx-decoder:after {\n  content: \"▓K#R1&Q\";\n  animation: fx-decoder 4s steps(1) infinite;\n}\n@keyframes fx-decoder {\n  0% {\n    content: \"▓K#R1&Q\";\n    color: var(--ink-3);\n  }\n  8% {\n    content: \"D%#OD3▒\";\n  }\n  16% {\n    content: \"DE☰O*ER\";\n  }\n  24% {\n    content: \"DEC0D£R\";\n  }\n  32% {\n    content: \"DECOD€R\";\n  }\n  40%,82% {\n    content: \"DECODER\";\n    color: var(--ink);\n  }\n  88% {\n    content: \"D3C0*€R\";\n    color: var(--ink-3);\n  }\n  94% {\n    content: \"▒#COD1Q\";\n  }\n}\n",
+      "type": "registry:ui",
+      "target": "components/ui/decoder.css"
+    }
+  ],
+  "type": "registry:ui"
+}

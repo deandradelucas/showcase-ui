@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "topographic",
+  "title": "Topographic",
+  "description": "Padrões concêntricos como curvas de nível de mapa topográfico se deslocam dentro do texto.",
+  "files": [
+    {
+      "path": "stories/TextEffects/topographic.css",
+      "content": "/* Markup: <div class=\"fx-topographic\">TERRAIN</div> */\n\n/* Colour tokens — override to re-skin the effect:\n   --ink    main text colour (defaults to currentColor)\n   --ink-2  primary accent   --ink-3  secondary accent */\n:root { --ink: currentColor; --ink-2: #FF4FD8; --ink-3: #4FF8FF; }\n\n/* 52 Topographic */\n.fx-topographic {\n  font: 600 28px/1.15 JetBrains Mono, monospace;\n  letter-spacing: .1em;\n  color: transparent;\n  background: repeating-radial-gradient(ellipse at 30% 55%, var(--ink) 0 1px, transparent 1px 7px), repeating-radial-gradient(ellipse at 78% 35%, var(--ink-3) 0 1px, transparent 1px 8px);\n  background-size: 130px 70px, 170px 80px;\n  -webkit-background-clip: text;\n  background-clip: text;\n  filter: drop-shadow(0 0 8px color-mix(in srgb, var(--ink-3) 25%, transparent));\n  animation: fx-topographic 5s linear infinite;\n}\n@keyframes fx-topographic {\n  to {\n    background-position: 130px 0, -170px 0;\n  }\n}\n",
+      "type": "registry:ui",
+      "target": "components/ui/topographic.css"
+    }
+  ],
+  "type": "registry:ui"
+}

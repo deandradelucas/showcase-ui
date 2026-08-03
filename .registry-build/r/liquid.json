@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "liquid",
+  "title": "Aqua-Fill",
+  "description": "Texto preenchido por líquido que sobe e desce, como um nível de água enchendo o contorno das letras.",
+  "files": [
+    {
+      "path": "stories/TextEffects/liquid.css",
+      "content": "/* Markup: <div class=\"fx-liquid\">LIQUID</div> */\n\n/* Colour tokens — override to re-skin the effect:\n   --ink    main text colour (defaults to currentColor)\n   --ink-2  primary accent   --ink-3  secondary accent */\n:root { --ink: currentColor; --ink-2: #FF4FD8; --ink-3: #4FF8FF; }\n\n/* 05 Aqua-Fill */\n.fx-liquid {\n  font: 600 32px/1.1 JetBrains Mono, monospace;\n  letter-spacing: .06em;\n  color: transparent;\n  -webkit-text-stroke: 1px color-mix(in srgb, var(--ink-3) 65%, transparent);\n  background: linear-gradient(0deg, var(--ink-3) 0 46%, color-mix(in srgb, var(--ink-3) 55%, transparent) 48%, transparent 52% 100%) 0 0 / 100% 220%;\n  -webkit-background-clip: text;\n  background-clip: text;\n  animation: fx-liquid 3.4s ease-in-out infinite;\n}\n@keyframes fx-liquid {\n  0%,to {\n    background-position: 0 -110%;\n  }\n  50% {\n    background-position: 0 10%;\n  }\n}\n",
+      "type": "registry:ui",
+      "target": "components/ui/liquid.css"
+    }
+  ],
+  "type": "registry:ui"
+}

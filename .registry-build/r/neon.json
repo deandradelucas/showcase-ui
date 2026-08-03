@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "neon",
+  "title": "Neon-Haus",
+  "description": "Texto neon piscando com brilho pulsante (text-shadow), simulando um tubo de gás cintilando.",
+  "files": [
+    {
+      "path": "stories/TextEffects/neon.css",
+      "content": "/* Markup: <div class=\"fx-neon\">NEON</div> */\n\n/* Colour tokens — override to re-skin the effect:\n   --ink    main text colour (defaults to currentColor)\n   --ink-2  primary accent   --ink-3  secondary accent */\n:root { --ink: currentColor; --ink-2: #FF4FD8; --ink-3: #4FF8FF; }\n\n/* 04 Neon-Haus */\n.fx-neon {\n  font: 600 32px/1.1 JetBrains Mono, monospace;\n  letter-spacing: .14em;\n  color: var(--ink);\n  animation: fx-neon 3.2s linear infinite;\n}\n@keyframes fx-neon {\n  0%,18%,21%,24%,to {\n    opacity: 1;\n    text-shadow: 0 0 4px var(--ink), 0 0 11px var(--ink-2), 0 0 24px var(--ink-2), 0 0 48px var(--ink-2);\n  }\n  19%,22%,62% {\n    opacity: .35;\n    text-shadow: none;\n  }\n  63%,64.5% {\n    opacity: .6;\n    text-shadow: 0 0 4px var(--ink-2);\n  }\n}\n",
+      "type": "registry:ui",
+      "target": "components/ui/neon.css"
+    }
+  ],
+  "type": "registry:ui"
+}

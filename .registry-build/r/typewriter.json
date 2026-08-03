@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "typewriter",
+  "title": "Typewriter",
+  "description": "Texto digitado com cursor piscando, largura animada em steps (CSS puro).",
+  "files": [
+    {
+      "path": "stories/TextEffects/typewriter.css",
+      "content": "/* Markup: <div class=\"fx-typewriter\">TYPEWRITER</div> */\n\n/* Colour tokens — override to re-skin the effect:\n   --ink    main text colour (defaults to currentColor)\n   --ink-2  primary accent   --ink-3  secondary accent */\n:root { --ink: currentColor; --ink-2: #FF4FD8; --ink-3: #4FF8FF; }\n\n/* 03 Teletype — typewriter with blinking caret (word must match the ch width) */\n.fx-typewriter {\n  font: 600 24px/1.2 \"JetBrains Mono\", monospace;\n  letter-spacing: 0;\n  color: var(--ink);\n  white-space: nowrap;\n  overflow: hidden;\n  width: 10ch; /* = number of characters typed */\n  border-right: .55ch solid var(--ink-2);\n  animation: fx-type 3.6s steps(10) infinite,\n             fx-caret .65s steps(1) infinite;\n}\n@keyframes fx-type {\n  0%, 8%    { width: 0; }\n  55%, 100% { width: 10ch; }\n}\n@keyframes fx-caret {\n  50% { border-color: transparent; }\n}",
+      "type": "registry:ui",
+      "target": "components/ui/typewriter.css"
+    }
+  ],
+  "type": "registry:ui"
+}

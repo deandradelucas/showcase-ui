@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "elastic",
+  "title": "Rubber-Band",
+  "description": "Texto se espreme e estica repetidamente nos dois eixos, como um elástico esticando (efeito 'boing').",
+  "files": [
+    {
+      "path": "stories/TextEffects/elastic.css",
+      "content": "/* Markup: <div class=\"fx-elastic\">BOING</div> */\n\n/* Colour tokens — override to re-skin the effect:\n   --ink    main text colour (defaults to currentColor)\n   --ink-2  primary accent   --ink-3  secondary accent */\n:root { --ink: currentColor; --ink-2: #FF4FD8; --ink-3: #4FF8FF; }\n\n/* 23 Rubber-Band */\n.fx-elastic {\n  font: 600 32px/1.1 JetBrains Mono, monospace;\n  letter-spacing: .08em;\n  color: var(--ink-2);\n  animation: fx-elastic 1.6s ease-in-out infinite;\n}\n@keyframes fx-elastic {\n  0%,to {\n    transform: scale(1);\n  }\n  28% {\n    transform: scale(1.28, .72);\n  }\n  44% {\n    transform: scale(.78, 1.24);\n  }\n  60% {\n    transform: scale(1.12, .9);\n  }\n  74% {\n    transform: scale(.96, 1.05);\n  }\n  86% {\n    transform: scale(1.02, .98);\n  }\n}\n",
+      "type": "registry:ui",
+      "target": "components/ui/elastic.css"
+    }
+  ],
+  "type": "registry:ui"
+}

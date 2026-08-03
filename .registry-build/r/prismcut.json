@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "prismcut",
+  "title": "Prism-Cut",
+  "description": "Duas metades diagonais coloridas do texto se separam e voltam a se alinhar, como luz se decompondo num prisma.",
+  "files": [
+    {
+      "path": "stories/TextEffects/prismcut.css",
+      "content": "/* Markup: <div class=\"fx-prismcut\" data-text=\"PRISM\">PRISM</div> */\n\n/* Colour tokens — override to re-skin the effect:\n   --ink    main text colour (defaults to currentColor)\n   --ink-2  primary accent   --ink-3  secondary accent */\n:root { --ink: currentColor; --ink-2: #FF4FD8; --ink-3: #4FF8FF; }\n\n/* 45 Prism-Cut */\n.fx-prismcut {\n  position: relative;\n  font: 600 32px/1.1 JetBrains Mono, monospace;\n  letter-spacing: .12em;\n  color: var(--ink);\n}\n.fx-prismcut:before, .fx-prismcut:after {\n  content: attr(data-text);\n  position: absolute;\n  inset: 0;\n  pointer-events: none;\n}\n.fx-prismcut:before {\n  color: var(--ink-2);\n  clip-path: polygon(0 0, 66% 0, 46% 100%, 0 100%);\n  animation: fx-prismcut-a 3s ease-in-out infinite;\n}\n.fx-prismcut:after {\n  color: var(--ink-3);\n  clip-path: polygon(42% 0, 100% 0, 100% 100%, 24% 100%);\n  animation: fx-prismcut-b 3s ease-in-out infinite;\n}\n@keyframes fx-prismcut-a {\n  0%,to {\n    transform: translate(0);\n    opacity: .35;\n  }\n  50% {\n    transform: translate(-7px, -2px);\n    opacity: .85;\n  }\n}\n@keyframes fx-prismcut-b {\n  0%,to {\n    transform: translate(0);\n    opacity: .35;\n  }\n  50% {\n    transform: translate(7px, 2px);\n    opacity: .85;\n  }\n}\n",
+      "type": "registry:ui",
+      "target": "components/ui/prismcut.css"
+    }
+  ],
+  "type": "registry:ui"
+}

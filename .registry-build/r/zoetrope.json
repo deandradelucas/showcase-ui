@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "zoetrope",
+  "title": "Zoetrope",
+  "description": "Cada letra gira 360° no eixo vertical em sequência, como quadros de um zootrópio girando.",
+  "files": [
+    {
+      "path": "stories/TextEffects/zoetrope.css",
+      "content": "/* Markup: <div class=\"fx-zoetrope\" role=\"img\" aria-label=\"ROTATE\"><b aria-hidden=\"true\" style=\"--i:0\">R</b><b aria-hidden=\"true\" style=\"--i:1\">O</b><b aria-hidden=\"true\" style=\"--i:2\">T</b><b aria-hidden=\"true\" style=\"--i:3\">A</b><b aria-hidden=\"true\" style=\"--i:4\">T</b><b aria-hidden=\"true\" style=\"--i:5\">E</b></div> */\n\n/* Colour tokens — override to re-skin the effect:\n   --ink    main text colour (defaults to currentColor)\n   --ink-2  primary accent   --ink-3  secondary accent */\n:root { --ink: currentColor; --ink-2: #FF4FD8; --ink-3: #4FF8FF; }\n\n/* 58 Zoetrope */\n.fx-zoetrope {\n  font: 600 30px/1.1 JetBrains Mono, monospace;\n  letter-spacing: .1em;\n  color: var(--ink);\n  display: inline-flex;\n  perspective: 480px;\n}\n.fx-zoetrope b {\n  font-weight: inherit;\n  display: inline-block;\n  animation: fx-zoetrope 3s cubic-bezier(.55, 0, .25, 1) infinite;\n  animation-delay: calc(var(--i) * .09s);\n}\n.fx-zoetrope b:nth-child(3n) {\n  color: var(--ink-2);\n}\n.fx-zoetrope b:nth-child(3n+1) {\n  color: var(--ink-3);\n}\n@keyframes fx-zoetrope {\n  0%,12% {\n    transform: rotateY(0);\n    filter: blur(0);\n  }\n  40% {\n    filter: blur(1px);\n  }\n  62%,to {\n    transform: rotateY(360deg);\n    filter: blur(0);\n  }\n}\n",
+      "type": "registry:ui",
+      "target": "components/ui/zoetrope.css"
+    }
+  ],
+  "type": "registry:ui"
+}

@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "pendulum",
+  "title": "Pendulum",
+  "description": "Cada letra balança para os lados a partir do topo, como um pêndulo, com cores alternadas entre elas.",
+  "files": [
+    {
+      "path": "stories/TextEffects/pendulum.css",
+      "content": "/* Markup: <div class=\"fx-pendulum\" role=\"img\" aria-label=\"SWING\"><b aria-hidden=\"true\" style=\"--i:0\">S</b><b aria-hidden=\"true\" style=\"--i:1\">W</b><b aria-hidden=\"true\" style=\"--i:2\">I</b><b aria-hidden=\"true\" style=\"--i:3\">N</b><b aria-hidden=\"true\" style=\"--i:4\">G</b></div> */\n\n/* Colour tokens — override to re-skin the effect:\n   --ink    main text colour (defaults to currentColor)\n   --ink-2  primary accent   --ink-3  secondary accent */\n:root { --ink: currentColor; --ink-2: #FF4FD8; --ink-3: #4FF8FF; }\n\n/* 60 Pendulum */\n.fx-pendulum {\n  font: 600 32px/1.1 JetBrains Mono, monospace;\n  letter-spacing: .12em;\n  color: var(--ink);\n}\n.fx-pendulum b {\n  font-weight: inherit;\n  display: inline-block;\n  transform-origin: 50% -80%;\n  animation: fx-pendulum 1.8s ease-in-out infinite;\n  animation-delay: calc(var(--i) * -.12s);\n}\n.fx-pendulum b:nth-child(2n) {\n  color: var(--ink-3);\n}\n@keyframes fx-pendulum {\n  0%,to {\n    transform: rotate(10deg);\n  }\n  50% {\n    transform: rotate(-10deg);\n  }\n}\n",
+      "type": "registry:ui",
+      "target": "components/ui/pendulum.css"
+    }
+  ],
+  "type": "registry:ui"
+}

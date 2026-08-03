@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "contour",
+  "title": "Wireframe",
+  "description": "Texto SVG desenhado apenas pelo contorno tracejado, que percorre as letras como um wireframe animado.",
+  "files": [
+    {
+      "path": "stories/TextEffects/contour.css",
+      "content": "/* Markup: <svg class=\"fx-contour\" viewBox=\"0 0 260 56\" role=\"img\" aria-label=\"OUTLINE\"><text x=\"50%\" y=\"50%\" dominant-baseline=\"central\" text-anchor=\"middle\">OUTLINE</text></svg> */\n\n/* Colour tokens — override to re-skin the effect:\n   --ink    main text colour (defaults to currentColor)\n   --ink-2  primary accent   --ink-3  secondary accent */\n:root { --ink: currentColor; --ink-2: #FF4FD8; --ink-3: #4FF8FF; }\n\n/* 15 Wireframe */\n.fx-contour {\n  width: 240px;\n  height: 56px;\n  overflow: visible;\n}\n.fx-contour text {\n  font: 600 40px JetBrains Mono, monospace;\n  letter-spacing: .02em;\n  fill: color-mix(in srgb, var(--ink) 10%, transparent);\n  stroke: var(--ink-3);\n  stroke-width: 1.2;\n  stroke-dasharray: 34 66;\n  animation: fx-contour 3.2s linear infinite;\n}\n@keyframes fx-contour {\n  to {\n    stroke-dashoffset: -100;\n  }\n}\n",
+      "type": "registry:ui",
+      "target": "components/ui/contour.css"
+    }
+  ],
+  "type": "registry:ui"
+}

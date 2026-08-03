@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "inktrap",
+  "title": "Ink-Trap",
+  "description": "Um contorno tracejado pulsa enquanto um preenchimento em formato de armadilha tipográfica (ink trap) surge e desaparece por trás do texto.",
+  "files": [
+    {
+      "path": "stories/TextEffects/inktrap.css",
+      "content": "/* Markup: <div class=\"fx-inktrap\" data-text=\"INK\">INK</div> */\n\n/* Colour tokens — override to re-skin the effect:\n   --ink    main text colour (defaults to currentColor)\n   --ink-2  primary accent   --ink-3  secondary accent */\n:root { --ink: currentColor; --ink-2: #FF4FD8; --ink-3: #4FF8FF; }\n\n/* 51 Ink-Trap */\n.fx-inktrap {\n  position: relative;\n  font: 600 38px/1.05 JetBrains Mono, monospace;\n  letter-spacing: .04em;\n  color: var(--ink);\n}\n.fx-inktrap:before, .fx-inktrap:after {\n  content: attr(data-text);\n  position: absolute;\n  inset: 0;\n  pointer-events: none;\n}\n.fx-inktrap:before {\n  color: transparent;\n  -webkit-text-stroke: 1px var(--ink-3);\n  opacity: .65;\n  animation: fx-inktrap-line 2.7s ease-in-out infinite;\n}\n.fx-inktrap:after {\n  color: var(--ink-2);\n  clip-path: polygon(0 0, 100% 0, 84% 22%, 18% 22%, 0 0, 0 100%, 20% 78%, 86% 78%, 100% 100%, 0 100%);\n  mix-blend-mode: screen;\n  animation: fx-inktrap-fill 2.7s ease-in-out infinite;\n}\n@keyframes fx-inktrap-line {\n  50% {\n    transform: scale(1.05);\n    opacity: .95;\n  }\n}\n@keyframes fx-inktrap-fill {\n  0%,to {\n    opacity: .18;\n    transform: scale(.98);\n  }\n  50% {\n    opacity: .72;\n    transform: scale(1.02);\n  }\n}\n",
+      "type": "registry:ui",
+      "target": "components/ui/inktrap.css"
+    }
+  ],
+  "type": "registry:ui"
+}

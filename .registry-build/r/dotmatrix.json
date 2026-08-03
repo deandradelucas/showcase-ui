@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "dotmatrix",
+  "title": "Dot-Matrix",
+  "description": "Texto formado por uma trama de pontos com uma faixa de brilho que varre de cima a baixo, como uma impressora matricial imprimindo.",
+  "files": [
+    {
+      "path": "stories/TextEffects/dotmatrix.css",
+      "content": "/* Markup: <div class=\"fx-dotmatrix\">PRINTOUT</div> */\n\n/* Colour tokens — override to re-skin the effect:\n   --ink    main text colour (defaults to currentColor)\n   --ink-2  primary accent   --ink-3  secondary accent */\n:root { --ink: currentColor; --ink-2: #FF4FD8; --ink-3: #4FF8FF; }\n\n/* 59 Dot-Matrix */\n.fx-dotmatrix {\n  font: 600 30px/1.15 JetBrains Mono, monospace;\n  letter-spacing: .1em;\n  color: transparent;\n  background: linear-gradient(180deg, transparent 0 16%, #fff 24%, transparent 32% 100%) 0 -100% / 100% 300%, radial-gradient(circle, var(--ink-3) 0 1.3px, transparent 1.8px) 0 0 / 5px 5px;\n  -webkit-background-clip: text;\n  background-clip: text;\n  animation: fx-dotmatrix 2.8s linear infinite;\n}\n@keyframes fx-dotmatrix {\n  0% {\n    background-position: 0 -100%, 0 0;\n  }\n  to {\n    background-position: 0 200%, 0 0;\n  }\n}\n",
+      "type": "registry:ui",
+      "target": "components/ui/dotmatrix.css"
+    }
+  ],
+  "type": "registry:ui"
+}

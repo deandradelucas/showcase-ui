@@ -21,8 +21,13 @@
       "type": "registry:ui",
       "title": "Mode Toggle",
       "description": "Dropdown de tema claro/escuro/sistema via next-themes.",
-      "dependencies": ["next-themes"],
-      "registryDependencies": ["button", "dropdown-menu"],
+      "dependencies": [
+        "next-themes"
+      ],
+      "registryDependencies": [
+        "button",
+        "dropdown-menu"
+      ],
       "files": [
         {
           "path": "components/mode-toggle.tsx",
@@ -36,8 +41,14 @@
       "type": "registry:ui",
       "title": "App Sidebar",
       "description": "Sidebar de navegação com item ativo via usePathname e o mode-toggle no rodapé.",
-      "dependencies": ["next-themes"],
-      "registryDependencies": ["sidebar", "button", "dropdown-menu"],
+      "dependencies": [
+        "next-themes"
+      ],
+      "registryDependencies": [
+        "sidebar",
+        "button",
+        "dropdown-menu"
+      ],
       "files": [
         {
           "path": "components/app-sidebar.tsx",
@@ -95,7 +106,9 @@
       "type": "registry:ui",
       "title": "Interactive Hover Button",
       "description": "Botão animado que revela texto e ícone deslizantes ao passar o mouse.",
-      "dependencies": ["lucide-react"],
+      "dependencies": [
+        "lucide-react"
+      ],
       "files": [
         {
           "path": "components/ui/interactive-hover-button.tsx",
@@ -109,7 +122,9 @@
       "type": "registry:ui",
       "title": "Focus Blur",
       "description": "Lista de links que desfoca e reduz a opacidade dos itens não focados ao passar o mouse.",
-      "dependencies": ["motion"],
+      "dependencies": [
+        "motion"
+      ],
       "files": [
         {
           "path": "components/ui/focus-blur.tsx",
@@ -123,7 +138,10 @@
       "type": "registry:ui",
       "title": "Morphing Select",
       "description": "Seletor que expande com transição suave via GSAP, revelando as opções em cascata.",
-      "dependencies": ["gsap", "@gsap/react"],
+      "dependencies": [
+        "gsap",
+        "@gsap/react"
+      ],
       "files": [
         {
           "path": "components/ui/morphing-select.tsx",
@@ -137,7 +155,11 @@
       "type": "registry:ui",
       "title": "Split Button",
       "description": "Botão que se abre em opções ao clicar, animado com motion.",
-      "dependencies": ["motion", "@hugeicons/react", "@hugeicons/core-free-icons"],
+      "dependencies": [
+        "motion",
+        "@hugeicons/react",
+        "@hugeicons/core-free-icons"
+      ],
       "files": [
         {
           "path": "stories/Buttons/split-button.tsx",
@@ -151,7 +173,11 @@
       "type": "registry:ui",
       "title": "Timed Undo Action",
       "description": "Botão de deletar com contagem regressiva e opção de desfazer, animado com motion.",
-      "dependencies": ["motion", "react-use-measure", "lucide-react"],
+      "dependencies": [
+        "motion",
+        "react-use-measure",
+        "lucide-react"
+      ],
       "files": [
         {
           "path": "stories/Buttons/timed-undo-action.tsx",
@@ -191,7 +217,9 @@
       "type": "registry:ui",
       "title": "Card Arc 5",
       "description": "Leque de cinco cartas que se abre em arco ao passar o mouse.",
-      "dependencies": ["motion"],
+      "dependencies": [
+        "motion"
+      ],
       "files": [
         {
           "path": "stories/Cards/card-arc-5.tsx",
@@ -205,7 +233,9 @@
       "type": "registry:ui",
       "title": "Card Arc 7",
       "description": "Leque de sete cartas que se abre em arco ao passar o mouse.",
-      "dependencies": ["motion"],
+      "dependencies": [
+        "motion"
+      ],
       "files": [
         {
           "path": "stories/Cards/card-arc-7.tsx",
@@ -219,7 +249,9 @@
       "type": "registry:ui",
       "title": "Card Long Arc 5",
       "description": "Leque de cinco cartas com abertura mais larga e ângulo suave.",
-      "dependencies": ["motion"],
+      "dependencies": [
+        "motion"
+      ],
       "files": [
         {
           "path": "stories/Cards/card-long-arc-5.tsx",
@@ -233,7 +265,9 @@
       "type": "registry:ui",
       "title": "Card Corner Fan",
       "description": "Cartas empilhadas que giram a partir do canto inferior esquerdo ao passar o mouse.",
-      "dependencies": ["motion"],
+      "dependencies": [
+        "motion"
+      ],
       "files": [
         {
           "path": "stories/Cards/card-corner-fan.tsx",
@@ -247,7 +281,9 @@
       "type": "registry:ui",
       "title": "Card Linear Spread",
       "description": "Cartas empilhadas que se espalham na horizontal ao passar o mouse, sem rotação.",
-      "dependencies": ["motion"],
+      "dependencies": [
+        "motion"
+      ],
       "files": [
         {
           "path": "stories/Cards/card-linear-spread.tsx",
@@ -261,7 +297,9 @@
       "type": "registry:ui",
       "title": "Card Scatter Spread",
       "description": "Cartas empilhadas que se espalham de forma assimétrica ao passar o mouse.",
-      "dependencies": ["motion"],
+      "dependencies": [
+        "motion"
+      ],
       "files": [
         {
           "path": "stories/Cards/card-scatter-spread.tsx",
@@ -293,7 +331,9 @@
       "type": "registry:ui",
       "title": "Card Flip Crédito",
       "description": "Cartão de crédito que vira no hover revelando a tarja e o CVV no verso.",
-      "dependencies": ["lucide-react"],
+      "dependencies": [
+        "lucide-react"
+      ],
       "files": [
         {
           "path": "stories/Cards/card-flip-credito.tsx",
@@ -312,7 +352,9 @@
       "type": "registry:ui",
       "title": "Card Flip Perfil",
       "description": "Card de perfil com imagem que vira no hover revelando um verso decorativo.",
-      "dependencies": ["lucide-react"],
+      "dependencies": [
+        "lucide-react"
+      ],
       "files": [
         {
           "path": "stories/Cards/card-flip-perfil.tsx",
@@ -324,6 +366,1883 @@
           "type": "registry:ui",
           "target": "components/ui/card-flip-perfil.css"
         }
+      ]
+    },
+    {
+      "name": "cartao-giro-gradiente",
+      "type": "registry:ui",
+      "title": "Cartao Giro Gradiente",
+      "description": "Card com gradiente circular giratório e detalhes em glassmorphism.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "stories/Cards/cartao-giro-gradiente.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/cartao-giro-gradiente.tsx"
+        }
+      ]
+    },
+    {
+      "name": "cartao-luminoso",
+      "type": "registry:ui",
+      "title": "Cartao Luminoso",
+      "description": "Card com efeito de luminária em CSS puro e toggle de luz on/off.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "stories/Cards/cartao-luminoso.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/cartao-luminoso.tsx"
+        },
+        {
+          "path": "stories/Cards/cartao-luminoso.css",
+          "type": "registry:ui",
+          "target": "components/ui/cartao-luminoso.css"
+        }
+      ]
+    },
+    {
+      "name": "cartao-vidro-3d",
+      "type": "registry:ui",
+      "title": "Cartao Vidro 3D",
+      "description": "Card com efeito de vidro em 3D que se inclina ao passar o mouse.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "stories/Cards/cartao-vidro-3d.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/cartao-vidro-3d.tsx"
+        },
+        {
+          "path": "stories/Cards/cartao-vidro-3d.css",
+          "type": "registry:ui",
+          "target": "components/ui/cartao-vidro-3d.css"
+        }
+      ]
+    },
+    {
+      "name": "arco-de-carimbo-ajustavel",
+      "type": "registry:ui",
+      "title": "Arco de carimbo (ajustável)",
+      "description": "Cartões perfurados com controles deslizantes dinâmicos para ajuste de arco, espaçamento e deslocamento.",
+      "files": [
+        {
+          "path": "stories/Cards/arco-de-carimbo-ajustavel.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/arco-de-carimbo-ajustavel.tsx"
+        }
+      ]
+    },
+    {
+      "name": "ventilador-escalonado-em-cascata",
+      "type": "registry:ui",
+      "title": "Ventilador Escalonado em Cascata",
+      "description": "Dispõe 5 cartas verticalmente e de forma escalonada em uma pilha diagonal em cascata.",
+      "files": [
+        {
+          "path": "stories/Cards/ventilador-escalonado-em-cascata.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/ventilador-escalonado-em-cascata.tsx"
+        }
+      ]
+    },
+    {
+      "name": "ventilador-radial-de-roda",
+      "type": "registry:ui",
+      "title": "Ventilador radial de roda",
+      "description": "Os cartões se abrem em semicírculo radial ao redor de um ponto de ancoragem central na parte inferior.",
+      "files": [
+        {
+          "path": "stories/Cards/ventilador-radial-de-roda.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/ventilador-radial-de-roda.tsx"
+        }
+      ]
+    },
+    {
+      "name": "carrossel-interativo-monocromatico",
+      "type": "registry:ui",
+      "title": "Carrossel interativo (monocromático)",
+      "description": "Um carrossel interativo em 3D baseado em arcos, que renderiza cartões monocromáticos nítidos.",
+      "files": [
+        {
+          "path": "stories/Cards/carrossel-interativo-monocromatico.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/carrossel-interativo-monocromatico.tsx"
+        }
+      ]
+    },
+    {
+      "name": "carrossel-coverflow-monocromatico",
+      "type": "registry:ui",
+      "title": "Carrossel CoverFlow (Monocromático)",
+      "description": "Um carrossel CoverFlow 3D premium que renderiza cartões monocromáticos nítidos.",
+      "files": [
+        {
+          "path": "stories/Cards/carrossel-coverflow-monocromatico.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/carrossel-coverflow-monocromatico.tsx"
+        }
+      ]
+    },
+    {
+      "name": "pilha-de-maquina-do-tempo-monocromatica",
+      "type": "registry:ui",
+      "title": "Pilha de Máquina do Tempo (Monocromática)",
+      "description": "Renderização em pilha de cartões monocromáticos nítidos com perspectiva de profundidade ao estilo Apple.",
+      "files": [
+        {
+          "path": "stories/Cards/pilha-de-maquina-do-tempo-monocromatica.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/pilha-de-maquina-do-tempo-monocromatica.tsx"
+        }
+      ]
+    },
+    {
+      "name": "fundo-estrelado",
+      "type": "registry:ui",
+      "title": "Starfield Background",
+      "description": "Fundo de ceu estrelado com 3 camadas de estrelas rolando infinitamente e titulo com fade-up (CSS puro).",
+      "files": [
+        {
+          "path": "stories/Backgrounds/fundo-estrelado.css",
+          "type": "registry:ui",
+          "target": "components/ui/fundo-estrelado.css"
+        }
+      ]
+    },
+    {
+      "name": "input-glow",
+      "type": "registry:ui",
+      "title": "Glow Search Input",
+      "description": "Campo de busca com borda conica giratoria (multiplas camadas de brilho) que reage a hover e foco, mais botao de filtro (CSS puro).",
+      "files": [
+        {
+          "path": "stories/Inputs/input-glow.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/input-glow.tsx"
+        },
+        {
+          "path": "stories/Inputs/input-glow.css",
+          "type": "registry:ui",
+          "target": "components/ui/input-glow.css"
+        }
+      ]
+    },
+    {
+      "name": "input-sublinhado",
+      "type": "registry:ui",
+      "title": "Underline Input",
+      "description": "Campo de texto com sublinhado que se expande da esquerda pra direita no foco, com variante de gradiente (CSS puro).",
+      "files": [
+        {
+          "path": "stories/Inputs/input-sublinhado.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/input-sublinhado.tsx"
+        },
+        {
+          "path": "stories/Inputs/input-sublinhado.css",
+          "type": "registry:ui",
+          "target": "components/ui/input-sublinhado.css"
+        }
+      ]
+    },
+    {
+      "name": "dock-social",
+      "type": "registry:ui",
+      "title": "Social Icons Dock",
+      "description": "Dock de icones sociais que expande no hover, revelando 9 links com cor propria por rede (CSS puro).",
+      "files": [
+        {
+          "path": "stories/Footer/dock-social.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/dock-social.tsx"
+        },
+        {
+          "path": "stories/Footer/dock-social.css",
+          "type": "registry:ui",
+          "target": "components/ui/dock-social.css"
+        }
+      ]
+    },
+    {
+      "name": "menu-deslizante",
+      "type": "registry:ui",
+      "title": "Glider Radio Menu",
+      "description": "Menu de navegacao vertical com indicador luminoso que desliza entre os itens selecionados (CSS puro).",
+      "files": [
+        {
+          "path": "stories/Menus/menu-deslizante.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/menu-deslizante.tsx"
+        },
+        {
+          "path": "stories/Menus/menu-deslizante.css",
+          "type": "registry:ui",
+          "target": "components/ui/menu-deslizante.css"
+        }
+      ]
+    },
+    {
+      "name": "baixar-para-mac",
+      "type": "registry:ui",
+      "title": "Baixar para Mac",
+      "description": "Interação com a seta deslizante",
+      "files": [
+        {
+          "path": "stories/Buttons/baixar-para-mac.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/baixar-para-mac.tsx"
+        }
+      ],
+      "dependencies": [
+        "motion"
+      ]
+    },
+    {
+      "name": "de-uma-estrela-no-github",
+      "type": "registry:ui",
+      "title": "Dê uma estrela no GitHub",
+      "description": "Interação brilhante",
+      "files": [
+        {
+          "path": "stories/Buttons/de-uma-estrela-no-github.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/de-uma-estrela-no-github.tsx"
+        }
+      ]
+    },
+    {
+      "name": "implantar-aplicativo",
+      "type": "registry:ui",
+      "title": "Implantar aplicativo",
+      "description": "Interação morfológica",
+      "files": [
+        {
+          "path": "stories/Buttons/implantar-aplicativo.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/implantar-aplicativo.tsx"
+        }
+      ]
+    },
+    {
+      "name": "copiar-hash",
+      "type": "registry:ui",
+      "title": "Copiar Hash",
+      "description": "Interação morfológica",
+      "files": [
+        {
+          "path": "stories/Buttons/copiar-hash.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/copiar-hash.tsx"
+        }
+      ]
+    },
+    {
+      "name": "patrocinador",
+      "type": "registry:ui",
+      "title": "Patrocinador",
+      "description": "Interação de pulso",
+      "files": [
+        {
+          "path": "stories/Buttons/patrocinador.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/patrocinador.tsx"
+        }
+      ]
+    },
+    {
+      "name": "compartilhar",
+      "type": "registry:ui",
+      "title": "Compartilhar",
+      "description": "Interação morfológica",
+      "files": [
+        {
+          "path": "stories/Buttons/compartilhar.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/compartilhar.tsx"
+        }
+      ]
+    },
+    {
+      "name": "pre-visualizacao",
+      "type": "registry:ui",
+      "title": "Pré-visualização",
+      "description": "Interação morfológica",
+      "files": [
+        {
+          "path": "stories/Buttons/pre-visualizacao.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/pre-visualizacao.tsx"
+        }
+      ]
+    },
+    {
+      "name": "configuracoes",
+      "type": "registry:ui",
+      "title": "Settings",
+      "description": "Botao com icone de engrenagem que gira 180 graus no hover.",
+      "files": [
+        {
+          "path": "stories/Buttons/configuracoes.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/configuracoes.tsx"
+        }
+      ]
+    },
+    {
+      "name": "excluir",
+      "type": "registry:ui",
+      "title": "Delete",
+      "description": "Botao de exclusao com icone de lixeira que treme e fica vermelho no hover.",
+      "files": [
+        {
+          "path": "stories/Buttons/excluir.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/excluir.tsx"
+        }
+      ]
+    },
+    {
+      "name": "inscrever-se",
+      "type": "registry:ui",
+      "title": "Subscribe",
+      "description": "Botao de inscricao com sino que ganha badge de notificacao no hover.",
+      "files": [
+        {
+          "path": "stories/Buttons/inscrever-se.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/inscrever-se.tsx"
+        }
+      ]
+    },
+    {
+      "name": "pesquisar",
+      "type": "registry:ui",
+      "title": "Search",
+      "description": "Botao de busca com crossfade entre lupa e X no hover.",
+      "files": [
+        {
+          "path": "stories/Buttons/pesquisar.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/pesquisar.tsx"
+        }
+      ]
+    },
+    {
+      "name": "alternar-tema",
+      "type": "registry:ui",
+      "title": "Theme",
+      "description": "Botao de alternancia de tema com crossfade entre lua e sol.",
+      "files": [
+        {
+          "path": "stories/Buttons/alternar-tema.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/alternar-tema.tsx"
+        }
+      ]
+    },
+    {
+      "name": "alternar-bb8",
+      "type": "registry:ui",
+      "title": "BB8 Toggle",
+      "description": "Interruptor com droide BB8 animado atravessando uma paisagem de ceu noturno para diurno (CSS puro).",
+      "files": [
+        {
+          "path": "stories/Toggles/alternar-bb8.css",
+          "type": "registry:ui",
+          "target": "components/ui/alternar-bb8.css"
+        }
+      ]
+    },
+    {
+      "name": "alternar-pulso",
+      "type": "registry:ui",
+      "title": "Pulse Switch",
+      "description": "Interruptor verde com brilho pulsante, efeito de squish no clique e icones on/off (CSS puro).",
+      "files": [
+        {
+          "path": "stories/Toggles/alternar-pulso.css",
+          "type": "registry:ui",
+          "target": "components/ui/alternar-pulso.css"
+        }
+      ]
+    },
+    {
+      "name": "microfone",
+      "type": "registry:ui",
+      "title": "Microphone",
+      "description": "Botao de microfone com crossfade para o estado mudo no hover.",
+      "files": [
+        {
+          "path": "stories/Buttons/microfone.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/microfone.tsx"
+        }
+      ]
+    },
+    {
+      "name": "camera",
+      "type": "registry:ui",
+      "title": "Camera",
+      "description": "Botao de camera com crossfade para o estado desligado no hover.",
+      "files": [
+        {
+          "path": "stories/Buttons/camera.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/camera.tsx"
+        }
+      ]
+    },
+    {
+      "name": "volume",
+      "type": "registry:ui",
+      "title": "Volume",
+      "description": "Botao de volume com crossfade para o estado mudo no hover.",
+      "files": [
+        {
+          "path": "stories/Buttons/volume.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/volume.tsx"
+        }
+      ]
+    },
+    {
+      "name": "bloquear",
+      "type": "registry:ui",
+      "title": "Lock",
+      "description": "Botao de bloqueio com crossfade entre cadeado fechado e aberto.",
+      "files": [
+        {
+          "path": "stories/Buttons/bloquear.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/bloquear.tsx"
+        }
+      ]
+    },
+    {
+      "name": "diretorio",
+      "type": "registry:ui",
+      "title": "Directory",
+      "description": "Botao de pasta com crossfade entre fechada e aberta no hover.",
+      "files": [
+        {
+          "path": "stories/Buttons/diretorio.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/diretorio.tsx"
+        }
+      ]
+    },
+    {
+      "name": "visibilidade",
+      "type": "registry:ui",
+      "title": "Visibility",
+      "description": "Botao de visibilidade com crossfade entre olho aberto e fechado.",
+      "files": [
+        {
+          "path": "stories/Buttons/visibilidade.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/visibilidade.tsx"
+        }
+      ]
+    },
+    {
+      "name": "salvar-para-depois",
+      "type": "registry:ui",
+      "title": "Save Later",
+      "description": "Botao de salvar com icone de marcador que preenche de cor no hover.",
+      "files": [
+        {
+          "path": "stories/Buttons/salvar-para-depois.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/salvar-para-depois.tsx"
+        }
+      ]
+    },
+    {
+      "name": "curtir",
+      "type": "registry:ui",
+      "title": "Like",
+      "description": "Botao de curtir com icone de joinha que preenche de cor no hover.",
+      "files": [
+        {
+          "path": "stories/Buttons/curtir.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/curtir.tsx"
+        }
+      ]
+    },
+    {
+      "name": "baixar",
+      "type": "registry:ui",
+      "title": "Download",
+      "description": "Botao de download com crossfade para check de confirmacao no hover.",
+      "files": [
+        {
+          "path": "stories/Buttons/baixar.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/baixar.tsx"
+        }
+      ]
+    },
+    {
+      "name": "enviar-arquivo",
+      "type": "registry:ui",
+      "title": "Upload",
+      "description": "Botao de envio de arquivo com crossfade para check de confirmacao.",
+      "files": [
+        {
+          "path": "stories/Buttons/enviar-arquivo.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/enviar-arquivo.tsx"
+        }
+      ]
+    },
+    {
+      "name": "conta",
+      "type": "registry:ui",
+      "title": "Account",
+      "description": "Botao de conta com crossfade para icone de usuario verificado.",
+      "files": [
+        {
+          "path": "stories/Buttons/conta.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/conta.tsx"
+        }
+      ]
+    },
+    {
+      "name": "enviar",
+      "type": "registry:ui",
+      "title": "Submit",
+      "description": "Botao de envio com crossfade para check de confirmacao no hover.",
+      "files": [
+        {
+          "path": "stories/Buttons/enviar.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/enviar.tsx"
+        }
+      ]
+    },
+    {
+      "name": "editar",
+      "type": "registry:ui",
+      "title": "Edit",
+      "description": "Botao de edicao com crossfade para check de confirmacao no hover.",
+      "files": [
+        {
+          "path": "stories/Buttons/editar.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/editar.tsx"
+        }
+      ]
+    },
+    {
+      "name": "rede",
+      "type": "registry:ui",
+      "title": "Network",
+      "description": "Botao de rede com crossfade para o estado offline no hover.",
+      "files": [
+        {
+          "path": "stories/Buttons/rede.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/rede.tsx"
+        }
+      ]
+    },
+    {
+      "name": "energia",
+      "type": "registry:ui",
+      "title": "Power",
+      "description": "Botao de energia com crossfade para o estado de carregamento.",
+      "files": [
+        {
+          "path": "stories/Buttons/energia.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/energia.tsx"
+        }
+      ]
+    },
+    {
+      "name": "expandir",
+      "type": "registry:ui",
+      "title": "Expand",
+      "description": "Botao de expandir com crossfade para o icone de recolher no hover.",
+      "files": [
+        {
+          "path": "stories/Buttons/expandir.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/expandir.tsx"
+        }
+      ]
+    },
+    {
+      "name": "recarregar",
+      "type": "registry:ui",
+      "title": "Reload",
+      "description": "Botao de recarregar com icone que gira 180 graus no hover.",
+      "files": [
+        {
+          "path": "stories/Buttons/recarregar.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/recarregar.tsx"
+        }
+      ]
+    },
+    {
+      "name": "anel-expansivo",
+      "type": "registry:ui",
+      "title": "Expand Ring",
+      "description": "Botao de link com anel que expande e desaparece no hover.",
+      "files": [
+        {
+          "path": "stories/Buttons/anel-expansivo.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/anel-expansivo.tsx"
+        }
+      ]
+    },
+    {
+      "name": "favorito",
+      "type": "registry:ui",
+      "title": "Favorite",
+      "description": "Botao de favoritar com estrela que preenche de amarelo no hover.",
+      "files": [
+        {
+          "path": "stories/Buttons/favorito.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/favorito.tsx"
+        }
+      ]
+    },
+    {
+      "name": "brilho-glare",
+      "type": "registry:ui",
+      "title": "Glare Shine",
+      "description": "Botao com reflexo de brilho diagonal deslizando em loop no hover.",
+      "files": [
+        {
+          "path": "stories/Buttons/brilho-glare.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/brilho-glare.tsx"
+        }
+      ]
+    },
+    {
+      "name": "campo-magnetico",
+      "type": "registry:ui",
+      "title": "Magnetic Field",
+      "description": "Botao que persegue o cursor com efeito magnetico no hover.",
+      "files": [
+        {
+          "path": "stories/Buttons/campo-magnetico.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/campo-magnetico.tsx"
+        }
+      ]
+    },
+    {
+      "name": "revelar-texto",
+      "type": "registry:ui",
+      "title": "Text Reveal",
+      "description": "Botao com label duplicado que desliza revelando uma copia no hover.",
+      "files": [
+        {
+          "path": "stories/Buttons/revelar-texto.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/revelar-texto.tsx"
+        }
+      ]
+    },
+    {
+      "name": "foco-desfoque",
+      "type": "registry:ui",
+      "title": "Foco com Desfoque",
+      "description": "Lista de links onde o item nao focado borra e perde opacidade no hover.",
+      "files": [
+        {
+          "path": "stories/Cards/foco-desfoque.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/foco-desfoque.tsx"
+        }
+      ]
+    },
+    {
+      "name": "text-vaporize",
+      "type": "registry:ui",
+      "title": "Text Vaporize",
+      "description": "Text that dissolves into drifting particles and reassembles as the next word, cycling on canvas with full control over motion and timing.",
+      "files": [
+        {
+          "path": "stories/TextEffects/text-vaporize.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/text-vaporize.tsx"
+        },
+        {
+          "path": "stories/TextEffects/text-vaporize-engine.ts",
+          "type": "registry:ui",
+          "target": "components/ui/text-vaporize-engine.ts"
+        },
+        {
+          "path": "stories/TextEffects/text-vaporize-particles.ts",
+          "type": "registry:ui",
+          "target": "components/ui/text-vaporize-particles.ts"
+        }
+      ]
+    },
+    {
+      "name": "typewriter",
+      "type": "registry:ui",
+      "title": "Typewriter",
+      "description": "Texto digitado com cursor piscando, largura animada em steps (CSS puro).",
+      "files": [
+        {
+          "path": "stories/TextEffects/typewriter.css",
+          "type": "registry:ui",
+          "target": "components/ui/typewriter.css"
+        }
+      ]
+    },
+    {
+      "name": "aurora",
+      "type": "registry:ui",
+      "title": "Aurora",
+      "description": "Efeito de gradiente aurora boreal deslizando pelas letras do texto (CSS puro).",
+      "files": [
+        {
+          "path": "stories/TextEffects/aurora.css",
+          "type": "registry:ui",
+          "target": "components/ui/aurora.css"
+        }
+      ]
+    },
+    {
+      "name": "glitch",
+      "type": "registry:ui",
+      "title": "Glitch",
+      "description": "Efeito glitch RGB com split de canais de cor e saltos recortados (CSS puro).",
+      "files": [
+        {
+          "path": "stories/TextEffects/glitch.css",
+          "type": "registry:ui",
+          "target": "components/ui/glitch.css"
+        }
+      ]
+    },
+    {
+      "name": "shimmer-text",
+      "type": "registry:ui",
+      "title": "Shimmer Text",
+      "description": "Texto com brilho varrendo da esquerda pra direita via gradiente clipado no texto (CSS puro).",
+      "files": [
+        {
+          "path": "stories/TextEffects/shimmer-text.css",
+          "type": "registry:ui",
+          "target": "components/ui/shimmer-text.css"
+        }
+      ]
+    },
+    {
+      "name": "anaglyph",
+      "type": "registry:ui",
+      "title": "Anaglyph-3D",
+      "description": "Sombras vermelha e ciã se separam e voltam a se sobrepor, simulando o efeito de óculos 3D anaglifo.",
+      "files": [
+        {
+          "path": "stories/TextEffects/anaglyph.css",
+          "type": "registry:ui",
+          "target": "components/ui/anaglyph.css"
+        }
+      ]
+    },
+    {
+      "name": "barcode",
+      "type": "registry:ui",
+      "title": "Barcode",
+      "description": "Texto formado por barras verticais como um código de barras, com um scanner de luz vertical passando por cima e um número serial embaixo.",
+      "files": [
+        {
+          "path": "stories/TextEffects/barcode.css",
+          "type": "registry:ui",
+          "target": "components/ui/barcode.css"
+        }
+      ]
+    },
+    {
+      "name": "blackout",
+      "type": "registry:ui",
+      "title": "Blackout",
+      "description": "Duas barras sólidas cobrem e revelam o texto de cima e de baixo, como uma censura (redaction) que abre e fecha.",
+      "files": [
+        {
+          "path": "stories/TextEffects/blackout.css",
+          "type": "registry:ui",
+          "target": "components/ui/blackout.css"
+        }
+      ]
+    },
+    {
+      "name": "blueprint",
+      "type": "registry:ui",
+      "title": "Blueprint",
+      "description": "Texto com contorno técnico sobre uma grade milimetrada rolando, como um desenho de planta arquitetônica.",
+      "files": [
+        {
+          "path": "stories/TextEffects/blueprint.css",
+          "type": "registry:ui",
+          "target": "components/ui/blueprint.css"
+        }
+      ]
+    },
+    {
+      "name": "chrome",
+      "type": "registry:ui",
+      "title": "Chromia",
+      "description": "Reflexo metálico cromado deslizando diagonalmente pelo texto, como uma superfície polida.",
+      "files": [
+        {
+          "path": "stories/TextEffects/chrome.css",
+          "type": "registry:ui",
+          "target": "components/ui/chrome.css"
+        }
+      ]
+    },
+    {
+      "name": "contour",
+      "type": "registry:ui",
+      "title": "Wireframe",
+      "description": "Texto SVG desenhado apenas pelo contorno tracejado, que percorre as letras como um wireframe animado.",
+      "files": [
+        {
+          "path": "stories/TextEffects/contour.css",
+          "type": "registry:ui",
+          "target": "components/ui/contour.css"
+        }
+      ]
+    },
+    {
+      "name": "crt",
+      "type": "registry:ui",
+      "title": "Phosphor",
+      "description": "Texto verde fosforescente com flicker e linhas de varredura rolando, simulando um monitor CRT antigo.",
+      "files": [
+        {
+          "path": "stories/TextEffects/crt.css",
+          "type": "registry:ui",
+          "target": "components/ui/crt.css"
+        }
+      ]
+    },
+    {
+      "name": "datastream",
+      "type": "registry:ui",
+      "title": "Datastream",
+      "description": "Texto preenchido por linhas de varredura verticais em movimento constante, com uma trilha de dígitos binários escorrendo por baixo, como um fluxo de dados.",
+      "files": [
+        {
+          "path": "stories/TextEffects/datastream.css",
+          "type": "registry:ui",
+          "target": "components/ui/datastream.css"
+        }
+      ]
+    },
+    {
+      "name": "decoder",
+      "type": "registry:ui",
+      "title": "Cipher",
+      "description": "Texto embaralhado com caracteres aleatórios que se decodificam progressivamente até revelar a palavra correta.",
+      "files": [
+        {
+          "path": "stories/TextEffects/decoder.css",
+          "type": "registry:ui",
+          "target": "components/ui/decoder.css"
+        }
+      ]
+    },
+    {
+      "name": "dotmatrix",
+      "type": "registry:ui",
+      "title": "Dot-Matrix",
+      "description": "Texto formado por uma trama de pontos com uma faixa de brilho que varre de cima a baixo, como uma impressora matricial imprimindo.",
+      "files": [
+        {
+          "path": "stories/TextEffects/dotmatrix.css",
+          "type": "registry:ui",
+          "target": "components/ui/dotmatrix.css"
+        }
+      ]
+    },
+    {
+      "name": "duotone",
+      "type": "registry:ui",
+      "title": "Duotone",
+      "description": "Duas cópias coloridas do texto, uma vermelha e uma ciã, se separam e se reaproximam com blend de tela, como impressão duotone.",
+      "files": [
+        {
+          "path": "stories/TextEffects/duotone.css",
+          "type": "registry:ui",
+          "target": "components/ui/duotone.css"
+        }
+      ]
+    },
+    {
+      "name": "echo",
+      "type": "registry:ui",
+      "title": "Echo-Verse",
+      "description": "Cópias fantasmas do texto se expandem e desaparecem em ondas sucessivas, como um eco visual.",
+      "files": [
+        {
+          "path": "stories/TextEffects/echo.css",
+          "type": "registry:ui",
+          "target": "components/ui/echo.css"
+        }
+      ]
+    },
+    {
+      "name": "eclipse",
+      "type": "registry:ui",
+      "title": "Eclipse",
+      "description": "Um disco escuro atravessa o texto da esquerda para a direita, escurecendo o brilho das letras como um eclipse solar.",
+      "files": [
+        {
+          "path": "stories/TextEffects/eclipse.css",
+          "type": "registry:ui",
+          "target": "components/ui/eclipse.css"
+        }
+      ]
+    },
+    {
+      "name": "elastic",
+      "type": "registry:ui",
+      "title": "Rubber-Band",
+      "description": "Texto se espreme e estica repetidamente nos dois eixos, como um elástico esticando (efeito 'boing').",
+      "files": [
+        {
+          "path": "stories/TextEffects/elastic.css",
+          "type": "registry:ui",
+          "target": "components/ui/elastic.css"
+        }
+      ]
+    },
+    {
+      "name": "ember",
+      "type": "registry:ui",
+      "title": "Emberglow",
+      "description": "Texto incandescente com sombra alaranjada pulsante, como brasa em combustão.",
+      "files": [
+        {
+          "path": "stories/TextEffects/ember.css",
+          "type": "registry:ui",
+          "target": "components/ui/ember.css"
+        }
+      ]
+    },
+    {
+      "name": "extrude",
+      "type": "registry:ui",
+      "title": "Deep-Type",
+      "description": "Texto com camadas de sombra sólida em efeito 3D extrudado, balançando levemente para dar profundidade e volume.",
+      "files": [
+        {
+          "path": "stories/TextEffects/extrude.css",
+          "type": "registry:ui",
+          "target": "components/ui/extrude.css"
+        }
+      ]
+    },
+    {
+      "name": "flap",
+      "type": "registry:ui",
+      "title": "Split-Flap",
+      "description": "Cada letra vira dentro de uma cápsula, como um painel de aeroporto ou estação (split-flap display).",
+      "files": [
+        {
+          "path": "stories/TextEffects/flap.css",
+          "type": "registry:ui",
+          "target": "components/ui/flap.css"
+        }
+      ]
+    },
+    {
+      "name": "focus",
+      "type": "registry:ui",
+      "title": "Lens-Drift",
+      "description": "Letras desfocam e nitidificam em sequência defasada, como uma lente de câmera ajustando o foco.",
+      "files": [
+        {
+          "path": "stories/TextEffects/focus.css",
+          "type": "registry:ui",
+          "target": "components/ui/focus.css"
+        }
+      ]
+    },
+    {
+      "name": "foil",
+      "type": "registry:ui",
+      "title": "Gold-Foil",
+      "description": "Gradiente metálico dourado desliza diagonalmente pelo texto, como relevo de folha de ouro brilhando.",
+      "files": [
+        {
+          "path": "stories/TextEffects/foil.css",
+          "type": "registry:ui",
+          "target": "components/ui/foil.css"
+        }
+      ]
+    },
+    {
+      "name": "frost",
+      "type": "registry:ui",
+      "title": "Frostbite",
+      "description": "Texto com gradiente gelado e pontos de geada que se movem, como uma superfície congelando.",
+      "files": [
+        {
+          "path": "stories/TextEffects/frost.css",
+          "type": "registry:ui",
+          "target": "components/ui/frost.css"
+        }
+      ]
+    },
+    {
+      "name": "glass",
+      "type": "registry:ui",
+      "title": "Glass-Type",
+      "description": "Texto com camada duplicada desfocada ao fundo e um brilho diagonal que desliza por cima, simulando vidro fosco.",
+      "files": [
+        {
+          "path": "stories/TextEffects/glass.css",
+          "type": "registry:ui",
+          "target": "components/ui/glass.css"
+        }
+      ]
+    },
+    {
+      "name": "glyphrain",
+      "type": "registry:ui",
+      "title": "Glyph-Rain",
+      "description": "Cada letra cai, sobe e volta à posição original com sombra progressiva, como uma chuva de glifos digitais.",
+      "files": [
+        {
+          "path": "stories/TextEffects/glyphrain.css",
+          "type": "registry:ui",
+          "target": "components/ui/glyphrain.css"
+        }
+      ]
+    },
+    {
+      "name": "heartbeat",
+      "type": "registry:ui",
+      "title": "Cardio",
+      "description": "Texto pulsa em duplo batimento com brilho intensificado, como um batimento cardíaco.",
+      "files": [
+        {
+          "path": "stories/TextEffects/heartbeat.css",
+          "type": "registry:ui",
+          "target": "components/ui/heartbeat.css"
+        }
+      ]
+    },
+    {
+      "name": "heatmap",
+      "type": "registry:ui",
+      "title": "Heatmap",
+      "description": "Manchas de cor quente, em amarelo, rosa e azul, se movem dentro do texto como um mapa de calor térmico.",
+      "files": [
+        {
+          "path": "stories/TextEffects/heatmap.css",
+          "type": "registry:ui",
+          "target": "components/ui/heatmap.css"
+        }
+      ]
+    },
+    {
+      "name": "hologram",
+      "type": "registry:ui",
+      "title": "Holograph",
+      "description": "Texto ciano translúcido com uma cópia magenta que salta de posição e linhas de varredura, simulando uma projeção holográfica instável.",
+      "files": [
+        {
+          "path": "stories/TextEffects/hologram.css",
+          "type": "registry:ui",
+          "target": "components/ui/hologram.css"
+        }
+      ]
+    },
+    {
+      "name": "inktrap",
+      "type": "registry:ui",
+      "title": "Ink-Trap",
+      "description": "Um contorno tracejado pulsa enquanto um preenchimento em formato de armadilha tipográfica (ink trap) surge e desaparece por trás do texto.",
+      "files": [
+        {
+          "path": "stories/TextEffects/inktrap.css",
+          "type": "registry:ui",
+          "target": "components/ui/inktrap.css"
+        }
+      ]
+    },
+    {
+      "name": "iridescent",
+      "type": "registry:ui",
+      "title": "Iridescent",
+      "description": "Gradiente cônico multicor gira continuamente pelo texto com matiz rotativo, como madrepérola ou uma superfície holográfica.",
+      "files": [
+        {
+          "path": "stories/TextEffects/iridescent.css",
+          "type": "registry:ui",
+          "target": "components/ui/iridescent.css"
+        }
+      ]
+    },
+    {
+      "name": "jitter",
+      "type": "registry:ui",
+      "title": "Jitterbug",
+      "description": "Texto com tremores e inclinações abruptas e erráticas, como um glitch nervoso.",
+      "files": [
+        {
+          "path": "stories/TextEffects/jitter.css",
+          "type": "registry:ui",
+          "target": "components/ui/jitter.css"
+        }
+      ]
+    },
+    {
+      "name": "kinetic",
+      "type": "registry:ui",
+      "title": "Kinetic-Type",
+      "description": "Cada letra sobe, gira e desce em sequência com cores alternadas, num movimento tipográfico cinético e elástico.",
+      "files": [
+        {
+          "path": "stories/TextEffects/kinetic.css",
+          "type": "registry:ui",
+          "target": "components/ui/kinetic.css"
+        }
+      ]
+    },
+    {
+      "name": "laser",
+      "type": "registry:ui",
+      "title": "Laser-Cut",
+      "description": "Uma linha de laser horizontal varre o texto enquanto uma fatia central brilha intensamente ao ser 'cortada'.",
+      "files": [
+        {
+          "path": "stories/TextEffects/laser.css",
+          "type": "registry:ui",
+          "target": "components/ui/laser.css"
+        }
+      ]
+    },
+    {
+      "name": "liquid",
+      "type": "registry:ui",
+      "title": "Aqua-Fill",
+      "description": "Texto preenchido por líquido que sobe e desce, como um nível de água enchendo o contorno das letras.",
+      "files": [
+        {
+          "path": "stories/TextEffects/liquid.css",
+          "type": "registry:ui",
+          "target": "components/ui/liquid.css"
+        }
+      ]
+    },
+    {
+      "name": "magnetic",
+      "type": "registry:ui",
+      "title": "Magnetic",
+      "description": "Letras são atraídas e repelidas do centro com brilho, como se um campo magnético as puxasse e empurrasse.",
+      "files": [
+        {
+          "path": "stories/TextEffects/magnetic.css",
+          "type": "registry:ui",
+          "target": "components/ui/magnetic.css"
+        }
+      ]
+    },
+    {
+      "name": "marker",
+      "type": "registry:ui",
+      "title": "Hi-Liter",
+      "description": "Um marca-texto colorido preenche o texto por baixo e depois desliza para fora, como se fosse grifado à mão.",
+      "files": [
+        {
+          "path": "stories/TextEffects/marker.css",
+          "type": "registry:ui",
+          "target": "components/ui/marker.css"
+        }
+      ]
+    },
+    {
+      "name": "melt",
+      "type": "registry:ui",
+      "title": "Meltdown",
+      "description": "Cada letra escorre e derrete verticalmente, esticando e voltando à forma original, como cera derretendo.",
+      "files": [
+        {
+          "path": "stories/TextEffects/melt.css",
+          "type": "registry:ui",
+          "target": "components/ui/melt.css"
+        }
+      ]
+    },
+    {
+      "name": "mesh",
+      "type": "registry:ui",
+      "title": "Luma-Mesh",
+      "description": "Manchas de luz coloridas em gradiente mesh se movem dentro do texto, como uma superfície iridescente orgânica.",
+      "files": [
+        {
+          "path": "stories/TextEffects/mesh.css",
+          "type": "registry:ui",
+          "target": "components/ui/mesh.css"
+        }
+      ]
+    },
+    {
+      "name": "microchip",
+      "type": "registry:ui",
+      "title": "Microchip",
+      "description": "Texto preenchido por trilhas de circuito impresso, com linhas e pontos que se deslocam, como um chip eletrônico animado.",
+      "files": [
+        {
+          "path": "stories/TextEffects/microchip.css",
+          "type": "registry:ui",
+          "target": "components/ui/microchip.css"
+        }
+      ]
+    },
+    {
+      "name": "mirror",
+      "type": "registry:ui",
+      "title": "Still-Water",
+      "description": "Texto flutua suavemente para cima e para baixo com um reflexo espelhado abaixo, como se pairasse sobre água parada.",
+      "files": [
+        {
+          "path": "stories/TextEffects/mirror.css",
+          "type": "registry:ui",
+          "target": "components/ui/mirror.css"
+        }
+      ]
+    },
+    {
+      "name": "moire",
+      "type": "registry:ui",
+      "title": "Moiré",
+      "description": "Duas grades de linhas finas se cruzam e deslizam em direções opostas, gerando um padrão de interferência óptica (moiré).",
+      "files": [
+        {
+          "path": "stories/TextEffects/moire.css",
+          "type": "registry:ui",
+          "target": "components/ui/moire.css"
+        }
+      ]
+    },
+    {
+      "name": "negative",
+      "type": "registry:ui",
+      "title": "Negativ",
+      "description": "Uma faixa em negativo (mix-blend-mode: difference) desliza sobre o texto, invertendo a cor onde passa.",
+      "files": [
+        {
+          "path": "stories/TextEffects/negative.css",
+          "type": "registry:ui",
+          "target": "components/ui/negative.css"
+        }
+      ]
+    },
+    {
+      "name": "neon",
+      "type": "registry:ui",
+      "title": "Neon-Haus",
+      "description": "Texto neon piscando com brilho pulsante (text-shadow), simulando um tubo de gás cintilando.",
+      "files": [
+        {
+          "path": "stories/TextEffects/neon.css",
+          "type": "registry:ui",
+          "target": "components/ui/neon.css"
+        }
+      ]
+    },
+    {
+      "name": "orbit",
+      "type": "registry:ui",
+      "title": "Orbitals",
+      "description": "Cada letra descreve uma órbita elíptica ao redor de sua posição original, com cores alternadas, como planetas girando.",
+      "files": [
+        {
+          "path": "stories/TextEffects/orbit.css",
+          "type": "registry:ui",
+          "target": "components/ui/orbit.css"
+        }
+      ]
+    },
+    {
+      "name": "parallax",
+      "type": "registry:ui",
+      "title": "Parallax",
+      "description": "Cada letra flutua verticalmente com sombras duplas coloridas que se distanciam, criando sensação de profundidade em camadas.",
+      "files": [
+        {
+          "path": "stories/TextEffects/parallax.css",
+          "type": "registry:ui",
+          "target": "components/ui/parallax.css"
+        }
+      ]
+    },
+    {
+      "name": "pendulum",
+      "type": "registry:ui",
+      "title": "Pendulum",
+      "description": "Cada letra balança para os lados a partir do topo, como um pêndulo, com cores alternadas entre elas.",
+      "files": [
+        {
+          "path": "stories/TextEffects/pendulum.css",
+          "type": "registry:ui",
+          "target": "components/ui/pendulum.css"
+        }
+      ]
+    },
+    {
+      "name": "pixel",
+      "type": "registry:ui",
+      "title": "Pixel-Sort",
+      "description": "Faixas horizontais do texto, em ciano e magenta, deslizam lateralmente de forma independente, como um glitch de pixel sorting.",
+      "files": [
+        {
+          "path": "stories/TextEffects/pixel.css",
+          "type": "registry:ui",
+          "target": "components/ui/pixel.css"
+        }
+      ]
+    },
+    {
+      "name": "pop",
+      "type": "registry:ui",
+      "title": "Pop-Riot",
+      "description": "Letras saltam e giram levemente uma após outra, com sombra colorida acompanhando o salto, em movimento bem elástico.",
+      "files": [
+        {
+          "path": "stories/TextEffects/pop.css",
+          "type": "registry:ui",
+          "target": "components/ui/pop.css"
+        }
+      ]
+    },
+    {
+      "name": "portal",
+      "type": "registry:ui",
+      "title": "Portal",
+      "description": "Gradiente cônico gira sem parar pelo texto enquanto um brilho radial pulsa no centro, como um portal dimensional girando.",
+      "files": [
+        {
+          "path": "stories/TextEffects/portal.css",
+          "type": "registry:ui",
+          "target": "components/ui/portal.css"
+        }
+      ]
+    },
+    {
+      "name": "prismcut",
+      "type": "registry:ui",
+      "title": "Prism-Cut",
+      "description": "Duas metades diagonais coloridas do texto se separam e voltam a se alinhar, como luz se decompondo num prisma.",
+      "files": [
+        {
+          "path": "stories/TextEffects/prismcut.css",
+          "type": "registry:ui",
+          "target": "components/ui/prismcut.css"
+        }
+      ]
+    },
+    {
+      "name": "ransom",
+      "type": "registry:ui",
+      "title": "Ransom-Note",
+      "description": "Letras em fundos alternados (sólido e contorno tracejado) se inclinam para lados opostos, como um bilhete de resgate recortado de jornal.",
+      "files": [
+        {
+          "path": "stories/TextEffects/ransom.css",
+          "type": "registry:ui",
+          "target": "components/ui/ransom.css"
+        }
+      ]
+    },
+    {
+      "name": "scanner",
+      "type": "registry:ui",
+      "title": "Redactor",
+      "description": "Uma barra de luz varre o texto da esquerda para a direita enquanto o brilho do preenchimento acompanha o movimento.",
+      "files": [
+        {
+          "path": "stories/TextEffects/scanner.css",
+          "type": "registry:ui",
+          "target": "components/ui/scanner.css"
+        }
+      ]
+    },
+    {
+      "name": "signal",
+      "type": "registry:ui",
+      "title": "Signal-Noise",
+      "description": "Metades do texto em cores diferentes se deslocam abruptamente com blur e contraste, simulando interferência de sinal de TV ou rádio.",
+      "files": [
+        {
+          "path": "stories/TextEffects/signal.css",
+          "type": "registry:ui",
+          "target": "components/ui/signal.css"
+        }
+      ]
+    },
+    {
+      "name": "sliced",
+      "type": "registry:ui",
+      "title": "Bisect",
+      "description": "Texto cortado ao meio horizontalmente, com as metades superior e inferior deslizando em direções opostas.",
+      "files": [
+        {
+          "path": "stories/TextEffects/sliced.css",
+          "type": "registry:ui",
+          "target": "components/ui/sliced.css"
+        }
+      ]
+    },
+    {
+      "name": "smoke",
+      "type": "registry:ui",
+      "title": "Smoke-Signal",
+      "description": "Cada letra sobe, gira, se dissolve e desaparece em fumaça antes de reaparecer, como um sinal de fumaça.",
+      "files": [
+        {
+          "path": "stories/TextEffects/smoke.css",
+          "type": "registry:ui",
+          "target": "components/ui/smoke.css"
+        }
+      ]
+    },
+    {
+      "name": "softblur",
+      "type": "registry:ui",
+      "title": "Soft-Blur",
+      "description": "Texto pulsa suavemente entre nítido e desfocado com halo colorido, como um foco suave de câmera.",
+      "files": [
+        {
+          "path": "stories/TextEffects/softblur.css",
+          "type": "registry:ui",
+          "target": "components/ui/softblur.css"
+        }
+      ]
+    },
+    {
+      "name": "spectrum",
+      "type": "registry:ui",
+      "title": "Prisma",
+      "description": "Cada letra gira pelo espectro de cores (hue-rotate) de forma defasada, criando um arco-íris cadenciado.",
+      "files": [
+        {
+          "path": "stories/TextEffects/spectrum.css",
+          "type": "registry:ui",
+          "target": "components/ui/spectrum.css"
+        }
+      ]
+    },
+    {
+      "name": "spotlight",
+      "type": "registry:ui",
+      "title": "Limelight",
+      "description": "Um facho de luz radial percorre o texto, iluminando as letras como um holofote em varredura.",
+      "files": [
+        {
+          "path": "stories/TextEffects/spotlight.css",
+          "type": "registry:ui",
+          "target": "components/ui/spotlight.css"
+        }
+      ]
+    },
+    {
+      "name": "stamp",
+      "type": "registry:ui",
+      "title": "Rubber-Stamp",
+      "description": "Texto com borda grossa que bate como um carimbo, entrando girado e ampliado até assentar na posição final, desbotando ao fim do ciclo.",
+      "files": [
+        {
+          "path": "stories/TextEffects/stamp.css",
+          "type": "registry:ui",
+          "target": "components/ui/stamp.css"
+        }
+      ]
+    },
+    {
+      "name": "starlight",
+      "type": "registry:ui",
+      "title": "Starlight",
+      "description": "Gradiente que percorre o texto entrecortado por pontinhos brilhantes fixos, como um céu estrelado cintilante.",
+      "files": [
+        {
+          "path": "stories/TextEffects/starlight.css",
+          "type": "registry:ui",
+          "target": "components/ui/starlight.css"
+        }
+      ]
+    },
+    {
+      "name": "sundial",
+      "type": "registry:ui",
+      "title": "Sundial",
+      "description": "A sombra do texto gira 360° ao redor das letras, como a sombra de um relógio de sol ao longo do dia.",
+      "files": [
+        {
+          "path": "stories/TextEffects/sundial.css",
+          "type": "registry:ui",
+          "target": "components/ui/sundial.css"
+        }
+      ]
+    },
+    {
+      "name": "tiltshift",
+      "type": "registry:ui",
+      "title": "Tilt-Shift",
+      "description": "Uma faixa nítida do texto desliza verticalmente entre camadas desfocadas, simulando o efeito de lente tilt-shift (miniatura).",
+      "files": [
+        {
+          "path": "stories/TextEffects/tiltshift.css",
+          "type": "registry:ui",
+          "target": "components/ui/tiltshift.css"
+        }
+      ]
+    },
+    {
+      "name": "topographic",
+      "type": "registry:ui",
+      "title": "Topographic",
+      "description": "Padrões concêntricos como curvas de nível de mapa topográfico se deslocam dentro do texto.",
+      "files": [
+        {
+          "path": "stories/TextEffects/topographic.css",
+          "type": "registry:ui",
+          "target": "components/ui/topographic.css"
+        }
+      ]
+    },
+    {
+      "name": "vapor",
+      "type": "registry:ui",
+      "title": "Vapor-Trail",
+      "description": "Duas cópias coloridas e desfocadas do texto se dispersam para lados opostos como rastro de vapor, enquanto o texto principal balança levemente.",
+      "files": [
+        {
+          "path": "stories/TextEffects/vapor.css",
+          "type": "registry:ui",
+          "target": "components/ui/vapor.css"
+        }
+      ]
+    },
+    {
+      "name": "wave",
+      "type": "registry:ui",
+      "title": "Tidal-Type",
+      "description": "Letras sobem e descem em cascata, formando uma onda contínua ao longo do texto.",
+      "files": [
+        {
+          "path": "stories/TextEffects/wave.css",
+          "type": "registry:ui",
+          "target": "components/ui/wave.css"
+        }
+      ]
+    },
+    {
+      "name": "zoetrope",
+      "type": "registry:ui",
+      "title": "Zoetrope",
+      "description": "Cada letra gira 360° no eixo vertical em sequência, como quadros de um zootrópio girando.",
+      "files": [
+        {
+          "path": "stories/TextEffects/zoetrope.css",
+          "type": "registry:ui",
+          "target": "components/ui/zoetrope.css"
+        }
+      ]
+    },
+    {
+      "name": "lista-de-tarefas",
+      "type": "registry:ui",
+      "title": "Lista de Tarefas",
+      "description": "Lista de tarefas arrastável com checkbox animado e riscado ao concluir (Reorder do framer-motion).",
+      "files": [
+        {
+          "path": "stories/Lists/lista-de-tarefas.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/lista-de-tarefas.tsx"
+        }
+      ]
+    },
+    {
+      "name": "number-counter",
+      "type": "registry:ui",
+      "title": "Number Counter",
+      "description": "Contador que incrementa ao clicar, com bounce elastico no numero.",
+      "files": [
+        {
+          "path": "stories/Buttons/number-counter.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/number-counter.tsx"
+        },
+        {
+          "path": "stories/Buttons/number-counter.css",
+          "type": "registry:ui",
+          "target": "components/ui/number-counter.css"
+        }
+      ]
+    },
+    {
+      "name": "botao-nuvem",
+      "type": "registry:ui",
+      "title": "Cloud Button",
+      "description": "Botao em formato de nuvem que preenche de preto com brilho ao redor no hover.",
+      "files": [
+        {
+          "path": "stories/Hover/botao-nuvem.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/botao-nuvem.tsx"
+        },
+        {
+          "path": "stories/Hover/botao-nuvem.css",
+          "type": "registry:ui",
+          "target": "components/ui/botao-nuvem.css"
+        }
+      ]
+    },
+    {
+      "name": "fundo-linhas",
+      "type": "registry:ui",
+      "title": "Lined Paper Background",
+      "description": "Padrao de fundo com linhas horizontais repetidas, estilo papel pautado (CSS puro).",
+      "files": [
+        {
+          "path": "stories/Backgrounds/fundo-linhas.css",
+          "type": "registry:ui",
+          "target": "components/ui/fundo-linhas.css"
+        }
+      ]
+    },
+    {
+      "name": "brand-icons",
+      "type": "registry:ui",
+      "title": "Brand Icons",
+      "description": "Logos de marca (GitHub, X, Discord, LinkedIn, YouTube, Instagram, Figma, Slack) que o lucide-react nao inclui.",
+      "files": [
+        {
+          "path": "stories/Icons/brand-icons.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/brand-icons.tsx"
+        }
+      ]
+    },
+    {
+      "name": "cartao-leque-de-vidro",
+      "type": "registry:ui",
+      "title": "Cartao Leque de Vidro",
+      "description": "Tres cartoes de vidro em leque que se alinham ao passar o mouse, cada um com um icone e rotulo.",
+      "files": [
+        {
+          "path": "stories/Cards/cartao-leque-de-vidro.css",
+          "type": "registry:ui",
+          "target": "components/ui/cartao-leque-de-vidro.css"
+        }
+      ]
+    },
+    {
+      "name": "cartao-neumorfico",
+      "type": "registry:ui",
+      "title": "Cartao Neumorfico",
+      "description": "Card neumorfico minimalista, relevo suave adaptado ao tema via color-mix.",
+      "files": [
+        {
+          "path": "stories/Cards/cartao-neumorfico.css",
+          "type": "registry:ui",
+          "target": "components/ui/cartao-neumorfico.css"
+        }
+      ]
+    },
+    {
+      "name": "indicador-de-scroll",
+      "type": "registry:ui",
+      "title": "Indicador de Scroll",
+      "description": "Icone de mouse com rodinha animada e texto scroll, indicando pra rolar a pagina.",
+      "files": [
+        {
+          "path": "stories/Buttons/indicador-de-scroll.css",
+          "type": "registry:ui",
+          "target": "components/ui/indicador-de-scroll.css"
+        }
+      ]
+    },
+    {
+      "name": "alternar-dia-e-noite",
+      "type": "registry:ui",
+      "title": "Alternar Dia e Noite",
+      "description": "Interruptor dia/noite com sol, lua com crateras, nuvens e ceu estrelado (CSS puro).",
+      "files": [
+        {
+          "path": "stories/Toggles/alternar-dia-e-noite.css",
+          "type": "registry:ui",
+          "target": "components/ui/alternar-dia-e-noite.css"
+        }
+      ]
+    },
+    {
+      "name": "mao-carregando",
+      "type": "registry:ui",
+      "title": "Mao Carregando",
+      "description": "Mao tocando os dedos em sequencia, como um loader de espera (CSS puro).",
+      "files": [
+        {
+          "path": "stories/Loading/mao-carregando.css",
+          "type": "registry:ui",
+          "target": "components/ui/mao-carregando.css"
+        }
+      ]
+    },
+    {
+      "name": "seletor-de-cor-arco-iris",
+      "type": "registry:ui",
+      "title": "Seletor de Cor Arco-Iris",
+      "description": "Fileira de botoes de cor que aumentam de tamanho com efeito cascata no hover, mostrando o hex ao passar o mouse.",
+      "files": [
+        {
+          "path": "stories/Colors/seletor-de-cor-arco-iris.css",
+          "type": "registry:ui",
+          "target": "components/ui/seletor-de-cor-arco-iris.css"
+        }
+      ]
+    },
+    {
+      "name": "file-upload",
+      "type": "registry:ui",
+      "title": "File Upload",
+      "description": "Formulario de upload minimalista com grid de fundo, drag and drop e micro-interacoes.",
+      "files": [
+        {
+          "path": "stories/Inputs/file-upload.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/file-upload.tsx"
+        }
+      ],
+      "dependencies": [
+        "motion",
+        "react-dropzone"
+      ]
+    },
+    {
+      "name": "gooey-nav",
+      "type": "registry:ui",
+      "title": "Gooey Nav",
+      "description": "Menu de navegacao com efeito liquido (goo) de particulas ao trocar o item ativo.",
+      "files": [
+        {
+          "path": "stories/Menus/gooey-nav.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/gooey-nav.tsx"
+        }
+      ]
+    },
+    {
+      "name": "curved-input",
+      "type": "registry:ui",
+      "title": "Curved Input",
+      "description": "Campo de input desenhado como uma barra curva em SVG, com botao de envio embutido e cursor que segue a curvatura.",
+      "files": [
+        {
+          "path": "stories/Inputs/curved-input.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/curved-input.tsx"
+        },
+        {
+          "path": "stories/Inputs/curved-input.css",
+          "type": "registry:ui",
+          "target": "components/ui/curved-input.css"
+        }
+      ]
+    },
+    {
+      "name": "galaxy",
+      "type": "registry:ui",
+      "title": "Galaxy",
+      "description": "Fundo animado de campo estelar em WebGL, com estrelas girando e cintilando (sem interacao com o mouse).",
+      "files": [
+        {
+          "path": "stories/Backgrounds/galaxy.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/galaxy.tsx"
+        }
+      ],
+      "dependencies": [
+        "ogl"
+      ]
+    },
+    {
+      "name": "circular-gallery",
+      "type": "registry:ui",
+      "title": "Circular Gallery",
+      "description": "Galeria de imagens em carrossel circular 3D com WebGL (ogl), arraste ou use as setas para navegar.",
+      "files": [
+        {
+          "path": "stories/Galleries/circular-gallery.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/circular-gallery.tsx"
+        }
+      ],
+      "dependencies": [
+        "ogl"
+      ]
+    },
+    {
+      "name": "masonry",
+      "type": "registry:ui",
+      "title": "Masonry",
+      "description": "Grade de imagens estilo masonry com animação de entrada e escala no hover via GSAP.",
+      "files": [
+        {
+          "path": "stories/Galleries/masonry.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/masonry.tsx"
+        }
+      ],
+      "dependencies": [
+        "gsap"
+      ]
+    },
+    {
+      "name": "glass-surface",
+      "type": "registry:ui",
+      "title": "Glass Surface",
+      "description": "Painel de vidro fosco com efeito de refração/distorção via filtro SVG, adapta-se a claro/escuro.",
+      "files": [
+        {
+          "path": "stories/Surface/glass-surface.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/glass-surface.tsx"
+        }
+      ]
+    },
+    {
+      "name": "carousel",
+      "type": "registry:ui",
+      "title": "Carousel",
+      "description": "Carrossel de cards com arraste, autoplay e efeito 3D de rotação via framer-motion.",
+      "files": [
+        {
+          "path": "stories/Cards/carousel.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/carousel.tsx"
+        }
+      ],
+      "dependencies": [
+        "motion"
       ]
     }
   ]

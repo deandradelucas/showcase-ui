@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "crt",
+  "title": "Phosphor",
+  "description": "Texto verde fosforescente com flicker e linhas de varredura rolando, simulando um monitor CRT antigo.",
+  "files": [
+    {
+      "path": "stories/TextEffects/crt.css",
+      "content": "/* Markup: <div class=\"fx-crt\">CRT_MODE</div> */\n\n/* Colour tokens — override to re-skin the effect:\n   --ink    main text colour (defaults to currentColor)\n   --ink-2  primary accent   --ink-3  secondary accent */\n:root { --ink: currentColor; --ink-2: #FF4FD8; --ink-3: #4FF8FF; }\n\n/* 20 Phosphor */\n.fx-crt {\n  position: relative;\n  font: 600 26px/1.2 JetBrains Mono, monospace;\n  letter-spacing: .1em;\n  padding: .3em .5em;\n  color: #4dff88;\n  text-shadow: 0 0 7px rgba(77, 255, 136, .8);\n  background: #143c232e;\n  border-radius: 4px;\n  animation: fx-crt-flicker 3.4s steps(1) infinite;\n}\n.fx-crt:after {\n  content: \"\";\n  position: absolute;\n  inset: 0;\n  border-radius: inherit;\n  pointer-events: none;\n  background: repeating-linear-gradient(0deg, transparent 0 2px, rgba(0, 0, 0, .38) 2px 4px);\n  animation: fx-crt-roll 6s linear infinite;\n}\n@keyframes fx-crt-flicker {\n  0%,6%,to {\n    opacity: 1;\n  }\n  3% {\n    opacity: .82;\n  }\n  4.5% {\n    opacity: .95;\n    transform: translateY(1px);\n  }\n  70% {\n    opacity: .9;\n  }\n  71% {\n    opacity: 1;\n    transform: none;\n  }\n}\n@keyframes fx-crt-roll {\n  to {\n    background-position: 0 48px;\n  }\n}\n",
+      "type": "registry:ui",
+      "target": "components/ui/crt.css"
+    }
+  ],
+  "type": "registry:ui"
+}

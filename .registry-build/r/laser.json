@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "laser",
+  "title": "Laser-Cut",
+  "description": "Uma linha de laser horizontal varre o texto enquanto uma fatia central brilha intensamente ao ser 'cortada'.",
+  "files": [
+    {
+      "path": "stories/TextEffects/laser.css",
+      "content": "/* Markup: <div class=\"fx-laser\" data-text=\"LASER\">LASER</div> */\n\n/* Colour tokens — override to re-skin the effect:\n   --ink    main text colour (defaults to currentColor)\n   --ink-2  primary accent   --ink-3  secondary accent */\n:root { --ink: currentColor; --ink-2: #FF4FD8; --ink-3: #4FF8FF; }\n\n/* 47 Laser-Cut */\n.fx-laser {\n  position: relative;\n  font: 600 34px/1.08 JetBrains Mono, monospace;\n  letter-spacing: .12em;\n  color: var(--ink);\n}\n.fx-laser:before {\n  content: attr(data-text);\n  position: absolute;\n  inset: 0;\n  color: var(--ink-2);\n  clip-path: inset(44% 0 42% 0);\n  text-shadow: 0 0 10px var(--ink-2);\n  animation: fx-laser-slice 2.2s ease-in-out infinite;\n}\n.fx-laser:after {\n  content: \"\";\n  position: absolute;\n  left: -8%;\n  top: 49%;\n  width: 116%;\n  height: 2px;\n  background: linear-gradient(90deg, transparent, #fff, var(--ink-2), transparent);\n  box-shadow: 0 0 13px var(--ink-2);\n  animation: fx-laser 2.2s ease-in-out infinite;\n}\n@keyframes fx-laser {\n  0%,to {\n    transform: translateY(-14px) scaleX(.35);\n    opacity: 0;\n  }\n  44%,58% {\n    transform: translateY(0) scaleX(1);\n    opacity: 1;\n  }\n}\n@keyframes fx-laser-slice {\n  0%,to {\n    transform: translate(0);\n    opacity: .2;\n  }\n  50% {\n    transform: translate(5px);\n    opacity: 1;\n  }\n}\n",
+      "type": "registry:ui",
+      "target": "components/ui/laser.css"
+    }
+  ],
+  "type": "registry:ui"
+}

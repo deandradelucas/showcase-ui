@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "melt",
+  "title": "Meltdown",
+  "description": "Cada letra escorre e derrete verticalmente, esticando e voltando à forma original, como cera derretendo.",
+  "files": [
+    {
+      "path": "stories/TextEffects/melt.css",
+      "content": "/* Markup: <div class=\"fx-melt\" role=\"img\" aria-label=\"MELT\"><b aria-hidden=\"true\" style=\"--i:0\">M</b><b aria-hidden=\"true\" style=\"--i:1\">E</b><b aria-hidden=\"true\" style=\"--i:2\">L</b><b aria-hidden=\"true\" style=\"--i:3\">T</b></div> */\n\n/* Colour tokens — override to re-skin the effect:\n   --ink    main text colour (defaults to currentColor)\n   --ink-2  primary accent   --ink-3  secondary accent */\n:root { --ink: currentColor; --ink-2: #FF4FD8; --ink-3: #4FF8FF; }\n\n/* 26 Meltdown */\n.fx-melt {\n  font: 600 34px/1.1 JetBrains Mono, monospace;\n  letter-spacing: .1em;\n  color: var(--ink-2);\n}\n.fx-melt b {\n  font-weight: inherit;\n  display: inline-block;\n  transform-origin: top center;\n  animation: fx-melt 2.8s ease-in infinite;\n  animation-delay: calc(var(--i) * .22s);\n}\n@keyframes fx-melt {\n  0%,45% {\n    transform: scaleY(1) translateY(0);\n    filter: blur(0);\n  }\n  70% {\n    transform: scaleY(1.55) translateY(7px) scaleX(.92);\n    filter: blur(1.5px);\n  }\n  85%,to {\n    transform: scaleY(1) translateY(0);\n    filter: blur(0);\n  }\n}\n",
+      "type": "registry:ui",
+      "target": "components/ui/melt.css"
+    }
+  ],
+  "type": "registry:ui"
+}

@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "kinetic",
+  "title": "Kinetic-Type",
+  "description": "Cada letra sobe, gira e desce em sequência com cores alternadas, num movimento tipográfico cinético e elástico.",
+  "files": [
+    {
+      "path": "stories/TextEffects/kinetic.css",
+      "content": "/* Markup: <div class=\"fx-kinetic\" role=\"img\" aria-label=\"KINETIC\"><b aria-hidden=\"true\" style=\"--i:0\">K</b><b aria-hidden=\"true\" style=\"--i:1\">I</b><b aria-hidden=\"true\" style=\"--i:2\">N</b><b aria-hidden=\"true\" style=\"--i:3\">E</b><b aria-hidden=\"true\" style=\"--i:4\">T</b><b aria-hidden=\"true\" style=\"--i:5\">I</b><b aria-hidden=\"true\" style=\"--i:6\">C</b></div> */\n\n/* Colour tokens — override to re-skin the effect:\n   --ink    main text colour (defaults to currentColor)\n   --ink-2  primary accent   --ink-3  secondary accent */\n:root { --ink: currentColor; --ink-2: #FF4FD8; --ink-3: #4FF8FF; }\n\n/* 37 Kinetic-Type */\n.fx-kinetic {\n  font: 600 30px/1.1 JetBrains Mono, monospace;\n  letter-spacing: .06em;\n  color: var(--ink);\n  display: inline-flex;\n}\n.fx-kinetic b {\n  font-weight: inherit;\n  display: inline-block;\n  transform-origin: center;\n  animation: fx-kinetic 2.6s cubic-bezier(.2, .8, .2, 1) infinite;\n  animation-delay: calc(var(--i) * .08s);\n}\n.fx-kinetic b:nth-child(2n) {\n  color: var(--ink-3);\n}\n.fx-kinetic b:nth-child(3n) {\n  color: var(--ink-2);\n}\n@keyframes fx-kinetic {\n  0%,18% {\n    transform: translateY(0) rotate(0);\n    filter: blur(0);\n  }\n  34% {\n    transform: translateY(-18px) rotate(-9deg);\n    filter: blur(.4px);\n  }\n  52% {\n    transform: translateY(14px) rotate(7deg);\n  }\n  68%,to {\n    transform: translateY(0) rotate(0);\n    filter: blur(0);\n  }\n}\n",
+      "type": "registry:ui",
+      "target": "components/ui/kinetic.css"
+    }
+  ],
+  "type": "registry:ui"
+}

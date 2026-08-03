@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "indicador-de-scroll",
+  "title": "Indicador de Scroll",
+  "description": "Icone de mouse com rodinha animada e texto scroll, indicando pra rolar a pagina.",
+  "files": [
+    {
+      "path": "stories/Buttons/indicador-de-scroll.css",
+      "content": "/* classes prefixadas com indicador-scroll pra evitar colisao com nomes genericos\n   tipo .btn/.scroll; cor fixa azul rgb(105,127,255) trocada por var(--primary)\n   pra seguir o tema do consumidor */\n/* Markup: <button class=\"indicador-scroll\"><div class=\"indicador-scroll__wheel\"></div></button> */\n\n.indicador-scroll {\n  width: 30px;\n  height: 50px;\n  border-radius: 30px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  background-color: transparent;\n  border: none;\n  outline: 2px solid var(--primary);\n  box-shadow: 0px 0px 10px var(--primary);\n  position: relative;\n  cursor: pointer;\n}\n\n.indicador-scroll__wheel {\n  width: 5px;\n  height: 10px;\n  border-radius: 10px;\n  background-color: var(--primary);\n  box-shadow: 0px 0px 10px var(--primary);\n  animation: indicador-scroll-wheel 2s linear infinite;\n  transform: translateY(40%);\n}\n\n.indicador-scroll::after {\n  content: \"scroll\";\n  position: absolute;\n  top: 140%;\n  color: var(--foreground);\n  text-transform: uppercase;\n  letter-spacing: 1.5px;\n  font-size: 12px;\n}\n\n@keyframes indicador-scroll-wheel {\n  0% {\n    transform: translateY(40%);\n  }\n\n  50% {\n    transform: translateY(90%);\n  }\n}\n",
+      "type": "registry:ui",
+      "target": "components/ui/indicador-de-scroll.css"
+    }
+  ],
+  "type": "registry:ui"
+}

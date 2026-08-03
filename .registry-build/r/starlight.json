@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "starlight",
+  "title": "Starlight",
+  "description": "Gradiente que percorre o texto entrecortado por pontinhos brilhantes fixos, como um céu estrelado cintilante.",
+  "files": [
+    {
+      "path": "stories/TextEffects/starlight.css",
+      "content": "/* Markup: <div class=\"fx-starlight\">STARDUST</div> */\n\n/* Colour tokens — override to re-skin the effect:\n   --ink    main text colour (defaults to currentColor)\n   --ink-2  primary accent   --ink-3  secondary accent */\n:root { --ink: currentColor; --ink-2: #FF4FD8; --ink-3: #4FF8FF; }\n\n/* 34 Starlight */\n.fx-starlight {\n  font: 600 28px/1.2 JetBrains Mono, monospace;\n  letter-spacing: .12em;\n  color: transparent;\n  background: radial-gradient(circle at 14% 35%, #fff 0 2px, transparent 2.4px), radial-gradient(circle at 42% 68%, #fff 0 1.6px, transparent 2px), radial-gradient(circle at 75% 24%, #fff 0 2.2px, transparent 2.6px), linear-gradient(100deg, var(--ink), var(--ink-3), var(--ink));\n  background-size: 120px 60px, 150px 72px, 180px 68px, 240% 100%;\n  -webkit-background-clip: text;\n  background-clip: text;\n  filter: drop-shadow(0 0 10px color-mix(in srgb, var(--ink-3) 45%, transparent));\n  animation: fx-starlight 3.6s linear infinite;\n}\n@keyframes fx-starlight {\n  0% {\n    background-position: 0 0, 0 0, 0 0, 120% 0;\n  }\n  to {\n    background-position: 120px 0, -150px 0, 180px 0, -120% 0;\n  }\n}\n",
+      "type": "registry:ui",
+      "target": "components/ui/starlight.css"
+    }
+  ],
+  "type": "registry:ui"
+}

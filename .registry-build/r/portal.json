@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "portal",
+  "title": "Portal",
+  "description": "Gradiente cônico gira sem parar pelo texto enquanto um brilho radial pulsa no centro, como um portal dimensional girando.",
+  "files": [
+    {
+      "path": "stories/TextEffects/portal.css",
+      "content": "/* Markup: <div class=\"fx-portal\" data-text=\"PORTAL\">PORTAL</div> */\n\n/* Colour tokens — override to re-skin the effect:\n   --ink    main text colour (defaults to currentColor)\n   --ink-2  primary accent   --ink-3  secondary accent */\n:root { --ink: currentColor; --ink-2: #FF4FD8; --ink-3: #4FF8FF; }\n\n/* 54 Portal */\n.fx-portal {\n  position: relative;\n  font: 600 34px/1.05 JetBrains Mono, monospace;\n  letter-spacing: .12em;\n  color: transparent;\n  background: conic-gradient(from 0deg, var(--ink-2), var(--ink), var(--ink-3), var(--ink-2));\n  -webkit-background-clip: text;\n  background-clip: text;\n  animation: fx-portal 3.6s linear infinite;\n}\n.fx-portal:after {\n  content: attr(data-text);\n  position: absolute;\n  inset: 0;\n  color: transparent;\n  background: radial-gradient(circle, transparent 0 30%, #fff 34% 36%, transparent 40% 100%);\n  -webkit-background-clip: text;\n  background-clip: text;\n  opacity: .72;\n  animation: fx-portal-pulse 1.8s ease-in-out infinite;\n}\n@keyframes fx-portal {\n  to {\n    filter: hue-rotate(360deg);\n    transform: rotate(.001deg);\n  }\n}\n@keyframes fx-portal-pulse {\n  0%,to {\n    transform: scale(.92);\n    opacity: .24;\n  }\n  50% {\n    transform: scale(1.08);\n    opacity: .8;\n  }\n}\n",
+      "type": "registry:ui",
+      "target": "components/ui/portal.css"
+    }
+  ],
+  "type": "registry:ui"
+}

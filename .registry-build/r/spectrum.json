@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "spectrum",
+  "title": "Prisma",
+  "description": "Cada letra gira pelo espectro de cores (hue-rotate) de forma defasada, criando um arco-íris cadenciado.",
+  "files": [
+    {
+      "path": "stories/TextEffects/spectrum.css",
+      "content": "/* Markup: <div class=\"fx-spectrum\" role=\"img\" aria-label=\"SPECTRUM\"><b aria-hidden=\"true\" style=\"--i:0\">S</b><b aria-hidden=\"true\" style=\"--i:1\">P</b><b aria-hidden=\"true\" style=\"--i:2\">E</b><b aria-hidden=\"true\" style=\"--i:3\">C</b><b aria-hidden=\"true\" style=\"--i:4\">T</b><b aria-hidden=\"true\" style=\"--i:5\">R</b><b aria-hidden=\"true\" style=\"--i:6\">U</b><b aria-hidden=\"true\" style=\"--i:7\">M</b></div> */\n\n/* Colour tokens — override to re-skin the effect:\n   --ink    main text colour (defaults to currentColor)\n   --ink-2  primary accent   --ink-3  secondary accent */\n:root { --ink: currentColor; --ink-2: #FF4FD8; --ink-3: #4FF8FF; }\n\n/* 16 Prisma */\n.fx-spectrum {\n  font: 600 26px/1.1 JetBrains Mono, monospace;\n  letter-spacing: .08em;\n}\n.fx-spectrum b {\n  font-weight: inherit;\n  display: inline-block;\n  color: #ff2d78;\n  filter: hue-rotate(calc(var(--i) * 42deg));\n  animation: fx-spectrum 2.4s linear infinite;\n  animation-delay: calc(var(--i) * -.1s);\n}\n@keyframes fx-spectrum {\n  to {\n    filter: hue-rotate(calc(var(--i) * 42deg + 360deg));\n  }\n}\n",
+      "type": "registry:ui",
+      "target": "components/ui/spectrum.css"
+    }
+  ],
+  "type": "registry:ui"
+}

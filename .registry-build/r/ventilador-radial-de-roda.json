@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "ventilador-radial-de-roda",
+  "title": "Ventilador radial de roda",
+  "description": "Os cartões se abrem em semicírculo radial ao redor de um ponto de ancoragem central na parte inferior.",
+  "files": [
+    {
+      "path": "stories/Cards/ventilador-radial-de-roda.tsx",
+      "content": "import { useState } from 'react';\r\nimport { motion } from 'motion/react';\r\n\r\ninterface VentiladorRadialDeRodaProps {\r\n  className?: string;\r\n  cardClassName?: string;\r\n}\r\n\r\nfunction VentiladorRadialDeRoda({\r\n  className = '',\r\n  cardClassName = 'bg-neutral-800'\r\n}: VentiladorRadialDeRodaProps) {\r\n  const [isHovered, setIsHovered] = useState(false);\r\n  const cards = [0, 1, 2, 3, 4];\r\n  const center = 2;\r\n\r\n  return (\r\n    <div \r\n      onMouseEnter={() => setIsHovered(true)}\r\n      onMouseLeave={() => setIsHovered(false)}\r\n      className={`relative w-[8rem] h-[11rem] cursor-pointer flex items-center justify-center ${className}`}\r\n    >\r\n      {cards.map((i) => {\r\n        const dist = i - center;\r\n        const targetRotate = isHovered ? dist * 18 : 0;\r\n        \r\n        let targetY = 0;\r\n        if (isHovered) {\r\n          if (Math.abs(dist) === 2) targetY = -8;\r\n          else if (Math.abs(dist) === 1) targetY = -22;\r\n          else targetY = -28;\r\n        }\r\n\r\n        return (\r\n          <motion.div\r\n            key={i}\r\n            animate={{\r\n              rotate: targetRotate,\r\n              y: targetY,\r\n              scale: isHovered ? (dist === 0 ? 1.05 : 0.98) : 1\r\n            }}\r\n            transition={{ type: \"spring\", stiffness: 180, damping: 20, mass: 0.8 }}\r\n            style={{\r\n              zIndex: 5 - Math.abs(dist),\r\n              originX: 0.5,\r\n              originY: 1.1\r\n            }}\r\n            className={`absolute inset-0 rounded-2xl shadow-[0_4px_12px_rgba(0,0,0,0.15)] border border-white/5 ${cardClassName}`}\r\n          />\r\n        );\r\n      })}\r\n    </div>\r\n  );\r\n}\r\n\r\nexport { VentiladorRadialDeRoda };",
+      "type": "registry:ui",
+      "target": "components/ui/ventilador-radial-de-roda.tsx"
+    }
+  ],
+  "type": "registry:ui"
+}

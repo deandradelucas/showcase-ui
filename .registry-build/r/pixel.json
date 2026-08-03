@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "pixel",
+  "title": "Pixel-Sort",
+  "description": "Faixas horizontais do texto, em ciano e magenta, deslizam lateralmente de forma independente, como um glitch de pixel sorting.",
+  "files": [
+    {
+      "path": "stories/TextEffects/pixel.css",
+      "content": "/* Markup: <div class=\"fx-pixel\" data-text=\"PIXELS\">PIXELS</div> */\n\n/* Colour tokens — override to re-skin the effect:\n   --ink    main text colour (defaults to currentColor)\n   --ink-2  primary accent   --ink-3  secondary accent */\n:root { --ink: currentColor; --ink-2: #FF4FD8; --ink-3: #4FF8FF; }\n\n/* 33 Pixel-Sort */\n.fx-pixel {\n  position: relative;\n  font: 600 30px/1.1 JetBrains Mono, monospace;\n  letter-spacing: .08em;\n  color: var(--ink);\n  text-shadow: 1px 0 0 var(--ink-2), -1px 0 0 var(--ink-3);\n}\n.fx-pixel:before, .fx-pixel:after {\n  content: attr(data-text);\n  position: absolute;\n  inset: 0;\n  opacity: .85;\n}\n.fx-pixel:before {\n  color: var(--ink-2);\n  clip-path: polygon(0 0, 100% 0, 100% 28%, 0 28%, 0 44%, 100% 44%, 100% 58%, 0 58%);\n  animation: fx-pixel-a 2.2s steps(1) infinite;\n}\n.fx-pixel:after {\n  color: var(--ink-3);\n  clip-path: polygon(0 30%, 100% 30%, 100% 42%, 0 42%, 0 66%, 100% 66%, 100% 82%, 0 82%);\n  animation: fx-pixel-b 2.2s steps(1) infinite;\n}\n@keyframes fx-pixel-a {\n  0%,20%,54%,to {\n    transform: translate(0);\n  }\n  22% {\n    transform: translate(7px, -2px);\n  }\n  24% {\n    transform: translate(-4px, 1px);\n  }\n  56% {\n    transform: translate(5px, 2px);\n  }\n  58% {\n    transform: translate(-7px);\n  }\n}\n@keyframes fx-pixel-b {\n  0%,18%,58%,to {\n    transform: translate(0);\n  }\n  19% {\n    transform: translate(-6px, 2px);\n  }\n  21% {\n    transform: translate(4px, -1px);\n  }\n  60% {\n    transform: translate(-5px, -2px);\n  }\n  63% {\n    transform: translate(6px, 1px);\n  }\n}\n",
+      "type": "registry:ui",
+      "target": "components/ui/pixel.css"
+    }
+  ],
+  "type": "registry:ui"
+}

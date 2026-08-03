@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "cartao-neumorfico",
+  "title": "Cartao Neumorfico",
+  "description": "Card neumorfico minimalista, relevo suave adaptado ao tema via color-mix.",
+  "files": [
+    {
+      "path": "stories/Cards/cartao-neumorfico.css",
+      "content": "   neumorfismo original #e0e0e0/#bebebe/#ffffff trocadas por color-mix\n   sobre var(--card), ja que o efeito depende da cor de fundo real pra\n   funcionar -- sem isso ficaria um retangulo cinza claro fixo no tema\n   escuro, sem nenhum relevo visivel) */\n/* Markup: <div class=\"cartao-neumorfico\"></div> */\n\n.cartao-neumorfico {\n  width: 190px;\n  height: 254px;\n  border-radius: 50px;\n  background: var(--card);\n  box-shadow:\n    20px 20px 60px color-mix(in oklab, var(--card) 80%, black 20%),\n    -20px -20px 60px color-mix(in oklab, var(--card) 80%, white 20%);\n}\n",
+      "type": "registry:ui",
+      "target": "components/ui/cartao-neumorfico.css"
+    }
+  ],
+  "type": "registry:ui"
+}

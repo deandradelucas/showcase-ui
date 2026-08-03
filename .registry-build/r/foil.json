@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "foil",
+  "title": "Gold-Foil",
+  "description": "Gradiente metálico dourado desliza diagonalmente pelo texto, como relevo de folha de ouro brilhando.",
+  "files": [
+    {
+      "path": "stories/TextEffects/foil.css",
+      "content": "/* Markup: <div class=\"fx-foil\">LUXE</div> */\n\n/* Colour tokens — override to re-skin the effect:\n   --ink    main text colour (defaults to currentColor)\n   --ink-2  primary accent   --ink-3  secondary accent */\n:root { --ink: currentColor; --ink-2: #FF4FD8; --ink-3: #4FF8FF; }\n\n/* 32 Gold-Foil */\n.fx-foil {\n  font: 600 36px/1.05 JetBrains Mono, monospace;\n  letter-spacing: .08em;\n  color: transparent;\n  background: linear-gradient(108deg, #7a4a08, #f2c15d 18%, #fff4b8 24%, #b87014 36%, #f6d66d 51%, #8e560b 68%, #fff0a2 76%, #c98218) 0 0 / 230% 100%;\n  -webkit-background-clip: text;\n  background-clip: text;\n  text-shadow: 0 1px 0 rgba(255, 244, 184, .45), 0 9px 20px rgba(0, 0, 0, .36);\n  animation: fx-foil 3.1s ease-in-out infinite;\n}\n@keyframes fx-foil {\n  0%,to {\n    background-position: 115% 0;\n    filter: saturate(1.05);\n  }\n  45% {\n    background-position: -35% 0;\n    filter: saturate(1.35) brightness(1.12);\n  }\n}\n",
+      "type": "registry:ui",
+      "target": "components/ui/foil.css"
+    }
+  ],
+  "type": "registry:ui"
+}

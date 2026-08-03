@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "cartao-giro-gradiente",
+  "title": "Cartao Giro Gradiente",
+  "description": "Card com gradiente circular giratório e detalhes em glassmorphism.",
+  "dependencies": [
+    "lucide-react"
+  ],
+  "files": [
+    {
+      "path": "stories/Cards/cartao-giro-gradiente.tsx",
+      "content": "import { ArrowRight } from \"lucide-react\"\n\nfunction CartaoGiroGradiente() {\n  return (\n    <div className=\"relative h-[300px] w-[200px] overflow-hidden rounded-2xl border border-solid border-white/40\">\n      <div className=\"absolute h-full w-full bg-purple-400 p-1\">\n        <div className=\"h-full w-full rounded-xl rounded-tr-[100px] rounded-br-[40px] bg-[#222]\" />\n      </div>\n\n      <div className=\"relative flex h-full w-full items-center justify-center rounded-2xl backdrop-blur-lg\">\n        <div\n          className=\"h-32 w-32 animate-spin rounded-full bg-gradient-to-tr from-purple-500 to-orange-300\"\n          style={{ animationDuration: \"12s\" }}\n        />\n      </div>\n\n      <div className=\"absolute inset-0 flex h-full w-full justify-between p-2\">\n        <div className=\"flex w-3/5 flex-col rounded-xl bg-gray-50/10 p-2 pt-3 pb-1.5 font-mono font-medium text-gray-200 backdrop-blur-lg\">\n          <span className=\"text-xl font-medium\">Card</span>\n          <span className=\"text-xs text-gray-400\">text</span>\n          <div className=\"mt-auto flex w-full items-center justify-center\">\n            <span className=\"text-xs text-gray-400\">2025</span>\n          </div>\n        </div>\n        <div className=\"flex h-full flex-col items-end pt-2 text-white/50\">\n          <span className=\"text-[10px] leading-[12px]\">UIverse</span>\n          <span className=\"text-[10px] leading-[13px]\">card</span>\n          <div className=\"mt-auto flex h-8 w-8 cursor-pointer items-center justify-center rounded-full bg-gray-50/20 backdrop-blur-lg transition-all duration-300 hover:bg-gray-50/30\">\n            <ArrowRight className=\"size-4 text-white/80\" />\n          </div>\n        </div>\n      </div>\n    </div>\n  )\n}\n\nexport { CartaoGiroGradiente }\n",
+      "type": "registry:ui",
+      "target": "components/ui/cartao-giro-gradiente.tsx"
+    }
+  ],
+  "type": "registry:ui"
+}

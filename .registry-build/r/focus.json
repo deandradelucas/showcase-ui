@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "focus",
+  "title": "Lens-Drift",
+  "description": "Letras desfocam e nitidificam em sequência defasada, como uma lente de câmera ajustando o foco.",
+  "files": [
+    {
+      "path": "stories/TextEffects/focus.css",
+      "content": "/* Markup: <div class=\"fx-focus\" role=\"img\" aria-label=\"FOCUS\"><b aria-hidden=\"true\" style=\"--i:0\">F</b><b aria-hidden=\"true\" style=\"--i:1\">O</b><b aria-hidden=\"true\" style=\"--i:2\">C</b><b aria-hidden=\"true\" style=\"--i:3\">U</b><b aria-hidden=\"true\" style=\"--i:4\">S</b></div> */\n\n/* Colour tokens — override to re-skin the effect:\n   --ink    main text colour (defaults to currentColor)\n   --ink-2  primary accent   --ink-3  secondary accent */\n:root { --ink: currentColor; --ink-2: #FF4FD8; --ink-3: #4FF8FF; }\n\n/* 07 Lens-Drift */\n.fx-focus {\n  font: 600 30px/1.1 JetBrains Mono, monospace;\n  letter-spacing: .08em;\n  color: var(--ink);\n}\n.fx-focus b {\n  font-weight: inherit;\n  display: inline-block;\n  animation: fx-focus 2.6s ease-in-out infinite;\n  animation-delay: calc(var(--i) * .18s);\n}\n@keyframes fx-focus {\n  0%,to {\n    filter: blur(0);\n    opacity: 1;\n  }\n  50% {\n    filter: blur(7px);\n    opacity: .35;\n  }\n}\n",
+      "type": "registry:ui",
+      "target": "components/ui/focus.css"
+    }
+  ],
+  "type": "registry:ui"
+}

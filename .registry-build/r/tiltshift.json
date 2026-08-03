@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "tiltshift",
+  "title": "Tilt-Shift",
+  "description": "Uma faixa nítida do texto desliza verticalmente entre camadas desfocadas, simulando o efeito de lente tilt-shift (miniatura).",
+  "files": [
+    {
+      "path": "stories/TextEffects/tiltshift.css",
+      "content": "/* Markup: <div class=\"fx-tiltshift\" data-text=\"SHIFT\">SHIFT</div> */\n\n/* Colour tokens — override to re-skin the effect:\n   --ink    main text colour (defaults to currentColor)\n   --ink-2  primary accent   --ink-3  secondary accent */\n:root { --ink: currentColor; --ink-2: #FF4FD8; --ink-3: #4FF8FF; }\n\n/* 55 Tilt-Shift */\n.fx-tiltshift {\n  position: relative;\n  font: 600 32px/1.1 JetBrains Mono, monospace;\n  letter-spacing: .1em;\n  color: color-mix(in srgb, var(--ink) 28%, transparent);\n  filter: blur(2px);\n}\n.fx-tiltshift:before, .fx-tiltshift:after {\n  content: attr(data-text);\n  position: absolute;\n  inset: 0;\n  pointer-events: none;\n}\n.fx-tiltshift:before {\n  color: var(--ink);\n  filter: blur(0);\n  clip-path: inset(32% 0 32% 0);\n  animation: fx-tiltshift 2.8s ease-in-out infinite alternate;\n}\n.fx-tiltshift:after {\n  color: var(--ink-3);\n  opacity: .3;\n  filter: blur(6px);\n}\n@keyframes fx-tiltshift {\n  0% {\n    clip-path: inset(0 0 64% 0);\n    transform: translateY(-2px);\n  }\n  to {\n    clip-path: inset(64% 0 0 0);\n    transform: translateY(2px);\n  }\n}\n",
+      "type": "registry:ui",
+      "target": "components/ui/tiltshift.css"
+    }
+  ],
+  "type": "registry:ui"
+}

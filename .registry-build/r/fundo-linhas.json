@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "fundo-linhas",
+  "title": "Lined Paper Background",
+  "description": "Padrao de fundo com linhas horizontais repetidas, estilo papel pautado (CSS puro).",
+  "files": [
+    {
+      "path": "stories/Backgrounds/fundo-linhas.css",
+      "content": "/* Markup: <div class=\"bg-lines\"></div> */\n.bg-lines {\n  width: 400px;\n  max-width: 100%;\n  height: 300px;\n  background-image: linear-gradient(#ffffff 1.1rem, #ccc 1.2rem);\n  background-size: 100% 1.2rem;\n}\n",
+      "type": "registry:ui",
+      "target": "components/ui/fundo-linhas.css"
+    }
+  ],
+  "type": "registry:ui"
+}

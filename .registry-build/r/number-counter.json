@@ -1,0 +1,21 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "number-counter",
+  "title": "Number Counter",
+  "description": "Contador que incrementa ao clicar, com bounce elastico no numero.",
+  "files": [
+    {
+      "path": "stories/Buttons/number-counter.tsx",
+      "content": "import { useState } from \"react\"\nimport \"./number-counter.css\"\n\nfunction NumberCounter() {\n  const [val, setVal] = useState(12)\n  const [bump, setBump] = useState(false)\n\n  const increment = () => {\n    setVal((v) => v + 1)\n    setBump(true)\n    setTimeout(() => setBump(false), 400)\n  }\n\n  return (\n    <span\n      onClick={increment}\n      className={`digit${bump ? \" bump\" : \"\"}`}\n      style={{ cursor: \"pointer\", fontSize: \"2rem\", fontWeight: 700 }}\n    >\n      {val}\n    </span>\n  )\n}\n\nexport { NumberCounter }\n",
+      "type": "registry:ui",
+      "target": "components/ui/number-counter.tsx"
+    },
+    {
+      "path": "stories/Buttons/number-counter.css",
+      "content": ".digit {\n  display: inline-block;\n  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);\n}\n.digit.bump {\n  transform: scale(1.25) translateY(-6px);\n}",
+      "type": "registry:ui",
+      "target": "components/ui/number-counter.css"
+    }
+  ],
+  "type": "registry:ui"
+}

@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "ventilador-escalonado-em-cascata",
+  "title": "Ventilador Escalonado em Cascata",
+  "description": "Dispõe 5 cartas verticalmente e de forma escalonada em uma pilha diagonal em cascata.",
+  "files": [
+    {
+      "path": "stories/Cards/ventilador-escalonado-em-cascata.tsx",
+      "content": "import { useState } from 'react';\r\nimport { motion } from 'motion/react';\r\n\r\ninterface VentiladorEscalonadoEmCascataProps {\r\n  className?: string;\r\n  cardClassName?: string;\r\n}\r\n\r\nfunction VentiladorEscalonadoEmCascata({\r\n  className = '',\r\n  cardClassName = 'bg-neutral-800'\r\n}: VentiladorEscalonadoEmCascataProps) {\r\n  const [isHovered, setIsHovered] = useState(false);\r\n  const cards = [0, 1, 2, 3, 4];\r\n  const center = 2;\r\n\r\n  return (\r\n    <div \r\n      onMouseEnter={() => setIsHovered(true)}\r\n      onMouseLeave={() => setIsHovered(false)}\r\n      className={`relative w-[8rem] h-[11rem] cursor-pointer flex items-center justify-center ${className}`}\r\n    >\r\n      {cards.map((i) => {\r\n        const dist = i - center;\r\n        const targetY = isHovered ? dist * -28 - 14 : dist * 2;\r\n        const targetX = isHovered ? dist * 14 : 0;\r\n        const targetRotate = isHovered ? dist * 6 : 0;\r\n\r\n        return (\r\n          <motion.div\r\n            key={i}\r\n            animate={{\r\n              y: targetY,\r\n              x: targetX,\r\n              rotate: targetRotate,\r\n              scale: isHovered ? (dist === 0 ? 1.05 : 0.98) : 1\r\n            }}\r\n            transition={{ type: \"spring\", stiffness: 200, damping: 22, mass: 0.9 }}\r\n            style={{ zIndex: 5 - Math.abs(dist) }}\r\n            className={`absolute inset-0 rounded-2xl shadow-[0_4px_12px_-2px_rgba(0,0,0,0.15)] border border-white/5 ${cardClassName}`}\r\n          />\r\n        );\r\n      })}\r\n    </div>\r\n  );\r\n}\r\n\r\nexport { VentiladorEscalonadoEmCascata };",
+      "type": "registry:ui",
+      "target": "components/ui/ventilador-escalonado-em-cascata.tsx"
+    }
+  ],
+  "type": "registry:ui"
+}

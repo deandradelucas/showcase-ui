@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "softblur",
+  "title": "Soft-Blur",
+  "description": "Texto pulsa suavemente entre nítido e desfocado com halo colorido, como um foco suave de câmera.",
+  "files": [
+    {
+      "path": "stories/TextEffects/softblur.css",
+      "content": "/* Markup: <div class=\"fx-softblur\">FOCUS</div> */\n\n/* Colour tokens — override to re-skin the effect:\n   --ink    main text colour (defaults to currentColor)\n   --ink-2  primary accent   --ink-3  secondary accent */\n:root { --ink: currentColor; --ink-2: #FF4FD8; --ink-3: #4FF8FF; }\n\n/* 46 Soft-Blur */\n.fx-softblur {\n  font: 600 36px/1.05 JetBrains Mono, monospace;\n  letter-spacing: .1em;\n  color: var(--ink);\n  text-shadow: 0 0 0 var(--ink), 0 0 18px color-mix(in srgb, var(--ink-2) 45%, transparent), 0 0 34px color-mix(in srgb, var(--ink-3) 35%, transparent);\n  animation: fx-softblur 3.2s ease-in-out infinite;\n}\n@keyframes fx-softblur {\n  0%,to {\n    filter: blur(0);\n    opacity: 1;\n    transform: scale(1);\n  }\n  50% {\n    filter: blur(2.4px);\n    opacity: .72;\n    transform: scale(1.045);\n  }\n}\n",
+      "type": "registry:ui",
+      "target": "components/ui/softblur.css"
+    }
+  ],
+  "type": "registry:ui"
+}

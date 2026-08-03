@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "mirror",
+  "title": "Still-Water",
+  "description": "Texto flutua suavemente para cima e para baixo com um reflexo espelhado abaixo, como se pairasse sobre água parada.",
+  "files": [
+    {
+      "path": "stories/TextEffects/mirror.css",
+      "content": "/* Markup: <div class=\"fx-mirror\">MIRROR</div> */\n\n/* Colour tokens — override to re-skin the effect:\n   --ink    main text colour (defaults to currentColor)\n   --ink-2  primary accent   --ink-3  secondary accent */\n:root { --ink: currentColor; --ink-2: #FF4FD8; --ink-3: #4FF8FF; }\n\n/* 24 Still-Water */\n.fx-mirror {\n  font: 600 32px/1.1 JetBrains Mono, monospace;\n  letter-spacing: .1em;\n  color: var(--ink);\n  -webkit-box-reflect: below 2px linear-gradient(transparent 45%, rgba(255, 255, 255, .28));\n  animation: fx-mirror 3s ease-in-out infinite;\n}\n@keyframes fx-mirror {\n  0%,to {\n    transform: translateY(0);\n  }\n  50% {\n    transform: translateY(-6px);\n  }\n}\n",
+      "type": "registry:ui",
+      "target": "components/ui/mirror.css"
+    }
+  ],
+  "type": "registry:ui"
+}

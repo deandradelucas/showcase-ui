@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "eclipse",
+  "title": "Eclipse",
+  "description": "Um disco escuro atravessa o texto da esquerda para a direita, escurecendo o brilho das letras como um eclipse solar.",
+  "files": [
+    {
+      "path": "stories/TextEffects/eclipse.css",
+      "content": "/* Markup: <div class=\"fx-eclipse\">ECLIPSE</div> */\n\n/* Colour tokens — override to re-skin the effect:\n   --ink    main text colour (defaults to currentColor)\n   --ink-2  primary accent   --ink-3  secondary accent */\n:root { --ink: currentColor; --ink-2: #FF4FD8; --ink-3: #4FF8FF; }\n\n/* 62 Eclipse */\n.fx-eclipse {\n  position: relative;\n  font: 600 32px/1.1 JetBrains Mono, monospace;\n  letter-spacing: .14em;\n  color: var(--ink);\n  text-shadow: 0 0 10px color-mix(in srgb, var(--ink-2) 70%, transparent), 0 0 26px color-mix(in srgb, var(--ink-2) 40%, transparent);\n  animation: fx-eclipse-dim 5s ease-in-out infinite;\n}\n.fx-eclipse:after {\n  content: \"\";\n  position: absolute;\n  top: 50%;\n  left: -1.5em;\n  width: 1.3em;\n  height: 1.3em;\n  border-radius: 50%;\n  background: #05040c;\n  box-shadow: 0 0 10px 2px color-mix(in srgb, var(--ink-2) 85%, transparent), inset -4px -3px 8px #000000e6;\n  transform: translateY(-50%);\n  animation: fx-eclipse 5s ease-in-out infinite;\n}\n@keyframes fx-eclipse {\n  0% {\n    left: -1.5em;\n  }\n  50% {\n    left: calc(50% - .65em);\n  }\n  to {\n    left: 100%;\n  }\n}\n@keyframes fx-eclipse-dim {\n  0%,28%,72%,to {\n    filter: brightness(1);\n  }\n  50% {\n    filter: brightness(.4);\n  }\n}\n",
+      "type": "registry:ui",
+      "target": "components/ui/eclipse.css"
+    }
+  ],
+  "type": "registry:ui"
+}
