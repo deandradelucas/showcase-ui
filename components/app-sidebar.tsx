@@ -86,6 +86,9 @@ export const navGroups: NavGroup[] = [
       { href: "/chart-linha", label: "Chart Linha" },
       { href: "/chart-pizza", label: "Chart Pizza" },
       { href: "/chart-radar", label: "Chart Radar" },
+      { href: "/chart-area-bklit", label: "Area Chart (Bklit)" },
+      { href: "/chart-profit-loss", label: "Profit/Loss Line" },
+      { href: "/chart-legend", label: "Chart Legend" },
     ],
   },
   {
@@ -107,6 +110,7 @@ export const navGroups: NavGroup[] = [
       { href: "/button-split", label: "Split Button" },
       { href: "/buttons-flip", label: "Flip Button" },
       { href: "/buttons-theme-toggler", label: "Theme Toggler" },
+      { href: "/buttons-theme-toggler-variants", label: "Theme Toggler Variants" },
     ],
   },
   {
@@ -153,6 +157,8 @@ export const navGroups: NavGroup[] = [
       { href: "/input-progressive-stack", label: "Progressive Input Stack" },
       { href: "/file-upload", label: "File Upload" },
       { href: "/gooey-input", label: "Gooey Input" },
+      { href: "/select-combobox", label: "Select (Combobox)" },
+      { href: "/checkbox-field", label: "Checkbox Field" },
     ],
   },
   {

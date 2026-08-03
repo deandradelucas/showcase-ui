@@ -17,12 +17,18 @@ const eslintConfig = defineConfig([
   {
     // components/ui/** hoje mistura primitivos do shadcn (CLI) com
     // componentes de registries externos (animate-ui, watermelon,
-    // aceternity) — nenhum editado à mão, todos sobrescrevíveis numa
-    // reinstalação. Essas libs de animação usam refs/effects pra medir DOM
-    // e sincronizar motion de propósito, tipam `any` em props genéricas e
-    // às vezes violam prefer-const/no-unused-vars em código de terceiros —
-    // não é algo pra "corrigir" no vendor, então desligado aqui.
-    files: ["components/ui/**/*.tsx", "components/animate-ui/**/*.tsx"],
+    // aceternity, matos-ui) — nenhum editado à mão, todos sobrescrevíveis
+    // numa reinstalação. components/charts/** é o pacote de charts do
+    // registry bklit (dezenas de arquivos internos com refs/effects pra
+    // sincronizar animação SVG com d3/visx). Essas libs usam refs/effects
+    // pra medir DOM e sincronizar motion de propósito, tipam `any` em props
+    // genéricas e às vezes violam prefer-const/no-unused-vars em código de
+    // terceiros — não é algo pra "corrigir" no vendor, então desligado aqui.
+    files: [
+      "components/ui/**/*.{ts,tsx}",
+      "components/animate-ui/**/*.tsx",
+      "components/charts/**/*.{ts,tsx}",
+    ],
     rules: {
       "react-hooks/set-state-in-effect": "off",
       "react-hooks/refs": "off",
