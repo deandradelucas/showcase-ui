@@ -106,8 +106,6 @@ export const navGroups: NavGroup[] = [
     label: "Buttons",
     icon: MousePointer,
     items: [
-      { href: "/button-delete", label: "Delete Button" },
-      { href: "/button-split", label: "Split Button" },
       { href: "/buttons-flip", label: "Flip Button" },
       { href: "/buttons-theme-toggler", label: "Theme Toggler" },
       { href: "/buttons-theme-toggler-variants", label: "Theme Toggler Variants" },

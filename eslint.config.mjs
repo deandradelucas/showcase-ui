@@ -27,6 +27,7 @@ const eslintConfig = defineConfig([...nextVitals, ...nextTs, {
     "components/ui/**/*.{ts,tsx}",
     "components/animate-ui/**/*.tsx",
     "components/charts/**/*.{ts,tsx}",
+    "stories/**/*.{ts,tsx}",
   ],
   rules: {
     "react-hooks/set-state-in-effect": "off",
