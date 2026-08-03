@@ -33,7 +33,7 @@ export default async function ButtonSplitPage() {
           </CardTitle>
           <CardAction>
             <ViewCode
-              install="https://registry.watermelon.sh/r/split-button.json"
+              install="deandradelucas/showcase-ui/split-button"
               description="Botão que se abre em opções ao clicar, animado com motion."
               files={files}
             />

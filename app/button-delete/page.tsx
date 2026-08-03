@@ -33,7 +33,7 @@ export default async function ButtonDeletePage() {
           </CardTitle>
           <CardAction>
             <ViewCode
-              install="https://registry.watermelon.sh/r/timed-undo-action.json"
+              install="deandradelucas/showcase-ui/timed-undo-action"
               description="Botão de deletar com contagem regressiva e opção de desfazer, animado com motion."
               files={files}
             />

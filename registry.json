@@ -131,6 +131,34 @@
           "target": "components/ui/morphing-select.tsx"
         }
       ]
+    },
+    {
+      "name": "split-button",
+      "type": "registry:ui",
+      "title": "Split Button",
+      "description": "Botão que se abre em opções ao clicar, animado com motion.",
+      "dependencies": ["motion", "@hugeicons/react", "@hugeicons/core-free-icons"],
+      "files": [
+        {
+          "path": "components/ui/split-button.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/split-button.tsx"
+        }
+      ]
+    },
+    {
+      "name": "timed-undo-action",
+      "type": "registry:ui",
+      "title": "Timed Undo Action",
+      "description": "Botão de deletar com contagem regressiva e opção de desfazer, animado com motion.",
+      "dependencies": ["motion", "react-use-measure", "lucide-react"],
+      "files": [
+        {
+          "path": "components/ui/timed-undo-action.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/timed-undo-action.tsx"
+        }
+      ]
     }
   ]
 }
