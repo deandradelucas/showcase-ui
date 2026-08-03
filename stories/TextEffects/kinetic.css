@@ -1,0 +1,44 @@
+/* Markup: <div class="fx-kinetic" role="img" aria-label="KINETIC"><b aria-hidden="true" style="--i:0">K</b><b aria-hidden="true" style="--i:1">I</b><b aria-hidden="true" style="--i:2">N</b><b aria-hidden="true" style="--i:3">E</b><b aria-hidden="true" style="--i:4">T</b><b aria-hidden="true" style="--i:5">I</b><b aria-hidden="true" style="--i:6">C</b></div> */
+
+/* Colour tokens — override to re-skin the effect:
+   --ink    main text colour (defaults to currentColor)
+   --ink-2  primary accent   --ink-3  secondary accent */
+:root { --ink: currentColor; --ink-2: #FF4FD8; --ink-3: #4FF8FF; }
+
+/* 37 Kinetic-Type */
+.fx-kinetic {
+  font: 600 30px/1.1 JetBrains Mono, monospace;
+  letter-spacing: .06em;
+  color: var(--ink);
+  display: inline-flex;
+}
+.fx-kinetic b {
+  font-weight: inherit;
+  display: inline-block;
+  transform-origin: center;
+  animation: fx-kinetic 2.6s cubic-bezier(.2, .8, .2, 1) infinite;
+  animation-delay: calc(var(--i) * .08s);
+}
+.fx-kinetic b:nth-child(2n) {
+  color: var(--ink-3);
+}
+.fx-kinetic b:nth-child(3n) {
+  color: var(--ink-2);
+}
+@keyframes fx-kinetic {
+  0%,18% {
+    transform: translateY(0) rotate(0);
+    filter: blur(0);
+  }
+  34% {
+    transform: translateY(-18px) rotate(-9deg);
+    filter: blur(.4px);
+  }
+  52% {
+    transform: translateY(14px) rotate(7deg);
+  }
+  68%,to {
+    transform: translateY(0) rotate(0);
+    filter: blur(0);
+  }
+}

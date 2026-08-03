@@ -1,0 +1,27 @@
+/* Markup: <div class="fx-starlight">STARDUST</div> */
+
+/* Colour tokens — override to re-skin the effect:
+   --ink    main text colour (defaults to currentColor)
+   --ink-2  primary accent   --ink-3  secondary accent */
+:root { --ink: currentColor; --ink-2: #FF4FD8; --ink-3: #4FF8FF; }
+
+/* 34 Starlight */
+.fx-starlight {
+  font: 600 28px/1.2 JetBrains Mono, monospace;
+  letter-spacing: .12em;
+  color: transparent;
+  background: radial-gradient(circle at 14% 35%, #fff 0 2px, transparent 2.4px), radial-gradient(circle at 42% 68%, #fff 0 1.6px, transparent 2px), radial-gradient(circle at 75% 24%, #fff 0 2.2px, transparent 2.6px), linear-gradient(100deg, var(--ink), var(--ink-3), var(--ink));
+  background-size: 120px 60px, 150px 72px, 180px 68px, 240% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  filter: drop-shadow(0 0 10px color-mix(in srgb, var(--ink-3) 45%, transparent));
+  animation: fx-starlight 3.6s linear infinite;
+}
+@keyframes fx-starlight {
+  0% {
+    background-position: 0 0, 0 0, 0 0, 120% 0;
+  }
+  to {
+    background-position: 120px 0, -150px 0, 180px 0, -120% 0;
+  }
+}

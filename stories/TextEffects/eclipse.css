@@ -1,0 +1,48 @@
+/* Markup: <div class="fx-eclipse">ECLIPSE</div> */
+
+/* Colour tokens — override to re-skin the effect:
+   --ink    main text colour (defaults to currentColor)
+   --ink-2  primary accent   --ink-3  secondary accent */
+:root { --ink: currentColor; --ink-2: #FF4FD8; --ink-3: #4FF8FF; }
+
+/* 62 Eclipse */
+.fx-eclipse {
+  position: relative;
+  font: 600 32px/1.1 JetBrains Mono, monospace;
+  letter-spacing: .14em;
+  color: var(--ink);
+  text-shadow: 0 0 10px color-mix(in srgb, var(--ink-2) 70%, transparent), 0 0 26px color-mix(in srgb, var(--ink-2) 40%, transparent);
+  animation: fx-eclipse-dim 5s ease-in-out infinite;
+}
+.fx-eclipse:after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: -1.5em;
+  width: 1.3em;
+  height: 1.3em;
+  border-radius: 50%;
+  background: #05040c;
+  box-shadow: 0 0 10px 2px color-mix(in srgb, var(--ink-2) 85%, transparent), inset -4px -3px 8px #000000e6;
+  transform: translateY(-50%);
+  animation: fx-eclipse 5s ease-in-out infinite;
+}
+@keyframes fx-eclipse {
+  0% {
+    left: -1.5em;
+  }
+  50% {
+    left: calc(50% - .65em);
+  }
+  to {
+    left: 100%;
+  }
+}
+@keyframes fx-eclipse-dim {
+  0%,28%,72%,to {
+    filter: brightness(1);
+  }
+  50% {
+    filter: brightness(.4);
+  }
+}

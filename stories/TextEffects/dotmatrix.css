@@ -1,0 +1,25 @@
+/* Markup: <div class="fx-dotmatrix">PRINTOUT</div> */
+
+/* Colour tokens — override to re-skin the effect:
+   --ink    main text colour (defaults to currentColor)
+   --ink-2  primary accent   --ink-3  secondary accent */
+:root { --ink: currentColor; --ink-2: #FF4FD8; --ink-3: #4FF8FF; }
+
+/* 59 Dot-Matrix */
+.fx-dotmatrix {
+  font: 600 30px/1.15 JetBrains Mono, monospace;
+  letter-spacing: .1em;
+  color: transparent;
+  background: linear-gradient(180deg, transparent 0 16%, #fff 24%, transparent 32% 100%) 0 -100% / 100% 300%, radial-gradient(circle, var(--ink-3) 0 1.3px, transparent 1.8px) 0 0 / 5px 5px;
+  -webkit-background-clip: text;
+  background-clip: text;
+  animation: fx-dotmatrix 2.8s linear infinite;
+}
+@keyframes fx-dotmatrix {
+  0% {
+    background-position: 0 -100%, 0 0;
+  }
+  to {
+    background-position: 0 200%, 0 0;
+  }
+}

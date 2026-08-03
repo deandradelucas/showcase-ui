@@ -1,0 +1,45 @@
+/* Markup: <div class="fx-portal" data-text="PORTAL">PORTAL</div> */
+
+/* Colour tokens — override to re-skin the effect:
+   --ink    main text colour (defaults to currentColor)
+   --ink-2  primary accent   --ink-3  secondary accent */
+:root { --ink: currentColor; --ink-2: #FF4FD8; --ink-3: #4FF8FF; }
+
+/* 54 Portal */
+.fx-portal {
+  position: relative;
+  font: 600 34px/1.05 JetBrains Mono, monospace;
+  letter-spacing: .12em;
+  color: transparent;
+  background: conic-gradient(from 0deg, var(--ink-2), var(--ink), var(--ink-3), var(--ink-2));
+  -webkit-background-clip: text;
+  background-clip: text;
+  animation: fx-portal 3.6s linear infinite;
+}
+.fx-portal:after {
+  content: attr(data-text);
+  position: absolute;
+  inset: 0;
+  color: transparent;
+  background: radial-gradient(circle, transparent 0 30%, #fff 34% 36%, transparent 40% 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  opacity: .72;
+  animation: fx-portal-pulse 1.8s ease-in-out infinite;
+}
+@keyframes fx-portal {
+  to {
+    filter: hue-rotate(360deg);
+    transform: rotate(.001deg);
+  }
+}
+@keyframes fx-portal-pulse {
+  0%,to {
+    transform: scale(.92);
+    opacity: .24;
+  }
+  50% {
+    transform: scale(1.08);
+    opacity: .8;
+  }
+}

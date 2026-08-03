@@ -1,0 +1,8 @@
+/* Markup: <div class="bg-lines"></div> */
+.bg-lines {
+  width: 400px;
+  max-width: 100%;
+  height: 300px;
+  background-image: linear-gradient(#ffffff 1.1rem, #ccc 1.2rem);
+  background-size: 100% 1.2rem;
+}

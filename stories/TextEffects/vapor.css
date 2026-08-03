@@ -1,0 +1,60 @@
+/* Markup: <div class="fx-vapor" data-text="VAPOR">VAPOR</div> */
+
+/* Colour tokens — override to re-skin the effect:
+   --ink    main text colour (defaults to currentColor)
+   --ink-2  primary accent   --ink-3  secondary accent */
+:root { --ink: currentColor; --ink-2: #FF4FD8; --ink-3: #4FF8FF; }
+
+/* 36 Vapor-Trail */
+.fx-vapor {
+  position: relative;
+  font: 600 32px/1.1 JetBrains Mono, monospace;
+  letter-spacing: .16em;
+  color: var(--ink);
+  text-shadow: 0 0 12px color-mix(in srgb, var(--ink) 45%, transparent);
+  animation: fx-vapor-main 2.8s ease-in-out infinite;
+}
+.fx-vapor:before, .fx-vapor:after {
+  content: attr(data-text);
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  filter: blur(2px);
+  opacity: .62;
+}
+.fx-vapor:before {
+  color: var(--ink-2);
+  animation: fx-vapor-a 2.8s ease-in-out infinite;
+}
+.fx-vapor:after {
+  color: var(--ink-3);
+  animation: fx-vapor-b 2.8s ease-in-out infinite;
+}
+@keyframes fx-vapor-main {
+  0%,to {
+    transform: translate(-3px);
+  }
+  50% {
+    transform: translate(3px);
+  }
+}
+@keyframes fx-vapor-a {
+  0%,to {
+    transform: translate(-10px, 6px) scaleX(1.08);
+    opacity: .22;
+  }
+  50% {
+    transform: translate(-18px, -4px) scaleX(1.22);
+    opacity: .58;
+  }
+}
+@keyframes fx-vapor-b {
+  0%,to {
+    transform: translate(10px, -5px) scaleX(1.08);
+    opacity: .2;
+  }
+  50% {
+    transform: translate(18px, 5px) scaleX(1.2);
+    opacity: .56;
+  }
+}

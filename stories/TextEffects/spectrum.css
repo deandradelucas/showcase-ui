@@ -1,0 +1,25 @@
+/* Markup: <div class="fx-spectrum" role="img" aria-label="SPECTRUM"><b aria-hidden="true" style="--i:0">S</b><b aria-hidden="true" style="--i:1">P</b><b aria-hidden="true" style="--i:2">E</b><b aria-hidden="true" style="--i:3">C</b><b aria-hidden="true" style="--i:4">T</b><b aria-hidden="true" style="--i:5">R</b><b aria-hidden="true" style="--i:6">U</b><b aria-hidden="true" style="--i:7">M</b></div> */
+
+/* Colour tokens — override to re-skin the effect:
+   --ink    main text colour (defaults to currentColor)
+   --ink-2  primary accent   --ink-3  secondary accent */
+:root { --ink: currentColor; --ink-2: #FF4FD8; --ink-3: #4FF8FF; }
+
+/* 16 Prisma */
+.fx-spectrum {
+  font: 600 26px/1.1 JetBrains Mono, monospace;
+  letter-spacing: .08em;
+}
+.fx-spectrum b {
+  font-weight: inherit;
+  display: inline-block;
+  color: #ff2d78;
+  filter: hue-rotate(calc(var(--i) * 42deg));
+  animation: fx-spectrum 2.4s linear infinite;
+  animation-delay: calc(var(--i) * -.1s);
+}
+@keyframes fx-spectrum {
+  to {
+    filter: hue-rotate(calc(var(--i) * 42deg + 360deg));
+  }
+}

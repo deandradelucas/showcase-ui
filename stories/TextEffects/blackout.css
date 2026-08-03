@@ -1,0 +1,45 @@
+/* Markup: <div class="fx-blackout" data-text="CLASSIFIED">CLASSIFIED</div> */
+
+/* Colour tokens — override to re-skin the effect:
+   --ink    main text colour (defaults to currentColor)
+   --ink-2  primary accent   --ink-3  secondary accent */
+:root { --ink: currentColor; --ink-2: #FF4FD8; --ink-3: #4FF8FF; }
+
+/* 38 Blackout */
+.fx-blackout {
+  position: relative;
+  font: 600 24px/1.15 JetBrains Mono, monospace;
+  letter-spacing: .08em;
+  color: var(--ink);
+  padding: .28em .12em;
+}
+.fx-blackout:before, .fx-blackout:after {
+  content: "";
+  position: absolute;
+  left: -.18em;
+  right: -.18em;
+  height: 44%;
+  background: var(--ink);
+  box-shadow: 0 0 0 1px color-mix(in srgb, var(--ink-2) 45%, transparent);
+  animation: fx-blackout 3s steps(1) infinite;
+}
+.fx-blackout:before {
+  top: 0;
+  transform-origin: left;
+}
+.fx-blackout:after {
+  bottom: 0;
+  transform-origin: right;
+  animation-delay: .28s;
+}
+@keyframes fx-blackout {
+  0%,20%,72%,to {
+    transform: scaleX(0);
+  }
+  26%,58% {
+    transform: scaleX(1);
+  }
+  64% {
+    transform: scaleX(.38);
+  }
+}

@@ -1,0 +1,42 @@
+/* Markup: <div class="fx-tiltshift" data-text="SHIFT">SHIFT</div> */
+
+/* Colour tokens — override to re-skin the effect:
+   --ink    main text colour (defaults to currentColor)
+   --ink-2  primary accent   --ink-3  secondary accent */
+:root { --ink: currentColor; --ink-2: #FF4FD8; --ink-3: #4FF8FF; }
+
+/* 55 Tilt-Shift */
+.fx-tiltshift {
+  position: relative;
+  font: 600 32px/1.1 JetBrains Mono, monospace;
+  letter-spacing: .1em;
+  color: color-mix(in srgb, var(--ink) 28%, transparent);
+  filter: blur(2px);
+}
+.fx-tiltshift:before, .fx-tiltshift:after {
+  content: attr(data-text);
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+.fx-tiltshift:before {
+  color: var(--ink);
+  filter: blur(0);
+  clip-path: inset(32% 0 32% 0);
+  animation: fx-tiltshift 2.8s ease-in-out infinite alternate;
+}
+.fx-tiltshift:after {
+  color: var(--ink-3);
+  opacity: .3;
+  filter: blur(6px);
+}
+@keyframes fx-tiltshift {
+  0% {
+    clip-path: inset(0 0 64% 0);
+    transform: translateY(-2px);
+  }
+  to {
+    clip-path: inset(64% 0 0 0);
+    transform: translateY(2px);
+  }
+}

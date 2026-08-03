@@ -1,0 +1,49 @@
+/* Markup: <div class="fx-datastream">STREAM</div> */
+
+/* Colour tokens — override to re-skin the effect:
+   --ink    main text colour (defaults to currentColor)
+   --ink-2  primary accent   --ink-3  secondary accent */
+:root { --ink: currentColor; --ink-2: #FF4FD8; --ink-3: #4FF8FF; }
+
+/* 43 Datastream */
+.fx-datastream {
+  position: relative;
+  font: 600 30px/1.1 JetBrains Mono, monospace;
+  letter-spacing: .12em;
+  color: transparent;
+  background: repeating-linear-gradient(0deg, var(--ink-3) 0 2px, color-mix(in srgb, var(--ink-3) 35%, transparent) 2px 4px, transparent 4px 8px), linear-gradient(90deg, var(--ink-2), var(--ink-3), var(--ink));
+  background-size: 100% 32px, 240% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  animation: fx-datastream 1.6s linear infinite;
+}
+.fx-datastream:after {
+  content: "0101 1100 0011";
+  position: absolute;
+  left: 50%;
+  top: 100%;
+  width: 170%;
+  color: color-mix(in srgb, var(--ink-3) 42%, transparent);
+  font-size: .42em;
+  letter-spacing: .16em;
+  transform: translate(-50%);
+  animation: fx-datastream-code 1.6s linear infinite;
+}
+@keyframes fx-datastream {
+  to {
+    background-position: 0 32px, -120% 0;
+  }
+}
+@keyframes fx-datastream-code {
+  0% {
+    opacity: .2;
+    transform: translate(-50%, -2px);
+  }
+  50% {
+    opacity: .7;
+  }
+  to {
+    opacity: .2;
+    transform: translate(-50%, 10px);
+  }
+}

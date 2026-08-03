@@ -1,0 +1,89 @@
+/* classes prefixadas seletor-cor pra evitar colisao com nomes genericos
+   .container-items/.item-color */
+/* Markup: <div class="seletor-cor-container"><button class="seletor-cor-item" style="--color: #e11d48" aria-color="#e11d48"></button><button class="seletor-cor-item" style="--color: #f472b6" aria-color="#f472b6"></button><button class="seletor-cor-item" style="--color: #fb923c" aria-color="#fb923c"></button><button class="seletor-cor-item" style="--color: #facc15" aria-color="#facc15"></button><button class="seletor-cor-item" style="--color: #84cc16" aria-color="#84cc16"></button><button class="seletor-cor-item" style="--color: #10b981" aria-color="#10b981"></button><button class="seletor-cor-item" style="--color: #0ea5e9" aria-color="#0ea5e9"></button><button class="seletor-cor-item" style="--color: #3b82f6" aria-color="#3b82f6"></button><button class="seletor-cor-item" style="--color: #8b5cf6" aria-color="#8b5cf6"></button><button class="seletor-cor-item" style="--color: #a78bfa" aria-color="#a78bfa"></button></div> */
+
+.seletor-cor-container {
+  display: flex;
+  transform-style: preserve-3d;
+  transform: perspective(1000px);
+}
+
+.seletor-cor-item {
+  position: relative;
+  flex-shrink: 0;
+  width: 32px;
+  height: 40px;
+  border: none;
+  outline: none;
+  transition: 500ms cubic-bezier(0.175, 0.885, 0.32, 1.1);
+  cursor: pointer;
+}
+
+.seletor-cor-item::after {
+  position: absolute;
+  content: "";
+  inset: 0;
+  width: 40px;
+  height: 40px;
+  background-color: var(--color);
+  border-radius: 6px;
+  transform: scale(1.2);
+  pointer-events: none;
+  transition: 500ms cubic-bezier(0.175, 0.885, 0.32, 1.1);
+}
+
+.seletor-cor-item::before {
+  position: absolute;
+  content: attr(aria-color);
+  left: 65%;
+  bottom: 52px;
+  font-size: 8px;
+  line-height: 12px;
+  transform: translateX(-50%);
+  padding: 2px 0.25rem;
+  background-color: #ffffff;
+  color: #1a1a1a;
+  border-radius: 6px;
+  pointer-events: none;
+  opacity: 0;
+  visibility: hidden;
+  transition: 500ms cubic-bezier(0.175, 0.885, 0.32, 1.1);
+}
+
+.seletor-cor-item:hover {
+  transform: scale(1.5);
+  z-index: 99999;
+}
+
+.seletor-cor-item:hover::before {
+  opacity: 1;
+  visibility: visible;
+}
+
+.seletor-cor-item:active::after {
+  transform: scale(1.1);
+}
+
+.seletor-cor-item:focus::before {
+  content: "✅Copy";
+}
+
+.seletor-cor-item:hover + * {
+  transform: scale(1.3);
+  z-index: 9999;
+}
+
+.seletor-cor-item:hover + * + * {
+  transform: scale(1.15);
+  z-index: 999;
+}
+
+.seletor-cor-item:has(+ *:hover) {
+  transform: scale(1.3);
+  z-index: 9999;
+}
+
+.seletor-cor-item:has(+ * + *:hover) {
+  transform: scale(1.15);
+  z-index: 999;
+}

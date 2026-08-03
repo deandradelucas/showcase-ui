@@ -1,0 +1,31 @@
+/* Markup: <div class="fx-parallax" role="img" aria-label="LAYERS"><b aria-hidden="true" style="--i:0">L</b><b aria-hidden="true" style="--i:1">A</b><b aria-hidden="true" style="--i:2">Y</b><b aria-hidden="true" style="--i:3">E</b><b aria-hidden="true" style="--i:4">R</b><b aria-hidden="true" style="--i:5">S</b></div> */
+
+/* Colour tokens — override to re-skin the effect:
+   --ink    main text colour (defaults to currentColor)
+   --ink-2  primary accent   --ink-3  secondary accent */
+:root { --ink: currentColor; --ink-2: #FF4FD8; --ink-3: #4FF8FF; }
+
+/* 50 Parallax */
+.fx-parallax {
+  font: 600 30px/1.1 JetBrains Mono, monospace;
+  letter-spacing: .08em;
+  color: var(--ink);
+  display: inline-flex;
+}
+.fx-parallax b {
+  font-weight: inherit;
+  display: inline-block;
+  text-shadow: 4px 4px 0 color-mix(in srgb, var(--ink-2) 72%, transparent), -4px -3px 0 color-mix(in srgb, var(--ink-3) 72%, transparent);
+  animation: fx-parallax 3s ease-in-out infinite;
+  animation-delay: calc(var(--i) * -.11s);
+}
+@keyframes fx-parallax {
+  0%,to {
+    transform: translate(0);
+    text-shadow: 4px 4px 0 color-mix(in srgb, var(--ink-2) 72%, transparent), -4px -3px 0 color-mix(in srgb, var(--ink-3) 72%, transparent);
+  }
+  50% {
+    transform: translateY(-4px);
+    text-shadow: 8px 2px 0 color-mix(in srgb, var(--ink-2) 72%, transparent), -8px -1px 0 color-mix(in srgb, var(--ink-3) 72%, transparent);
+  }
+}

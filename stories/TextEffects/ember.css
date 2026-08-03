@@ -1,0 +1,22 @@
+/* Markup: <div class="fx-ember">EMBER</div> */
+
+/* Colour tokens — override to re-skin the effect:
+   --ink    main text colour (defaults to currentColor)
+   --ink-2  primary accent   --ink-3  secondary accent */
+:root { --ink: currentColor; --ink-2: #FF4FD8; --ink-3: #4FF8FF; }
+
+/* 12 Emberglow */
+.fx-ember {
+  font: 600 32px/1.1 JetBrains Mono, monospace;
+  letter-spacing: .1em;
+  color: #ffd9a0;
+  animation: fx-ember 1.7s ease-in-out infinite alternate;
+}
+@keyframes fx-ember {
+  0% {
+    text-shadow: 0 -2px 6px #ffab40, 0 -6px 14px #ff6d00, 0 -12px 28px #dd2c00, 0 -20px 44px rgba(213, 0, 0, .55);
+  }
+  to {
+    text-shadow: 0 -3px 8px #ffc46b, 0 -9px 20px #ff8f1f, 0 -18px 38px #ff3d00, 0 -30px 60px rgba(213, 0, 0, .8);
+  }
+}

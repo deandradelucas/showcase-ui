@@ -1,0 +1,48 @@
+/* Markup: <div class="fx-inktrap" data-text="INK">INK</div> */
+
+/* Colour tokens — override to re-skin the effect:
+   --ink    main text colour (defaults to currentColor)
+   --ink-2  primary accent   --ink-3  secondary accent */
+:root { --ink: currentColor; --ink-2: #FF4FD8; --ink-3: #4FF8FF; }
+
+/* 51 Ink-Trap */
+.fx-inktrap {
+  position: relative;
+  font: 600 38px/1.05 JetBrains Mono, monospace;
+  letter-spacing: .04em;
+  color: var(--ink);
+}
+.fx-inktrap:before, .fx-inktrap:after {
+  content: attr(data-text);
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+.fx-inktrap:before {
+  color: transparent;
+  -webkit-text-stroke: 1px var(--ink-3);
+  opacity: .65;
+  animation: fx-inktrap-line 2.7s ease-in-out infinite;
+}
+.fx-inktrap:after {
+  color: var(--ink-2);
+  clip-path: polygon(0 0, 100% 0, 84% 22%, 18% 22%, 0 0, 0 100%, 20% 78%, 86% 78%, 100% 100%, 0 100%);
+  mix-blend-mode: screen;
+  animation: fx-inktrap-fill 2.7s ease-in-out infinite;
+}
+@keyframes fx-inktrap-line {
+  50% {
+    transform: scale(1.05);
+    opacity: .95;
+  }
+}
+@keyframes fx-inktrap-fill {
+  0%,to {
+    opacity: .18;
+    transform: scale(.98);
+  }
+  50% {
+    opacity: .72;
+    transform: scale(1.02);
+  }
+}

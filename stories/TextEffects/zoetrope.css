@@ -1,0 +1,40 @@
+/* Markup: <div class="fx-zoetrope" role="img" aria-label="ROTATE"><b aria-hidden="true" style="--i:0">R</b><b aria-hidden="true" style="--i:1">O</b><b aria-hidden="true" style="--i:2">T</b><b aria-hidden="true" style="--i:3">A</b><b aria-hidden="true" style="--i:4">T</b><b aria-hidden="true" style="--i:5">E</b></div> */
+
+/* Colour tokens — override to re-skin the effect:
+   --ink    main text colour (defaults to currentColor)
+   --ink-2  primary accent   --ink-3  secondary accent */
+:root { --ink: currentColor; --ink-2: #FF4FD8; --ink-3: #4FF8FF; }
+
+/* 58 Zoetrope */
+.fx-zoetrope {
+  font: 600 30px/1.1 JetBrains Mono, monospace;
+  letter-spacing: .1em;
+  color: var(--ink);
+  display: inline-flex;
+  perspective: 480px;
+}
+.fx-zoetrope b {
+  font-weight: inherit;
+  display: inline-block;
+  animation: fx-zoetrope 3s cubic-bezier(.55, 0, .25, 1) infinite;
+  animation-delay: calc(var(--i) * .09s);
+}
+.fx-zoetrope b:nth-child(3n) {
+  color: var(--ink-2);
+}
+.fx-zoetrope b:nth-child(3n+1) {
+  color: var(--ink-3);
+}
+@keyframes fx-zoetrope {
+  0%,12% {
+    transform: rotateY(0);
+    filter: blur(0);
+  }
+  40% {
+    filter: blur(1px);
+  }
+  62%,to {
+    transform: rotateY(360deg);
+    filter: blur(0);
+  }
+}

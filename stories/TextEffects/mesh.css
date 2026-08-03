@@ -1,0 +1,27 @@
+/* Markup: <div class="fx-mesh">MESH</div> */
+
+/* Colour tokens — override to re-skin the effect:
+   --ink    main text colour (defaults to currentColor)
+   --ink-2  primary accent   --ink-3  secondary accent */
+:root { --ink: currentColor; --ink-2: #FF4FD8; --ink-3: #4FF8FF; }
+
+/* 40 Luma-Mesh */
+.fx-mesh {
+  font: 600 38px/1.05 JetBrains Mono, monospace;
+  letter-spacing: .08em;
+  color: transparent;
+  background: radial-gradient(circle at 18% 28%, var(--ink-2) 0 12%, transparent 28%), radial-gradient(circle at 78% 24%, var(--ink-3) 0 14%, transparent 30%), radial-gradient(circle at 44% 82%, #ffffff 0 10%, transparent 24%), linear-gradient(110deg, var(--ink-2), var(--ink-3));
+  background-size: 180% 180%, 170% 170%, 160% 160%, 220% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  filter: drop-shadow(0 0 18px color-mix(in srgb, var(--ink-3) 28%, transparent));
+  animation: fx-mesh 4.8s ease-in-out infinite alternate;
+}
+@keyframes fx-mesh {
+  0% {
+    background-position: 0% 20%, 100% 10%, 35% 100%, 100% 0;
+  }
+  to {
+    background-position: 100% 80%, 0% 60%, 70% 0%, -100% 0;
+  }
+}

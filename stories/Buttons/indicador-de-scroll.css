@@ -1,0 +1,49 @@
+/* classes prefixadas com indicador-scroll pra evitar colisao com nomes genericos
+   tipo .btn/.scroll; cor fixa azul rgb(105,127,255) trocada por var(--primary)
+   pra seguir o tema do consumidor */
+/* Markup: <button class="indicador-scroll"><div class="indicador-scroll__wheel"></div></button> */
+
+.indicador-scroll {
+  width: 30px;
+  height: 50px;
+  border-radius: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+  border: none;
+  outline: 2px solid var(--primary);
+  box-shadow: 0px 0px 10px var(--primary);
+  position: relative;
+  cursor: pointer;
+}
+
+.indicador-scroll__wheel {
+  width: 5px;
+  height: 10px;
+  border-radius: 10px;
+  background-color: var(--primary);
+  box-shadow: 0px 0px 10px var(--primary);
+  animation: indicador-scroll-wheel 2s linear infinite;
+  transform: translateY(40%);
+}
+
+.indicador-scroll::after {
+  content: "scroll";
+  position: absolute;
+  top: 140%;
+  color: var(--foreground);
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  font-size: 12px;
+}
+
+@keyframes indicador-scroll-wheel {
+  0% {
+    transform: translateY(40%);
+  }
+
+  50% {
+    transform: translateY(90%);
+  }
+}

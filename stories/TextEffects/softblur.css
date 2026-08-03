@@ -1,0 +1,27 @@
+/* Markup: <div class="fx-softblur">FOCUS</div> */
+
+/* Colour tokens — override to re-skin the effect:
+   --ink    main text colour (defaults to currentColor)
+   --ink-2  primary accent   --ink-3  secondary accent */
+:root { --ink: currentColor; --ink-2: #FF4FD8; --ink-3: #4FF8FF; }
+
+/* 46 Soft-Blur */
+.fx-softblur {
+  font: 600 36px/1.05 JetBrains Mono, monospace;
+  letter-spacing: .1em;
+  color: var(--ink);
+  text-shadow: 0 0 0 var(--ink), 0 0 18px color-mix(in srgb, var(--ink-2) 45%, transparent), 0 0 34px color-mix(in srgb, var(--ink-3) 35%, transparent);
+  animation: fx-softblur 3.2s ease-in-out infinite;
+}
+@keyframes fx-softblur {
+  0%,to {
+    filter: blur(0);
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    filter: blur(2.4px);
+    opacity: .72;
+    transform: scale(1.045);
+  }
+}

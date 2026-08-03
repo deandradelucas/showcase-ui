@@ -1,0 +1,46 @@
+/* Markup: <div class="fx-decoder" role="img" aria-label="DECODER"></div> */
+
+/* Colour tokens — override to re-skin the effect:
+   --ink    main text colour (defaults to currentColor)
+   --ink-2  primary accent   --ink-3  secondary accent */
+:root { --ink: currentColor; --ink-2: #FF4FD8; --ink-3: #4FF8FF; }
+
+/* 10 Cipher */
+.fx-decoder {
+  font: 600 28px/1.2 JetBrains Mono, monospace;
+  letter-spacing: .08em;
+  color: var(--ink-3);
+}
+.fx-decoder:after {
+  content: "▓K#R1&Q";
+  animation: fx-decoder 4s steps(1) infinite;
+}
+@keyframes fx-decoder {
+  0% {
+    content: "▓K#R1&Q";
+    color: var(--ink-3);
+  }
+  8% {
+    content: "D%#OD3▒";
+  }
+  16% {
+    content: "DE☰O*ER";
+  }
+  24% {
+    content: "DEC0D£R";
+  }
+  32% {
+    content: "DECOD€R";
+  }
+  40%,82% {
+    content: "DECODER";
+    color: var(--ink);
+  }
+  88% {
+    content: "D3C0*€R";
+    color: var(--ink-3);
+  }
+  94% {
+    content: "▒#COD1Q";
+  }
+}

@@ -1,0 +1,67 @@
+/* Markup: <div class="fx-signal" data-text="SIGNAL">SIGNAL</div> */
+
+/* Colour tokens — override to re-skin the effect:
+   --ink    main text colour (defaults to currentColor)
+   --ink-2  primary accent   --ink-3  secondary accent */
+:root { --ink: currentColor; --ink-2: #FF4FD8; --ink-3: #4FF8FF; }
+
+/* 53 Signal-Noise */
+.fx-signal {
+  position: relative;
+  font: 600 30px/1.1 JetBrains Mono, monospace;
+  letter-spacing: .1em;
+  color: var(--ink);
+  animation: fx-signal 2s steps(1) infinite;
+}
+.fx-signal:before, .fx-signal:after {
+  content: attr(data-text);
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+.fx-signal:before {
+  color: var(--ink-2);
+  clip-path: inset(0 0 58% 0);
+  animation: fx-signal-a 2s steps(1) infinite;
+}
+.fx-signal:after {
+  color: var(--ink-3);
+  clip-path: inset(42% 0 0 0);
+  animation: fx-signal-b 2s steps(1) infinite;
+}
+@keyframes fx-signal {
+  0%,21%,47%,to {
+    filter: none;
+  }
+  22%,24% {
+    filter: blur(.8px) contrast(1.4);
+  }
+}
+@keyframes fx-signal-a {
+  0%,20%,52%,to {
+    transform: translate(0);
+    opacity: .15;
+  }
+  23% {
+    transform: translate(-8px, -1px);
+    opacity: .9;
+  }
+  54% {
+    transform: translate(5px, 2px);
+    opacity: .7;
+  }
+}
+@keyframes fx-signal-b {
+  0%,24%,58%,to {
+    transform: translate(0);
+    opacity: .12;
+  }
+  27% {
+    transform: translate(8px, 1px);
+    opacity: .86;
+  }
+  60% {
+    transform: translate(-5px, -2px);
+    opacity: .72;
+  }
+}

@@ -1,0 +1,40 @@
+/* Markup: <div class="fx-jitter">JITTER</div> */
+
+/* Colour tokens — override to re-skin the effect:
+   --ink    main text colour (defaults to currentColor)
+   --ink-2  primary accent   --ink-3  secondary accent */
+:root { --ink: currentColor; --ink-2: #FF4FD8; --ink-3: #4FF8FF; }
+
+/* 17 Jitterbug */
+.fx-jitter {
+  font: 600 30px/1.1 JetBrains Mono, monospace;
+  letter-spacing: .06em;
+  color: var(--ink);
+  animation: fx-jitter 1.9s steps(1) infinite;
+}
+@keyframes fx-jitter {
+  0%,7%,15%,55%,to {
+    transform: none;
+    opacity: 1;
+  }
+  8% {
+    transform: skew(-14deg) translate(-4px);
+  }
+  10% {
+    transform: skew(10deg) translate(3px);
+  }
+  12% {
+    transform: translateY(-3px);
+    opacity: .6;
+  }
+  46% {
+    transform: skew(8deg);
+  }
+  48% {
+    transform: skew(-6deg) translateY(2px);
+    opacity: .75;
+  }
+  50% {
+    transform: translate(2px);
+  }
+}

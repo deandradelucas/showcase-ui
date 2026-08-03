@@ -1,0 +1,45 @@
+/* Markup: <div class="fx-flap" role="img" aria-label="DEPART"><b aria-hidden="true" style="--i:0">D</b><b aria-hidden="true" style="--i:1">E</b><b aria-hidden="true" style="--i:2">P</b><b aria-hidden="true" style="--i:3">A</b><b aria-hidden="true" style="--i:4">R</b><b aria-hidden="true" style="--i:5">T</b></div> */
+
+/* Colour tokens — override to re-skin the effect:
+   --ink    main text colour (defaults to currentColor)
+   --ink-2  primary accent   --ink-3  secondary accent */
+:root { --ink: currentColor; --ink-2: #FF4FD8; --ink-3: #4FF8FF; }
+
+/* 19 Split-Flap */
+.fx-flap {
+  font: 600 24px/1 JetBrains Mono, monospace;
+  letter-spacing: 0;
+  display: inline-flex;
+  gap: 3px;
+  perspective: 400px;
+  color: var(--ink);
+}
+.fx-flap b {
+  font-weight: inherit;
+  display: grid;
+  place-items: center;
+  width: 1.5em;
+  height: 1.9em;
+  background: linear-gradient(color-mix(in srgb, var(--ink) 16%, transparent) 0 49%, color-mix(in srgb, var(--ink) 8%, transparent) 51% 100%);
+  border-radius: 4px;
+  transform-origin: center;
+  animation: fx-flap 3.2s ease-in-out infinite;
+  animation-delay: calc(var(--i) * .12s);
+}
+@keyframes fx-flap {
+  0%,55%,to {
+    transform: rotateX(0);
+  }
+  62% {
+    transform: rotateX(-88deg);
+  }
+  69% {
+    transform: rotateX(0);
+  }
+  74% {
+    transform: rotateX(-25deg);
+  }
+  79% {
+    transform: rotateX(0);
+  }
+}

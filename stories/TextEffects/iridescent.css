@@ -1,0 +1,24 @@
+/* Markup: <div class="fx-iridescent">IRIS</div> */
+
+/* Colour tokens — override to re-skin the effect:
+   --ink    main text colour (defaults to currentColor)
+   --ink-2  primary accent   --ink-3  secondary accent */
+:root { --ink: currentColor; --ink-2: #FF4FD8; --ink-3: #4FF8FF; }
+
+/* 41 Iridescent */
+.fx-iridescent {
+  font: 600 38px/1.05 JetBrains Mono, monospace;
+  letter-spacing: .12em;
+  color: transparent;
+  background: conic-gradient(from 20deg, #f7fbff, var(--ink-3), #bba7ff, var(--ink-2), #fff7d6, #f7fbff) 50% 50% / 220% 220%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  text-shadow: 0 10px 28px rgba(0, 0, 0, .28);
+  animation: fx-iridescent 4.5s linear infinite;
+}
+@keyframes fx-iridescent {
+  to {
+    filter: hue-rotate(360deg);
+    background-position: 120% 50%;
+  }
+}

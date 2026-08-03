@@ -1,0 +1,27 @@
+/* Markup: <div class="fx-wave" role="img" aria-label="WAVE"><b aria-hidden="true" style="--i:0">W</b><b aria-hidden="true" style="--i:1">A</b><b aria-hidden="true" style="--i:2">V</b><b aria-hidden="true" style="--i:3">E</b></div> */
+
+/* Colour tokens — override to re-skin the effect:
+   --ink    main text colour (defaults to currentColor)
+   --ink-2  primary accent   --ink-3  secondary accent */
+:root { --ink: currentColor; --ink-2: #FF4FD8; --ink-3: #4FF8FF; }
+
+/* 08 Tidal-Type */
+.fx-wave {
+  font: 600 32px/1.1 JetBrains Mono, monospace;
+  letter-spacing: .1em;
+  color: var(--ink-3);
+}
+.fx-wave b {
+  font-weight: inherit;
+  display: inline-block;
+  animation: fx-wave 1.3s ease-in-out infinite;
+  animation-delay: calc(var(--i) * -.14s);
+}
+@keyframes fx-wave {
+  0%,to {
+    transform: translateY(7px);
+  }
+  50% {
+    transform: translateY(-7px);
+  }
+}

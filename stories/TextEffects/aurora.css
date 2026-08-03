@@ -1,0 +1,21 @@
+/* Markup: <div class="fx-aurora">AURORA</div> */
+
+/* Colour tokens — override to re-skin the effect:
+   --ink    main text colour (defaults to currentColor)
+   --ink-2  primary accent   --ink-3  secondary accent */
+:root { --ink: currentColor; --ink-2: #FF4FD8; --ink-3: #4FF8FF; }
+
+/* 01 Borealis — aurora gradient drifting through the letters */
+.fx-aurora {
+  font: 600 30px/1.1 "JetBrains Mono", monospace;
+  letter-spacing: .06em;
+  background: linear-gradient(115deg, var(--ink-2), var(--ink-3), var(--ink-2), var(--ink-3)) 0 0 / 300% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: fx-aurora 7s linear infinite;
+}
+@keyframes fx-aurora {
+  0%   { background-position: 0% 50%;   filter: hue-rotate(0deg); }
+  100% { background-position: 300% 50%; filter: hue-rotate(360deg); }
+}

@@ -1,0 +1,49 @@
+/* Markup: <div class="fx-duotone" data-text="DUO">DUO</div> */
+
+/* Colour tokens — override to re-skin the effect:
+   --ink    main text colour (defaults to currentColor)
+   --ink-2  primary accent   --ink-3  secondary accent */
+:root { --ink: currentColor; --ink-2: #FF4FD8; --ink-3: #4FF8FF; }
+
+/* 56 Duotone */
+.fx-duotone {
+  position: relative;
+  font: 600 38px/1.05 JetBrains Mono, monospace;
+  letter-spacing: .1em;
+  color: var(--ink);
+}
+.fx-duotone:before, .fx-duotone:after {
+  content: attr(data-text);
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  mix-blend-mode: screen;
+}
+.fx-duotone:before {
+  color: var(--ink-2);
+  animation: fx-duotone-a 2.6s ease-in-out infinite;
+}
+.fx-duotone:after {
+  color: var(--ink-3);
+  animation: fx-duotone-b 2.6s ease-in-out infinite;
+}
+@keyframes fx-duotone-a {
+  0%,to {
+    transform: translate(-3px);
+    opacity: .42;
+  }
+  50% {
+    transform: translate(-9px, -3px);
+    opacity: .8;
+  }
+}
+@keyframes fx-duotone-b {
+  0%,to {
+    transform: translate(3px);
+    opacity: .42;
+  }
+  50% {
+    transform: translate(9px, 3px);
+    opacity: .8;
+  }
+}

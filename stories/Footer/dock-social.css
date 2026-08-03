@@ -1,0 +1,229 @@
+.dock-social__back {
+  position: absolute;
+  border-radius: 10px;
+  transform: rotate(90deg);
+  width: 11em;
+  height: 11em;
+  background: linear-gradient(270deg, #03a9f4, #cc39a4, #ffb5d2);
+  z-index: -2;
+  box-shadow: inset 0px 0px 180px 5px #ffffff;
+}
+
+.dock-social {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  width: 14em;
+  align-items: center;
+  justify-content: center;
+}
+
+.dock-social__item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  border-top-left-radius: 10px;
+  background: lightgrey;
+  transition:
+    0.4s ease-in-out,
+    0.2s background-color ease-in-out,
+    0.2s background-image ease-in-out;
+  background: rgba(255, 255, 255, 0.596);
+  backdrop-filter: blur(5px);
+  border: 1px solid transparent;
+  -webkit-backdrop-filter: blur(5px);
+}
+
+.dock-social__item svg {
+  opacity: 0;
+  transition: 0.2s ease-in-out;
+}
+
+.dock-social__item:nth-child(1) svg {
+  fill: #cc39a4;
+}
+
+.dock-social__item:nth-child(2) {
+  border-radius: 0px;
+}
+
+.dock-social__item:nth-child(2) svg {
+  fill: #03a9f4;
+}
+
+.dock-social__item:nth-child(3) {
+  border-top-right-radius: 10px;
+  border-top-left-radius: 0px;
+}
+
+.dock-social__item:nth-child(3) svg {
+  fill: #ffb5d2;
+}
+
+.dock-social__item:nth-child(4) {
+  border-radius: 0px;
+}
+
+.dock-social__item:nth-child(4) svg {
+  fill: black;
+}
+
+.dock-social__item:nth-child(5) {
+  border-radius: 0px;
+}
+
+.dock-social__item:nth-child(6) {
+  border-radius: 0px;
+}
+
+.dock-social__item:nth-child(6) svg {
+  fill: #8c9eff;
+}
+
+.dock-social__item:nth-child(7) {
+  border-bottom-left-radius: 10px;
+  border-top-left-radius: 0px;
+}
+
+.dock-social__item:nth-child(7) svg {
+  fill: black;
+}
+
+.dock-social__item:nth-child(8) {
+  border-radius: 0px;
+}
+
+.dock-social__item:nth-child(8) svg {
+  fill: #29b6f6;
+}
+
+.dock-social__item:nth-child(9) {
+  border-bottom-right-radius: 10px;
+  border-top-left-radius: 0px;
+}
+
+.dock-social:hover {
+  width: 14em;
+  cursor: pointer;
+}
+
+.dock-social:hover .dock-social__back {
+  opacity: 0;
+}
+
+.dock-social:hover .dock-social__item {
+  margin: 0.2em;
+  border-radius: 10px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.dock-social:hover .dock-social__item:nth-child(5) {
+  border: transparent;
+}
+
+.dock-social:hover .dock-social__text {
+  opacity: 0;
+  z-index: -3;
+}
+
+.dock-social:hover .dock-social__item svg {
+  opacity: 1;
+}
+
+.dock-social__item:nth-child(1):hover {
+  background-color: #cc39a4;
+}
+
+.dock-social__item:nth-child(1):hover svg {
+  fill: white;
+}
+
+.dock-social__item:nth-child(2):hover {
+  background-color: #03a9f4;
+}
+
+.dock-social__item:nth-child(2):hover svg {
+  fill: white;
+}
+
+.dock-social__item:nth-child(3):hover {
+  background-color: #ffb5d2;
+}
+
+.dock-social__item:nth-child(3):hover svg {
+  fill: white;
+}
+
+.dock-social__item:nth-child(4):hover {
+  background-color: #1e1f26;
+}
+
+.dock-social__item:nth-child(4):hover svg {
+  fill: white;
+}
+
+.dock-social__item:nth-child(5):hover {
+  animation: dock-social-background-img 0.1s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes dock-social-background-img {
+  100% {
+    background-image: linear-gradient(#bf66ff, #6248ff, #00ddeb);
+  }
+}
+
+.dock-social__item:nth-child(6):hover {
+  background-color: #8c9eff;
+}
+
+.dock-social__item:nth-child(6):hover svg {
+  fill: white;
+}
+
+.dock-social__item:nth-child(7):hover {
+  background-color: black;
+}
+
+.dock-social__item:nth-child(7):hover svg {
+  fill: white;
+}
+
+.dock-social__item:nth-child(8):hover {
+  background-color: #29b6f6;
+}
+
+.dock-social__item:nth-child(8):hover svg .telegram-fg {
+  fill: white;
+}
+
+.dock-social__item:nth-child(8):hover svg .telegram-bg {
+  fill: #29b6f6;
+}
+
+.dock-social__item:nth-child(9):hover {
+  background-color: rgb(255, 69, 0);
+}
+
+.dock-social__item:nth-child(9) svg circle {
+  fill: rgb(255, 69, 0);
+}
+
+.dock-social__item:nth-child(9) svg path {
+  fill: white;
+}
+
+.dock-social__text {
+  position: absolute;
+  font-size: 0.7em;
+  transition: 0.4s ease-in-out;
+  color: black;
+  text-align: center;
+  font-weight: bold;
+  letter-spacing: 0.33em;
+  z-index: 3;
+}
